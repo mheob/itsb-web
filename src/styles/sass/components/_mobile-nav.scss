@@ -1,0 +1,89 @@
+.nav-toggle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  padding: 20px;
+  text-decoration: none;
+  visibility: visible;
+  cursor: pointer;
+  opacity: 1;
+  transition: $transition-duration;
+
+  @include respond-to("s-up") {
+    visibility: hidden;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    border-bottom: none;
+    outline: none;
+  }
+
+  &:hover {
+    i::before {
+      top: -10px;
+    }
+
+    i::after {
+      bottom: -10px;
+    }
+  }
+
+  i {
+    $nav-toggle-i-width: 30px;
+    $nav-toggle-i-height: 2px;
+
+    position: relative;
+    display: -moz-inline-stack;
+    display: inline-block;
+    *display: inline;
+    width: $nav-toggle-i-width;
+    height: $nav-toggle-i-height;
+    color: $primary;
+    font: bold 14px;
+    text-transform: uppercase;
+    text-indent: -55px;
+    background: $primary;
+    transition: all $transition-duration-fast ease-out;
+    zoom: 1;
+
+    &::before,
+    &::after {
+      position: absolute;
+      left: 0;
+      width: $nav-toggle-i-width;
+      height: $nav-toggle-i-height;
+      background: $primary;
+      transition: $transition-duration-fast;
+      content: "";
+    }
+
+    &::before {
+      top: -7px;
+    }
+
+    &::after {
+      bottom: -7px;
+    }
+
+    .offcanvas & {
+      background: transparent;
+
+      &::before {
+        top: 0;
+        transform: rotateZ(45deg);
+      }
+
+      &::after {
+        bottom: 0;
+        transform: rotateZ(-45deg);
+      }
+    }
+  }
+
+  .offcanvas & {
+    transform: translateX(270px);
+  }
+}

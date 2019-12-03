@@ -1,0 +1,30 @@
+/* Colors */
+$black: #000;
+$white: #fff;
+$primary: #369133;
+
+/* Breakpoints */
+$breakpoints: (
+  "xs-up": (
+    min-width: 500px
+  ),
+  "s-up": (
+    min-width: 700px
+  ),
+  "m-up": (
+    min-width: 900px
+  ),
+  "l-up": (
+    min-width: 1200px
+  ),
+  "xl-up": (
+    min-width: 1600px
+  )
+) !default;
+
+/* Typography */
+$font-familie: "Quicksand", Arial, sans-serif;
+
+/* Animations */
+$transition-duration: 0.5s;
+$transition-duration-fast: 0.3s;

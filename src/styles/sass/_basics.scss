@@ -1,0 +1,152 @@
+/* Basics */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  height: 200vh; // TODO: only for testing.
+  margin: 0;
+  color: $white;
+  font-weight: 500;
+  font-size: 0.875rem;
+  font-family: $font-familie;
+  line-height: 1.8;
+  background-color: #0d0d0d;
+
+  @include respond-to("m-up") {
+    font-size: 0.9375rem;
+  }
+}
+/* ScrollBar and Selection */
+::-webkit-scrollbar {
+  display: none;
+
+  @include respond-to("s-up") {
+    width: 0.5rem;
+  }
+
+  &-track {
+    border-radius: 1.5rem;
+  }
+
+  &-thumb {
+    background: $primary;
+    border-radius: 0.5rem;
+
+    &:hover {
+      background: $primary;
+    }
+  }
+}
+
+::-webkit-selection {
+  color: $white;
+  background: $primary;
+}
+
+::-moz-selection {
+  color: $white;
+  background: $primary;
+}
+
+::selection {
+  color: $white;
+  background: $primary;
+}
+
+/* Typography */
+a {
+  color: $primary;
+  text-decoration: none;
+  background-color: transparent;
+  transition: $transition-duration;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $white;
+    outline: none;
+  }
+}
+
+p {
+  margin: 0 0 1.5rem;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 2rem 0;
+  color: $white;
+  font-weight: 400;
+  font-family: $font-familie;
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+hr {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 0;
+  border-top: 1px solid rgba($white, 0.15);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-style: none;
+}
+
+/* Forms */
+button,
+input,
+textarea {
+  margin: 0;
+  font-size: 100%;
+  font-family: inherit;
+  line-height: 1.15;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+textarea {
+  overflow: auto;
+}
+
+[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* Misc */
+main {
+  display: block;
+}
+
+.App {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}

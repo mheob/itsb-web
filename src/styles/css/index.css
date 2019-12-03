@@ -1,0 +1,343 @@
+/* Colors */
+/* Breakpoints */
+/* Typography */
+/* Animations */
+@font-face {
+  font-weight: 300;
+  font-family: "Quicksand";
+  font-style: normal;
+  src: url("../fonts/quicksand-latin-300.woff2") format("woff2"), url("../fonts/quicksand-latin-300.woff") format("woff");
+  font-display: swap; }
+
+@font-face {
+  font-weight: 400;
+  font-family: "Quicksand";
+  font-style: normal;
+  src: url("../fonts/quicksand-latin-400.woff2") format("woff2"), url("../fonts/quicksand-latin-400.woff") format("woff");
+  font-display: swap; }
+
+@font-face {
+  font-weight: 500;
+  font-family: "Quicksand";
+  font-style: normal;
+  src: url("../fonts/quicksand-latin-500.woff2") format("woff2"), url("../fonts/quicksand-latin-500.woff") format("woff");
+  font-display: swap; }
+
+@font-face {
+  font-weight: 600;
+  font-family: "Quicksand";
+  font-style: normal;
+  src: url("../fonts/quicksand-latin-600.woff2") format("woff2"), url("../fonts/quicksand-latin-600.woff") format("woff");
+  font-display: swap; }
+
+@font-face {
+  font-weight: 700;
+  font-family: "Quicksand";
+  font-style: normal;
+  src: url("../fonts/quicksand-latin-700.woff2") format("woff2"), url("../fonts/quicksand-latin-700.woff") format("woff");
+  font-display: swap; }
+
+/* Basics */
+* {
+  box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%; }
+
+body {
+  height: 200vh;
+  margin: 0;
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.875rem;
+  font-family: "Quicksand", Arial, sans-serif;
+  line-height: 1.8;
+  background-color: #0d0d0d; }
+  @media (min-width: 900px) {
+    body {
+      font-size: 0.9375rem; } }
+
+/* ScrollBar and Selection */
+::-webkit-scrollbar {
+  display: none; }
+  @media (min-width: 700px) {
+    ::-webkit-scrollbar {
+      width: 0.5rem; } }
+  ::-webkit-scrollbar-track {
+    border-radius: 1.5rem; }
+  ::-webkit-scrollbar-thumb {
+    background: #369133;
+    border-radius: 0.5rem; }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #369133; }
+
+::-webkit-selection {
+  color: #fff;
+  background: #369133; }
+
+::-moz-selection {
+  color: #fff;
+  background: #369133; }
+
+::selection {
+  color: #fff;
+  background: #369133; }
+
+/* Typography */
+a {
+  color: #369133;
+  text-decoration: none;
+  background-color: transparent;
+  transition: 0.5s; }
+  a:hover, a:active, a:focus {
+    color: #fff;
+    outline: none; }
+
+p {
+  margin: 0 0 1.5rem; }
+
+h1,
+h2,
+h3 {
+  margin: 0 0 2rem 0;
+  color: #fff;
+  font-weight: 400;
+  font-family: "Quicksand", Arial, sans-serif; }
+
+b,
+strong {
+  font-weight: bolder; }
+
+hr {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15); }
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-style: none; }
+
+/* Forms */
+button,
+input,
+textarea {
+  margin: 0;
+  font-size: 100%;
+  font-family: inherit;
+  line-height: 1.15; }
+
+button,
+input {
+  overflow: visible; }
+
+button,
+select {
+  text-transform: none; }
+
+button,
+[type="submit"] {
+  -webkit-appearance: button; }
+
+textarea {
+  overflow: auto; }
+
+[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0; }
+
+/* Misc */
+main {
+  display: block; }
+
+.App {
+  position: relative;
+  width: 100%;
+  overflow: hidden; }
+
+.nav-toggle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  padding: 20px;
+  text-decoration: none;
+  visibility: visible;
+  cursor: pointer;
+  opacity: 1;
+  transition: 0.5s; }
+  @media (min-width: 700px) {
+    .nav-toggle {
+      visibility: hidden; } }
+  .nav-toggle:hover, .nav-toggle:focus, .nav-toggle:active {
+    border-bottom: none;
+    outline: none; }
+  .nav-toggle:hover i::before {
+    top: -10px; }
+  .nav-toggle:hover i::after {
+    bottom: -10px; }
+  .nav-toggle i {
+    position: relative;
+    display: -moz-inline-stack;
+    display: inline-block;
+    *display: inline;
+    width: 30px;
+    height: 2px;
+    color: #369133;
+    font: bold 14px;
+    text-transform: uppercase;
+    text-indent: -55px;
+    background: #369133;
+    transition: all 0.3s ease-out;
+    zoom: 1; }
+    .nav-toggle i::before, .nav-toggle i::after {
+      position: absolute;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background: #369133;
+      transition: 0.3s;
+      content: ""; }
+    .nav-toggle i::before {
+      top: -7px; }
+    .nav-toggle i::after {
+      bottom: -7px; }
+    .offcanvas .nav-toggle i {
+      background: transparent; }
+      .offcanvas .nav-toggle i::before {
+        top: 0;
+        transform: rotateZ(45deg); }
+      .offcanvas .nav-toggle i::after {
+        bottom: 0;
+        transform: rotateZ(-45deg); }
+  .offcanvas .nav-toggle {
+    transform: translateX(270px); }
+
+.Aside {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1001;
+  display: block;
+  width: 270px;
+  padding: 3rem;
+  padding-left: 3em;
+  background: #000;
+  transform: translateX(-270px);
+  transition: 0.5s; }
+  @media (min-width: 700px) {
+    .Aside {
+      width: 30%;
+      transform: translateX(0); } }
+  @media (min-width: 900px) {
+    .Aside {
+      width: 22%;
+      padding: 4rem 3rem; } }
+  @media (min-width: 1200px) {
+    .Aside {
+      width: 15%; } }
+  .offcanvas .Aside {
+    position: fixed;
+    z-index: 999;
+    width: 270px;
+    background: #000;
+    transform: translateX(0); }
+  .Aside .logo {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+    font-size: 1.375rem;
+    text-align: right;
+    text-transform: uppercase; }
+    @media (min-width: 700px) {
+      .Aside .logo {
+        margin-bottom: 3em; } }
+    .Aside .logo a {
+      display: inline-block;
+      padding: 0.5rem 1.3rem;
+      padding-right: 0.8rem;
+      color: #369133;
+      letter-spacing: 0.625rem;
+      text-align: center;
+      border: 2px solid #369133; }
+  .Aside .main-menu ul {
+    margin: 0 0 2rem 0;
+    padding: 0;
+    text-align: right; }
+    @media (min-width: 700px) {
+      .Aside .main-menu ul {
+        margin: 0; } }
+    .Aside .main-menu ul li {
+      margin: 0 0 0.625rem 0;
+      padding: 0;
+      font-weight: 500;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      list-style: none; }
+      @media (min-width: 700px) {
+        .Aside .main-menu ul li {
+          font-size: 1rem; } }
+      .Aside .main-menu ul li.active a {
+        color: #369133; }
+        .Aside .main-menu ul li.active a::after {
+          transform: scaleX(1);
+          visibility: visible; }
+      .Aside .main-menu ul li a {
+        position: relative;
+        padding: 10px 0;
+        color: #fff;
+        text-decoration: none;
+        transition: 0.3s; }
+        .Aside .main-menu ul li a:hover {
+          color: #369133; }
+          .Aside .main-menu ul li a:hover::after {
+            transform: scaleX(1);
+            visibility: visible; }
+        .Aside .main-menu ul li a::after {
+          position: absolute;
+          right: 0;
+          bottom: 1.06rem;
+          left: -1.5rem;
+          width: 1rem;
+          height: 1px;
+          background-color: #369133;
+          transform: scaleX(0);
+          visibility: hidden;
+          transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          content: ""; }
+  .Aside .footer {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    padding: 0;
+    color: #fff;
+    font-weight: 400;
+    text-align: right; }
+    @media (min-width: 700px) {
+      .Aside .footer {
+        position: absolute;
+        right: 1.5em;
+        bottom: 40px;
+        padding: 0 20px; } }
+    .Aside .footer p {
+      font-size: 0.6rem; }
+      @media (min-width: 700px) {
+        .Aside .footer p {
+          font-size: 0.7rem; } }
+    .Aside .footer ul {
+      display: flex;
+      justify-content: space-between;
+      margin: 0;
+      padding: 0; }
+      .Aside .footer ul li {
+        list-style: none; }
+        .Aside .footer ul li a {
+          color: #fff;
+          font-size: 2rem; }
+          .Aside .footer ul li a:hover {
+            color: #369133; }
