@@ -28,6 +28,7 @@ body {
   display: none;
 
   @include respond-to("s-up") {
+    display: block;
     width: 0.5rem;
   }
 
