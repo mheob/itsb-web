@@ -3,11 +3,13 @@
 @import "font";
 @import "basics";
 
-@import "components/mobile-nav";
-@import "components/aside";
-@import "components/hero";
-@import "components/about";
-@import "components/services";
-@import "components/contact";
-@import "components/footer";
-@import "components/preloader";
+@import "components/button";
+
+@import "sections/mobile-nav";
+@import "sections/aside";
+@import "sections/hero";
+@import "sections/about";
+@import "sections/services";
+@import "sections/contact";
+@import "sections/footer";
+@import "sections/preloader";

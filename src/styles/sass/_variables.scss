@@ -1,7 +1,7 @@
 /* Colors */
 $black: #000;
 $white: #fff;
-$primary: #369133;
+$primary: #00ebab;
 
 /* Breakpoints */
 $breakpoints: (
@@ -20,7 +20,13 @@ $breakpoints: (
   "xl-up": (
     min-width: 1600px
   )
-) !default;
+);
+
+/* Layout */
+$layout-main-xs: 270px;
+$layout-main-s: 70%;
+$layout-main-m: 78%;
+$layout-main-l: 85%;
 
 /* Typography */
 $font-familie: "Quicksand", Arial, sans-serif;

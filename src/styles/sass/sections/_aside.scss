@@ -6,7 +6,7 @@
   left: 0;
   z-index: 1001;
   display: block;
-  width: 270px;
+  width: $layout-main-xs;
   padding: 3rem;
   padding-left: 3em;
   background: $black;
@@ -14,17 +14,17 @@
   transition: $transition-duration;
 
   @include respond-to("s-up") {
-    width: 30%;
+    width: calc(100% - #{$layout-main-s});
     transform: translateX(0);
   }
 
   @include respond-to("m-up") {
-    width: 22%;
+    width: calc(100% - #{$layout-main-m});
     padding: 4rem 3rem;
   }
 
   @include respond-to("l-up") {
-    width: 15%;
+    width: calc(100% - #{$layout-main-l});
   }
 
   .offcanvas & {

@@ -143,6 +143,25 @@ textarea {
 /* Misc */
 main {
   display: block;
+  float: right;
+  width: 100%;
+  transition: $transition-duration;
+
+  @include respond-to("s-up") {
+    width: $layout-main-s;
+  }
+
+  @include respond-to("m-up") {
+    width: $layout-main-m;
+  }
+
+  @include respond-to("l-up") {
+    width: $layout-main-l;
+  }
+
+  .offcanvas & {
+    transform: translateX($layout-main-xs);
+  }
 }
 
 .App {

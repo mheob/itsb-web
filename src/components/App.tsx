@@ -1,13 +1,15 @@
 import React from "react";
 
-import Aside from "./Aside/Aside";
 import Navigation from "./MobileNavigation/Navigation";
+import Aside from "./Aside/Aside";
+import Main from "./Main/Main";
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Aside />
       <Navigation />
+      <Aside />
+      <Main />
     </div>
   );
 };

@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
 
-const Container: React.FC = () => {
+const Aside: React.FC = () => {
   return (
     <aside className="Aside">
       <Logo />
@@ -15,4 +15,4 @@ const Container: React.FC = () => {
   );
 };
 
-export default Container;
+export default Aside;
