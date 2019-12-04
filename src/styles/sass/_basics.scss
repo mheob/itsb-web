@@ -1,4 +1,3 @@
-/* Basics */
 * {
   box-sizing: border-box;
 }
@@ -10,7 +9,6 @@ html {
 }
 
 body {
-  height: 200vh; // TODO: only for testing.
   margin: 0;
   color: $white;
   font-weight: 500;
@@ -23,7 +21,7 @@ body {
     font-size: 0.9375rem;
   }
 }
-/* ScrollBar and Selection */
+
 ::-webkit-scrollbar {
   display: none;
 
@@ -61,7 +59,6 @@ body {
   background: $primary;
 }
 
-/* Typography */
 a {
   color: $primary;
   text-decoration: none;
@@ -107,7 +104,6 @@ img {
   border-style: none;
 }
 
-/* Forms */
 button,
 input,
 textarea {
@@ -141,8 +137,13 @@ textarea {
   padding: 0;
 }
 
-/* Misc */
-main {
+.App {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.Main {
   display: block;
   float: right;
   width: 100%;
@@ -165,8 +166,13 @@ main {
   }
 }
 
-.App {
-  position: relative;
+.About,
+.Contact,
+.Services {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  clear: both;
   width: 100%;
-  overflow: hidden;
+  padding: 5rem 0 8rem;
 }
