@@ -11,7 +11,7 @@ const toggleBodyClassHandler = () => {
 
 const Navigation: React.FC = () => {
   return (
-    <a href="#!" className="js-nav-toggle nav-toggle" onClick={toggleBodyClassHandler}>
+    <a href="#!" className="nav-toggle" onClick={toggleBodyClassHandler}>
       <i />
     </a>
   );
