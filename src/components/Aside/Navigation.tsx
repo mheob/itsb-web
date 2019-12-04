@@ -1,11 +1,13 @@
 import React from "react";
 
+// TODO: Refactor the li elements to its own component.
+// TODO: Set the ACTIVE class dynamic
+
 const Navigation: React.FC = () => {
   return (
     <nav className="main-menu">
       <ul>
         <li className="active">
-          {/* TODO: Set ACTIVE class dynamic */}
           <a href="#banner">Home</a>
         </li>
         <li>
