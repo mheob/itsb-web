@@ -1,17 +1,10 @@
 import React from "react";
 
-const toggleBodyClassHandler = () => {
-  const className = "offcanvas";
-  if (document.body.classList.contains(className)) {
-    document.body.classList.remove(className);
-  } else {
-    document.body.classList.add(className);
-  }
-};
+import { toggleBodyClassHandler } from "../../utils/bodyHandler";
 
 const Navigation: React.FC = () => {
   return (
-    <a href="#!" className="nav-toggle" onClick={toggleBodyClassHandler}>
+    <a href="#!" className="nav-toggle" onClick={toggleBodyClassHandler.bind(null, "offcanvas")}>
       <i />
     </a>
   );
