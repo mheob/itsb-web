@@ -147,7 +147,6 @@ textarea {
   display: block;
   float: right;
   width: 100%;
-  padding: 0 1rem;
   transition: $transition-duration;
 
   @include respond-to("s-up") {
@@ -175,5 +174,5 @@ textarea {
   flex-wrap: wrap;
   clear: both;
   width: 100%;
-  padding: 5rem 0 8rem;
+  padding: 5rem 1rem 8rem;
 }
