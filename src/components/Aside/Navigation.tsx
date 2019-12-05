@@ -1,5 +1,7 @@
 import React from "react";
 
+import { removeBodyClassHandler } from "../../utils/bodyHandler";
+
 // TODO: Refactor the li elements to its own component.
 // TODO: Set the ACTIVE class dynamic
 
@@ -8,22 +10,24 @@ const Navigation: React.FC = () => {
     <nav className="main-menu">
       <ul>
         <li className="active">
-          <a href="#banner">Home</a>
+          <a href="#hero" onClick={removeBodyClassHandler.bind(null, "offcanvas")}>
+            Home
+          </a>
         </li>
         <li>
-          <a href="#about">About</a>
+          <a href="#about" onClick={removeBodyClassHandler.bind(null, "offcanvas")}>
+            About
+          </a>
         </li>
         <li>
-          <a href="#services">Services</a>
+          <a href="#services" onClick={removeBodyClassHandler.bind(null, "offcanvas")}>
+            Services
+          </a>
         </li>
         <li>
-          <a href="#work">Work</a>
-        </li>
-        <li>
-          <a href="#blog">Blog</a>
-        </li>
-        <li>
-          <a href="#contact">Contact</a>
+          <a href="#contact" onClick={removeBodyClassHandler.bind(null, "offcanvas")}>
+            Contact
+          </a>
         </li>
       </ul>
     </nav>
