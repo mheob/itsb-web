@@ -52,12 +52,14 @@ export default class About extends React.Component<{}, VisibilityState> {
             <h4>That's me:</h4>
             <div className="content">
               <section className="description">
-                <h3>Hallo! Ich bin der Alex!</h3>
+                <h3>Hi! Ich bin der Alex!</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores error ipsa ad cum. Error
-                  dolore quae hic nulla natus nobis exercitationem eius temporibus quas totam quod repellendus, ratione
-                  cum? Accusantium saepe tenetur, doloribus sint nisi incidunt laborum recusandae, vel itaque neque
-                  molestias deserunt odio similique.
+                  Vor einigen Jahren habe ich meine Liebe zum Webcontent entdeckt. Angefangen mit einfachen Spielereien
+                  für meine privaten Zwecke, hat sich daraus stetig mehr entwickelt.
+                </p>
+                <p>
+                  Zuerst waren es Freunde und Familie, die einen eigenen Webauftritt haben wollten. In der Folge kamen
+                  Webseiten, insbesondere für gemeinnützige Vereine, und inzwischenauch professionelle Unternehmen dazu.
                 </p>
               </section>
               <section className="contact">
@@ -99,7 +101,7 @@ export default class About extends React.Component<{}, VisibilityState> {
               </section>
               <section className="actions">
                 <a href="#!" className="btn btn-primary-outline">
-                  Download CV
+                  Download vCard
                 </a>
                 <a href="#contact" className="btn btn-primary">
                   Beauftrage mich

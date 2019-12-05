@@ -73,6 +73,12 @@
       .content {
         padding: 0 1rem;
 
+        .description {
+          p:first-of-type {
+            margin-bottom: 0.5rem;
+          }
+        }
+
         .description,
         .contact {
           margin-bottom: 1.5rem;

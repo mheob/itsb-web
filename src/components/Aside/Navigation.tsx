@@ -10,7 +10,7 @@ const Navigation: React.FC = () => {
     <nav className="main-menu">
       <ul>
         <li className="active">
-          <a href="#hero" onClick={removeBodyClassHandler.bind(null, "offcanvas")}>
+          <a href="#root" onClick={removeBodyClassHandler.bind(null, "offcanvas")}>
             Home
           </a>
         </li>
