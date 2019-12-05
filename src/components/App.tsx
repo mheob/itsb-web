@@ -1,8 +1,8 @@
 import React from "react";
 
-import Navigation from "./MobileNavigation/Navigation";
-import Aside from "./Aside/Aside";
-import Main from "./Main/Main";
+import Navigation from "./mobileNavigation/Navigation";
+import Aside from "./aside/Aside";
+import Main from "./main/Main";
 
 const App: React.FC = () => {
   return (
