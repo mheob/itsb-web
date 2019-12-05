@@ -1,17 +1,12 @@
 .btn {
-  display: inline-block;
   padding: 0.5rem 1rem;
-  font-weight: 400;
-  font-size: 0.875rem;
+  font-weight: 600;
   line-height: 1.5;
   letter-spacing: 1px;
   white-space: nowrap;
   text-align: center;
-  text-transform: capitalize;
-  vertical-align: middle;
   border: 1px solid;
   border-radius: 2px;
-  cursor: pointer;
   transition: $transition-duration;
   user-select: none;
   touch-action: manipulation;
@@ -43,6 +38,7 @@
 
     &:hover,
     &:focus {
+      color: $black;
       background-color: $primary;
       border-color: $primary;
     }
