@@ -25,7 +25,7 @@ body {
 ::-webkit-scrollbar {
   display: none;
 
-  @include respond-to("s-up") {
+  @include respond-to("m-up") {
     display: block;
     width: 0.5rem;
   }
