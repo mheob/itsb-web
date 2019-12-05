@@ -4,6 +4,7 @@ import { Waypoint } from "react-waypoint";
 
 import "animate.css";
 
+import GoNext from "../shared/GoNext";
 import { Autobind } from "../../utils/decorators";
 import { age } from "../../utils/calculations";
 
@@ -34,6 +35,7 @@ export default class About extends React.Component<{}, VisibilityState> {
             </div>
           </Animated>
         </Waypoint>
+
         <Waypoint
           onEnter={() => this.handleWaypoint("welcome", true)}
           onLeave={() => this.handleWaypoint("welcome", false)}
@@ -62,15 +64,18 @@ export default class About extends React.Component<{}, VisibilityState> {
                   Webseiten, insbesondere für gemeinnützige Vereine, und inzwischenauch professionelle Unternehmen dazu.
                 </p>
               </section>
+
               <section className="contact">
                 <div className="info">
                   <span>Name:</span>
                   <span>Alexander Böhm</span>
                 </div>
+
                 <div className="info">
                   <span>Alter:</span>
                   <span>{age(new Date(1982, 9, 21))}</span>
                 </div>
+
                 <div className="info">
                   <span>E-Mail:</span>
                   <span>
@@ -82,6 +87,7 @@ export default class About extends React.Component<{}, VisibilityState> {
                     </a>
                   </span>
                 </div>
+
                 <div className="info">
                   <span>Telefon:</span>
                   <span>
@@ -90,15 +96,18 @@ export default class About extends React.Component<{}, VisibilityState> {
                     </a>
                   </span>
                 </div>
+
                 <div className="info">
                   <span>Job:</span>
                   <span>Freelancer</span>
                 </div>
+
                 <div className="info">
                   <span>Standort:</span>
                   <span>Neuwied, RLP</span>
                 </div>
               </section>
+
               <section className="actions">
                 <a href="#!" className="btn btn-primary-outline">
                   Download vCard
@@ -110,6 +119,8 @@ export default class About extends React.Component<{}, VisibilityState> {
             </div>
           </Animated>
         </Waypoint>
+
+        <GoNext anchor="services" text="Services" />
       </section>
     );
   }

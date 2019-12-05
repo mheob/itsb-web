@@ -196,6 +196,7 @@ textarea {
 .About,
 .Contact,
 .Services {
+  position: relative;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

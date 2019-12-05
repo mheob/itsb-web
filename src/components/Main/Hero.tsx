@@ -1,15 +1,13 @@
 import React from "react";
 import Typed from "react-typed";
 
+import GoNext from "../shared/GoNext";
+
 const Hero: React.FC = () => {
   return (
     <section className="Hero" id="hero">
       <a className="btn btn-primary-outline" href="#contact">
         Let's talk
-      </a>
-      <a className="to-about" href="#about">
-        <span>About me</span>
-        <span></span>
       </a>
       <div className="content">
         <div className="overlay"></div>
@@ -30,6 +28,7 @@ const Hero: React.FC = () => {
           </h2>
         </header>
       </div>
+      <GoNext anchor="about" text="About me" />
     </section>
   );
 };
