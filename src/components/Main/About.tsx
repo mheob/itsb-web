@@ -16,18 +16,21 @@ export default class About extends React.Component<{}, VisibilityState> {
 
   render() {
     return (
-      <section className="About">
+      <section className="About" id="about">
         <Waypoint
           onEnter={() => this.handleWaypoint("image", true)}
           onLeave={() => this.handleWaypoint("image", false)}
         >
           <Animated
-            className="column image-box"
+            className="box"
             animationIn="fadeInLeft"
             animationOut="fadeOut"
+            animationInDuration={1500}
             isVisible={this.state.isVisibleImage}
           >
-            <div className="design-bg"></div>
+            <div className="design-bg">
+              <div className="img"></div>
+            </div>
           </Animated>
         </Waypoint>
         <Waypoint
@@ -35,12 +38,13 @@ export default class About extends React.Component<{}, VisibilityState> {
           onLeave={() => this.handleWaypoint("welcome", false)}
         >
           <Animated
-            className="column welcome-box"
+            className="box"
             animationIn="fadeInRight"
             animationOut="fadeOut"
+            animationInDuration={1500}
             isVisible={this.state.isVisibleWelcome}
           >
-            <div></div>
+            <div className="welcome"></div>
           </Animated>
         </Waypoint>
       </section>

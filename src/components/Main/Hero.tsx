@@ -3,7 +3,7 @@ import Typed from "react-typed";
 
 const Hero: React.FC = () => {
   return (
-    <section className="Hero">
+    <section className="Hero" id="hero">
       <a className="btn btn-primary-outline" href="#contact">
         Let's talk
       </a>

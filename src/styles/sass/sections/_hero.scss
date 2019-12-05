@@ -11,18 +11,12 @@
     margin-bottom: 5rem;
   }
 
-  &::after {
-    position: absolute;
-    right: 0;
-    bottom: -83px;
-    z-index: 10;
-    width: 144px;
-    height: 166px;
-    background-image: url(../images/dots-main.svg);
-    background-repeat: no-repeat;
-    background-size: 144px 166px;
-    content: "";
-  }
+  @include dots-bg(
+    $pos-ver: "right",
+    $value-ver: 0,
+    $z-index: 2,
+    $value-hor: -83
+  );
 
   .btn {
     position: absolute;

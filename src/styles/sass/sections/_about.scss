@@ -1,6 +1,5 @@
 .About {
-  .image-box,
-  .welcome-box {
+  .box {
     display: flex;
     flex-basis: 100%;
     flex-direction: column;
@@ -10,15 +9,38 @@
     }
   }
 
-  .image-box {
-    .design-bg {
-      // TODO: Remove dummy data.
-      height: 500px;
-      background-color: blue;
+  .design-bg {
+    position: relative;
+    width: 75%;
+    height: 550px;
+    border: 1px solid rgba($primary, 0.1);
+
+    @include dots-bg($value-ver: 35, $value-hor: 15, $img: "secondary");
+
+    &,
+    .img {
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+    }
+
+    .img {
+      position: absolute;
+      top: 85px;
+      right: -110px;
+      width: 100%;
+      height: 390px;
+      background-image: url(../images/itsb-boehm-alexander-portait.jpg);
+      border-radius: 4px;
+      transition: top 1s ease-in-out;
+
+      &:hover {
+        top: 50px;
+      }
     }
   }
 
-  .welcome-box {
+  .welcome {
     // TODO: Remove dummy data.
     height: 1000px;
     background-color: red;
