@@ -13,6 +13,8 @@
     margin-bottom: 2.5rem;
     padding: 1.5rem 0;
     border: 1px solid rgba($primary, 0.1);
+    border-radius: 3px;
+    transition: all $transition-duration-slow ease-out;
 
     @include respond-to("m-up") {
       flex-basis: calc(50% - 1rem);
@@ -33,6 +35,11 @@
       &:nth-of-type(3n + 2) {
         margin-right: 2rem;
       }
+    }
+
+    &:hover {
+      background-color: $black;
+      border-color: $primary;
     }
 
     .icon {
