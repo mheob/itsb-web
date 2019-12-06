@@ -1,38 +1,23 @@
 import React from "react";
 
-import { age } from "../../../utils/calculations";
-
-const contactData = [
-  { title: "Name", content: "Alexander Böhm" },
-  { title: "Alter", content: age(new Date(1982, 9, 21)).toString() },
-  {
-    title: "E-Mail",
-    content: (
-      <a href="mailto:ab@its-boehm.de" title="Schreib mir per E-Mail">
-        ab@its-boehm.de
-      </a>
-    )
-  },
-  {
-    title: "Telefon",
-    content: (
-      <a href="tel:+491608206654" title="Ruf mich einfach an">
-        +49 160 8206654
-      </a>
-    )
-  },
-  { title: "Job", content: "Freelancer" },
-  { title: "Standort", content: "Neuwied, RLP" }
-];
+import { contactData } from "./contact.data";
 
 const Contact: React.FC = () => {
   return (
     <section className="contact">
-      {contactData.map((element, i) => {
+      {contactData.map(({ title, content }, index) => {
         return (
-          <div key={i} className="info">
-            <span>{element.title}:</span>
-            <span>{element.content}</span>
+          <div key={index} className="info">
+            <span>{title}:</span>
+            <span>
+              {typeof content === "string" ? (
+                content
+              ) : (
+                <a href={content.href} title={content.title}>
+                  {content.text}
+                </a>
+              )}
+            </span>
           </div>
         );
       })}
