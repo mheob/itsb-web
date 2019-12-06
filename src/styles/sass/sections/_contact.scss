@@ -1,0 +1,128 @@
+.Contact {
+  @include dots-bg(
+    $pos-ver: "left",
+    $value-ver: 0,
+    $z-index: 2,
+    $value-hor: -83
+  );
+
+  &::after {
+    opacity: 0.2;
+  }
+
+  @include respond-to("l-up") {
+    max-width: 75rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .details {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .contact-detail {
+    flex-basis: 100%;
+    margin: 0 1.5rem;
+    text-align: center;
+
+    &:first-of-type {
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba($primary, 0.2);
+    }
+
+    &:last-of-type {
+      padding-top: 2rem;
+    }
+
+    @include respond-to("s-up") {
+      flex: 1;
+      margin: inherit;
+
+      &:first-of-type {
+        padding-bottom: inherit;
+        border: inherit;
+      }
+
+      &:last-of-type {
+        padding-top: inherit;
+      }
+    }
+  }
+
+  .icon {
+    color: $primary;
+    font-size: 2.5rem;
+  }
+
+  .content {
+    h4 {
+      margin-bottom: 1.25rem;
+      color: $primary;
+      font-weight: 500;
+      font-size: 0.875rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    p {
+      max-width: 15rem;
+      margin: 0 auto 1rem;
+      font-weight: 500;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+    }
+  }
+
+  form {
+    display: block;
+    width: 100%;
+    margin-top: 6rem;
+    text-align: right;
+
+    input:not([type="submit"]),
+    textarea {
+      width: 100%;
+      margin-bottom: 1.5rem;
+      padding: 0.5rem 1.25rem;
+      color: rgba($white, 0.7);
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.4;
+      background: transparent;
+      background-image: none;
+      border: 1px solid rgba($black, 0.15);
+      border-bottom: 1px solid rgba($white, 0.1);
+      border-radius: 0;
+      box-shadow: none;
+      transition: all ease-in-out 0.15s;
+      appearance: none;
+
+      &:active,
+      &:focus {
+        border: 1px solid rgba($black, 0.1);
+        border-bottom: 2px solid $primary;
+        outline: none;
+        box-shadow: none;
+      }
+    }
+
+    input:not([type="submit"]) {
+      height: 3rem;
+    }
+
+    textarea {
+      height: 10rem;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+
+      @include respond-to("xs-up") {
+        width: auto;
+        margin-left: auto;
+      }
+    }
+  }
+}

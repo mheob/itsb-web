@@ -3,6 +3,7 @@ import React from "react";
 import Hero from "./Hero";
 import About from "./About";
 import Services from "./Services";
+import Contact from "./Contact";
 
 const Main: React.FC = () => {
   return (
@@ -13,7 +14,7 @@ const Main: React.FC = () => {
         // TODO: Add the skills section
       }
       <Services />
-      {/* <Contact /> */}
+      <Contact />
     </main>
   );
 };
