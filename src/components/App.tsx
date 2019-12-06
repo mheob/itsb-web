@@ -6,11 +6,11 @@ import Main from "./main/Main";
 
 const App: React.FC = () => {
   return (
-    <div className="App">
+    <React.Fragment>
       <Navigation />
       <Aside />
       <Main />
-    </div>
+    </React.Fragment>
   );
 };
 
