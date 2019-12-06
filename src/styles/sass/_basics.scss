@@ -45,17 +45,17 @@ body {
 }
 
 ::-webkit-selection {
-  color: $white;
+  color: $black;
   background: $primary;
 }
 
 ::-moz-selection {
-  color: $white;
+  color: $black;
   background: $primary;
 }
 
 ::selection {
-  color: $white;
+  color: $black;
   background: $primary;
 }
 
