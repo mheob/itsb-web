@@ -1,0 +1,33 @@
+.Footer {
+  // position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 2.75rem;
+  text-align: center;
+  background-color: $background-dark;
+
+  @include respond-to("l-up") {
+    padding: 2.75rem 15rem;
+  }
+
+  .logo,
+  .social,
+  .legal,
+  .copyright {
+    flex-basis: 100%;
+
+    @include respond-to("m-up") {
+      flex-basis: 50%;
+    }
+  }
+
+  .legal,
+  .copyright {
+    margin: 1rem 0 0;
+  }
+
+  .copyright {
+    font-size: 0.75rem;
+  }
+}
