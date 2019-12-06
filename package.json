@@ -21,7 +21,7 @@
     "react": "^16.12.0",
     "react-animated-css": "^1.2.1",
     "react-dom": "^16.12.0",
-    "react-scripts": "^3.2.0",
+    "react-scripts": "^3.3.0",
     "react-typed": "^1.2.0",
     "react-waypoint": "^9.0.2"
   },
@@ -29,7 +29,7 @@
     "@types/jest": "^24.0.23",
     "@types/node": "^12.12.14",
     "@types/node-sass": "^4.11.0",
-    "@types/react": "^16.9.14",
+    "@types/react": "^16.9.15",
     "@types/react-dom": "^16.9.4",
     "eslint": "^6.7.2",
     "eslint-config-semistandard": "^15.0.0",
@@ -47,7 +47,7 @@
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-order": "^3.1.1",
     "stylelint-prettier": "^1.1.1",
-    "typescript": "^3.7.2"
+    "typescript": "^3.7.3"
   },
   "eslintConfig": {
     "extends": "react-app"
