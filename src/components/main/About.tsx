@@ -8,6 +8,7 @@ import Description from "./about/Description";
 import Contact from "./about/Contact";
 import Actions from "./about/Actions";
 import GoNext from "../shared/GoNext";
+import SectionHeader from "../shared/SectionHeader";
 
 type VisibilityState = {
   isVisibleImage: boolean;
@@ -52,11 +53,7 @@ const About: React.FC = () => {
           animationInDuration={1500}
           isVisible={visibility.isVisibleWelcome}
         >
-          <header className="section-header">
-            <h3>Welcome &amp; Introduce</h3>
-            <h4>Welcome</h4>
-            <h2>That's me</h2>
-          </header>
+          <SectionHeader mainText="That's me" smallText="Welcome &amp; Introduce" bgText="Welcome" />
           <div className="content">
             <Description />
             <Contact />
