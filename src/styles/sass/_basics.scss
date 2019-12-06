@@ -15,7 +15,7 @@ body {
   font-size: 0.875rem;
   font-family: $font-familie;
   line-height: 1.8;
-  background-color: #0d0d0d;
+  background-color: $background;
 
   @include respond-to("m-up") {
     font-size: 0.9375rem;

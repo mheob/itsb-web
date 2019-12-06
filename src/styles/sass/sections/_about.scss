@@ -9,6 +9,12 @@
     }
 
     &--image {
+      margin-bottom: 3rem;
+
+      @include respond-to("m-up") {
+        margin-bottom: 0;
+      }
+
       .design-bg {
         position: relative;
         width: 75%;
@@ -42,32 +48,14 @@
     }
 
     &--description {
-      header {
-        h4 {
-          margin-bottom: 1rem;
-          color: rgba($white, 0.5);
-          font-weight: 500;
-          font-size: 0.625rem;
-          letter-spacing: 5px;
-          text-transform: uppercase;
-        }
+      @include respond-to("m-up") {
+        .section-header {
+          text-align: inherit;
 
-        h5 {
-          position: absolute;
-          top: -5rem;
-          left: -1rem;
-          color: rgba($white, 0.02);
-          font-weight: 500;
-          font-size: 3.75rem;
-          letter-spacing: 5px;
-          text-transform: uppercase;
+          h4 {
+            left: -1rem;
+          }
         }
-      }
-
-      > h4 {
-        padding: 0.5rem 1rem;
-        text-transform: uppercase;
-        border: 1px solid rgba($primary, 0.05);
       }
 
       .content {

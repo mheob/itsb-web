@@ -52,11 +52,11 @@ const About: React.FC = () => {
           animationInDuration={1500}
           isVisible={visibility.isVisibleWelcome}
         >
-          <header>
-            <h4>Welcome &amp; Introduce</h4>
-            <h5>Welcome</h5>
+          <header className="section-header">
+            <h3>Welcome &amp; Introduce</h3>
+            <h4>Welcome</h4>
+            <h2>That's me</h2>
           </header>
-          <h4>That's me:</h4>
           <div className="content">
             <Description />
             <Contact />

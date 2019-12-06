@@ -1,0 +1,30 @@
+.section-header {
+  position: relative;
+  width: 100%;
+  text-align: center;
+
+  h2 {
+    padding: 0 1rem;
+  }
+
+  h3 {
+    margin-bottom: 1rem;
+    color: rgba($white, 0.5);
+    font-weight: 500;
+    font-size: 0.625rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+  }
+
+  h4 {
+    position: absolute;
+    top: -3rem;
+    right: 0;
+    left: 0;
+    color: rgba($white, 0.02);
+    font-weight: 500;
+    font-size: 3.75rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+  }
+}
