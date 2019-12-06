@@ -53,7 +53,7 @@ const About: React.FC = () => {
           animationInDuration={1500}
           isVisible={visibility.isVisibleWelcome}
         >
-          <SectionHeader mainText="That's me" smallText="Welcome &amp; Introduce" bgText="Welcome" />
+          <SectionHeader mainText="Yes, that's me" smallText="Begrüßung &amp; Vorstellung" bgText="Welcome" />
           <div className="content">
             <Description />
             <Contact />
