@@ -36,25 +36,11 @@
   }
 
   .logo {
-    display: block;
-    width: 100%;
     margin-bottom: 1rem;
-    font-size: 1.375rem;
     text-align: right;
-    text-transform: uppercase;
 
     @include respond-to("s-up") {
       margin-bottom: 3em;
-    }
-
-    a {
-      display: inline-block;
-      padding: 0.5rem 1.3rem;
-      padding-right: 0.8rem;
-      color: $primary;
-      letter-spacing: 0.625rem;
-      text-align: center;
-      border: 2px solid $primary;
     }
   }
 
@@ -146,26 +132,6 @@
 
       @include respond-to("s-up") {
         font-size: 0.7rem;
-      }
-    }
-
-    ul {
-      display: flex;
-      justify-content: space-between;
-      margin: 0;
-      padding: 0;
-
-      li {
-        list-style: none;
-
-        a {
-          color: $white;
-          font-size: 2rem;
-
-          &:hover {
-            color: $primary;
-          }
-        }
       }
     }
   }
