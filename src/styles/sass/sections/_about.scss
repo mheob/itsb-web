@@ -112,7 +112,28 @@
 
         .actions {
           display: flex;
+          flex-wrap: wrap;
           justify-content: space-around;
+
+          a {
+            width: 100%;
+            margin: 0.5rem 0;
+
+            @include respond-to("xs-up") {
+              width: inherit;
+              margin: 0 0.5rem;
+            }
+
+            @include respond-to("m-up") {
+              width: 100%;
+              margin: 0.5rem 0;
+            }
+
+            @include respond-to("l-up") {
+              width: inherit;
+              margin: 0 0.5rem;
+            }
+          }
         }
       }
     }
