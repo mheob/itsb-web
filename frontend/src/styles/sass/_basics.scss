@@ -63,6 +63,7 @@ a {
   color: $primary;
   text-decoration: none;
   background-color: transparent;
+  cursor: pointer;
   transition: $transition-duration;
 
   &:hover,
@@ -186,6 +187,10 @@ textarea {
 
   @include respond-to("l-up") {
     width: $layout-main-l;
+  }
+
+  @include respond-to("xl-up") {
+    width: $layout-main-xl;
   }
 
   .offcanvas & {

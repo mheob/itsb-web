@@ -9,7 +9,6 @@ const Aside: React.FC = () => {
     <aside className="Aside">
       <Logo />
       <Navigation />
-      <hr />
       <Footer />
     </aside>
   );

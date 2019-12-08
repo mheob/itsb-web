@@ -14,13 +14,6 @@
     visibility: hidden;
   }
 
-  &:hover,
-  &:focus,
-  &:active {
-    border-bottom: none;
-    outline: none;
-  }
-
   &:hover {
     i::before {
       top: -10px;

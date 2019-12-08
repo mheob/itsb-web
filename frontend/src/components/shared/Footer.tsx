@@ -1,20 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-import { socialData } from "../shared/social.data";
-import Social from "../shared/Social";
+import { socialData } from "./social.data";
+import Social from "./Social";
 
 const Footer: React.FC = () => {
   return (
     <footer className="Footer">
       <p className="logo">
-        <a href="/">ITSB</a>
+        <Link to="/">ITSB</Link>
       </p>
       <Social links={socialData.links.map((link, _) => link)} />
-      <p className="legal">
-        <a href="#!">Impressum</a>
-        <span> | </span>
-        <a href="#!">Datenschutz</a>
-      </p>
       <p className="copyright">Copyright &copy; {new Date().getFullYear()} All rights reserved</p>
     </footer>
   );

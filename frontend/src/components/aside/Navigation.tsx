@@ -1,35 +1,36 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+import Scrollspy from "react-scrollspy";
+import { HashLink } from "react-router-hash-link";
 
-import { removeBodyClassHandler } from "../../utils/bodyHandler";
-
-// TODO: Refactor the li elements to its own component.
-// TODO: Set the ACTIVE class dynamic
+type pageState = {
+  isHome: boolean;
+};
 
 const Navigation: React.FC = () => {
   return (
     <nav className="main-menu">
-      <ul>
-        <li className="active">
-          <a href="#root" onClick={removeBodyClassHandler.bind(null, "offcanvas")}>
-            Home
-          </a>
+      <Scrollspy items={["home", "about", "services", "contact"]} currentClassName="active">
+        <li>
+          <HashLink to="/#home">Home</HashLink>
         </li>
         <li>
-          <a href="#about" onClick={removeBodyClassHandler.bind(null, "offcanvas")}>
-            About
-          </a>
+          <HashLink to="/#about">About</HashLink>
         </li>
         <li>
-          <a href="#services" onClick={removeBodyClassHandler.bind(null, "offcanvas")}>
-            Services
-          </a>
+          <HashLink to="/#services">Services</HashLink>
         </li>
         <li>
-          <a href="#contact" onClick={removeBodyClassHandler.bind(null, "offcanvas")}>
-            Contact
-          </a>
+          <HashLink to="/#contact">Contact</HashLink>
         </li>
-      </ul>
+        <hr />
+        <li>
+          <NavLink to="/impressum">Impressum</NavLink>
+        </li>
+        <li>
+          <NavLink to="/datenschutz">Datenschutz</NavLink>
+        </li>
+      </Scrollspy>
     </nav>
   );
 };

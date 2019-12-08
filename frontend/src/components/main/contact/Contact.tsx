@@ -1,8 +1,8 @@
 import React from "react";
 
-import { serviceData } from "./contact/contact.data";
-import ContactDetail from "./contact/ContactDetail";
-import SectionHeader from "../shared/SectionHeader";
+import { serviceData } from "../contact/contact.data";
+import ContactDetail from "../contact/ContactDetail";
+import SectionHeader from "../../shared/SectionHeader";
 
 const Contact: React.FC = () => {
   return (

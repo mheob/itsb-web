@@ -27,6 +27,10 @@
     width: calc(100% - #{$layout-main-l});
   }
 
+  @include respond-to("xl-up") {
+    width: calc(100% - #{$layout-main-xl});
+  }
+
   .offcanvas & {
     position: fixed;
     z-index: 999;
@@ -67,7 +71,8 @@
           font-size: 1rem;
         }
 
-        &.active a {
+        &.active a,
+        a.active {
           color: $primary;
 
           &::after {

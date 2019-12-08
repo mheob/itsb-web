@@ -4,11 +4,11 @@ import { Waypoint } from "react-waypoint";
 
 import "animate.css";
 
-import Description from "./about/Description";
-import Contact from "./about/Contact";
-import Actions from "./about/Actions";
-import GoNext from "../shared/GoNext";
-import SectionHeader from "../shared/SectionHeader";
+import Description from "./Description";
+import Contact from "./Contact";
+import Actions from "./Actions";
+import GoNext from "../../shared/GoNext";
+import SectionHeader from "../../shared/SectionHeader";
 
 type VisibilityState = {
   isVisibleImage: boolean;

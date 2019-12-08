@@ -3,25 +3,30 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 
 import Navigation from "./mobileNavigation/Navigation";
 import Aside from "./aside/Aside";
-import Main from "./main/Main";
+import Home from "./main/Home";
+import Impress from "./main/Impress";
+import Privacy from "./main/Privacy";
+import ScrollToTop from "./shared/ScrollToTop";
 
 const App: React.FC = () => {
   return (
     <Router>
       <Navigation />
       <Aside />
-      <Switch>
-        <Route path="/" exact>
-          <Main />
-        </Route>
-        <Route path="/impressum" exact>
-          <Main />
-        </Route>
-        <Route path="/datenschutz" exact>
-          <Main />
-        </Route>
-        <Redirect to="/" />
-      </Switch>
+      <ScrollToTop>
+        <Switch>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route path="/impressum" exact>
+            <Impress />
+          </Route>
+          <Route path="/datenschutz" exact>
+            <Privacy />
+          </Route>
+          <Redirect to="/" />
+        </Switch>
+      </ScrollToTop>
     </Router>
   );
 };

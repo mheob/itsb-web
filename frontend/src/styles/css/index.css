@@ -83,6 +83,7 @@ a {
   color: #00ebab;
   text-decoration: none;
   background-color: transparent;
+  cursor: pointer;
   transition: 0.5s; }
   a:hover, a:active, a:focus {
     color: #fff;
@@ -177,8 +178,11 @@ textarea {
       width: 70%; } }
   @media (min-width: 900px) {
     .Main {
-      width: 78%; } }
+      width: 75%; } }
   @media (min-width: 1200px) {
+    .Main {
+      width: 80%; } }
+  @media (min-width: 1600px) {
     .Main {
       width: 85%; } }
   .offcanvas .Main {
@@ -330,9 +334,6 @@ textarea {
   @media (min-width: 700px) {
     .nav-toggle {
       visibility: hidden; } }
-  .nav-toggle:hover, .nav-toggle:focus, .nav-toggle:active {
-    border-bottom: none;
-    outline: none; }
   .nav-toggle:hover i::before {
     top: -10px; }
   .nav-toggle:hover i::after {
@@ -393,9 +394,12 @@ textarea {
       transform: translateX(0); } }
   @media (min-width: 900px) {
     .Aside {
-      width: calc(100% - 78%);
+      width: calc(100% - 75%);
       padding: 4rem 3rem; } }
   @media (min-width: 1200px) {
+    .Aside {
+      width: calc(100% - 80%); } }
+  @media (min-width: 1600px) {
     .Aside {
       width: calc(100% - 85%); } }
   .offcanvas .Aside {
@@ -428,9 +432,11 @@ textarea {
       @media (min-width: 700px) {
         .Aside .main-menu ul li {
           font-size: 1rem; } }
-      .Aside .main-menu ul li.active a {
+      .Aside .main-menu ul li.active a,
+      .Aside .main-menu ul li a.active {
         color: #00ebab; }
-        .Aside .main-menu ul li.active a::after {
+        .Aside .main-menu ul li.active a::after,
+        .Aside .main-menu ul li a.active::after {
           transform: scaleX(1);
           visibility: visible; }
       .Aside .main-menu ul li a {
@@ -829,16 +835,13 @@ textarea {
       padding: 2.75rem 15rem; } }
   .Footer .logo,
   .Footer .social,
-  .Footer .legal,
   .Footer .copyright {
     flex-basis: 100%; }
     @media (min-width: 900px) {
       .Footer .logo,
       .Footer .social,
-      .Footer .legal,
       .Footer .copyright {
-        flex-basis: 50%; } }
-  .Footer .legal,
+        flex-basis: 33%; } }
   .Footer .copyright {
     margin: 1rem 0 0; }
   .Footer .copyright {

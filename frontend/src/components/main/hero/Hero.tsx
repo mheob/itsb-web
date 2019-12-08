@@ -1,11 +1,11 @@
 import React from "react";
 import Typed from "react-typed";
 
-import GoNext from "../shared/GoNext";
+import GoNext from "../../shared/GoNext";
 
 const Hero: React.FC = () => {
   return (
-    <section className="Hero" id="hero">
+    <section className="Hero" id="home">
       <a className="btn btn-primary-outline" href="#contact">
         Let's talk
       </a>

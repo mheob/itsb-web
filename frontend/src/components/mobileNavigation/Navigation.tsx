@@ -1,12 +1,12 @@
 import React from "react";
 
-import { toggleBodyClassHandler } from "../../utils/bodyHandler";
+import { toggleBodyClassHandler } from "../../utils/domHandler";
 
 const Navigation: React.FC = () => {
   return (
-    <a href="#!" className="nav-toggle" onClick={toggleBodyClassHandler.bind(null, "offcanvas")}>
+    <div className="nav-toggle" onClick={toggleBodyClassHandler.bind(null, "offcanvas")}>
       <i />
-    </a>
+    </div>
   );
 };
 

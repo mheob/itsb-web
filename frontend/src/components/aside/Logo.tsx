@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Logo: React.FC = () => {
   return (
     <h1 className="logo">
-      <a href="/">ITSB</a>
+      <Link to="/">ITSB</Link>
     </h1>
   );
 };

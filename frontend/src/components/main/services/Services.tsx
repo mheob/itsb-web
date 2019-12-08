@@ -1,9 +1,9 @@
 import React from "react";
 
-import { serviceData } from "./services/services.data";
-import Service from "./services/Service";
-import GoNext from "../shared/GoNext";
-import SectionHeader from "../shared/SectionHeader";
+import { serviceData } from "../services/services.data";
+import Service from "../services/Service";
+import GoNext from "../../shared/GoNext";
+import SectionHeader from "../../shared/SectionHeader";
 
 const Services: React.FC = () => {
   return (

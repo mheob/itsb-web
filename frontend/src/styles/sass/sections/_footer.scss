@@ -13,16 +13,14 @@
 
   .logo,
   .social,
-  .legal,
   .copyright {
     flex-basis: 100%;
 
     @include respond-to("m-up") {
-      flex-basis: 50%;
+      flex-basis: 33%;
     }
   }
 
-  .legal,
   .copyright {
     margin: 1rem 0 0;
   }
