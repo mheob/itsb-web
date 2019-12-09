@@ -11,10 +11,11 @@ const Home: React.FC = () => {
     <main className="Main">
       <Hero />
       <About />
+      <Services />
       {
         // TODO: Add the skills section
+        // TODO: Add the testimonials section
       }
-      <Services />
       <Contact />
       <Footer />
     </main>

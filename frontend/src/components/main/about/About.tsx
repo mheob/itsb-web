@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Animated } from "react-animated-css";
 import { Waypoint } from "react-waypoint";
-
+// TODO: Switch animateCSS to CCSTransition
 import "animate.css";
 
 import Description from "./Description";
