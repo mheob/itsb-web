@@ -364,22 +364,22 @@ const Privacy: React.FC = () => {
           </li>
           <li>
             <p>
-              Weitere Informationen zu Datennutzung bei Google Analytics finden Sie hier:
+              Weitere Informationen zu Datennutzung bei Google Analytics finden Sie hier:{" "}
               <a
                 href="https://www.google.com/analytics/terms/de.html"
                 rel="nofollow noopener noreferrer"
                 target="_blank"
               >
                 https://www.google.com/analytics/terms/de.html
-              </a>
-              (Nutzungsbedingungen von Analytics),
+              </a>{" "}
+              (Nutzungsbedingungen von Analytics),{" "}
               <a
                 href="https://support.google.com/analytics/answer/6004245?hl=de"
                 rel="nofollow noopener noreferrer"
                 target="_blank"
               >
                 https://support.google.com/analytics/answer/6004245?hl=de
-              </a>
+              </a>{" "}
               (Hinweise zum Datenschutz bei Analytics) und Googles Datenschutzerklärung
               <a href="https://policies.google.com/privacy" rel="nofollow noopener noreferrer" target="_blank">
                 https://policies.google.com/privacy
@@ -394,7 +394,7 @@ const Privacy: React.FC = () => {
               Funktionseinschränkung unserer Angebote zur Folge haben. Sie können darüber hinaus die Erfassung der,
               durch das Cookie erzeugten und auf Ihre Nutzung der Website bezogenen, Daten an Google sowie die
               Verarbeitung dieser Daten durch Google verhindern, indem sie das unter dem folgenden Link verfügbare
-              Browser-Plugin herunterladen und installieren:
+              Browser-Plugin herunterladen und installieren:{" "}
               <a
                 href="http://tools.google.com/dlpage/gaoptout?hl=de"
                 rel="nofollow noopener noreferrer"
@@ -402,6 +402,7 @@ const Privacy: React.FC = () => {
               >
                 http://tools.google.com/dlpage/gaoptout?hl=de
               </a>
+              .
             </p>
           </li>
           <li>
