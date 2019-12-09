@@ -8,9 +8,7 @@
   );
 
   @include respond-to("l-up") {
-    max-width: 75rem;
-    margin-right: auto;
-    margin-left: auto;
+    @include max-container;
   }
 
   .details {

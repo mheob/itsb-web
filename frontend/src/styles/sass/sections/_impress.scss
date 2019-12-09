@@ -1,6 +1,10 @@
 .impress {
   padding: 3rem 1rem 2rem;
 
+  @include respond-to("l-up") {
+    @include max-container;
+  }
+
   .row {
     display: flex;
     flex-direction: column;
@@ -22,5 +26,12 @@
 
   h4 {
     margin-bottom: 1rem;
+  }
+}
+
+.impress,
+.disclaimer {
+  @include respond-to("l-up") {
+    @include max-container;
   }
 }
