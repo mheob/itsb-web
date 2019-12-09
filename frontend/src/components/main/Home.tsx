@@ -1,5 +1,4 @@
 import React from "react";
-import { Waypoint } from "react-waypoint";
 
 import Hero from "./hero/Hero";
 import About from "./about/About";
