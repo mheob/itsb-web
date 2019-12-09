@@ -1,0 +1,26 @@
+.impress {
+  padding: 3rem 1rem 2rem;
+
+  .row {
+    display: flex;
+    flex-direction: column;
+
+    @include respond-to("s-up") {
+      flex-direction: row;
+    }
+  }
+
+  .column {
+    @include respond-to("s-up") {
+      width: 50%;
+    }
+  }
+}
+
+.disclaimer {
+  padding: 0 1rem 2rem;
+
+  h4 {
+    margin-bottom: 1rem;
+  }
+}
