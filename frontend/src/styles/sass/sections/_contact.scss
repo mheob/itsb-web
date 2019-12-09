@@ -3,12 +3,9 @@
     $pos-ver: "left",
     $value-ver: 0,
     $z-index: 2,
-    $value-hor: -83
+    $value-hor: -83,
+    $opacity: 0.2
   );
-
-  &::after {
-    opacity: 0.2;
-  }
 
   @include respond-to("l-up") {
     max-width: 75rem;

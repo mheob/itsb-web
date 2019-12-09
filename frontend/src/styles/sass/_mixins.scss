@@ -15,7 +15,8 @@
   $pos-hor: "bottom",
   $value-hor: "15",
   $z-index: -2,
-  $img: "main"
+  $img: "main",
+  $opacity: 0
 ) {
   &::after {
     position: absolute;
@@ -28,5 +29,9 @@
     background-repeat: no-repeat;
     background-size: 144px 166px;
     content: "";
+
+    @if $opacity > 0 {
+      opacity: $opacity;
+    }
   }
 }
