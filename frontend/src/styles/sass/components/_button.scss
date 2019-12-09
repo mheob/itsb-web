@@ -49,15 +49,16 @@
   position: fixed;
   right: 1.5rem;
   bottom: 1.5rem;
-  z-index: 9999;
-  display: none;
+  z-index: -9999;
+  display: block;
   padding: 0.3rem 0.7rem;
   background: rgba($black, 0.7);
   border: 1px solid $primary;
   opacity: 0;
+  transition: all $transition-duration;
 
   &.visible {
-    display: block;
+    z-index: 9999;
     opacity: 1;
   }
 }
