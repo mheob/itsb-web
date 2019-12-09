@@ -5,7 +5,7 @@ import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
 const ScrollTopButton: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
   return (
-    <Link className={`ScrollTopButton${isVisible ? " visible" : ""}`} to="/">
+    <Link className={`ScrollTopButton${isVisible ? " visible" : ""}`} to="#root">
       <FontAwesomeIcon icon={faChevronUp} />
     </Link>
   );

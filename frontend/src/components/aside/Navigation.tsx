@@ -8,7 +8,7 @@ const Navigation: React.FC = () => {
     <nav className="main-menu">
       <Scrollspy items={["home", "about", "services", "contact"]} currentClassName="active">
         <li>
-          <HashLink to="/#home">Home</HashLink>
+          <HashLink to="/#root">Home</HashLink>
         </li>
         <li>
           <HashLink to="/#about">That's me</HashLink>
