@@ -8,24 +8,24 @@ export const serviceData: ServiceModel[] = [
     icon: faPaintBrush,
     header: "Web Design",
     text:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum adipisci minus mollitia similique doloremque in corporis provident facere, aut laboriosam?"
-  },
-  {
-    icon: faLaptopCode,
-    header: "Web Development",
-    text:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident veritatis aspernatur vitae est sunt ut harum atque quidem incidunt doloribus."
+      "Die automatisierte Anpassung an alle Bildschirmgrößen der mobilen Empfangsgeräte ist wichtig denn je. Darauf und auf die Benutzerfahrung im allgemeinen liegt bei jedem meiner Projekte der Fokus."
   },
   {
     icon: faChartLine,
     header: "Search Engine Optimization",
     text:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam veniam iure quos consectetur ea itaque asperiores quibusdam odit consequuntur. Praesentium."
+      "Suchmaschinenoptimierung (SEO), bezeichnet die Maßnahmen, die dazu dienen, die Sichtbarkeit einer Website für Benutzer einer Suchmaschine zu erhöhen. Ein sehr wichtiger Aspekt."
+  },
+  {
+    icon: faLaptopCode,
+    header: "Web Development",
+    text:
+      "Die Entwicklung von Neuem ist für mich ein großer Antreiber. Sonderlösungen für das Web, gerade im Stile von Progressive Web Apps (PWA), gehören heute zum guten Ton in der Darstellung und Interaktion."
   },
   {
     icon: faLifeRing,
     header: "Help & Support",
     text:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor similique rerum tenetur deserunt hic ad nemo eveniet totam! Quo, omnis."
+      "Nach Projektabschluss lasse ich Dich nicht alleine. Bei Fragen und Problemen stehe ich gerne zur Seite. Bei der Nutzung über meinen Hostingpartner übernehme ich Updates, Sicherheitspatches und ähnliches."
   }
 ];

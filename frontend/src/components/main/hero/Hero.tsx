@@ -16,10 +16,10 @@ const Hero: React.FC = () => {
           <h2>
             <Typed
               strings={[
-                "Ich erstelle für Sie Ihren Webauftritt",
-                "Ich nutze dafür WordPress",
-                "Sie entscheiden über den Umfang",
-                "Nehmen Sie Kontakt mit mir auf"
+                "Neuer Webauftritt benötigt?",
+                "Alter Webauftritt ist nicht mehr zeitgemäß?",
+                "Interaktive Webapplikation gefällig?",
+                "Google zeigt nur die Konkurrenz?"
               ]}
               typeSpeed={50}
               backSpeed={25}
@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
           </h2>
         </header>
       </div>
-      <GoNext anchor="about" text="About me" />
+      <GoNext anchor="about" text="That's me" />
     </section>
   );
 };

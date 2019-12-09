@@ -15,7 +15,7 @@ const Services: React.FC = () => {
           return <Service key={index} icon={icon} header={header} text={text} num={elNum} />;
         })}
       </section>
-      <GoNext anchor="contact" text="Let's talk" />
+      <GoNext anchor="contact" text="Kontakt" />
     </section>
   );
 };

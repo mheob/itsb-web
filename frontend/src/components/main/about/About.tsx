@@ -62,7 +62,7 @@ const About: React.FC = () => {
         </Animated>
       </Waypoint>
 
-      <GoNext anchor="services" text="Services" />
+      <GoNext anchor="services" text="Angebot" />
     </section>
   );
 };

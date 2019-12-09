@@ -6,7 +6,7 @@ export const serviceData: ContactModel[] = [
   {
     icon: faPhoneAlt,
     header: "Phone",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    text: "Ruf mich an oder nutze einen der standard Messenger-Dienste.",
     anchor: {
       href: "tel:+491608206654",
       title: "Ruf mich einfach an",
@@ -16,7 +16,7 @@ export const serviceData: ContactModel[] = [
   {
     icon: faEnvelope,
     header: "E-Mail",
-    text: "Lorem ipsum dolor sit amet praesentium eaque eveniet!",
+    text: "Schreib mir eine Nachricht und ich werde mich zeitnah zurückmelden.",
     anchor: {
       href: "mailto:ab@its-boehm.de",
       title: "Schreib mir per E-Mail",
