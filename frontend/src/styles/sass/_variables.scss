@@ -1,0 +1,35 @@
+$black: #000;
+$white: #fff;
+$primary: #00ebab;
+$background: #0d0d0d;
+$background-dark: #070707;
+
+$breakpoints: (
+  "xs-up": (
+    min-width: 500px
+  ),
+  "s-up": (
+    min-width: 700px
+  ),
+  "m-up": (
+    min-width: 900px
+  ),
+  "l-up": (
+    min-width: 1200px
+  ),
+  "xl-up": (
+    min-width: 1600px
+  )
+);
+
+$layout-main-xs: 270px;
+$layout-main-s: 70%;
+$layout-main-m: 75%;
+$layout-main-l: 80%;
+$layout-main-xl: 85%;
+
+$font-familie: "Quicksand", Arial, sans-serif;
+
+$transition-duration: 0.5s;
+$transition-duration-fast: 0.3s;
+$transition-duration-slow: 0.8s;

@@ -1,0 +1,23 @@
+root: true
+parser: babel-eslint
+extends:
+  - plugin:react/recommended
+  - semistandard
+plugins:
+  - react
+  - standard
+env:
+  browser: false
+  es6: true
+  node: true
+  mocha: true
+  jest/globals: true
+globals:
+  window: true
+  document: true
+parserOptions:
+  sourceType: module
+  ecmaFeatures:
+    jsx: true
+rules:
+  max-len: [error, { code: 120 }]

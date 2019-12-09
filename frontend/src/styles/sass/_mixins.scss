@@ -1,0 +1,37 @@
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+      + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+@mixin dots-bg(
+  $pos-ver: "left",
+  $value-ver: "35",
+  $pos-hor: "bottom",
+  $value-hor: "15",
+  $z-index: -2,
+  $img: "main",
+  $opacity: 0
+) {
+  &::after {
+    position: absolute;
+    #{$pos-ver}: #{$value-ver}px;
+    #{$pos-hor}: #{$value-hor}px;
+    z-index: $z-index;
+    width: 144px;
+    height: 166px;
+    background-image: url(../images/dots-#{$img}.svg);
+    background-repeat: no-repeat;
+    background-size: 144px 166px;
+    content: "";
+
+    @if $opacity > 0 {
+      opacity: $opacity;
+    }
+  }
+}

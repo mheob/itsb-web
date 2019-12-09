@@ -1,0 +1,91 @@
+.Services {
+  background: $background-dark;
+
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .Service {
+    position: relative;
+    flex-basis: 100%;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem 0;
+    border: 1px solid rgba($primary, 0.1);
+    border-radius: 3px;
+    transition: all $transition-duration-slow ease-out;
+
+    @include respond-to("m-up") {
+      flex-basis: calc(50% - 1rem);
+
+      &:nth-of-type(odd) {
+        margin-right: 2rem;
+      }
+    }
+
+    @include respond-to("xl-up") {
+      flex-basis: calc(25% - 1.6rem);
+
+      &:not(:last-of-type) {
+        margin-right: 2rem;
+      }
+    }
+
+    &:hover {
+      background-color: $black;
+      border-color: $primary;
+    }
+
+    .icon {
+      $size: 6.25rem;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: $size;
+
+      svg {
+        display: block;
+        height: $size;
+        margin: auto;
+        color: $primary;
+        font-size: 2.5rem;
+      }
+    }
+
+    .num {
+      position: absolute;
+      top: 60%;
+      left: 2rem;
+      color: rgba($white, 0.1);
+      font-weight: 700;
+      font-size: 1.875rem;
+      transform: translateY(-50%);
+
+      @include respond-to("m-up") {
+        top: 50%;
+      }
+    }
+
+    .text {
+      width: 100%;
+      padding-right: 2rem;
+      padding-left: 6rem;
+
+      h3 {
+        margin: 0 0 1.25rem;
+        padding: 0;
+        color: $primary;
+        font-weight: 500;
+        font-size: 0.875rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

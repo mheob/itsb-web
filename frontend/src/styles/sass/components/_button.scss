@@ -1,0 +1,63 @@
+.btn {
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  text-align: center;
+  border: 1px solid;
+  border-radius: 2px;
+  transition: $transition-duration;
+  user-select: none;
+  touch-action: manipulation;
+
+  &:hover,
+  &:active,
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  &-primary {
+    color: $black;
+    background-color: $primary;
+    border-color: $primary;
+
+    &:hover,
+    &:focus {
+      color: $primary;
+      background-color: transparent;
+      border-color: $primary;
+    }
+  }
+
+  &-primary-outline {
+    color: $primary;
+    background-color: transparent;
+    border-color: $primary;
+
+    &:hover,
+    &:focus {
+      color: $black;
+      background-color: $primary;
+      border-color: $primary;
+    }
+  }
+}
+
+.ScrollTopButton {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 9999;
+  display: none;
+  padding: 0.3rem 0.7rem;
+  background: rgba($black, 0.7);
+  border: 1px solid $primary;
+  opacity: 0;
+
+  &.visible {
+    display: block;
+    opacity: 1;
+  }
+}

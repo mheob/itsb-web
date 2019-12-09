@@ -1,0 +1,13 @@
+extends:
+  - stylelint-prettier/recommended
+  - stylelint-config-prettier
+  - stylelint-config-rational-order
+plugins:
+  - stylelint-prettier
+rules:
+  prettier/prettier: true
+  max-line-length: 120
+  declaration-block-no-duplicate-properties:
+    - true
+    - ignore: [consecutive-duplicates-with-different-values]
+  indentation: 2
