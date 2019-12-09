@@ -1,23 +1,29 @@
 .Footer {
-  // position: relative;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   width: 100%;
   padding: 2.75rem;
   text-align: center;
   background-color: $background-dark;
 
   @include respond-to("l-up") {
-    padding: 2.75rem 15rem;
+    flex-direction: row-reverse;
+    padding-right: 10rem;
+    padding-left: 10rem;
+  }
+
+  @include respond-to("xl-up") {
+    padding-right: 15rem;
+    padding-left: 15rem;
   }
 
   .logo,
   .social,
   .copyright {
-    flex-basis: 100%;
+    width: 100%;
 
-    @include respond-to("m-up") {
-      flex-basis: 33%;
+    @include respond-to("l-up") {
+      width: 33%;
     }
   }
 
