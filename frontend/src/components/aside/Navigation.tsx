@@ -3,10 +3,6 @@ import { NavLink } from "react-router-dom";
 import Scrollspy from "react-scrollspy";
 import { HashLink } from "react-router-hash-link";
 
-type pageState = {
-  isHome: boolean;
-};
-
 const Navigation: React.FC = () => {
   return (
     <nav className="main-menu">
@@ -15,13 +11,13 @@ const Navigation: React.FC = () => {
           <HashLink to="/#home">Home</HashLink>
         </li>
         <li>
-          <HashLink to="/#about">About</HashLink>
+          <HashLink to="/#about">That's me</HashLink>
         </li>
         <li>
-          <HashLink to="/#services">Services</HashLink>
+          <HashLink to="/#services">Angebot</HashLink>
         </li>
         <li>
-          <HashLink to="/#contact">Contact</HashLink>
+          <HashLink to="/#contact">Kontakt</HashLink>
         </li>
         <hr />
         <li>

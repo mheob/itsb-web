@@ -8,7 +8,7 @@ import SectionHeader from "../../shared/SectionHeader";
 const Services: React.FC = () => {
   return (
     <section className="Services" id="services">
-      <SectionHeader mainText="Einige meine Angebote" smallText="Was mach ich?" bgText="Services" />
+      <SectionHeader mainText="Einige meine Angebote" smallText="Was mach ich?" bgText="Angebot" />
       <section className="content">
         {serviceData.map(({ icon, header, text, num }, index) => {
           const elNum = num ? num : `0${index + 1}`;
