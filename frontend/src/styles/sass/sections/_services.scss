@@ -24,15 +24,10 @@
       }
     }
 
-    @include respond-to("l-up") {
-      flex-basis: calc(33% - 1.5rem);
+    @include respond-to("xl-up") {
+      flex-basis: calc(25% - 1.6rem);
 
-      &:nth-of-type(odd) {
-        margin-right: 0;
-      }
-
-      &:nth-of-type(3n + 1),
-      &:nth-of-type(3n + 2) {
+      &:not(:last-of-type) {
         margin-right: 2rem;
       }
     }
