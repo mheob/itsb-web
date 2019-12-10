@@ -6,7 +6,7 @@
   left: 0;
   z-index: 1001;
   display: block;
-  width: $layout-main-xs;
+  width: $layout-aside-xs;
   padding: 3rem;
   padding-left: 3em;
   background: $black;
@@ -14,21 +14,21 @@
   transition: $transition-duration;
 
   @include respond-to("s-up") {
-    width: calc(100% - #{$layout-main-s});
+    width: $layout-aside-s;
     transform: translateX(0);
   }
 
   @include respond-to("m-up") {
-    width: calc(100% - #{$layout-main-m});
+    width: $layout-aside-m;
     padding: 4rem 3rem;
   }
 
   @include respond-to("l-up") {
-    width: calc(100% - #{$layout-main-l});
+    width: $layout-aside-l;
   }
 
   @include respond-to("xl-up") {
-    width: calc(100% - #{$layout-main-xl});
+    width: $layout-aside-xl;
   }
 
   .offcanvas & {

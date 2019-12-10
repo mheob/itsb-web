@@ -8,7 +8,7 @@ import Footer from "../shared/Footer";
 
 const Home: React.FC = () => {
   return (
-    <main className="Main">
+    <>
       <Hero />
       <About />
       <Services />
@@ -18,7 +18,7 @@ const Home: React.FC = () => {
       }
       <Contact />
       <Footer />
-    </main>
+    </>
   );
 };
 

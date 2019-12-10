@@ -4,8 +4,9 @@ import Footer from "../shared/Footer";
 
 const Privacy: React.FC = () => {
   return (
-    <main className="Main">
+    <>
       <section className="privacy">
+        <h1>Datenschutz</h1>
         <p>
           Wir informieren Sie nachfolgend gemäß den gesetzlichen Vorgaben des Datenschutzrechts (insb. gemäß BDSG n.F.
           und der europäischen Datenschutz-Grundverordnung ‚DS-GVO‘) über die Art, den Umfang und Zweck der Verarbeitung
@@ -726,7 +727,7 @@ const Privacy: React.FC = () => {
         <p style={{ textAlign: "right" }}>Letzte Aktualisierung: 09.12.2019</p>
       </section>
       <Footer />
-    </main>
+    </>
   );
 };
 

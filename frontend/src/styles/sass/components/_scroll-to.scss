@@ -6,10 +6,11 @@ $triangle-width: 4px;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 9999;
+  z-index: 9998;
   width: $go-next-width;
   margin-right: auto;
   margin-left: auto;
+  padding-top: $go-next-width;
   color: $white;
   font-size: 0.75rem;
   letter-spacing: 1px;
@@ -17,7 +18,7 @@ $triangle-width: 4px;
   text-transform: uppercase;
 
   &:hover {
-    bottom: -32px;
+    bottom: -$go-next-width;
   }
 
   span {
@@ -39,7 +40,7 @@ $triangle-width: 4px;
         position: absolute;
         bottom: 0;
         left: calc(50% - #{$triangle-width});
-        z-index: 9999;
+        z-index: 9998;
         border-top: 10px $white solid;
         border-right: $triangle-width transparent solid;
         border-left: $triangle-width transparent solid;

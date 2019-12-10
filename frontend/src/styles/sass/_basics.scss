@@ -198,6 +198,30 @@ textarea {
     width: $layout-main-xl;
   }
 
+  &-enter {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+
+  &-enter-active {
+    transform: scale(1);
+    opacity: 1;
+    transition: opacity $transition-duration-slow,
+      transform $transition-duration-slow;
+  }
+
+  &-exit {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  &-exit-active {
+    transform: scale(0.9);
+    opacity: 0;
+    transition: opacity $transition-duration-slow,
+      transform $transition-duration-slow;
+  }
+
   .offcanvas & {
     transform: translateX($layout-main-xs);
   }

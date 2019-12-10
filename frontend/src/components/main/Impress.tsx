@@ -4,7 +4,7 @@ import Footer from "../shared/Footer";
 
 const Impress: React.FC = () => {
   return (
-    <main className="Main">
+    <>
       <section className="impress">
         <h1>Impressum</h1>
         <div className="row">
@@ -77,7 +77,7 @@ const Impress: React.FC = () => {
         </p>
       </section>
       <Footer />
-    </main>
+    </>
   );
 };
 

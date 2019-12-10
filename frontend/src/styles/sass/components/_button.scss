@@ -49,7 +49,7 @@
   position: fixed;
   right: 1.5rem;
   bottom: 1.5rem;
-  z-index: -9999;
+  z-index: -9998;
   display: block;
   padding: 0.3rem 0.7rem;
   background: rgba($black, 0.7);
@@ -58,7 +58,7 @@
   transition: all $transition-duration;
 
   &.visible {
-    z-index: 9999;
+    z-index: 9998;
     opacity: 1;
   }
 }
