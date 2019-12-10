@@ -42,7 +42,7 @@ const App: React.FC = () => {
     <Router>
       <Spinner preload={preloaderState} />
       <Waypoint
-        topOffset={-600}
+        topOffset={-1000}
         onEnter={scrollUpButtonHandler.bind(null, false)}
         onLeave={scrollUpButtonHandler.bind(null, true)}
       />
