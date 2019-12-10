@@ -38,11 +38,21 @@
           height: 390px;
           background-image: url(../images/itsb-boehm-alexander-portrait.jpg);
           border-radius: 4px;
-          transition: top 1s ease-in-out;
+          transition: top $transition-duration-slow ease-in-out;
 
           &:hover {
             top: 50px;
           }
+        }
+
+        &-enter {
+          animation-name: fadeInLeft;
+          animation-duration: $transition-duration-slow;
+        }
+
+        &-exit {
+          animation-name: fadeOut;
+          animation-duration: $transition-duration;
         }
       }
     }
@@ -55,6 +65,18 @@
           h4 {
             left: -1rem;
           }
+        }
+      }
+
+      .inner-box {
+        &-enter {
+          animation-name: fadeInRight;
+          animation-duration: $transition-duration-slow;
+        }
+
+        &-exit {
+          animation-name: fadeOut;
+          animation-duration: $transition-duration;
         }
       }
 

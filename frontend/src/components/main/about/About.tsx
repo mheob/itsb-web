@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { Animated } from "react-animated-css";
 import { Waypoint } from "react-waypoint";
-// TODO: Switch animateCSS to CCSTransition
-import "animate.css";
+import { CSSTransition } from "react-transition-group";
 
 import Description from "./Description";
 import Contact from "./Contact";
@@ -29,37 +27,31 @@ const About: React.FC = () => {
   return (
     <section className="About" id="about">
       <Waypoint onEnter={handleWaypoint.bind(null, "image", true)} onLeave={handleWaypoint.bind(null, "image", false)}>
-        <Animated
-          className="box box--image"
-          animationIn="fadeInLeft"
-          animationOut="fadeOut"
-          animationInDuration={1500}
-          isVisible={visibility.isVisibleImage}
-        >
-          <div className="design-bg">
-            <div className="img"></div>
-          </div>
-        </Animated>
+        <div className="box box--image">
+          <CSSTransition in={visibility.isVisibleImage} timeout={1500} classNames="design-bg">
+            <div className="design-bg">
+              <div className="img"></div>
+            </div>
+          </CSSTransition>
+        </div>
       </Waypoint>
 
       <Waypoint
         onEnter={handleWaypoint.bind(null, "welcome", true)}
         onLeave={handleWaypoint.bind(null, "welcome", false)}
       >
-        <Animated
-          className="box box--description"
-          animationIn="fadeInRight"
-          animationOut="fadeOut"
-          animationInDuration={1500}
-          isVisible={visibility.isVisibleWelcome}
-        >
-          <SectionHeader mainText="Yes, that's me" smallText="Begrüßung &amp; Vorstellung" bgText="Welcome" />
-          <div className="content">
-            <Description />
-            <Contact />
-            <Actions />
-          </div>
-        </Animated>
+        <div className="box box--description">
+          <CSSTransition in={visibility.isVisibleWelcome} timeout={1500} classNames="inner-box">
+            <div className="inner-box">
+              <SectionHeader mainText="Yes, that's me" smallText="Begrüßung &amp; Vorstellung" bgText="Welcome" />
+              <div className="content">
+                <Description />
+                <Contact />
+                <Actions />
+              </div>
+            </div>
+          </CSSTransition>
+        </div>
       </Waypoint>
 
       <GoNext anchor="services" text="Angebot" />
