@@ -90,7 +90,7 @@
       border-bottom: 1px solid rgba($white, 0.1);
       border-radius: 0;
       box-shadow: none;
-      transition: all ease-in-out 0.15s;
+      transition: all ease-in-out $transition-duration-slow;
       appearance: none;
 
       &:active,
@@ -99,6 +99,10 @@
         border-bottom: 2px solid $primary;
         outline: none;
         box-shadow: none;
+      }
+
+      &.error {
+        border-bottom: 2px solid $danger;
       }
     }
 
@@ -116,6 +120,12 @@
       @include respond-to("xs-up") {
         width: auto;
         margin-left: auto;
+      }
+
+      &:disabled {
+        color: rgba($white, 0.3);
+        background-color: transparent;
+        border: 1px solid rgba($white, 0.3);
       }
     }
   }
