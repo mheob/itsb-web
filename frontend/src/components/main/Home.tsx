@@ -13,8 +13,8 @@ const Home: React.FC = () => {
       <About />
       <Services />
       {
-        // TODO: Add the skills section
-        // TODO: Add the testimonials section
+        // TODO: Add the skills/stats section. See issue #1.
+        // TODO: Add the testimonials section. See issue #2.
       }
       <Contact />
       <Footer />

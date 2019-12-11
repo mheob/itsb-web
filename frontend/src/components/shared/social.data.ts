@@ -2,6 +2,7 @@ import { faFacebookSquare, faTwitterSquare, faInstagram, faLinkedin } from "@for
 
 import { SocialModel } from "./social.model";
 
+// TODO: Correct the social links array. See issue #5.
 export const socialData: SocialModel = {
   links: [
     {

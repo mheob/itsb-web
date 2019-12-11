@@ -2,6 +2,7 @@ import { faPhoneAlt, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 import { ContactModel } from "./contact.model";
 
+// TODO: Add Discord to the contact section. See issue #6.
 export const serviceData: ContactModel[] = [
   {
     icon: faPhoneAlt,

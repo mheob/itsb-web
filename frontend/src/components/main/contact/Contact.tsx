@@ -22,7 +22,8 @@ const Contact: React.FC = () => {
         })}
       </section>
       {
-        // TODO: Add the form action.
+        // TODO: Add a frontend form validation. See issue #3.
+        // TODO: Add the form action. See issue #4.
       }
       <form>
         <input type="text" name="name" id="name" placeholder="Name" />
