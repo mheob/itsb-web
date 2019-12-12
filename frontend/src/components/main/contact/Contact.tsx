@@ -76,6 +76,7 @@ const Contact: React.FC = () => {
 
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    // TODO: Add a frontend form validation. See issue #3.
     console.log("FORM SUBMITTED", formState.inputs);
   };
 
@@ -95,10 +96,7 @@ const Contact: React.FC = () => {
           );
         })}
       </section>
-      {
-        // TODO: Add a frontend form validation. See issue #3.
-        // TODO: Add the form action. See issue #4.
-      }
+
       <form onSubmit={submitHandler}>
         <Input
           type="text"

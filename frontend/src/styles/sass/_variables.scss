@@ -29,7 +29,7 @@ $layout-main-m: 75%;
 $layout-main-l: 80%;
 $layout-main-xl: 85%;
 
-$layout-aside-xs: $layout-main-s;
+$layout-aside-xs: $layout-main-xs;
 $layout-aside-s: calc(100% - #{$layout-main-s});
 $layout-aside-m: calc(100% - #{$layout-main-m});
 $layout-aside-l: calc(100% - #{$layout-main-l});
