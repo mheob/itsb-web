@@ -96,7 +96,7 @@ const Contact: React.FC = () => {
           );
         })}
       </section>
-      
+
       <form onSubmit={submitHandler}>
         <Input
           type="text"
