@@ -1,7 +1,7 @@
 import React from "react";
 
-import { serviceData } from "../services/services.data";
-import Service from "../services/Service";
+import { serviceData } from "./services.data";
+import Service from "./Service";
 import GoNext from "../../shared/GoNext";
 import SectionHeader from "../../shared/SectionHeader";
 
@@ -15,7 +15,7 @@ const Services: React.FC = () => {
           return <Service key={index} icon={icon} header={header} text={text} num={elNum} />;
         })}
       </section>
-      <GoNext anchor="contact" text="Kontakt" />
+      <GoNext anchor="stats" text="Statistiken" />
     </section>
   );
 };
