@@ -18,7 +18,7 @@ export const testimonialData: TestimonialModel[] = [
   {
     quote:
       "Wir hatten ursprüngliche eine teure, große Agentur mit der wir nicht zu frieden waren. Mit dem Herrn Böhm war unsere WordPress-Umgebung schnell und sauber eingerichtet.",
-    name: "Frank Driesch",
+    name: "Thomas Haesser",
     company: "Inhaber, Fliesen Haesser",
     imgSource: "itsb-boehm-driesch-frank.jpg"
   }
