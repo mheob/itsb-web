@@ -29,6 +29,11 @@ const Navigation: React.FC = () => {
           </HashLink>
         </li>
         <li>
+          <HashLink to="/#stats" onClick={clickHandler}>
+            Statistiken
+          </HashLink>
+        </li>
+        <li>
           <HashLink to="/#contact" onClick={clickHandler}>
             Kontakt
           </HashLink>
