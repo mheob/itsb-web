@@ -8,4 +8,5 @@ node_modules/
 .npm
 
 # Builds
+frontend/build/*
 frontend/src/styles/css/*
