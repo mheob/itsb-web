@@ -12,7 +12,7 @@ const Navigation: React.FC = () => {
 
   return (
     <nav className="main-menu">
-      <Scrollspy items={["home", "about", "services", "contact"]} currentClassName="active">
+      <Scrollspy items={["home", "about", "services", "stats", "testimonials", "contact"]} currentClassName="active">
         <li>
           <HashLink to="/#root" onClick={clickHandler}>
             Home
@@ -35,7 +35,7 @@ const Navigation: React.FC = () => {
         </li>
         <li>
           <HashLink to="/#testimonials" onClick={clickHandler}>
-            Kundenstimmen
+            Meinungen
           </HashLink>
         </li>
         <li>

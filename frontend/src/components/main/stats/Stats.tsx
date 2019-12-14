@@ -28,7 +28,7 @@ const Stats: React.FC = () => {
         })}
       </section>
 
-      <GoNext anchor="contact" text="Kontakt" />
+      <GoNext anchor="testimonials" text="Meinungen" />
     </section>
   );
 };

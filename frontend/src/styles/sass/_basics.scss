@@ -88,6 +88,7 @@ h6 {
   color: $white;
   font-weight: 400;
   font-family: $font-familie;
+  line-height: 1.4;
 }
 
 h1 {
@@ -229,8 +230,9 @@ textarea {
 
 .About,
 .Contact,
+.Services,
 .Stats,
-.Services {
+.Testimonials {
   position: relative;
   display: flex;
   flex-direction: row;

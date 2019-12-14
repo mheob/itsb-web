@@ -1,9 +1,9 @@
-$black: #000;
-$white: #fff;
-$primary: #00ebab;
-$background: #0d0d0d;
-$background-dark: #070707;
-$danger: #bb0000;
+$black: #000 !default;
+$white: #fff !default;
+$primary: #00ebab !default;
+$background: #0d0d0d !default;
+$background-dark: #070707 !default;
+$danger: #bb0000 !default;
 
 $breakpoints: (
   "xs-up": (
