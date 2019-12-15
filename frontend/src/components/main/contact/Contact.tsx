@@ -1,10 +1,16 @@
 import React, { useCallback, useReducer } from "react";
+import axios from "axios";
 
 import { serviceData } from "../contact/contact.data";
 import ContactDetail from "../contact/ContactDetail";
 import SectionHeader from "../../shared/SectionHeader";
 import Input from "../../shared/Input";
-import { VALIDATOR_MIN_LENGTH, VALIDATOR_MAX_LENGTH, VALIDATOR_EMAIL, VALIDATOR_TEL } from "../../../utils/validators";
+import {
+  VALIDATOR_MIN_LENGTH,
+  VALIDATOR_MAX_LENGTH,
+  VALIDATOR_EMAIL,
+  VALIDATOR_PHONE
+} from "../../../utils/validators";
 
 type FormState = {
   inputs: {
@@ -17,10 +23,32 @@ type FormState = {
 };
 
 type FormAction = {
-  type: "INPUT_CHANGE";
-  inputId: string;
-  value: string;
-  isValid: boolean;
+  type: "INPUT_CHANGE" | "INPUT_RESET";
+  inputId?: string;
+  value?: string;
+  isValid?: boolean;
+};
+
+const defaultFormState = {
+  inputs: {
+    name: {
+      value: "",
+      isValid: false
+    },
+    email: {
+      value: "",
+      isValid: false
+    },
+    phone: {
+      value: "",
+      isValid: false
+    },
+    message: {
+      value: "",
+      isValid: false
+    }
+  },
+  isValid: false
 };
 
 const formReducer = (state: FormState, action: FormAction) => {
@@ -29,7 +57,7 @@ const formReducer = (state: FormState, action: FormAction) => {
       let formIsValid = true;
       for (const inputId in state.inputs) {
         if (inputId === action.inputId) {
-          formIsValid = formIsValid && action.isValid;
+          formIsValid = formIsValid! && action.isValid!;
         } else {
           formIsValid = formIsValid && state.inputs[inputId].isValid;
         }
@@ -38,37 +66,19 @@ const formReducer = (state: FormState, action: FormAction) => {
         ...state,
         inputs: {
           ...state.inputs,
-          [action.inputId]: { value: action.value, isValid: action.isValid }
+          [action.inputId!]: { value: action.value!, isValid: action.isValid! }
         },
         isValid: formIsValid
       };
+    case "INPUT_RESET":
+      return defaultFormState;
     default:
       return state;
   }
 };
 
 const Contact: React.FC = () => {
-  const [formState, dispatch] = useReducer<React.Reducer<FormState, FormAction>>(formReducer, {
-    inputs: {
-      name: {
-        value: "",
-        isValid: false
-      },
-      email: {
-        value: "",
-        isValid: false
-      },
-      tel: {
-        value: "",
-        isValid: false
-      },
-      message: {
-        value: "",
-        isValid: false
-      }
-    },
-    isValid: false
-  });
+  const [formState, dispatch] = useReducer<React.Reducer<FormState, FormAction>>(formReducer, defaultFormState);
 
   const inputHandler = useCallback((id: string, value: string, isValid: boolean) => {
     dispatch({ type: "INPUT_CHANGE", inputId: id, value: value, isValid: isValid });
@@ -77,7 +87,33 @@ const Contact: React.FC = () => {
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     // TODO: Add a frontend form validation. See issue #3.
-    console.log("FORM SUBMITTED", formState.inputs);
+
+    (async () => {
+      const response = await axios({
+        method: "POST",
+        url: "http://localhost:3001/send",
+        data: {
+          name: formState.inputs.name.value.trim(),
+          email: formState.inputs.email.value.trim(),
+          phone: formState.inputs.phone.value.trim(),
+          message: formState.inputs.message.value.trim().replace(/\r\n|\r|\n/g, "<br />")
+        }
+      });
+
+      if (response.status >= 200 && response.status < 300) {
+        // TODO: success handling (show a modal with a preview or something like that).
+        console.log("Message successfully sent.", response);
+        // TODO: reset the form after successfully submit.
+        resetFormHandler();
+      } else {
+        // TODO: Error handling.
+        console.log("Message failed to send.", response);
+      }
+    })();
+  };
+
+  const resetFormHandler = () => {
+    dispatch({ type: "INPUT_RESET" });
   };
 
   return (
@@ -97,7 +133,7 @@ const Contact: React.FC = () => {
         })}
       </section>
 
-      <form onSubmit={submitHandler}>
+      <form onSubmit={submitHandler} method="POST">
         <Input
           type="text"
           id="name"
@@ -115,18 +151,18 @@ const Contact: React.FC = () => {
           errorText="Bitte eine gültige E-Mail angeben, damit ich antworten kann."
         />
         <Input
-          type="tel"
-          id="tel"
+          type="phone"
+          id="phone"
           label="Deine Telefonnummer (optional)"
-          validators={[VALIDATOR_TEL()]}
+          validators={[VALIDATOR_PHONE()]}
           onInput={inputHandler}
           errorText="Bitte eine gültige Telefonnummer angeben oder komplett leer lassen."
         />
         <Input
           type="textarea"
           id="message"
-          label="Dein Begehren (Sollte ein Rückruf, anstatt einer Antwortmail gewünscht sein bitte mit angeben.)"
-          validators={[VALIDATOR_MIN_LENGTH(3), VALIDATOR_MAX_LENGTH(10240)]}
+          label="Dein Begehren (Sollte ein Rückruf, anstatt einer Antwortmail, gewünscht sein, dann bitte hier mit angeben.)"
+          validators={[VALIDATOR_MIN_LENGTH(30), VALIDATOR_MAX_LENGTH(10240)]}
           onInput={inputHandler}
           errorText="Ich brauche eine möglichst erklärende Nachricht von Dir, damit ich auch konkret darauf eingehen kann. Diese sollte aber nicht viel mehr als 10.000 Zeichen haben."
         />
