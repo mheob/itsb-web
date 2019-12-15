@@ -8,8 +8,6 @@ export class AppService {
   constructor(private readonly mailerService: MailerService) {}
 
   public sendMail(data: FormDto) {
-    console.log(data); // TODO: Remove console.log.
-
     const plainBody = `
       Du hast eine neue Anfrage erhalten!
 
