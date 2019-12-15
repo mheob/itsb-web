@@ -166,6 +166,9 @@ const Contact: React.FC = () => {
           onInput={inputHandler}
           errorText="Ich brauche eine möglichst erklärende Nachricht von Dir, damit ich auch konkret darauf eingehen kann. Diese sollte aber nicht viel mehr als 10.000 Zeichen haben."
         />
+        {
+          // TODO: Add a privacy checkbox!
+        }
         <input
           className="btn btn-primary-outline"
           type="submit"
