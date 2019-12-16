@@ -86,7 +86,6 @@ const Contact: React.FC = () => {
 
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // TODO: Add a frontend form validation. See issue #3.
 
     (async () => {
       const response = await axios({

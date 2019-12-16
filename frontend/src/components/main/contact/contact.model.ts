@@ -8,5 +8,6 @@ export interface ContactModel {
     href: string;
     title: string;
     text: string;
+    target?: string;
   };
 }
