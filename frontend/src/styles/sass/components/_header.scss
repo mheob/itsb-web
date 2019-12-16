@@ -25,9 +25,14 @@
     left: 0;
     color: rgba($white, 0.03);
     font-weight: 500;
-    font-size: 3.75rem;
-    line-height: 1.8;
+    font-size: 3rem;
+    line-height: 2;
     letter-spacing: 5px;
     text-transform: uppercase;
+
+    @include respond-to("s-up") {
+      font-size: 3.75rem;
+      line-height: 1.5;
+    }
   }
 }
