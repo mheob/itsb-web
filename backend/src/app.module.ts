@@ -17,7 +17,7 @@ import { auth } from './config/auth';
           },
         },
         defaults: {
-          from: '"Webmailer" <ab@its-boehm.de>',
+          from: '"Webmail über IT Service Böhm" <ab@its-boehm.de>',
         },
       }),
     }),
