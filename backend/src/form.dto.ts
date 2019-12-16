@@ -17,6 +17,8 @@ export class FormDto {
   @Matches(/(^$|^(\(?([\d -)–+/(]+){6,}\)?([ .-–/]?)([\d]+))$)/)
   readonly phone: string;
 
+  readonly privacy: string;
+
   @IsString()
   @MinLength(30)
   @MaxLength(10240)

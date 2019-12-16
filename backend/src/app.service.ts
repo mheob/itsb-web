@@ -16,6 +16,7 @@ export class AppService {
       Name: ${data.name}
       E-Mail: ${data.email}
       Telefon: ${data.phone}
+      Datenschutz akzeptiert: ${data.privacy}
 
       Nachricht:
       ----------
@@ -24,13 +25,14 @@ export class AppService {
 
     const htmlBody = `
       <p>Du hast eine neue Anfrage erhalten!</p>
-      <h3>Kontaktdaten</h3>
+      <h3>Kontaktdaten:</h3>
       <ul>
       <li>Name: ${data.name}</li>
       <li>E-Mail: ${data.email}</li>
       <li>Telefon: ${data.phone}</li>
+      <li>Datenschutz akzeptiert: ${data.privacy}</li>
       </ul>
-      <h3>Nachricht</h3>
+      <h3>Nachricht:</h3>
       <p>${data.message}</p>
     `;
 
