@@ -5,7 +5,7 @@ import Footer from "../shared/Footer";
 const Privacy: React.FC = () => {
   return (
     <>
-      <section className="privacy">
+      <section className="Privacy">
         <h1>Datenschutz</h1>
         <p>
           Wir informieren Sie nachfolgend gemäß den gesetzlichen Vorgaben des Datenschutzrechts (insb. gemäß BDSG n.F.

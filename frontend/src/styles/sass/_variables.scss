@@ -37,6 +37,6 @@ $layout-aside-xl: calc(100% - #{$layout-main-xl});
 
 $font-familie: "Quicksand", Arial, sans-serif;
 
-$transition-duration: 0.5s;
-$transition-duration-fast: 0.3s;
-$transition-duration-slow: 0.8s;
+$transition-duration: 500ms;
+$transition-duration-fast: 300ms;
+$transition-duration-slow: 800ms;

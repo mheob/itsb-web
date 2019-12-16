@@ -59,7 +59,8 @@ body {
   background: $primary;
 }
 
-a {
+a,
+.anchor {
   color: $primary;
   text-decoration: none;
   background-color: transparent;

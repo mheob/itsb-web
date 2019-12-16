@@ -79,9 +79,10 @@
     display: block;
     width: 100%;
     margin-top: 6rem;
-    text-align: right;
 
-    input:not([type="submit"]),
+    input[type="text"],
+    input[type="email"],
+    input[type="phone"],
     textarea {
       width: 100%;
       margin-bottom: 1.5rem;
@@ -112,7 +113,9 @@
       }
     }
 
-    input:not([type="submit"]) {
+    input[type="text"],
+    input[type="email"],
+    input[type="phone"] {
       height: 3rem;
     }
 
@@ -120,7 +123,70 @@
       height: 10rem;
     }
 
+    .privacy {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+
+      @include respond-to("s-up") {
+        flex-direction: row;
+        text-align: inherit;
+      }
+
+      input[type="checkbox"] {
+        $input-width: 2.2rem;
+        $input-radius: calc(#{$input-width} / 2);
+        $input-height: calc(#{$input-width} / 2);
+        $input-light-dims: calc(#{$input-height} / 2.5);
+        $input-bg-static: darken($white, 70%);
+
+        position: relative;
+        display: block;
+        width: $input-width;
+        height: $input-height;
+        margin: 0 auto 1rem;
+        background-color: $input-bg-static;
+        border-radius: $input-radius;
+        outline: none;
+        box-shadow: 0 0 0 3px darken($input-bg-static, 7.5%);
+        transition: background-color $transition-duration ease;
+        appearance: none;
+
+        @include respond-to("s-up") {
+          margin: 0.25rem 2rem 0;
+        }
+
+        &:before,
+        &:after {
+          position: absolute;
+          display: block;
+          border-radius: 100%;
+          transition: background-color $transition-duration ease,
+            transform $transition-duration ease;
+          content: "";
+        }
+
+        &:before {
+          width: calc(#{$input-width} / 2);
+          height: $input-height;
+          background-color: $danger;
+        }
+
+        &:checked {
+          &:before {
+            background-color: $primary;
+            transform: translateX(100%);
+          }
+        }
+      }
+
+      &__text {
+        margin-bottom: 1rem;
+      }
+    }
+
     input[type="submit"] {
+      display: block;
       width: 100%;
 
       @include respond-to("xs-up") {
