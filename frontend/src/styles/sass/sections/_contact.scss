@@ -11,6 +11,12 @@
     @include max-container;
   }
 
+  @include respond-to("xl-up") {
+    &::after {
+      left: -12.5rem;
+    }
+  }
+
   .details {
     display: flex;
     flex-wrap: wrap;
