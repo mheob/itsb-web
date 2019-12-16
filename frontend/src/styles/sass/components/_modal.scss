@@ -1,0 +1,56 @@
+.Modal {
+  position: fixed;
+  top: 22vh;
+  left: 10%;
+  z-index: 100;
+  width: 80%;
+  background: $white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+
+  @include respond-to("s-up") {
+    left: calc(50% - 20rem);
+    width: 40rem;
+  }
+
+  &__header {
+    width: 100%;
+    padding: 1rem 0.5rem;
+    color: $white;
+    background: #2a006e;
+  }
+
+  &__header h2 {
+    margin: 0.5rem;
+  }
+
+  &__content {
+    padding: 1rem 0.5rem;
+  }
+
+  &__footer {
+    padding: 1rem 0.5rem;
+  }
+
+  &-enter {
+    transform: translateY(-10rem);
+    opacity: 0;
+  }
+
+  &-enter-active {
+    transform: translateY(0);
+    opacity: 1;
+    transition: all $transition-duration-fast;
+  }
+
+  &-exit {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  &-exit-active {
+    transform: translateY(-10rem);
+    opacity: 0;
+    transition: all $transition-duration-fast;
+  }
+}
