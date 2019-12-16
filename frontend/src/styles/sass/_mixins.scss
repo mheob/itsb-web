@@ -41,3 +41,11 @@
   margin-right: auto;
   margin-left: auto;
 }
+
+@mixin retina($img-url) {
+  @media only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    background-image: url($img-url);
+  }
+}

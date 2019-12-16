@@ -40,6 +40,8 @@
     background-size: cover;
     background-attachment: fixed;
 
+    @include retina("../images/itsb-boehm-alexander-bg@2x.jpg");
+
     .overlay {
       position: absolute;
       z-index: 5;

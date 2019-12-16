@@ -5,6 +5,8 @@
   background-size: cover;
   background-attachment: fixed;
 
+  @include retina("../images/itsb-testimonials-bg@2x.jpg");
+
   .overlay {
     position: absolute;
     top: 0;

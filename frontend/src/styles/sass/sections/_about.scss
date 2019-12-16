@@ -40,6 +40,8 @@
           border-radius: 4px;
           transition: top $transition-duration-slow ease-in-out;
 
+          @include retina("../images/itsb-boehm-alexander-portrait@2x.jpg");
+
           &:hover {
             top: 50px;
           }
