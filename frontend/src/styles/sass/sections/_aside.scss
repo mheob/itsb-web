@@ -5,7 +5,9 @@
   bottom: 0;
   left: 0;
   z-index: 901;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: $layout-aside-xs;
   padding: 3rem;
   padding-left: 3em;
@@ -118,20 +120,10 @@
   }
 
   .footer {
-    position: relative;
-    right: 0;
-    bottom: 0;
     padding: 0;
     color: $white;
     font-weight: 400;
-    text-align: right;
-
-    @include respond-to("s-up") {
-      position: absolute;
-      right: 1.5em;
-      bottom: 40px;
-      padding: 0 20px;
-    }
+    text-align: center;
 
     p {
       font-size: 0.6rem;
