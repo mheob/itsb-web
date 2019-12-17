@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useMatomo } from "@datapunt/matomo-tracker-react";
 
 import Footer from "../shared/Footer";
 
 const Impress: React.FC = () => {
+  const { trackPageView } = useMatomo();
+
+  useEffect(() => {
+    if (!window._paq) {
+      window._paq.push(["disableCookies"]);
+    }
+    trackPageView({});
+  }, [trackPageView]);
+
   return (
     <>
       <section className="impress">

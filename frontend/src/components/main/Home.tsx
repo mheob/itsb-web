@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useMatomo } from "@datapunt/matomo-tracker-react";
 
 import Hero from "./hero/Hero";
 import About from "./about/About";
@@ -9,6 +10,15 @@ import Contact from "./contact/Contact";
 import Footer from "../shared/Footer";
 
 const Home: React.FC = () => {
+  const { trackPageView } = useMatomo();
+
+  useEffect(() => {
+    if (!window._paq) {
+      window._paq.push(["disableCookies"]);
+    }
+    trackPageView({});
+  }, [trackPageView]);
+
   return (
     <>
       <Hero />
