@@ -43,8 +43,9 @@
     margin-bottom: 1rem;
     text-align: right;
 
-    @include respond-to("s-up") {
-      margin-bottom: 3em;
+    a {
+      text-indent: 99999rem;
+      background-position-x: right;
     }
   }
 

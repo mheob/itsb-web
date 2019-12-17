@@ -1,6 +1,6 @@
 $black: #000 !default;
 $white: #fff !default;
-$primary: #00ebab !default;
+$primary: #2d8a25 !default;
 $background: #0d0d0d !default;
 $background-dark: #070707 !default;
 $danger: #bb0000 !default;
@@ -21,22 +21,22 @@ $breakpoints: (
   "xl-up": (
     min-width: 1600px
   )
-);
+) !default;
 
-$layout-main-xs: 270px;
-$layout-main-s: 70%;
-$layout-main-m: 75%;
-$layout-main-l: 80%;
-$layout-main-xl: 85%;
+$layout-main-xs: 270px !default;
+$layout-main-s: 70% !default;
+$layout-main-m: 75% !default;
+$layout-main-l: 80% !default;
+$layout-main-xl: 85% !default;
 
-$layout-aside-xs: $layout-main-xs;
-$layout-aside-s: calc(100% - #{$layout-main-s});
-$layout-aside-m: calc(100% - #{$layout-main-m});
-$layout-aside-l: calc(100% - #{$layout-main-l});
-$layout-aside-xl: calc(100% - #{$layout-main-xl});
+$layout-aside-xs: $layout-main-xs !default;
+$layout-aside-s: calc(100% - #{$layout-main-s}) !default;
+$layout-aside-m: calc(100% - #{$layout-main-m}) !default;
+$layout-aside-l: calc(100% - #{$layout-main-l}) !default;
+$layout-aside-xl: calc(100% - #{$layout-main-xl}) !default;
 
-$font-familie: "Quicksand", Arial, sans-serif;
+$font-familie: "Quicksand", Arial, sans-serif !default;
 
-$transition-duration: 500ms;
-$transition-duration-fast: 300ms;
-$transition-duration-slow: 800ms;
+$transition-duration: 500ms !default;
+$transition-duration-fast: 300ms !default;
+$transition-duration-slow: 800ms !default;

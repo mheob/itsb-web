@@ -1,16 +1,13 @@
 .logo {
   display: block;
   width: 100%;
-  font-size: 1.375rem;
+  font-size: 3rem;
   text-transform: uppercase;
 
   a {
     display: inline-block;
-    padding: 0.5rem 1.3rem;
-    padding-right: 0.8rem;
-    color: $primary;
-    letter-spacing: 0.625rem;
-    text-align: center;
-    border: 2px solid $primary;
+    width: 100%;
+    text-indent: -99999rem;
+    background: url(../images/its-boehm-logo.svg) no-repeat center;
   }
 }

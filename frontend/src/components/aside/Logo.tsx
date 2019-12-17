@@ -1,10 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import { removeBodyClassHandler } from "../../utils/domHandler";
+
 const Logo: React.FC = () => {
+  const clickHandler = () => {
+    removeBodyClassHandler("offcanvas");
+  };
+
   return (
     <h1 className="logo">
-      <Link to="/">ITSB</Link>
+      <Link to="/" onClick={clickHandler}>
+        ITSB
+      </Link>
     </h1>
   );
 };
