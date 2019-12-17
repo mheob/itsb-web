@@ -8,7 +8,6 @@ import {
 
 import { SocialModel } from "./social.model";
 
-// TODO: Correct the social links array. See issue #5.
 export const socialData: SocialModel = {
   links: [
     {
