@@ -1,3 +1,10 @@
+# The Homepage of the IT Service Böhm
+
+You want to help?
+Open a [issue](https://github.com/ITS-Boehm/itsb-web/issues/new) or create a [pill request](https://github.com/ITS-Boehm/itsb-web/compare).
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
