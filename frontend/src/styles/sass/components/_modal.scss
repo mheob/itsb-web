@@ -24,11 +24,10 @@
     width: 100%;
     padding: 1rem 0.5rem;
     background: $primary;
-  }
 
-  &__header h2 {
-    margin: 0.5rem;
-    color: $black;
+    h2 {
+      margin: 0.5rem;
+    }
   }
 
   &__content {
@@ -45,22 +44,41 @@
   &-enter {
     transform: translateY(-10rem);
     opacity: 0;
-  }
 
-  &-enter-active {
-    transform: translateY(0);
-    opacity: 1;
-    transition: all $transition-duration-fast;
+    &-active {
+      transform: translateY(0);
+      opacity: 1;
+      transition: all $transition-duration-fast;
+    }
   }
 
   &-exit {
     transform: translateY(0);
     opacity: 1;
+
+    &-active {
+      transform: translateY(-10rem);
+      opacity: 0;
+      transition: all $transition-duration-fast;
+    }
   }
 
-  &-exit-active {
-    transform: translateY(-10rem);
-    opacity: 0;
-    transition: all $transition-duration-fast;
+  .response-modal {
+    h4 {
+      margin-bottom: 1.5rem;
+    }
+
+    ul {
+      margin: 1.5rem 0;
+      padding-left: 1rem;
+    }
+
+    li {
+      list-style-type: none;
+    }
+
+    svg {
+      margin-right: 0.5rem;
+    }
   }
 }

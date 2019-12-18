@@ -1,21 +1,34 @@
-import React, { useCallback, useReducer, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useCallback, useReducer, useState, useRef } from "react";
 import axios from "axios";
 
+import PrivacyModal from "./PrivacyModal";
+import ResponseModal from "./ResponseModal";
 import Input from "../../shared/Input";
-import Modal from "../../shared/Modal";
 import {
   VALIDATOR_MIN_LENGTH,
   VALIDATOR_MAX_LENGTH,
   VALIDATOR_EMAIL,
   VALIDATOR_PHONE
 } from "../../../utils/validators";
+import Spinner from "../../shared/Spinner";
 
 type AcceptPrivacyState = boolean;
-
 type ShowPrivacyState = boolean;
+type SendingState = boolean;
 
-type FormState = {
+interface ResponseState {
+  showModal: boolean;
+  type: "SUCCESS" | "ERROR";
+  mailData: {
+    name: string;
+    email: string;
+    phone: string;
+    privacy: string;
+    message: string;
+  };
+}
+
+interface FormState {
   inputs: {
     [prop: string]: {
       value: string;
@@ -23,14 +36,14 @@ type FormState = {
     };
   };
   isValid: boolean;
-};
+}
 
-type FormAction = {
-  type: "INPUT_CHANGE" | "INPUT_RESET";
+interface FormAction {
+  type: "INPUT_CHANGE";
   inputId?: string;
   value?: string;
   isValid?: boolean;
-};
+}
 
 const defaultFormState = {
   inputs: {
@@ -54,6 +67,14 @@ const defaultFormState = {
   isValid: false
 };
 
+const defaultMailData = {
+  name: "",
+  email: "",
+  phone: "",
+  privacy: "",
+  message: ""
+};
+
 const formReducer = (state: FormState, action: FormAction) => {
   switch (action.type) {
     case "INPUT_CHANGE":
@@ -73,16 +94,21 @@ const formReducer = (state: FormState, action: FormAction) => {
         },
         isValid: formIsValid
       };
-    case "INPUT_RESET":
-      return defaultFormState;
     default:
       return state;
   }
 };
 
 const ContactForm: React.FC = () => {
+  const form = useRef<HTMLFormElement>(null);
   const [acceptPrivacyState, setAcceptPrivacyState] = useState<AcceptPrivacyState>(false);
   const [showPrivacyState, setShowPrivacyState] = useState<ShowPrivacyState>(false);
+  const [sendingState, setSendingState] = useState<SendingState>(false);
+  const [responseState, setResponseState] = useState<ResponseState>({
+    showModal: false,
+    type: "SUCCESS",
+    mailData: defaultMailData
+  });
   const [formState, dispatch] = useReducer<React.Reducer<FormState, FormAction>>(formReducer, defaultFormState);
 
   const inputHandler = useCallback((id: string, value: string, isValid: boolean) => {
@@ -92,33 +118,43 @@ const ContactForm: React.FC = () => {
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    (async () => {
-      const response = await axios({
-        method: "POST",
-        url: "http://localhost:3001/send",
-        data: {
-          name: formState.inputs.name.value.trim(),
-          email: formState.inputs.email.value.trim(),
-          phone: formState.inputs.phone.value.trim(),
-          privacy: acceptPrivacyState ? "akzeptiert" : "widersprochen",
-          message: formState.inputs.message.value.trim().replace(/\r\n|\r|\n/g, "<br />")
-        }
-      });
+    const mailData = {
+      name: formState.inputs.name.value.trim(),
+      email: formState.inputs.email.value.trim(),
+      phone: formState.inputs.phone.value.trim(),
+      privacy: acceptPrivacyState ? "akzeptiert" : "widersprochen",
+      message: formState.inputs.message.value.trim().replace(/\r\n|\r|\n/g, "<br />")
+    };
 
-      if (response.status >= 200 && response.status < 300) {
-        // TODO: success handling (show a modal with a preview or something like that).
-        console.log("Message successfully sent.", response);
+    (async () => {
+      try {
+        setSendingState(true);
+        await axios({
+          method: "POST",
+          url: "http://localhost:3001/send",
+          data: mailData
+        });
+
+        setSendingState(false);
+
+        setResponseState({
+          showModal: true,
+          type: "SUCCESS",
+          mailData: mailData
+        });
+
         // TODO: reset the form after successfully submit.
-        resetFormHandler();
-      } else {
-        // TODO: Error handling.
-        console.log("Message failed to send.", response);
+        form.current?.reset();
+      } catch (error) {
+        setSendingState(false);
+
+        setResponseState({
+          showModal: true,
+          type: "ERROR",
+          mailData: mailData
+        });
       }
     })();
-  };
-
-  const resetFormHandler = () => {
-    dispatch({ type: "INPUT_RESET" });
   };
 
   const privacyHandler = () => {
@@ -133,82 +169,74 @@ const ContactForm: React.FC = () => {
     setShowPrivacyState(false);
   };
 
+  const closeResponseModalHandler = () => {
+    setResponseState({ showModal: false, type: responseState.type, mailData: responseState.mailData });
+  };
+
+  const handleReset = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    form.current?.reset();
+  };
+
   return (
-    <>
-      <Modal show={showPrivacyState} onCancel={closePrivacyHandler} header="Bestimmungen zur Nutzung Deiner Daten">
-        <p>
-          Wenn Du die im Kontaktformular eingegebenen Daten durch Klick auf den Button "In Kontakt treten" übersendest,
-          erklärst Du dich damit einverstanden, dass ich Deine Angaben für die Beantwortung Deiner Anfrage bzw.
-          Kontaktaufnahme verwende.
-        </p>
-        <p>
-          Eine Weitergabe an Dritte findet grundsätzlich nicht statt, es sei denn geltende Datenschutzvorschriften
-          rechtfertigen eine Übertragung oder ich dazu gesetzlich verpflichtet bin.
-        </p>
-        <p>
-          Du kannst Deine erteilte Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen. Im Falle des Widerrufs
-          werden Deine Daten umgehend gelöscht. Deine Daten werden ansonsten ebenfalls gelöscht, wenn ich Deine Anfrage
-          bearbeitet habe oder der Zweck der Speicherung entfallen ist. Du kannst Dich jederzeit über die Deiner Person
-          gespeicherten Daten informieren. Weitere Informationen zum Datenschutz finden Du auch in der{" "}
-          <Link to="/datenschutz">Datenschutzerklärung</Link> dieser Webseite.
-        </p>
-      </Modal>
-      <form onSubmit={submitHandler} method="POST">
-        <Input
-          type="text"
-          id="name"
-          label="Dein Name"
-          validators={[VALIDATOR_MIN_LENGTH(3), VALIDATOR_MAX_LENGTH(128)]}
-          onInput={inputHandler}
-          errorText="Bitte einen Namen angeben unter dem ich Dich ansprechen kann."
-        />
-
-        <Input
-          type="email"
-          id="email"
-          label="Deine E-Mail-Adresse"
-          validators={[VALIDATOR_EMAIL()]}
-          onInput={inputHandler}
-          errorText="Bitte eine gültige E-Mail angeben, damit ich antworten kann."
-        />
-
-        <Input
-          type="phone"
-          id="phone"
-          label="Deine Telefonnummer (optional)"
-          validators={[VALIDATOR_PHONE()]}
-          onInput={inputHandler}
-          errorText="Bitte eine gültige Telefonnummer angeben oder komplett leer lassen."
-        />
-
-        <Input
-          type="textarea"
-          id="message"
-          label="Dein Begehren (Sollte ein Rückruf, anstatt einer Antwortmail, gewünscht sein, dann bitte hier mit angeben.)"
-          validators={[VALIDATOR_MIN_LENGTH(30), VALIDATOR_MAX_LENGTH(10240)]}
-          onInput={inputHandler}
-          errorText="Ich brauche eine möglichst erklärende Nachricht von Dir, damit ich auch konkret darauf eingehen kann. Diese sollte aber nicht viel mehr als 10.000 Zeichen haben."
-        />
-
-        <div className="privacy">
-          <input type="checkbox" id="privacy" name="privacy" onChange={privacyHandler} />
-          <div className="privacy__text">
-            Ich bin mit der Verwendung meiner Daten gemäß der{" "}
-            <span className="anchor" onClick={openPrivacyHandler}>
-              Datenschutzbestimmungen
-            </span>{" "}
-            ausdrücklich einverstanden.
-          </div>
+    <form ref={form} onSubmit={submitHandler} method="POST" onReset={handleReset}>
+      {sendingState && <Spinner preload={sendingState} />}
+      <Input
+        type="text"
+        id="name"
+        label="Dein Name"
+        validators={[VALIDATOR_MIN_LENGTH(3), VALIDATOR_MAX_LENGTH(128)]}
+        onInput={inputHandler}
+        errorText="Bitte einen Namen angeben unter dem ich Dich ansprechen kann."
+      />
+      <Input
+        type="email"
+        id="email"
+        label="Deine E-Mail-Adresse"
+        validators={[VALIDATOR_EMAIL()]}
+        onInput={inputHandler}
+        errorText="Bitte eine gültige E-Mail angeben, damit ich antworten kann."
+      />
+      <Input
+        type="phone"
+        id="phone"
+        label="Deine Telefonnummer (optional)"
+        validators={[VALIDATOR_PHONE()]}
+        onInput={inputHandler}
+        errorText="Bitte eine gültige Telefonnummer angeben oder komplett leer lassen."
+      />
+      <Input
+        type="textarea"
+        id="message"
+        label="Dein Begehren (Sollte ein Rückruf, anstatt einer Antwortmail, gewünscht sein, dann bitte hier mit angeben.)"
+        validators={[VALIDATOR_MIN_LENGTH(30), VALIDATOR_MAX_LENGTH(10240)]}
+        onInput={inputHandler}
+        errorText="Ich brauche eine möglichst erklärende Nachricht von Dir, damit ich auch konkret darauf eingehen kann. Diese sollte aber nicht viel mehr als 10.000 Zeichen haben."
+      />
+      <div className="privacy">
+        <input type="checkbox" id="privacy" name="privacy" onChange={privacyHandler} />
+        <div className="privacy__text">
+          Ich bin mit der Verwendung meiner Daten gemäß der{" "}
+          <span className="anchor" onClick={openPrivacyHandler}>
+            Datenschutzbestimmungen
+          </span>{" "}
+          ausdrücklich einverstanden.
         </div>
-
-        <input
-          className="btn btn-primary-outline"
-          type="submit"
-          value="In Kontakt treten"
-          disabled={!formState.isValid || !acceptPrivacyState}
-        />
-      </form>
-    </>
+      </div>
+      <PrivacyModal show={showPrivacyState} onCancel={closePrivacyHandler} />
+      <ResponseModal
+        show={responseState.showModal}
+        onCancel={closeResponseModalHandler}
+        type={responseState.type}
+        mailData={responseState.mailData}
+      />
+      <input
+        className="btn btn-primary-outline"
+        type="submit"
+        value="In Kontakt treten"
+        disabled={!formState.isValid || !acceptPrivacyState}
+      />
+    </form>
   );
 };
 

@@ -9,7 +9,7 @@ const Social: React.FC<SocialModel> = links => {
       {links.links.map((links, index) => {
         return (
           <li key={index}>
-            <a href={links.href} title={links.title} target="_blank">
+            <a href={links.href} title={links.title} target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={links.icon} />
             </a>
           </li>

@@ -188,6 +188,7 @@
     input[type="submit"] {
       display: block;
       width: 100%;
+      cursor: pointer;
 
       @include respond-to("xs-up") {
         width: auto;
@@ -198,6 +199,7 @@
         color: rgba($white, 0.3);
         background-color: transparent;
         border: 1px solid rgba($white, 0.3);
+        cursor: default;
       }
     }
   }
