@@ -8,7 +8,7 @@ node_modules/
 .npm
 
 # Credentials
-backend/config/*
+backend/src/config/*
 
 # Builds
 backend/build/*
