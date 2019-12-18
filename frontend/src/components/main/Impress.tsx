@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useMatomo } from "@datapunt/matomo-tracker-react";
 
+import Seo from "../shared/Seo";
 import Footer from "../shared/Footer";
 
 const Impress: React.FC = () => {
@@ -15,6 +16,13 @@ const Impress: React.FC = () => {
 
   return (
     <>
+      <Seo
+        title="Impressum >> IT Service Böhm >> Dein Partner rund ums Web aus Neuwied"
+        description="IT Service Böhm >> Alexander Böhm aus Neuwied stellt sich und seine Arbeit rund um Web Design, SEO und Web Development vor."
+        url="https://its-boehm.de/impressum"
+        og={{ image: "https://its-boehm.de/images/itsb-boehm-alexander-portrait.jpg", type: "website" }}
+        noIndex
+      />
       <section className="impress">
         <h1>Impressum</h1>
         <div className="row">

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useMatomo } from "@datapunt/matomo-tracker-react";
 
+import Seo from "../shared/Seo";
 import Footer from "../shared/Footer";
 
 const Privacy: React.FC = () => {
@@ -15,6 +16,13 @@ const Privacy: React.FC = () => {
 
   return (
     <>
+      <Seo
+        title="Datenschutz >> IT Service Böhm >> Dein Partner rund ums Web aus Neuwied"
+        description="IT Service Böhm >> Alexander Böhm aus Neuwied stellt sich und seine Arbeit rund um Web Design, SEO und Web Development vor."
+        url="https://its-boehm.de/datenschutz"
+        og={{ image: "https://its-boehm.de/images/itsb-boehm-alexander-portrait.jpg", type: "website" }}
+        noIndex
+      />
       <section className="Privacy">
         <h1>Datenschutz</h1>
         <p>
