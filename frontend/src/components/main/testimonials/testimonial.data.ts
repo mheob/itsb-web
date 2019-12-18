@@ -3,7 +3,7 @@ import { TestimonialModel } from "./testimonial.model";
 export const testimonialData: TestimonialModel[] = [
   {
     quote:
-      "Bei uns im Verein hatte keine eine Ahnung von Webseiten oder auch Computer im Allgemeinen. Wir sind froh den Alex in unseren Reihen zu wissen.",
+      "Bei uns im Verein hatte keiner eine Ahnung von Webseiten oder auch Computer im Allgemeinen. Wir sind froh den Alex in unseren Reihen zu wissen.",
     name: "Frank Driesch",
     company: "Vorsitzender, TSG Irlich",
     imgSource: "itsb-boehm-driesch-frank.jpg"
