@@ -1,6 +1,5 @@
 {
   "prettier.printWidth": 120,
-  "eslint.autoFixOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   }
