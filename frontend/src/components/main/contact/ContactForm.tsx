@@ -1,5 +1,4 @@
 import React, { useCallback, useReducer, useState, useRef } from "react";
-import axios from "axios";
 
 import PrivacyModal from "./PrivacyModal";
 import ResponseModal from "./ResponseModal";
@@ -20,6 +19,18 @@ interface ResponseState {
   showModal: boolean;
   type: "SUCCESS" | "ERROR";
   mailData: {
+    name: string;
+    email: string;
+    phone: string;
+    privacy: string;
+    message: string;
+  };
+  errorMsg?: string;
+}
+
+interface ResponseData {
+  message: string;
+  createdContact: {
     name: string;
     email: string;
     phone: string;
@@ -115,46 +126,48 @@ const ContactForm: React.FC = () => {
     dispatch({ type: "INPUT_CHANGE", inputId: id, value: value, isValid: isValid });
   }, []);
 
-  const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
+  const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const mailData = {
-      name: formState.inputs.name.value.trim(),
-      email: formState.inputs.email.value.trim(),
-      phone: formState.inputs.phone.value.trim(),
-      privacy: acceptPrivacyState ? "akzeptiert" : "widersprochen",
-      message: formState.inputs.message.value.trim().replace(/\r\n|\r|\n/g, "<br />")
-    };
+    setSendingState(true);
 
-    (async () => {
-      try {
-        setSendingState(true);
-        await axios({
-          method: "POST",
-          url: "http://localhost:3001/send",
-          data: mailData
-        });
+    let response: Response;
+    let responseData: ResponseData = { message: "", createdContact: defaultMailData };
+    try {
+      response = await fetch("http://localhost:3991/contact/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name: formState.inputs.name.value.trim(),
+          email: formState.inputs.email.value.trim(),
+          phone: formState.inputs.phone.value.trim(),
+          privacy: acceptPrivacyState ? "akzeptiert" : "widersprochen",
+          message: formState.inputs.message.value.trim().replace(/\r\n|\r|\n/g, "<br />")
+        })
+      });
 
-        setSendingState(false);
+      responseData = await response.json();
 
-        setResponseState({
-          showModal: true,
-          type: "SUCCESS",
-          mailData: mailData
-        });
+      setResponseState({
+        showModal: true,
+        type: "SUCCESS",
+        mailData: responseData.createdContact
+      });
 
-        // TODO: reset the form after successfully submit.
-        form.current?.reset();
-      } catch (error) {
-        setSendingState(false);
+      // TODO: reset the form after successfully submit.
+      form.current?.reset();
+    } catch (error) {
+      setResponseState({
+        showModal: true,
+        type: "ERROR",
+        mailData: responseData.createdContact,
+        errorMsg: responseData.message
+      });
+    }
 
-        setResponseState({
-          showModal: true,
-          type: "ERROR",
-          mailData: mailData
-        });
-      }
-    })();
+    setSendingState(false);
   };
 
   const privacyHandler = () => {
