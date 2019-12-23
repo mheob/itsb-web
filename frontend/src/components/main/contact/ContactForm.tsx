@@ -134,7 +134,8 @@ const ContactForm: React.FC = () => {
     let response: Response;
     let responseData: ResponseData = { message: "", createdContact: defaultMailData };
     try {
-      response = await fetch("http://localhost:3991/contact/send", {
+      // response = await fetch("http://localhost:3991/contact/send", {
+      response = await fetch("https://api.its-boehm.de/contact/send", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
