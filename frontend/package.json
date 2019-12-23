@@ -19,9 +19,9 @@
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
     "@fortawesome/react-fontawesome": "^0.1.8",
     "animate.css": "^3.7.2",
-    "nuka-carousel": "^4.5.13",
+    "nuka-carousel": "^4.6.0",
     "react": "^16.12.0",
-    "react-countup": "^4.3.0",
+    "react-countup": "^4.3.1",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "react-router-dom": "^5.1.2",
@@ -33,10 +33,10 @@
     "react-waypoint": "^9.0.2"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.23",
-    "@types/node": "^12.12.18",
+    "@types/jest": "^24.0.24",
+    "@types/node": "^12.12.21",
     "@types/node-sass": "^4.11.0",
-    "@types/react": "^16.9.16",
+    "@types/react": "^16.9.17",
     "@types/react-count-to": "^0.12.0",
     "@types/react-dom": "^16.9.4",
     "@types/react-helmet": "^5.0.14",
@@ -44,7 +44,7 @@
     "@types/react-router-hash-link": "^1.2.1",
     "@types/react-scrollspy": "^3.3.2",
     "@types/react-transition-group": "^4.2.3",
-    "eslint": "^6.7.2",
+    "eslint": "^6.8.0",
     "eslint-config-semistandard": "^15.0.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-react": "^7.17.0",
@@ -60,7 +60,7 @@
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-order": "^3.1.1",
     "stylelint-prettier": "^1.1.2",
-    "typescript": "^3.7.3"
+    "typescript": "^3.7.4"
   },
   "eslintConfig": {
     "extends": "react-app"
