@@ -16,6 +16,7 @@ interface ResponseModalProps {
     privacy: string;
     message: string;
   };
+  errorMsg?: string;
 }
 
 const ResponseModal: React.FC<ResponseModalProps> = props => {
@@ -87,8 +88,11 @@ const ResponseModal: React.FC<ResponseModalProps> = props => {
           <p>
             Bitte entschuldige diesen Umstand!
             <br />
-            Zudem wäre es nett, wenn du mir diesen Fehler hier mitteilen würdest, damit ich Gegenmaßnahmen ergreifen
+            Zudem wäre es nett, wenn Du mir diesen Fehler hier mitteilen würdest, damit ich Gegenmaßnahmen ergreifen
             kann. Vielen Dank!
+          </p>
+          <p>
+            <pre>{props.errorMsg}</pre>
           </p>
         </>
       )}
