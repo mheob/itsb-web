@@ -1,4 +1,6 @@
+import { LinkType } from "../../shared/ContactLink";
+
 export interface ContactModel {
-  title: string;
-  content: string | { href: string; title: string; text: string };
+  definition: string;
+  content: string | { type: LinkType; href: string; title: string };
 }
