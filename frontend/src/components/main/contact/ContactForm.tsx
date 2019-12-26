@@ -11,10 +11,6 @@ import {
 } from "../../../utils/validators";
 import Spinner from "../../shared/Spinner";
 
-type AcceptPrivacyState = boolean;
-type ShowPrivacyState = boolean;
-type SendingState = boolean;
-
 interface ResponseState {
   showModal: boolean;
   type: "SUCCESS" | "ERROR";
@@ -112,9 +108,9 @@ const formReducer = (state: FormState, action: FormAction) => {
 
 const ContactForm: React.FC = () => {
   const form = useRef<HTMLFormElement>(null);
-  const [acceptPrivacyState, setAcceptPrivacyState] = useState<AcceptPrivacyState>(false);
-  const [showPrivacyState, setShowPrivacyState] = useState<ShowPrivacyState>(false);
-  const [sendingState, setSendingState] = useState<SendingState>(false);
+  const [acceptPrivacyState, setAcceptPrivacyState] = useState(false);
+  const [showPrivacyState, setShowPrivacyState] = useState(false);
+  const [sendingState, setSendingState] = useState(false);
   const [responseState, setResponseState] = useState<ResponseState>({
     showModal: false,
     type: "SUCCESS",
