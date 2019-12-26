@@ -221,7 +221,7 @@ const ContactForm: React.FC = () => {
         label="Dein Begehren (Sollte ein Rückruf, anstatt einer Antwortmail, gewünscht sein, dann bitte hier mit angeben.)"
         validators={[VALIDATOR_MIN_LENGTH(30), VALIDATOR_MAX_LENGTH(10240)]}
         onInput={inputHandler}
-        errorText="Ich brauche eine möglichst erklärende Nachricht von Dir, damit ich auch konkret darauf eingehen kann. Diese sollte aber nicht viel mehr als 10.000 Zeichen haben."
+        errorText="Ich brauche eine möglichst erklärende Nachricht von Dir, damit ich auch konkret darauf eingehen kann. Diese sollte mindestens 30, aber nicht viel mehr als 10.000 Zeichen, haben."
       />
       <div className="privacy">
         <input type="checkbox" id="privacy" name="privacy" onChange={privacyHandler} />

@@ -73,29 +73,32 @@ const Input: React.FC<InputProps> = props => {
     }
   };
 
-  return props.type === "textarea" ? (
-    <textarea
-      className={inputState.isTouched && !inputState.isValid ? "error" : ""}
-      name={props.id}
-      id={props.id}
-      placeholder={props.label}
-      onChange={changeHandler}
-      onBlur={touchHandler}
-      value={inputState.value}
-      title={inputState.isTouched && !inputState.isValid ? props.errorText : ""}
-    />
-  ) : (
-    <input
-      className={inputState.isTouched && !inputState.isValid ? "error" : ""}
-      type={props.type}
-      name={props.id}
-      id={props.id}
-      placeholder={props.label}
-      onChange={changeHandler}
-      onBlur={touchHandler}
-      value={inputState.value}
-      title={inputState.isTouched && !inputState.isValid ? props.errorText : ""}
-    />
+  return (
+    <>
+      {props.type === "textarea" ? (
+        <textarea
+          className={inputState.isTouched && !inputState.isValid ? "error" : ""}
+          name={props.id}
+          id={props.id}
+          placeholder={props.label}
+          onChange={changeHandler}
+          onBlur={touchHandler}
+          value={inputState.value}
+        />
+      ) : (
+        <input
+          className={inputState.isTouched && !inputState.isValid ? "error" : ""}
+          type={props.type}
+          name={props.id}
+          id={props.id}
+          placeholder={props.label}
+          onChange={changeHandler}
+          onBlur={touchHandler}
+          value={inputState.value}
+        />
+      )}
+      {inputState.isTouched && !inputState.isValid && <div className="error-message">{props.errorText}</div>}
+    </>
   );
 };
 
