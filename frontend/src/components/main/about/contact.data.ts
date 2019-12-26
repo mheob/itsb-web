@@ -1,25 +1,26 @@
 import { ContactModel } from "./contact.model";
+import { LinkType } from "../../shared/ContactLink";
 import { age } from "../../../utils/calculations";
 
 export const contactData: ContactModel[] = [
-  { title: "Name", content: "Alexander Böhm" },
-  { title: "Alter", content: age(new Date(1982, 9, 21)).toString() },
+  { definition: "Name", content: "Alexander Böhm" },
+  { definition: "Alter", content: age(new Date(1982, 9, 21)).toString() },
   {
-    title: "E-Mail",
+    definition: "E-Mail",
     content: {
-      href: "mailto:ab@its-boehm.de",
-      title: "Schreib mir per E-Mail",
-      text: "ab@its-boehm.de"
+      type: LinkType.EMAIL,
+      href: "ab@its-boehm.de",
+      title: "Schreib mir per E-Mail"
     }
   },
   {
-    title: "Telefon",
+    definition: "Telefon",
     content: {
-      href: "tel:+491608206654",
-      title: "Ruf mich einfach an",
-      text: "+49 160 8206654"
+      type: LinkType.PHONE,
+      href: "+49 160 8206654",
+      title: "Ruf mich einfach an"
     }
   },
-  { title: "Job", content: "Freelancer" },
-  { title: "Standort", content: "Neuwied, RLP" }
+  { definition: "Job", content: "Freelancer" },
+  { definition: "Standort", content: "Neuwied, RLP" }
 ];

@@ -1,21 +1,20 @@
 import React from "react";
 
 import { contactData } from "./contact.data";
+import ContactLink from "../../shared/ContactLink";
 
 const Contact: React.FC = () => {
   return (
     <section className="contact">
-      {contactData.map(({ title, content }, index) => {
+      {contactData.map(({ definition, content }, index) => {
         return (
           <div key={index} className="info">
-            <span>{title}:</span>
+            <span>{definition}:</span>
             <span>
               {typeof content === "string" ? (
                 content
               ) : (
-                <a href={content.href} title={content.title}>
-                  {content.text}
-                </a>
+                <ContactLink type={content.type} href={content.href} title={content.title} />
               )}
             </span>
           </div>

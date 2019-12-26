@@ -1,5 +1,7 @@
 import { IconDefinition } from "@fortawesome/free-regular-svg-icons";
 
+import { LinkType } from "../../shared/ContactLink";
+
 export interface ContactModel {
   icon: IconDefinition;
   header: string;
@@ -9,5 +11,6 @@ export interface ContactModel {
     title: string;
     text: string;
     target?: string;
+    type?: LinkType;
   };
 }
