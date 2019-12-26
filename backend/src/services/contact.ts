@@ -1,8 +1,7 @@
-import nodemailer, { SentMessageInfo } from "nodemailer";
+import nodemailer from "nodemailer";
 
 import { auth } from "../config/auth";
 import { Contact } from "../models/contact";
-import { HttpError } from "../models/http-error";
 
 export const sendMail = async (data: Contact) => {
   const transporter = nodemailer.createTransport(
@@ -18,8 +17,10 @@ export const sendMail = async (data: Contact) => {
     }
   );
 
+  // TODO: Add impress to the mail body (see #33).
+
   const plainBody = `
-    Du hast eine neue Anfrage erhalten!
+    Vielen Dank für Deine Nachricht! Ich werde mich zeitnah bei Dir melden.
 
     Kontaktdaten:
     -------------
@@ -34,7 +35,7 @@ export const sendMail = async (data: Contact) => {
   `;
 
   const htmlBody = `
-    <p>Du hast eine neue Anfrage erhalten!</p>
+    <p>Vielen Dank für Deine Nachricht! Ich werde mich zeitnah bei Dir melden.</p>
     <h3>Kontaktdaten:</h3>
     <ul>
       <li>Name: ${data.name}</li>
@@ -48,7 +49,7 @@ export const sendMail = async (data: Contact) => {
 
   await transporter.sendMail({
     to: "ab@its-boehm.de",
-    cc: data.email,
+    cc: data.sendCopy ? data.email : "",
     subject: "Anfrage über www.its-boehm.de",
     text: plainBody,
     html: htmlBody

@@ -13,13 +13,13 @@ export const handleData: RequestHandler = async (req, res, next) => {
     throw new HttpError("Invalid inputs passed, please check your data.", 422);
   }
 
-  const requestBody = req.body as { name: string; email: string; phone: string; privacy: string; message: string };
   const newContact = new Contact(
-    requestBody.name,
-    requestBody.email,
-    requestBody.phone,
-    requestBody.privacy,
-    requestBody.message
+    req.body.name as string,
+    req.body.email as string,
+    req.body.phone as string,
+    req.body.sendCopy as boolean,
+    req.body.privacy as string,
+    req.body.message as string
   );
 
   try {

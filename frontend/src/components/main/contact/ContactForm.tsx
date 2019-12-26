@@ -108,6 +108,7 @@ const formReducer = (state: FormState, action: FormAction) => {
 
 const ContactForm: React.FC = () => {
   const form = useRef<HTMLFormElement>(null);
+  const [sendCopyState, setSendCopyState] = useState(true);
   const [acceptPrivacyState, setAcceptPrivacyState] = useState(false);
   const [showPrivacyState, setShowPrivacyState] = useState(false);
   const [sendingState, setSendingState] = useState(false);
@@ -140,6 +141,7 @@ const ContactForm: React.FC = () => {
           name: formState.inputs.name.value.trim(),
           email: formState.inputs.email.value.trim(),
           phone: formState.inputs.phone.value.trim(),
+          sendCopy: sendCopyState,
           privacy: acceptPrivacyState ? "akzeptiert" : "widersprochen",
           message: formState.inputs.message.value.trim().replace(/\r\n|\r|\n/g, "<br />")
         })
@@ -165,6 +167,10 @@ const ContactForm: React.FC = () => {
     }
 
     setSendingState(false);
+  };
+
+  const sendCopyHandler = () => {
+    setSendCopyState(!sendCopyState);
   };
 
   const privacyHandler = () => {
@@ -223,9 +229,13 @@ const ContactForm: React.FC = () => {
         onInput={inputHandler}
         errorText="Ich brauche eine möglichst erklärende Nachricht von Dir, damit ich auch konkret darauf eingehen kann. Diese sollte mindestens 30, aber nicht viel mehr als 10.000 Zeichen, haben."
       />
-      <div className="privacy">
-        <input type="checkbox" id="privacy" name="privacy" onChange={privacyHandler} />
-        <div className="privacy__text">
+      <div className="switch">
+        <input type="checkbox" id="send-copy" name="send-copy" onChange={sendCopyHandler} checked={sendCopyState} />
+        <div className="switch__text">Ich möchte eine Kopie der E-Mail erhalten.</div>
+      </div>
+      <div className="switch">
+        <input type="checkbox" id="privacy" name="privacy" onChange={privacyHandler} checked={acceptPrivacyState} />
+        <div className="switch__text">
           Ich bin mit der Verwendung meiner Daten gemäß der{" "}
           <span className="anchor" onClick={openPrivacyHandler}>
             Datenschutzbestimmungen
