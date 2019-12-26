@@ -2,6 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { ContactModel } from "./contact.model";
+import ContactLink from "../../shared/ContactLink";
 
 const ContactDetail: React.FC<ContactModel> = detail => {
   return (
@@ -12,9 +13,13 @@ const ContactDetail: React.FC<ContactModel> = detail => {
       <div className="content">
         <h4>{detail.header}</h4>
         <p>{detail.text}</p>
-        <a href={detail.anchor.href} title={detail.anchor.title} target={detail.anchor.target ?? ""}>
-          {detail.anchor.text}
-        </a>
+        {detail.anchor.type ? (
+          <ContactLink type={detail.anchor.type} href={detail.anchor.href} title={detail.anchor.title} />
+        ) : (
+          <a href={detail.anchor.href} title={detail.anchor.title} target={detail.anchor.target ?? ""}>
+            {detail.anchor.text}
+          </a>
+        )}
       </div>
     </div>
   );
