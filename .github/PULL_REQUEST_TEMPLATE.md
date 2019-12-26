@@ -1,3 +1,12 @@
+---
+name: Pull request
+about: Share your code with us
+title: ''
+labels: ''
+assignees: mheob
+
+---
+
 # Please check if the PR fulfills these requirements
 
 - [ ] The commit message follows our guidelines
