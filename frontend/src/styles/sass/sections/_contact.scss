@@ -123,6 +123,13 @@
       height: 10rem;
     }
 
+    .error-message {
+      margin-top: -1rem;
+      padding-left: 1.2rem;
+      color: lighten($danger, 25%);
+      font-style: italic;
+    }
+
     .privacy {
       display: flex;
       flex-direction: column;
@@ -169,12 +176,12 @@
         &:before {
           width: calc(#{$input-width} / 2);
           height: $input-height;
-          background-color: $danger;
+          background-color: lighten($background, 5%);
         }
 
         &:checked {
           &:before {
-            background-color: $primary;
+            background-color: darken($primary, 15%);
             transform: translateX(100%);
           }
         }
