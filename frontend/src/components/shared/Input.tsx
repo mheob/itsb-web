@@ -19,7 +19,7 @@ type InputState = {
 };
 
 type InputAction = {
-  type: "CHANGE" | "TOUCH" | "TOUCH_PHONE";
+  type: "CHANGE" | "TOUCH";
   val?: string;
   validators?: ValidatorType[];
 };
@@ -35,13 +35,6 @@ const inputReducer = (state: InputState, action: InputAction): InputState => {
     case "TOUCH":
       return {
         ...state,
-        isTouched: true
-      };
-    case "TOUCH_PHONE":
-      return {
-        ...state,
-        value: action.val!,
-        isValid: true,
         isTouched: true
       };
     default:
@@ -66,11 +59,7 @@ const Input: React.FC<InputProps> = props => {
   };
 
   const touchHandler = (event: React.FocusEvent<HTMLTextAreaElement | HTMLInputElement>) => {
-    if (props.type === "phone") {
-      dispatch({ type: "TOUCH_PHONE", val: event.target.value, validators: props.validators });
-    } else {
-      dispatch({ type: "TOUCH" });
-    }
+    dispatch({ type: "TOUCH" });
   };
 
   return props.type === "textarea" ? (

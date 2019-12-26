@@ -27,8 +27,8 @@ export const validate = (value: string, validators: ValidatorType[]) => {
     if (validator.type === ValidationType.EMAIL) {
       isValid = isValid && /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,8})+$/.test(value);
     }
-    if (validator.type === ValidationType.PHONE && value.trim().length > 0) {
-      isValid = isValid && /^(\(?([\d -)–+/(]+){6,}\)?([ .-–/]?)([\d]+))$/.test(value);
+    if (validator.type === ValidationType.PHONE) {
+      isValid = isValid && /(^$|^(\(?([\d -)–+/(]+){6,}\)?([ .-–/]?)([\d]+))$)/.test(value);
     }
   }
   return isValid;
