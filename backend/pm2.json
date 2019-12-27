@@ -1,0 +1,10 @@
+{
+  "apps": [
+    {
+      "name": "itsb-web-backend",
+      "script": "./app.js",
+      "watch": false,
+      "max_memory_restart": "256M"
+    }
+  ]
+}
