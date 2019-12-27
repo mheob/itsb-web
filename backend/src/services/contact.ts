@@ -13,11 +13,9 @@ export const sendMail = async (data: Contact) => {
       }
     },
     {
-      from: '"Webmail über IT Service Böhm" <ab@its-boehm.de>'
+      from: '"Alex vom IT Service Böhm" <ab@its-boehm.de>'
     }
   );
-
-  // TODO: Add impress to the mail body (see #33).
 
   const plainBody = `
     Vielen Dank für Deine Nachricht! Ich werde mich zeitnah bei Dir melden.
@@ -32,6 +30,18 @@ export const sendMail = async (data: Contact) => {
     Nachricht:
     ----------
     ${data.message}
+
+    Freundliche Grüße aus Neuwied,
+
+    Alexander Böhm
+
+    ab@its-boehm.de • +49 160 8206654
+
+    IT Service Böhm
+    Theodor-Heuss-Straße 1 – H2
+    56564 Neuwied
+    Inhaber: Alexander Böhm
+    www.its-boehm.de
   `;
 
   const htmlBody = `
@@ -45,6 +55,17 @@ export const sendMail = async (data: Contact) => {
     </ul>
     <h3>Nachricht:</h3>
     <p>${data.message}</p>
+    <p>Freundliche Grüße aus Neuwied,</p>
+    <p><b><span style='font-size:12.0pt;font-family:"Lucida Handwriting"'>Alexander Böhm</span></b></p>
+    <p><a href="mailto:ab@its-boehm.de">ab@its-boehm.de</a> • <a href="tel:+491608206654">+49 160 8206654</a></p>
+    <p style='font-size:9.0pt'>
+      <b>IT Service Böhm</b><br>
+      Theodor-Heuss-Straße 1 – H2<br>
+      56564 Neuwied<br>
+      Inhaber: Alexander Böhm
+      <a href="https://www.its-boehm.de">www.its-boehm.de</a>
+    </p>
+    
   `;
 
   await transporter.sendMail({
