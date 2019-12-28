@@ -6,7 +6,7 @@ export const testimonialData: TestimonialModel[] = [
       "Bei uns im Verein hatte keiner eine Ahnung von Webseiten oder auch Computer im Allgemeinen. Wir sind froh den Alex in unseren Reihen zu wissen.",
     name: "Frank Driesch",
     company: "Vorsitzender, TSG Irlich",
-    imgSource: "itsb-boehm-driesch-frank.jpg"
+    imgSource: "itsb-boehm-petry-stephan.jpg"
   },
   {
     quote:
@@ -15,11 +15,11 @@ export const testimonialData: TestimonialModel[] = [
     company: "Vorsitzender, HSV Neuwied",
     imgSource: "itsb-boehm-driesch-frank.jpg"
   },
-  {
-    quote:
-      "Wir hatten ursprüngliche eine teure, große Agentur mit der wir nicht zu frieden waren. Mit dem Herrn Böhm war unsere WordPress-Umgebung schnell und sauber eingerichtet.",
-    name: "Thomas Haesser",
-    company: "Inhaber, Fliesen Haesser",
-    imgSource: "itsb-boehm-driesch-frank.jpg"
-  }
+  // {
+  //   quote:
+  //     "Wir hatten ursprüngliche eine teure, große Agentur mit der wir nicht zu frieden waren. Mit dem Herrn Böhm war unsere WordPress-Umgebung schnell und sauber eingerichtet.",
+  //   name: "Thomas Haesser",
+  //   company: "Inhaber, Fliesen Haesser",
+  //   imgSource: "itsb-boehm-driesch-frank.jpg"
+  // }
 ];
