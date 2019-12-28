@@ -17,7 +17,7 @@
 
       .design-bg {
         position: relative;
-        width: 75%;
+        width: 65%;
         height: 550px;
         border: 1px solid rgba($primary, 0.1);
 
@@ -139,7 +139,7 @@
           flex-wrap: wrap;
           justify-content: space-around;
 
-          a {
+          .btn {
             width: 100%;
             margin: 0.5rem 0;
 

@@ -13,7 +13,7 @@ const ContactDetail: React.FC<ContactModel> = detail => {
       <div className="content">
         <h4>{detail.header}</h4>
         <p>{detail.text}</p>
-        {detail.anchor.type ? (
+        {detail.anchor.type !== undefined ? (
           <ContactLink type={detail.anchor.type} href={detail.anchor.href} title={detail.anchor.title} />
         ) : (
           <a href={detail.anchor.href} title={detail.anchor.title} target={detail.anchor.target ?? ""}>
