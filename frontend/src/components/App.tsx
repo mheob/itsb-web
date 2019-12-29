@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 import { Waypoint } from "react-waypoint";
 import { CSSTransition } from "react-transition-group";
 
@@ -34,8 +34,8 @@ const App: React.FC = () => {
 
   const routes = [
     { path: "/", name: "Home", Component: Home },
-    { path: "/impressum", name: "About", Component: Impress },
-    { path: "/datenschutz", name: "Contact", Component: Privacy }
+    { path: "/impressum", name: "Impressum", Component: Impress },
+    { path: "/datenschutz", name: "Datenschutz", Component: Privacy }
   ];
 
   return (
@@ -49,18 +49,20 @@ const App: React.FC = () => {
       <Navigation />
       <Aside />
       <ScrollToTop>
-        {routes.map(({ path, Component }) => (
-          <Route key={path} exact path={path}>
-            {({ match }) => (
-              <CSSTransition in={match != null} timeout={1200} classNames="Main" unmountOnExit>
-                <section className="Main">
-                  <Component />
-                </section>
-              </CSSTransition>
-            )}
-          </Route>
-        ))}
-        <Redirect to="/" />
+        <Switch>
+          {routes.map(({ path, Component }) => (
+            <Route key={path} exact path={path}>
+              {({ match }) => (
+                <CSSTransition in={match != null} timeout={1200} classNames="Main" unmountOnExit>
+                  <section className="Main">
+                    <Component />
+                  </section>
+                </CSSTransition>
+              )}
+            </Route>
+          ))}
+          <Redirect to="/" />
+        </Switch>
       </ScrollToTop>
       <ScrollUpButton isVisible={scrollUpButtonState.isVisible} />
     </Router>
