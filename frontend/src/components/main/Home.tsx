@@ -26,7 +26,7 @@ const Home: React.FC = () => {
         title="IT Service Böhm >> Dein Partner rund ums Web aus Neuwied"
         description="IT Service Böhm >> Alexander Böhm aus Neuwied stellt sich und seine Arbeit rund um Web Design, SEO und Web Development vor."
         url="https://its-boehm.de"
-        og={{ image: "https://its-boehm.de/images/itsb-boehm-alexander-portrait.jpg", type: "website" }}
+        og={{ image: "https://its-boehm.de/images/itsb-boehm-alexander-bg.jpg", type: "website" }}
       />
       <Hero />
       <About />
