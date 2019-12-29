@@ -30,10 +30,11 @@ const Seo: React.FC<SeoProps> = props => {
   return (
     <Helmet>
       <title>{props.title}</title>
-      <meta name="description" property="og:description" content={props.description} />
+      <meta name="description" content={props.description} />
       <link rel="canonical" href={props.url} />
       {props.noIndex && <meta property="robots" content="noindex" />}
       <meta property="og:title" content={props.og.title || props.title} />
+      <meta property="og:description" content={props.description} />
       <meta property="og:type" content={props.og.type} />
       <meta property="og:image" content={props.og.image} />
       <meta property="og:url" content={props.og.url || props.url} />
