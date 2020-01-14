@@ -8,7 +8,7 @@ node_modules/
 .npm
 
 # Credentials
-backend/src/config/auth.ts
+.env
 
 # Builds
 backend/build/*
