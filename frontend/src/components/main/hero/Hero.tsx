@@ -1,16 +1,16 @@
 import React from "react";
 import Typed from "react-typed";
 
-import GoNext from "../../shared/GoNext";
-
 const Hero: React.FC = () => {
   return (
     <section className="Hero" id="home">
       <a className="btn btn-primary-outline" href="#contact">
         Let's talk
       </a>
+
       <div className="content">
         <div className="overlay"></div>
+
         <header>
           <h1>IT Service Böhm</h1>
           <h2>
@@ -28,8 +28,6 @@ const Hero: React.FC = () => {
           </h2>
         </header>
       </div>
-      // TODO #43: Remove GoNext components because they do not work properly in Firefox.
-      <GoNext anchor="about" text="That's me" />
     </section>
   );
 };

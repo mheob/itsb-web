@@ -9,6 +9,7 @@ const Contact: React.FC = () => {
   return (
     <section className="Contact" id="contact">
       <SectionHeader mainText="Stelle Fragen. Erhalte Antworten." smallText="Kontaktaufnahme" bgText="Kontakt" />
+
       <section className="details">
         {serviceData.map((detail, index) => {
           return (
