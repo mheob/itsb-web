@@ -35,7 +35,6 @@ const About: React.FC = () => {
           </CSSTransition>
         </div>
       </Waypoint>
-
       <Waypoint
         onEnter={handleWaypoint.bind(null, "welcome", true)}
         onLeave={handleWaypoint.bind(null, "welcome", false)}
@@ -53,7 +52,7 @@ const About: React.FC = () => {
           </CSSTransition>
         </div>
       </Waypoint>
-
+      // TODO #43: Remove GoNext components because they do not work properly in Firefox.
       <GoNext anchor="services" text="Angebot" />
     </section>
   );

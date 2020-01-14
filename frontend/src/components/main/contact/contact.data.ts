@@ -4,6 +4,7 @@ import { faPhoneAlt, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { ContactModel } from "./contact.model";
 import { LinkType } from "../../shared/ContactLink";
 
+// TODO #27: Load some data from a database.
 export const serviceData: ContactModel[] = [
   {
     icon: faPhoneAlt,

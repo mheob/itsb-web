@@ -1,5 +1,6 @@
 import { StatModel } from "./stat.model";
 
+// TODO #27: Load some data from a database.
 export const statData: StatModel[] = [
   {
     upperTitle: "bislang",

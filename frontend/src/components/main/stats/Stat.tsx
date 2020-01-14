@@ -41,7 +41,6 @@ const Stat: React.FC<StatModel> = props => {
         }}
       >
         {({ countUpRef, start }) => (
-          // TODO: Only run once
           <Waypoint onEnter={waypointEnterHandler.bind(null, start!)} onLeave={waypointLeaveHandler}>
             <div className="counter" ref={countUpRef} />
           </Waypoint>

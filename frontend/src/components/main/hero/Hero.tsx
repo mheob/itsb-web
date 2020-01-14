@@ -28,6 +28,7 @@ const Hero: React.FC = () => {
           </h2>
         </header>
       </div>
+      // TODO #43: Remove GoNext components because they do not work properly in Firefox.
       <GoNext anchor="about" text="That's me" />
     </section>
   );

@@ -24,6 +24,7 @@ export const handleData: RequestHandler = async (req, res, next) => {
 
   try {
     await sendMail(newContact);
+    // TODO #26: Store contact messages in a database.
   } catch (error) {
     throw new HttpError("Mail could not sent.", 500);
   }

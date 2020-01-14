@@ -3,6 +3,7 @@ import { faChartLine, faPaintBrush, faLaptopCode } from "@fortawesome/free-solid
 
 import { ServiceModel } from "./service.model";
 
+// TODO #27: Load some data from a database.
 export const serviceData: ServiceModel[] = [
   {
     icon: faPaintBrush,

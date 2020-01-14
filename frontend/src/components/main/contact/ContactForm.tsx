@@ -131,7 +131,7 @@ const ContactForm: React.FC = () => {
     let response: Response;
     let responseData: ResponseData = { message: "", createdContact: defaultMailData };
     try {
-      // response = await fetch("http://localhost:3991/contact/send", {
+      // TODO #41: Store the variables like credentials and url in an ENV file. (API_URL)
       response = await fetch("https://api.its-boehm.de/contact/send", {
         method: "POST",
         headers: {
@@ -155,7 +155,7 @@ const ContactForm: React.FC = () => {
         mailData: responseData.createdContact
       });
 
-      // TODO: reset the form after successfully submit.
+      // TODO #22: Reset the form after successfully submit.
       form.current?.reset();
     } catch (error) {
       setResponseState({
@@ -218,6 +218,7 @@ const ContactForm: React.FC = () => {
         id="phone"
         label="Deine Telefonnummer (optional)"
         validators={[VALIDATOR_PHONE()]}
+        // TODO #39: Improve the validation of the phone field (use `onFocus` maybe).
         onInput={inputHandler}
         errorText="Bitte eine gültige Telefonnummer angeben oder komplett leer lassen."
       />

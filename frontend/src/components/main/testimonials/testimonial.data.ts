@@ -1,5 +1,6 @@
 import { TestimonialModel } from "./testimonial.model";
 
+// TODO #27: Load some data from a database.
 export const testimonialData: TestimonialModel[] = [
   {
     quote:

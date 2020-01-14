@@ -15,6 +15,7 @@ const Services: React.FC = () => {
           return <Service key={index} icon={icon} header={header} text={text} num={elNum} />;
         })}
       </section>
+      // TODO #43: Remove GoNext components because they do not work properly in Firefox.
       <GoNext anchor="stats" text="Statistiken" />
     </section>
   );

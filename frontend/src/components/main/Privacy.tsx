@@ -23,6 +23,10 @@ const Privacy: React.FC = () => {
         og={{ image: "https://www.its-boehm.de/images/itsb-boehm-alexander-bg.jpg", type: "website" }}
         noIndex
       />
+      {/*
+       // TODO #38: Check the privacy page.
+       // TODO #27: Load some data from a database.
+      */}
       <section className="Privacy">
         <h1>Datenschutz</h1>
         <p>

@@ -17,6 +17,8 @@ export const sendMail = async (data: Contact) => {
     }
   );
 
+  // TODO #40: Mail for the customer should be more detailed.
+
   const plainBody = `
     Vielen Dank für Deine Nachricht! Ich werde mich zeitnah bei Dir melden.
 
@@ -65,7 +67,6 @@ export const sendMail = async (data: Contact) => {
       Inhaber: Alexander Böhm
       <a href="https://www.its-boehm.de">www.its-boehm.de</a>
     </p>
-    
   `;
 
   await transporter.sendMail({

@@ -9,7 +9,6 @@ const Stats: React.FC = () => {
   return (
     <section className="Stats" id="stats">
       <SectionHeader mainText="Ein paar Zahlen über mich" smallText="Statistiken" bgText="Stats" />
-
       <section className="content">
         {statData.map((props, index) => {
           return (
@@ -27,7 +26,7 @@ const Stats: React.FC = () => {
           );
         })}
       </section>
-
+      // TODO #43: Remove GoNext components because they do not work properly in Firefox.
       <GoNext anchor="testimonials" text="Meinungen" />
     </section>
   );

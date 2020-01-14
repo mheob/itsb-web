@@ -8,6 +8,7 @@ import {
 
 import { SocialModel } from "./social.model";
 
+// TODO #27: Load some data from a database.
 export const socialData: SocialModel = {
   links: [
     {

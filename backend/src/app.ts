@@ -30,4 +30,5 @@ app.use((error: HttpError, req: Request, res: Response, next: NextFunction) => {
   res.json({ message: error.message || "An unknown error occurred!" });
 });
 
+// TODO #41: Store the variables like credentials and url in an ENV file. (PORT)
 app.listen(3991);

@@ -5,9 +5,9 @@ import { HelmetProvider } from "react-helmet-async";
 
 import "./styles/css/index.css";
 import App from "./components/App";
-import Seo from "./components/shared/Seo";
 
 ReactDOM.render(
+  // TODO #42: Switch from Matomo to Google Analytics.
   <MatomoProvider value={createInstance({ urlBase: "https://stats.its-boehm.de/", siteId: 1 })}>
     <HelmetProvider>
       <App />

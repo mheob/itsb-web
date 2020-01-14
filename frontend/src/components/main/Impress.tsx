@@ -23,6 +23,7 @@ const Impress: React.FC = () => {
         og={{ image: "https://www.its-boehm.de/images/itsb-boehm-alexander-bg.jpg", type: "website" }}
         noIndex
       />
+      // TODO #27: Load some data from a database.
       <section className="impress">
         <h1>Impressum</h1>
         <div className="row">
