@@ -21,7 +21,7 @@
     "animate.css": "^3.7.2",
     "nuka-carousel": "^4.6.0",
     "react": "^16.12.0",
-    "react-countup": "^4.3.1",
+    "react-countup": "^4.3.2",
     "react-dom": "^16.12.0",
     "react-helmet-async": "^1.0.4",
     "react-router-dom": "^5.1.2",
@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@types/jest": "^24.0.25",
-    "@types/node": "^12.12.22",
+    "@types/node": "^12.12.24",
     "@types/node-sass": "^4.11.0",
     "@types/react": "^16.9.17",
     "@types/react-count-to": "^0.12.0",

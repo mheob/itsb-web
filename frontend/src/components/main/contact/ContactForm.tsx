@@ -131,8 +131,7 @@ const ContactForm: React.FC = () => {
     let response: Response;
     let responseData: ResponseData = { message: "", createdContact: defaultMailData };
     try {
-      // TODO #41: Store the variables like credentials and url in an ENV file. (API_URL)
-      response = await fetch("https://api.its-boehm.de/contact/send", {
+      response = await fetch(process.env.REACT_APP_API_URL! + "contact/send", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

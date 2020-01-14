@@ -1,8 +1,11 @@
 import express, { Request, Response, NextFunction } from "express";
 import bodyParser from "body-parser";
+import dotenv from "dotenv";
 
 import { HttpError } from "./models/http-error";
 import contactRoute from "./routes/contact";
+
+dotenv.config();
 
 const app = express();
 
@@ -30,5 +33,4 @@ app.use((error: HttpError, req: Request, res: Response, next: NextFunction) => {
   res.json({ message: error.message || "An unknown error occurred!" });
 });
 
-// TODO #41: Store the variables like credentials and url in an ENV file. (PORT)
-app.listen(3991);
+app.listen(process.env.PORT || 3991);
