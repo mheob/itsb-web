@@ -4,7 +4,7 @@ import { TestimonialModel } from "./testimonial.model";
 
 const Testimonial: React.FC<TestimonialModel> = props => {
   return (
-    <>
+    <div className="Testimonial">
       <img src={process.env.PUBLIC_URL + "/images/" + props.imgSource} alt={`${props.name} - ${props.company}`} />
       <div className="quote">
         <span>&bdquo;</span>
@@ -15,7 +15,7 @@ const Testimonial: React.FC<TestimonialModel> = props => {
         <span className="name">{props.name}</span>
         <span className="company">{props.company}</span>
       </div>
-    </>
+    </div>
   );
 };
 
