@@ -1,17 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { MatomoProvider, createInstance } from "@datapunt/matomo-tracker-react";
+import TagManager from "react-gtm-module";
 import { HelmetProvider } from "react-helmet-async";
 
 import "./styles/css/index.css";
 import App from "./components/App";
 
+TagManager.initialize({
+  gtmId: process.env.REACT_APP_GTM_ID!,
+  auth: process.env.REACT_APP_GTM_AUTH,
+  preview: process.env.REACT_APP_GTM_PREVIEW
+});
+
 ReactDOM.render(
-  // TODO #42: Switch from Matomo to Google Analytics.
-  <MatomoProvider value={createInstance({ urlBase: "https://stats.its-boehm.de/", siteId: 1 })}>
-    <HelmetProvider>
-      <App />
-    </HelmetProvider>
-  </MatomoProvider>,
+  <HelmetProvider>
+    <App />
+  </HelmetProvider>,
   document.getElementById("root")
 );

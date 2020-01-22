@@ -1,19 +1,9 @@
-import React, { useEffect } from "react";
-import { useMatomo } from "@datapunt/matomo-tracker-react";
+import React from "react";
 
 import Seo from "../shared/Seo";
 import Footer from "../shared/Footer";
 
 const Privacy: React.FC = () => {
-  const { trackPageView } = useMatomo();
-
-  useEffect(() => {
-    if (!window._paq) {
-      window._paq.push(["disableCookies"]);
-    }
-    trackPageView({});
-  }, [trackPageView]);
-
   return (
     <>
       <Seo
