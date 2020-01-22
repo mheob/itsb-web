@@ -1,19 +1,9 @@
-import React, { useEffect } from "react";
-import { useMatomo } from "@datapunt/matomo-tracker-react";
+import React from "react";
 
 import Seo from "../shared/Seo";
 import Footer from "../shared/Footer";
 
 const Impress: React.FC = () => {
-  const { trackPageView } = useMatomo();
-
-  useEffect(() => {
-    if (!window._paq) {
-      window._paq.push(["disableCookies"]);
-    }
-    trackPageView({});
-  }, [trackPageView]);
-
   return (
     <>
       <Seo
@@ -23,7 +13,9 @@ const Impress: React.FC = () => {
         og={{ image: "https://www.its-boehm.de/images/itsb-boehm-alexander-bg.jpg", type: "website" }}
         noIndex
       />
-      // TODO #27: Load some data from a database.
+      {
+        // TODO #27: Load some data from a database.
+      }
       <section className="impress">
         <h1>Impressum</h1>
         <div className="row">
