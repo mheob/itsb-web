@@ -19,7 +19,7 @@ type InputState = {
 };
 
 type InputAction = {
-  type: "CHANGE" | "TOUCH";
+  type: "CHANGE" | "TOUCH" | "TOUCH_PHONE";
   val?: string;
   validators?: ValidatorType[];
 };
@@ -36,6 +36,11 @@ const inputReducer = (state: InputState, action: InputAction): InputState => {
       return {
         ...state,
         isTouched: true
+      };
+    case "TOUCH_PHONE":
+      return {
+        ...state,
+        isValid: true
       };
     default:
       return state;
@@ -58,6 +63,12 @@ const Input: React.FC<InputProps> = props => {
     dispatch({ type: "CHANGE", val: event.target.value, validators: props.validators });
   };
 
+  const focusHandler = (event: React.FocusEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+    if (props.type === "phone") {
+      dispatch({ type: "TOUCH_PHONE" });
+    }
+  };
+
   const touchHandler = (event: React.FocusEvent<HTMLTextAreaElement | HTMLInputElement>) => {
     dispatch({ type: "TOUCH" });
   };
@@ -70,8 +81,9 @@ const Input: React.FC<InputProps> = props => {
           name={props.id}
           id={props.id}
           placeholder={props.label}
-          onChange={changeHandler}
           onBlur={touchHandler}
+          onChange={changeHandler}
+          onFocus={focusHandler}
           value={inputState.value}
         />
       ) : (
@@ -81,8 +93,9 @@ const Input: React.FC<InputProps> = props => {
           name={props.id}
           id={props.id}
           placeholder={props.label}
-          onChange={changeHandler}
           onBlur={touchHandler}
+          onChange={changeHandler}
+          onFocus={focusHandler}
           value={inputState.value}
         />
       )}

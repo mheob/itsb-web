@@ -1,4 +1,4 @@
-import React, { useCallback, useReducer, useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 
 import PrivacyModal from "./PrivacyModal";
 import ResponseModal from "./ResponseModal";
@@ -10,6 +10,7 @@ import {
   VALIDATOR_PHONE
 } from "../../../utils/validators";
 import Spinner from "../../shared/Spinner";
+import { FormState, useContactForm } from "../../../hooks/contactFormHook";
 
 interface ResponseState {
   showModal: boolean;
@@ -35,24 +36,7 @@ interface ResponseData {
   };
 }
 
-interface FormState {
-  inputs: {
-    [prop: string]: {
-      value: string;
-      isValid: boolean;
-    };
-  };
-  isValid: boolean;
-}
-
-interface FormAction {
-  type: "INPUT_CHANGE";
-  inputId?: string;
-  value?: string;
-  isValid?: boolean;
-}
-
-const defaultFormState = {
+const defaultFormState: FormState = {
   inputs: {
     name: {
       value: "",
@@ -82,32 +66,9 @@ const defaultMailData = {
   message: ""
 };
 
-const formReducer = (state: FormState, action: FormAction) => {
-  switch (action.type) {
-    case "INPUT_CHANGE":
-      let formIsValid = true;
-      for (const inputId in state.inputs) {
-        if (inputId === action.inputId) {
-          formIsValid = formIsValid! && action.isValid!;
-        } else {
-          formIsValid = formIsValid && state.inputs[inputId].isValid;
-        }
-      }
-      return {
-        ...state,
-        inputs: {
-          ...state.inputs,
-          [action.inputId!]: { value: action.value!, isValid: action.isValid! }
-        },
-        isValid: formIsValid
-      };
-    default:
-      return state;
-  }
-};
-
 const ContactForm: React.FC = () => {
   const form = useRef<HTMLFormElement>(null);
+  const { formState, inputHandler } = useContactForm(defaultFormState);
   const [sendCopyState, setSendCopyState] = useState(true);
   const [acceptPrivacyState, setAcceptPrivacyState] = useState(false);
   const [showPrivacyState, setShowPrivacyState] = useState(false);
@@ -117,11 +78,6 @@ const ContactForm: React.FC = () => {
     type: "SUCCESS",
     mailData: defaultMailData
   });
-  const [formState, dispatch] = useReducer<React.Reducer<FormState, FormAction>>(formReducer, defaultFormState);
-
-  const inputHandler = useCallback((id: string, value: string, isValid: boolean) => {
-    dispatch({ type: "INPUT_CHANGE", inputId: id, value: value, isValid: isValid });
-  }, []);
 
   const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
