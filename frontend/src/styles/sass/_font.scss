@@ -1,18 +1,9 @@
 @font-face {
-  font-weight: 300;
-  font-family: "Quicksand";
-  font-style: normal;
-  src: url("../fonts/quicksand-latin-300.woff2") format("woff2"),
-    url("../fonts/quicksand-latin-300.woff") format("woff");
-  font-display: swap;
-}
-
-@font-face {
   font-weight: 400;
   font-family: "Quicksand";
   font-style: normal;
-  src: url("../fonts/quicksand-latin-400.woff2") format("woff2"),
-    url("../fonts/quicksand-latin-400.woff") format("woff");
+  src: url("/fonts/quicksand-latin-400.woff2") format("woff2"),
+    url("/fonts/quicksand-latin-400.woff") format("woff");
   font-display: swap;
 }
 
@@ -20,8 +11,8 @@
   font-weight: 500;
   font-family: "Quicksand";
   font-style: normal;
-  src: url("../fonts/quicksand-latin-500.woff2") format("woff2"),
-    url("../fonts/quicksand-latin-500.woff") format("woff");
+  src: url("/fonts/quicksand-latin-500.woff2") format("woff2"),
+    url("/fonts/quicksand-latin-500.woff") format("woff");
   font-display: swap;
 }
 
@@ -29,8 +20,8 @@
   font-weight: 600;
   font-family: "Quicksand";
   font-style: normal;
-  src: url("../fonts/quicksand-latin-600.woff2") format("woff2"),
-    url("../fonts/quicksand-latin-600.woff") format("woff");
+  src: url("/fonts/quicksand-latin-600.woff2") format("woff2"),
+    url("/fonts/quicksand-latin-600.woff") format("woff");
   font-display: swap;
 }
 
@@ -38,7 +29,7 @@
   font-weight: 700;
   font-family: "Quicksand";
   font-style: normal;
-  src: url("../fonts/quicksand-latin-700.woff2") format("woff2"),
-    url("../fonts/quicksand-latin-700.woff") format("woff");
+  src: url("/fonts/quicksand-latin-700.woff2") format("woff2"),
+    url("/fonts/quicksand-latin-700.woff") format("woff");
   font-display: swap;
 }
