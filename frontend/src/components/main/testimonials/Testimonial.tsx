@@ -3,9 +3,15 @@ import React from "react";
 import { TestimonialModel } from "./testimonial.model";
 
 const Testimonial: React.FC<TestimonialModel> = props => {
+  const imgPathWithOutExt = `${process.env.PUBLIC_URL}/images/${props.imgSource}`;
+
   return (
     <div className="Testimonial">
-      <img src={process.env.PUBLIC_URL + "/images/" + props.imgSource} alt={`${props.name} - ${props.company}`} />
+      <picture>
+        <source srcSet={`${imgPathWithOutExt}.webp`} type="image/webp" />
+        <source srcSet={`${imgPathWithOutExt}.jp2`} type="image/jp2" />
+        <img src={`${imgPathWithOutExt}.jpg `} alt={`${props.name} - ${props.company}`} />
+      </picture>
       <div className="quote">
         <span>&bdquo;</span>
         {" " + props.quote + " "}

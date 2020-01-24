@@ -1,11 +1,23 @@
 .Testimonials {
-  background-image: url(../images/itsb-testimonials-bg.jpg);
   background-repeat: no-repeat;
   background-position: bottom center;
   background-size: cover;
   background-attachment: fixed;
 
-  @include retina("../images/itsb-testimonials-bg@2x.jpg");
+  .no-webp.np-jpeg2000 & {
+    background-image: url(../images/itsb-testimonials-bg.jpg);
+    @include retina("../images/itsb-testimonials-bg@2x.jpg");
+  }
+
+  .webp & {
+    background-image: url(../images/itsb-testimonials-bg.webp);
+    @include retina("../images/itsb-testimonials-bg@2x.webp");
+  }
+
+  .jpeg-2000 & {
+    background-image: url(../images/itsb-testimonials-bg.jp2);
+    @include retina("../images/itsb-testimonials-bg@2x.jp2");
+  }
 
   .overlay {
     position: absolute;

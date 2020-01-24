@@ -34,13 +34,25 @@
     height: 100vh;
     min-height: 400px;
     overflow: hidden;
-    background-image: url(../images/itsb-boehm-alexander-bg.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     background-attachment: fixed;
 
-    @include retina("../images/itsb-boehm-alexander-bg@2x.jpg");
+    .no-webp.np-jpeg2000 & {
+      background-image: url(../images/itsb-boehm-alexander-bg.jpg);
+      @include retina("../images/itsb-boehm-alexander-bg@2x.jpg");
+    }
+
+    .webp & {
+      background-image: url(../images/itsb-boehm-alexander-bg.webp);
+      @include retina("../images/itsb-boehm-alexander-bg@2x.webp");
+    }
+
+    .jpeg-2000 & {
+      background-image: url(../images/itsb-boehm-alexander-bg.jp2);
+      @include retina("../images/itsb-boehm-alexander-bg@2x.jp2");
+    }
 
     .overlay {
       position: absolute;
