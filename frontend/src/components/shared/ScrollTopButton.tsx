@@ -7,6 +7,7 @@ const ScrollTopButton: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
   return (
     <Link className={`ScrollTopButton${isVisible ? " visible" : ""}`} to="#root">
       <FontAwesomeIcon icon={faChevronUp} />
+      <span style={{ display: "none" }}>Arrow Top</span>
     </Link>
   );
 };

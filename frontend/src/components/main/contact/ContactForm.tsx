@@ -185,10 +185,16 @@ const ContactForm: React.FC = () => {
         onInput={inputHandler}
         errorText="Ich brauche eine möglichst erklärende Nachricht von Dir, damit ich auch konkret darauf eingehen kann. Diese sollte mindestens 30, aber nicht viel mehr als 10.000 Zeichen, haben."
       />
+      <label htmlFor="send-copy">
+        <span style={{ display: "none" }}>Kopie der E-Mail erhalten:</span>
+      </label>
       <div className="switch">
         <input type="checkbox" id="send-copy" name="send-copy" onChange={sendCopyHandler} checked={sendCopyState} />
         <div className="switch__text">Ich möchte eine Kopie der E-Mail erhalten.</div>
       </div>
+      <label htmlFor="privacy">
+        <span style={{ display: "none" }}>Mit Datenschutzbestimmungen einverstanden:</span>
+      </label>
       <div className="switch">
         <input type="checkbox" id="privacy" name="privacy" onChange={privacyHandler} checked={acceptPrivacyState} />
         <div className="switch__text">
