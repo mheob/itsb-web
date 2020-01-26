@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import TagManager from "react-gtm-module";
 import { HelmetProvider } from "react-helmet-async";
 
+import * as serviceWorker from "./serviceWorker";
 import "./styles/css/index.css";
 import App from "./components/App";
 
@@ -18,3 +19,5 @@ ReactDOM.render(
   </HelmetProvider>,
   document.getElementById("root")
 );
+
+serviceWorker.register();

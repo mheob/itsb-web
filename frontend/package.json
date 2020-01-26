@@ -20,7 +20,7 @@
     "animate.css": "^3.7.2",
     "nuka-carousel": "^4.6.1",
     "react": "^16.12.0",
-    "react-countup": "^4.3.2",
+    "react-countup": "^4.3.3",
     "react-dom": "^16.12.0",
     "react-gtm-module": "^2.0.8",
     "react-helmet-async": "^1.0.4",
@@ -33,10 +33,10 @@
     "react-waypoint": "^9.0.2"
   },
   "devDependencies": {
-    "@types/jest": "^24.9.0",
+    "@types/jest": "^24.9.1",
     "@types/node": "^12.12.25",
     "@types/node-sass": "^4.11.0",
-    "@types/react": "^16.9.18",
+    "@types/react": "^16.9.19",
     "@types/react-count-to": "^0.12.0",
     "@types/react-dom": "^16.9.5",
     "@types/react-gtm-module": "^2.0.0",
