@@ -1,11 +1,15 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "name": "IT Service Böhm",
+  "short_name": "ITS Böhm",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#2d8a25",
+  "background_color": "#0d0d0d",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "favicon.svg",
       "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "type": "image/svg+xml"
     },
     {
       "src": "images/logos/its-boehm-logo-round-48.png",
@@ -47,9 +51,5 @@
       "type": "image/png",
       "sizes": "512x512"
     }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#2d8a25",
-  "background_color": "#0d0d0d"
+  ]
 }
