@@ -43,7 +43,9 @@ const Navigation: React.FC = () => {
             Kontakt
           </HashLink>
         </li>
-        <hr />
+        <li>
+          <hr />
+        </li>
         <li>
           <NavLink to="/impressum" onClick={clickHandler}>
             Impressum
