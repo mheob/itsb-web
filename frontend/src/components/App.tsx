@@ -23,9 +23,7 @@ const App: React.FC = () => {
   const [preloaderState, setPreloaderState] = useState<PreloaderState>(true);
 
   useEffect(() => {
-    setTimeout(() => {
-      setPreloaderState(false);
-    }, 1000);
+    setPreloaderState(false);
   }, [preloaderState]);
 
   const scrollUpButtonHandler = (isEntered: boolean) => {

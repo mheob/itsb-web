@@ -25,7 +25,8 @@ export const serviceData: ContactModel[] = [
       href: "https://discord.me/itsb",
       title: "Nutze Discord als Dienst für Instant Messaging, Chat, Sprachkonferenzen und Videokonferenzen.",
       text: "discord.me/itsb",
-      target: "_blank"
+      target: "_blank",
+      rel: "noopener noreferrer"
     }
   },
   {

@@ -16,7 +16,12 @@ const ContactDetail: React.FC<ContactModel> = detail => {
         {detail.anchor.type !== undefined ? (
           <ContactLink type={detail.anchor.type} href={detail.anchor.href} title={detail.anchor.title} />
         ) : (
-          <a href={detail.anchor.href} title={detail.anchor.title} target={detail.anchor.target ?? ""}>
+          <a
+            href={detail.anchor.href}
+            title={detail.anchor.title}
+            target={detail.anchor.target ?? ""}
+            rel={detail.anchor.rel ?? ""}
+          >
             {detail.anchor.text}
           </a>
         )}

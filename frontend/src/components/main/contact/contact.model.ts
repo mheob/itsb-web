@@ -11,6 +11,7 @@ export interface ContactModel {
     title: string;
     text: string;
     target?: string;
+    rel?: string;
     type?: LinkType;
   };
 }
