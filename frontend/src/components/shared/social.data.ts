@@ -1,9 +1,9 @@
 import {
   faFacebookSquare,
   faTwitterSquare,
-  faInstagram,
-  faDiscord,
-  faGithub
+  faInstagramSquare,
+  faGithubSquare,
+  faLinkedin
 } from "@fortawesome/free-brands-svg-icons";
 
 import { SocialModel } from "./social.model";
@@ -12,9 +12,14 @@ import { SocialModel } from "./social.model";
 export const socialData: SocialModel = {
   links: [
     {
-      href: "https://fb.me/its.boehm",
-      title: "Facebook",
-      icon: faFacebookSquare
+      href: "https://www.linkedin.com/in/itsb",
+      title: "LinkedIn",
+      icon: faLinkedin
+    },
+    {
+      href: "https://github.com/ITS-Boehm",
+      title: "GitHub",
+      icon: faGithubSquare
     },
     {
       href: "https://twitter.com/itsboehm",
@@ -22,19 +27,14 @@ export const socialData: SocialModel = {
       icon: faTwitterSquare
     },
     {
+      href: "https://fb.me/its.boehm",
+      title: "Facebook",
+      icon: faFacebookSquare
+    },
+    {
       href: "https://www.instagram.com/its_boehm/",
       title: "Instagram",
-      icon: faInstagram
-    },
-    {
-      href: "https://github.com/ITS-Boehm",
-      title: "GitHub",
-      icon: faGithub
-    },
-    {
-      href: "https://discord.me/itsb",
-      title: "Discord",
-      icon: faDiscord
+      icon: faInstagramSquare
     }
   ]
 };
