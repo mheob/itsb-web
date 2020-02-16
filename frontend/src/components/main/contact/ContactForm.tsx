@@ -173,7 +173,6 @@ const ContactForm: React.FC = () => {
         id="phone"
         label="Deine Telefonnummer (optional)"
         validators={[VALIDATOR_PHONE()]}
-        // TODO #39: Improve the validation of the phone field (use `onFocus` maybe).
         onInput={inputHandler}
         errorText="Bitte eine gültige Telefonnummer angeben oder komplett leer lassen."
       />
