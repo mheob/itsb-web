@@ -12,7 +12,7 @@ const Description: React.FC = () => {
       </p>
       <p>
         Zuerst waren es Freunde und Familie, die einen eigenen Webauftritt haben wollten. In der Folge kamen Webseiten,
-        insbesondere für gemeinnützige Vereine, und inzwischenauch professionelle Unternehmen dazu.
+        insbesondere für gemeinnützige Vereine, und inzwischen auch professionelle Unternehmen dazu.
       </p>
     </section>
   );
