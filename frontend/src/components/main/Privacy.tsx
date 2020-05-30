@@ -429,8 +429,8 @@ const Privacy: React.FC = () => {
           </li>
           <li>
             <p>
-              Die geräteübergreifende Nutzeranalyse können Sie in Ihrem Google-Account unter „Meine Daten > persönliche
-              Daten" deaktivieren.
+              Die geräteübergreifende Nutzeranalyse können Sie in Ihrem Google-Account unter „Meine Daten &gt;
+              persönliche Daten" deaktivieren.
             </p>
           </li>
         </ol>
