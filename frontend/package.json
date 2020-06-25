@@ -45,7 +45,7 @@
     "@types/react-scrollspy": "^3.3.2",
     "@types/react-transition-group": "^4.4.0",
     "eslint": "^7.3.1",
-    "eslint-config-semistandard": "^15.0.0",
+    "eslint-config-semistandard": "^15.0.1",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-react": "^7.20.0",
     "node-sass": "^4.14.1",
