@@ -22,7 +22,7 @@
     "react": "^16.13.1",
     "react-countup": "^4.3.3",
     "react-dom": "^16.13.1",
-    "react-gtm-module": "^2.0.8",
+    "react-gtm-module": "^2.0.10",
     "react-helmet-async": "^1.0.6",
     "react-router-dom": "^5.2.0",
     "react-router-hash-link": "^1.2.2",
