@@ -25,7 +25,7 @@
     "react-gtm-module": "^2.0.10",
     "react-helmet-async": "^1.0.6",
     "react-router-dom": "^5.2.0",
-    "react-router-hash-link": "^1.2.2",
+    "react-router-hash-link": "^2.0.0",
     "react-scripts": "^3.4.1",
     "react-scrollspy": "^3.4.2",
     "react-transition-group": "^4.4.1",
