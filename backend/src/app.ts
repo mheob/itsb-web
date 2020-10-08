@@ -1,7 +1,6 @@
-import express, { Request, Response, NextFunction } from "express";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
-
+import express, { NextFunction, Request, Response } from "express";
 import { HttpError } from "./models/http-error";
 import contactRoute from "./routes/contact";
 

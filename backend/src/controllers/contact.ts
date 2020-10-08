@@ -1,6 +1,5 @@
 import { RequestHandler } from "express";
 import { validationResult } from "express-validator";
-
 import { Contact } from "../models/contact";
 import { HttpError } from "../models/http-error";
 import { sendMail } from "../services/contact";

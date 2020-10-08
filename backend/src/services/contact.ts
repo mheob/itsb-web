@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer";
-
 import { auth } from "../config/auth";
 import { Contact } from "../models/contact";
+import { sanitize } from "../utils/sanitize";
 
 export const sendMail = async (data: Contact) => {
   const transporter = nodemailer.createTransport(
@@ -9,11 +9,11 @@ export const sendMail = async (data: Contact) => {
       host: auth.host,
       auth: {
         user: auth.user,
-        pass: auth.pass
-      }
+        pass: auth.pass,
+      },
     },
     {
-      from: '"Alex vom IT Service Böhm" <ab@its-boehm.de>'
+      from: '"Alex vom IT Service Böhm" <ab@its-boehm.de>',
     }
   );
 
@@ -51,19 +51,19 @@ export const sendMail = async (data: Contact) => {
   `;
 
   const htmlBody = `
-    <p>Hallo ${data.name}!</p>
+    <p>Hallo ${sanitize(data.name)}!</p>
     <p>Vielen Dank für Deine Nachricht!</p>
     <p>Die folgenden Daten hast Du mir übermittelt:</p>
     <blockquote>
       <h3>Kontaktdaten:</h3>
       <ul>
-        <li>Name: ${data.name}</li>
-        <li>E-Mail: ${data.email}</li>
-        <li>Telefon: ${data.phone}</li>
-        <li>Datenschutz: ${data.privacy}</li>
+        <li>Name: ${sanitize(data.name)}</li>
+        <li>E-Mail: ${sanitize(data.email)}</li>
+        <li>Telefon: ${sanitize(data.phone)}</li>
+        <li>Datenschutz: ${sanitize(data.privacy)}</li>
       </ul>
       <h3>Nachricht:</h3>
-      <p>${data.message}</p>
+      <p>${sanitize(data.message)}</p>
     </blockquote>
     <p>Ich werde mich zeitnah bei Dir melden.</p>
     <p>Freundliche Grüße aus Neuwied,</p>
@@ -83,6 +83,6 @@ export const sendMail = async (data: Contact) => {
     cc: data.sendCopy ? data.email : "",
     subject: "Anfrage über www.its-boehm.de",
     text: plainBody,
-    html: htmlBody
+    html: htmlBody,
   });
 };
