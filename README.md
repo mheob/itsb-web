@@ -1,6 +1,12 @@
 # The Homepage of the IT Service Böhm
 
-[![dependencies Status](https://david-dm.org/mheob/itsb-web.svg)](https://david-dm.org/mheob/itsb-web)
+Backend:
+[![dependencies Status - Backend](https://david-dm.org/mheob/itsb-web.svg?path=backend)](https://david-dm.org/mheob/itsb-web?path=backend)
+[![devDependencies Status - Backend](https://david-dm.org/mheob/itsb-web/dev-status.svg?path=backend)](https://david-dm.org/mheob/itsb-web?path=backend&type=dev)
+
+Frontend:
+[![dependencies Status - Frontend](https://david-dm.org/mheob/itsb-web.svg?path=frontend)](https://david-dm.org/mheob/itsb-web?path=backend)
+[![devDependencies Status - Frontend](https://david-dm.org/mheob/itsb-web/dev-status.svg?path=frontend)](https://david-dm.org/mheob/itsb-web?path=backend&type=dev)
 
 You want to help?
 Open a [issue](https://github.com/mheob/itsb-web/issues/new) or create a [pull request](https://github.com/mheob/itsb-web/compare).
@@ -15,18 +21,18 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.<br />
+Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
+The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
+Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
+The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
