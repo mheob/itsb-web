@@ -1,7 +1,9 @@
 # The Homepage of the IT Service Böhm
 
+[![dependencies Status](https://david-dm.org/mheob/itsb-web.svg)](https://david-dm.org/mheob/itsb-web)
+
 You want to help?
-Open a [issue](https://github.com/ITS-Boehm/itsb-web/issues/new) or create a [pull request](https://github.com/ITS-Boehm/itsb-web/compare).
+Open a [issue](https://github.com/mheob/itsb-web/issues/new) or create a [pull request](https://github.com/mheob/itsb-web/compare).
 
 ---
 
