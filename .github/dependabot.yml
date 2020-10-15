@@ -1,0 +1,28 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: "/backend"
+    schedule:
+      interval: weekly
+      day: sunday
+      time: "01:35"
+      timezone: Europe/Berlin
+    open-pull-requests-limit: 5
+    target-branch: updates/deps
+    reviewers:
+      - mheob
+    assignees:
+      - mheob
+  - package-ecosystem: npm
+    directory: "/frontend"
+    schedule:
+      interval: weekly
+      day: sunday
+      time: "01:40"
+      timezone: Europe/Berlin
+    open-pull-requests-limit: 5
+    target-branch: updates/deps
+    reviewers:
+      - mheob
+    assignees:
+      - mheob
