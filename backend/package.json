@@ -19,9 +19,9 @@
     "nodemailer": "^6.4.14"
   },
   "devDependencies": {
-    "@types/express": "^4.17.8",
-    "@types/node": "^14.11.10",
-    "@types/nodemailer": "^6.4.0",
-    "nodemon": "^2.0.5"
+    "@types/express": "4.17.8",
+    "@types/node": "14.11.10",
+    "@types/nodemailer": "6.4.0",
+    "nodemon": "2.0.5"
   }
 }
