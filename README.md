@@ -1,14 +1,7 @@
 # The Homepage of the IT Service Böhm
 
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/mheob/itsb-web.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/mheob/itsb-web/context:javascript)
-
-Backend:
-[![dependencies Status - Backend](https://david-dm.org/mheob/itsb-web.svg?path=backend)](https://david-dm.org/mheob/itsb-web?path=backend)
-[![devDependencies Status - Backend](https://david-dm.org/mheob/itsb-web/dev-status.svg?path=backend)](https://david-dm.org/mheob/itsb-web?path=backend&type=dev)
-
-Frontend:
-[![dependencies Status - Frontend](https://david-dm.org/mheob/itsb-web.svg?path=frontend)](https://david-dm.org/mheob/itsb-web?path=backend)
-[![devDependencies Status - Frontend](https://david-dm.org/mheob/itsb-web/dev-status.svg?path=frontend)](https://david-dm.org/mheob/itsb-web?path=backend&type=dev)
+[![CodeQL CI](https://img.shields.io/github/workflow/status/mheob/itsb-web/CodeQL%20CI?label=CodeQL%20CI&logo=github&style=flat-square)](https://github.com/mheob/itsb-web)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/mheob/itsb-web.svg?logo=lgtm&logoWidth=18&style=flat-square)](https://lgtm.com/projects/g/mheob/itsb-web/context:javascript)
 
 You want to help?
 Open a [issue](https://github.com/mheob/itsb-web/issues/new) or create a [pull request](https://github.com/mheob/itsb-web/compare).
