@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 export enum LinkType {
   EMAIL,
-  PHONE
+  PHONE,
 }
 
 interface HeaderProps {
@@ -21,7 +21,7 @@ interface ContactLinkProps {
   style?: React.CSSProperties;
 }
 
-const ContactLink: React.FC<ContactLinkProps> = props => {
+const ContactLink: React.FC<ContactLinkProps> = (props) => {
   const [humanInteractionState, setHumanInteractionState] = useState(false);
 
   const handleCopiability = () => {
@@ -32,7 +32,7 @@ const ContactLink: React.FC<ContactLinkProps> = props => {
     const combinedHeader =
       props.header &&
       Object.keys(props.header)
-        .map(key => `${key}=${encodeURIComponent(props.header![key]!)}`)
+        .map((key) => `${key}=${encodeURIComponent(props.header![key]!)}`)
         .join("&");
 
     return props.type === LinkType.EMAIL
@@ -40,19 +40,14 @@ const ContactLink: React.FC<ContactLinkProps> = props => {
       : "tel:" + props.href;
   };
 
-  const reverse = (string: string) => {
-    return string
-      .split("")
-      .reverse()
-      .join("")
-      .replace("(", ")")
-      .replace(")", "(");
+  const reverse = (stringToReverse: string) => {
+    return stringToReverse.split("").reverse().join("").replace("(", ")").replace(")", "(");
   };
 
   const directionStyle: React.CSSProperties = {
     ...(props.style || {}),
     unicodeBidi: "bidi-override",
-    direction: humanInteractionState ? "ltr" : "rtl"
+    direction: humanInteractionState ? "ltr" : "rtl",
   };
 
   const renderProps = {
@@ -61,7 +56,7 @@ const ContactLink: React.FC<ContactLinkProps> = props => {
     onContextMenu: handleCopiability,
     href: humanInteractionState === true ? createContactLink(props) : "obfuscated",
     title: props.title,
-    style: directionStyle
+    style: directionStyle,
   };
 
   return <a {...renderProps}>{humanInteractionState ? props.href : reverse(props.href)}</a>;

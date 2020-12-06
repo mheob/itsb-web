@@ -30,28 +30,28 @@ const inputReducer = (state: InputState, action: InputAction): InputState => {
       return {
         ...state,
         value: action.val!,
-        isValid: validate(action.val!, action.validators!)
+        isValid: validate(action.val!, action.validators!),
       };
     case "TOUCH":
       return {
         ...state,
-        isTouched: true
+        isTouched: true,
       };
     case "TOUCH_PHONE":
       return {
         ...state,
-        isValid: true
+        isValid: true,
       };
     default:
       return state;
   }
 };
 
-const Input: React.FC<InputProps> = props => {
+const Input: React.FC<InputProps> = (props) => {
   const [inputState, dispatch] = useReducer<React.Reducer<InputState, InputAction>>(inputReducer, {
     value: "",
     isTouched: false,
-    isValid: false
+    isValid: false,
   });
 
   const { id, onInput } = props;

@@ -2,10 +2,10 @@
 npm-debug.log*
 
 # Dependency directories
-node_modules/
+node_modules
 
-# Optional npm cache directory
-.npm
+# DeepCode
+.dccache
 
 # Credentials
 .env
