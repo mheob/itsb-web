@@ -1,10 +1,10 @@
 export class Contact {
   constructor(
-    public readonly name: string,
-    public readonly email: string,
-    public readonly phone: string,
-    public readonly sendCopy: boolean,
-    public readonly privacy: string,
-    public readonly message: string
+    readonly name: string,
+    readonly email: string,
+    readonly phone: string,
+    readonly sendCopy: boolean,
+    readonly privacy: string,
+    readonly message: string
   ) {}
 }

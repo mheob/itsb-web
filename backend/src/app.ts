@@ -10,8 +10,8 @@ const app = express();
 
 app.use(bodyParser.json());
 
-app.use((req: Request, res: Response, next: NextFunction) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
+app.use((_: Request, res: Response, next: NextFunction) => {
+  res.setHeader("Access-Control-Allow-Origin", "https://www.its-boehm.de");
   res.setHeader("Access-Control-Allow-Headers", "Origin, X-Request-With, Content-Type, Accept");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST");
   next();
