@@ -3,13 +3,28 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build:css": "node-sass ./src/styles/sass/ -o ./src/styles/css/",
-    "watch:css": "yarn build:css && node-sass src/styles/sass/ -o src/styles/css/ --watch --recursive",
-    "start:js": "react-scripts start",
-    "start": "npm-run-all -p watch:css start:js",
     "build": "yarn build:css && react-scripts build",
+    "build:css": "node-sass ./src/styles/sass/ -o ./src/styles/css/",
+    "eject": "react-scripts eject",
+    "start": "npm-run-all -p watch:css start:js",
+    "start:js": "react-scripts start",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "watch:css": "yarn build:css && node-sass src/styles/sass/ -o src/styles/css/ --watch --recursive"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.32",
@@ -25,7 +40,7 @@
     "react-gtm-module": "2.0.11",
     "react-helmet-async": "1.0.7",
     "react-router-dom": "5.2.0",
-    "react-router-hash-link": "2.2.2",
+    "react-router-hash-link": "2.3.1",
     "react-scripts": "4.0.1",
     "react-scrollspy": "3.4.3",
     "react-transition-group": "4.4.1",
@@ -33,8 +48,8 @@
     "react-waypoint": "9.0.3"
   },
   "devDependencies": {
-    "@types/jest": "26.0.16",
-    "@types/node": "14.14.10",
+    "@types/jest": "26.0.19",
+    "@types/node": "14.14.13",
     "@types/node-sass": "4.11.1",
     "@types/react": "17.0.0",
     "@types/react-count-to": "0.12.0",
@@ -60,21 +75,6 @@
     "stylelint-config-rational-order": "0.1.2",
     "stylelint-order": "4.1.0",
     "stylelint-prettier": "1.1.2",
-    "typescript": "4.1.2"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "typescript": "4.1.3"
   }
 }
