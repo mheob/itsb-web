@@ -27,10 +27,10 @@
     "extends": "react-app"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "1.2.32",
-    "@fortawesome/free-brands-svg-icons": "5.15.1",
-    "@fortawesome/free-regular-svg-icons": "5.15.1",
-    "@fortawesome/free-solid-svg-icons": "5.15.1",
+    "@fortawesome/fontawesome-svg-core": "1.2.34",
+    "@fortawesome/free-brands-svg-icons": "5.15.2",
+    "@fortawesome/free-regular-svg-icons": "5.15.2",
+    "@fortawesome/free-solid-svg-icons": "5.15.2",
     "@fortawesome/react-fontawesome": "0.1.14",
     "animate.css": "4.1.1",
     "nuka-carousel": "4.7.5",
