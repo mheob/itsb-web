@@ -1,14 +1,14 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { FC } from 'react';
+import { Link } from 'react-router-dom';
 
-import Modal from "../../shared/Modal";
+import Modal from '../../shared/Modal';
 
 interface PrivacyModalProps {
   show: boolean;
   onCancel: () => void;
 }
 
-const PrivacyModal: React.FC<PrivacyModalProps> = props => {
+const PrivacyModal: FC<PrivacyModalProps> = (props) => {
   return (
     <Modal show={props.show} onCancel={props.onCancel} header="Bestimmungen zur Nutzung Deiner Daten">
       <p>
@@ -24,7 +24,7 @@ const PrivacyModal: React.FC<PrivacyModalProps> = props => {
         Du kannst Deine erteilte Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen. Im Falle des Widerrufs
         werden Deine Daten umgehend gelöscht. Deine Daten werden ansonsten ebenfalls gelöscht, wenn ich Deine Anfrage
         bearbeitet habe oder der Zweck der Speicherung entfallen ist. Du kannst Dich jederzeit über die Deiner Person
-        gespeicherten Daten informieren. Weitere Informationen zum Datenschutz finden Du auch in der{" "}
+        gespeicherten Daten informieren. Weitere Informationen zum Datenschutz finden Du auch in der{' '}
         <Link to="/datenschutz">Datenschutzerklärung</Link> dieser Webseite.
       </p>
     </Modal>

@@ -1,8 +1,8 @@
-import React, { CSSProperties } from "react";
-import ReactDOM from "react-dom";
-import { CSSTransition } from "react-transition-group";
+import { CSSProperties, FC, MouseEvent } from 'react';
+import ReactDOM from 'react-dom';
+import { CSSTransition } from 'react-transition-group';
 
-import Backdrop from "../shared/Backdrop";
+import Backdrop from '../shared/Backdrop';
 
 interface ModalOverlayProps {
   className?: string;
@@ -14,10 +14,10 @@ interface ModalOverlayProps {
 
 interface ModalProps extends ModalOverlayProps {
   show: boolean;
-  onCancel: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  onCancel: (event: MouseEvent<HTMLDivElement, globalThis.MouseEvent>) => void;
 }
 
-const ModalOverlay: React.FC<ModalOverlayProps> = (props) => {
+const ModalOverlay: FC<ModalOverlayProps> = (props) => {
   const content = (
     <div className={`Modal ${props.className}`} style={props.style}>
       <header className={`Modal__header ${props.headerClass}`}>
@@ -26,10 +26,10 @@ const ModalOverlay: React.FC<ModalOverlayProps> = (props) => {
       <div className={`Modal__content ${props.contentClass}`}>{props.children}</div>
     </div>
   );
-  return ReactDOM.createPortal(content, document.getElementById("modal")!);
+  return ReactDOM.createPortal(content, document.getElementById('modal')!);
 };
 
-const Modal: React.FC<ModalProps> = (props) => {
+const Modal: FC<ModalProps> = (props) => {
   return (
     <>
       {props.show && <Backdrop onClick={props.onCancel} />}

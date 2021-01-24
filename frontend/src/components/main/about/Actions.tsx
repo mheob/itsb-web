@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { HashLink } from "react-router-hash-link";
+import { FC, useState } from 'react';
+import { HashLink } from 'react-router-hash-link';
 
-import Modal from "../../shared/Modal";
+import Modal from '../../shared/Modal';
 
-const Actions: React.FC = () => {
+const Actions: FC = () => {
   const [showModalState, setShowModalState] = useState(false);
 
   const openModalHandler = () => {

@@ -1,10 +1,10 @@
-import React from "react";
+import { FC } from 'react';
 
-import Footer from "./Footer";
-import Logo from "./Logo";
-import Navigation from "./Navigation";
+import Footer from './Footer';
+import Logo from './Logo';
+import Navigation from './Navigation';
 
-const Aside: React.FC = () => {
+const Aside: FC = () => {
   return (
     <aside className="Aside">
       <div>

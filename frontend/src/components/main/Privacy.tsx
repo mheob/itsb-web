@@ -1,16 +1,20 @@
-import React from "react";
+import { FC } from 'react';
 
-import Seo from "../shared/Seo";
-import Footer from "../shared/Footer";
+import Seo from '../shared/Seo';
+import Footer from '../shared/Footer';
 
-const Privacy: React.FC = () => {
+const Privacy: FC = () => {
   return (
     <>
       <Seo
         title="Datenschutz >> IT Service Böhm >> Dein Partner rund ums Web aus Neuwied"
+        // eslint-disable-next-line max-len
         description="Alexander Böhm aus Neuwied stellt sich und seine Arbeit rund um Web Design, SEO und Web Development vor."
         url="https://www.its-boehm.de/datenschutz"
-        og={{ image: "https://www.its-boehm.de/images/itsb-boehm-alexander-bg.jpg", type: "website" }}
+        og={{
+          image: 'https://www.its-boehm.de/images/itsb-boehm-alexander-bg.jpg',
+          type: 'website',
+        }}
         noIndex
       />
       {/*
@@ -22,7 +26,7 @@ const Privacy: React.FC = () => {
         <p>
           Wir informieren Sie nachfolgend gemäß den gesetzlichen Vorgaben des Datenschutzrechts (insb. gemäß BDSG n.F.
           und der europäischen Datenschutz-Grundverordnung ‚DS-GVO‘) über die Art, den Umfang und Zweck der Verarbeitung
-          personenbezogener Daten durch unser Unternehmen. Diese Datenschutzerklärung gilt auch für unsere Websites und
+          personenbezogener Daten durch unser Unternehmen. Diese Datenschutzerklärung gilt auch für unsere Websites und
           Sozial-Media-Profile. Bezüglich der Definition von Begriffen wie etwa „personenbezogene Daten" oder
           „Verarbeitung" verweisen wir auf Art. 4 DS-GVO.
         </p>
@@ -229,11 +233,11 @@ const Privacy: React.FC = () => {
               <strong>Widerspruch und „Opt-Out":</strong> Das Speichern von Cookies auf Ihrer Festplatte können Sie
               allgemein verhindern, indem Sie in Ihren Browser-Einstellungen „keine Cookies akzeptieren" wählen. Dies
               kann aber eine Funktionseinschränkung unserer Angebote zur Folge haben. Sie können dem Einsatz von Cookies
-              von Drittanbietern zu Werbezwecken über ein sog. „Opt-out" über diese amerikanische Website (
+              von Drittanbietern zu Werbezwecken über ein sog. „Opt-out" über diese amerikanische Website (
               <a href="https://optout.aboutads.info" rel="nofollow noopener noreferrer" target="_blank">
                 https://optout.aboutads.info
               </a>
-              ) oder diese europäische Website (
+              ) oder diese europäische Website (
               <a
                 href="http://www.youronlinechoices.com/de/praferenzmanagement/"
                 rel="nofollow noopener noreferrer"
@@ -255,14 +259,14 @@ const Privacy: React.FC = () => {
           </li>
           <li>
             <p>
-              Rechtsgrundlage für die Verarbeitung der Daten ist bei Vorliegen einer Einwilligung von Ihnen Art. 6
-              Abs. 1 S. 1 lit. a) DS-GVO. Rechtsgrundlage für die Verarbeitung der Daten, die im Zuge einer
-              Kontaktanfrage oder E-Mail, eines Briefes oder Faxes übermittelt werden, ist Art. 6 Abs. 1 S. 1 lit. f)
-              DS-GVO. Der Verantwortliche hat ein berechtigtes Interesse an der Verarbeitung und Speicherung der Daten,
-              um Anfragen der Nutzer beantworten zu können, zur Beweissicherung aus Haftungsgründen und um ggf. seiner
-              gesetzlichen Aufbewahrungspflichten bei Geschäftsbriefen nachkommen zu können. Zielt der Kontakt auf den
-              Abschluss eines Vertrages ab, so ist zusätzliche Rechtsgrundlage für die Verarbeitung Art. 6 Abs. 1 S. 1
-              lit. b) DS-GVO.
+              Rechtsgrundlage für die Verarbeitung der Daten ist bei Vorliegen einer Einwilligung von Ihnen Art. 6 Abs.
+              1 S. 1 lit. a) DS-GVO. Rechtsgrundlage für die Verarbeitung der Daten, die im Zuge einer Kontaktanfrage
+              oder E-Mail, eines Briefes oder Faxes übermittelt werden, ist Art. 6 Abs. 1 S. 1 lit. f) DS-GVO. Der
+              Verantwortliche hat ein berechtigtes Interesse an der Verarbeitung und Speicherung der Daten, um Anfragen
+              der Nutzer beantworten zu können, zur Beweissicherung aus Haftungsgründen und um ggf. seiner gesetzlichen
+              Aufbewahrungspflichten bei Geschäftsbriefen nachkommen zu können. Zielt der Kontakt auf den Abschluss
+              eines Vertrages ab, so ist zusätzliche Rechtsgrundlage für die Verarbeitung Art. 6 Abs. 1 S. 1 lit. b)
+              DS-GVO.
             </p>
           </li>
           <li>
@@ -304,9 +308,9 @@ const Privacy: React.FC = () => {
           </li>
           <li>
             <p>
-              Rechtsgrundlage für die Verarbeitung der Telefonnummer ist Art. 6 Abs. 1 S. 1 lit. f) DS-GVO. Zielt der
-              Kontakt auf den Abschluss eines Vertrages ab, so ist zusätzliche Rechtsgrundlage für die Verarbeitung
-              Art. 6 Abs. 1 lit. b) DS-GVO.
+              Rechtsgrundlage für die Verarbeitung der Telefonnummer ist Art. 6 Abs. 1 S. 1 lit. f) DS-GVO. Zielt der
+              Kontakt auf den Abschluss eines Vertrages ab, so ist zusätzliche Rechtsgrundlage für die Verarbeitung Art.
+              6 Abs. 1 lit. b) DS-GVO.
             </p>
           </li>
           <li>
@@ -377,22 +381,22 @@ const Privacy: React.FC = () => {
           </li>
           <li>
             <p>
-              Weitere Informationen zu Datennutzung bei Google Analytics finden Sie hier:{" "}
+              Weitere Informationen zu Datennutzung bei Google Analytics finden Sie hier:{' '}
               <a
                 href="https://www.google.com/analytics/terms/de.html"
                 rel="nofollow noopener noreferrer"
                 target="_blank"
               >
                 https://www.google.com/analytics/terms/de.html
-              </a>{" "}
-              (Nutzungsbedingungen von Analytics),{" "}
+              </a>{' '}
+              (Nutzungsbedingungen von Analytics),{' '}
               <a
                 href="https://support.google.com/analytics/answer/6004245?hl=de"
                 rel="nofollow noopener noreferrer"
                 target="_blank"
               >
                 https://support.google.com/analytics/answer/6004245?hl=de
-              </a>{" "}
+              </a>{' '}
               (Hinweise zum Datenschutz bei Analytics) und Googles Datenschutzerklärung
               <a href="https://policies.google.com/privacy" rel="nofollow noopener noreferrer" target="_blank">
                 https://policies.google.com/privacy
@@ -407,7 +411,7 @@ const Privacy: React.FC = () => {
               Funktionseinschränkung unserer Angebote zur Folge haben. Sie können darüber hinaus die Erfassung der,
               durch das Cookie erzeugten und auf Ihre Nutzung der Website bezogenen, Daten an Google sowie die
               Verarbeitung dieser Daten durch Google verhindern, indem sie das unter dem folgenden Link verfügbare
-              Browser-Plugin herunterladen und installieren:{" "}
+              Browser-Plugin herunterladen und installieren:{' '}
               <a
                 href="http://tools.google.com/dlpage/gaoptout?hl=de"
                 rel="nofollow noopener noreferrer"
@@ -421,10 +425,11 @@ const Privacy: React.FC = () => {
           <li>
             <p>
               Als Alternative zum obigen Browser-Plugin können Sie die Erfassung durch Google Analytics unterbinden,
-              indem Sie <strong>[__hier bitte__den Analytics Opt-Out Link Ihrer Webseite einfügen]</strong> klicken.
-              Durch den Klick wird ein „Opt-out"-Cookie gesetzt, das die Erfassung Ihrer Daten beim Besuch dieser
-              Webseite zukünftig verhindert. Dieses Cookie gilt nur für unsere Webseite und Ihren aktuellen Browser und
-              hat nur solange Bestand bis Sie Ihre Cookies löschen. In dem Falle müssten Sie das Cookie erneut setzen.
+              indem Sie
+              <strong>[__hier bitte__den Analytics Opt-Out Link Ihrer Webseite einfügen]</strong> klicken. Durch den
+              Klick wird ein „Opt-out"-Cookie gesetzt, das die Erfassung Ihrer Daten beim Besuch dieser Webseite
+              zukünftig verhindert. Dieses Cookie gilt nur für unsere Webseite und Ihren aktuellen Browser und hat nur
+              solange Bestand bis Sie Ihre Cookies löschen. In dem Falle müssten Sie das Cookie erneut setzen.
             </p>
           </li>
           <li>
@@ -469,12 +474,12 @@ const Privacy: React.FC = () => {
             </p>
             <ul>
               <li>
-                Sie können die Cookies in Ihrem Browser durch die{" "}
+                Sie können die Cookies in Ihrem Browser durch die{' '}
                 <strong>Einstellung "keine Cookies akzeptieren"</strong> unterbinden, was auch die Cookies von
                 Drittanbietern beinhaltet
               </li>
               <li>
-                Sie können die Cookies von Matomo über diesen Link deaktivieren:{" "}
+                Sie können die Cookies von Matomo über diesen Link deaktivieren:{' '}
                 <strong>[BITTE MATOMO OPT-OUT LINK HIER EINFÜGEN]</strong>. Dieser Cookie gilt nur für unsere Website
                 und Ihren aktuellen Browser und hat nur solange Bestand bis Sie Ihre Cookies löschen. In dem Falle
                 müssten Sie den Cookie erneut setzen.
@@ -482,7 +487,7 @@ const Privacy: React.FC = () => {
             </ul>
           </li>
           <li>
-            Weitere Informationen entnehmen Sie der Datenschutzerklärung von Matomo unter:{" "}
+            Weitere Informationen entnehmen Sie der Datenschutzerklärung von Matomo unter:{' '}
             <a href="https://matomo.org/privacy/" rel="nofollow noopener noreferrer" target="_blank">
               https://matomo.org/privacy/
             </a>
@@ -524,19 +529,19 @@ const Privacy: React.FC = () => {
             <ul>
               <li>
                 <strong>Facebook</strong> (Facebook Ireland Ltd., 4 Grand Canal Square, Grand Canal Harbour, Dublin 2,
-                Irland) Datenschutzerklärung:{" "}
+                Irland) Datenschutzerklärung:{' '}
                 <a href="https://www.facebook.com/about/privacy/" rel="nofollow noopener noreferrer" target="_blank">
                   https://www.facebook.com/about/privacy/
                 </a>
-                , Opt-Out:{" "}
+                , Opt-Out:{' '}
                 <a href="https://www.facebook.com/settings?tab=ads" rel="nofollow noopener noreferrer" target="_blank">
                   https://www.facebook.com/settings?tab=ads
-                </a>{" "}
-                und{" "}
+                </a>{' '}
+                und{' '}
                 <a href="http://www.youronlinechoices.com" rel="nofollow noopener noreferrer" target="_blank">
                   http://www.youronlinechoices.com
                 </a>
-                , Privacy Shield:{" "}
+                , Privacy Shield:{' '}
                 <a
                   href="https://www.privacyshield.gov/participant?id=a2zt0000000GnywAAC&status=Active"
                   rel="nofollow noopener noreferrer"
@@ -548,7 +553,7 @@ const Privacy: React.FC = () => {
               </li>
               <li>
                 <strong>Instagram</strong> (Instagram Inc., 1601 Willow Road, Menlo Park, CA, 94025, USA) –
-                Datenschutzerklärung/ Opt-Out:{" "}
+                Datenschutzerklärung/ Opt-Out:{' '}
                 <a href="http://instagram.com/about/legal/privacy/" rel="nofollow noopener noreferrer" target="_blank">
                   http://instagram.com/about/legal/privacy/
                 </a>
@@ -556,15 +561,15 @@ const Privacy: React.FC = () => {
               </li>
               <li>
                 <strong>Twitter</strong> (Twitter Inc., 1355 Market Street, Suite 900, San Francisco, CA 94103, USA) -
-                Datenschutzerklärung:{" "}
+                Datenschutzerklärung:{' '}
                 <a href="https://twitter.com/de/privacy" rel="nofollow noopener noreferrer" target="_blank">
                   https://twitter.com/de/privacy
                 </a>
-                , Opt-Out:{" "}
+                , Opt-Out:{' '}
                 <a href="https://twitter.com/personalization" rel="nofollow noopener noreferrer" target="_blank">
                   https://twitter.com/personalization
                 </a>
-                , Privacy Shield:{" "}
+                , Privacy Shield:{' '}
                 <a
                   href="https://www.privacyshield.gov/participant?id=a2zt0000000TORzAAO&status=Active"
                   rel="nofollow noopener noreferrer"
@@ -576,7 +581,7 @@ const Privacy: React.FC = () => {
               </li>
               <li>
                 <strong>XING</strong> (XING AG, Dammtorstraße 29-32, 20354 Hamburg, Deutschland) - Datenschutzerklärung/
-                Opt-Out:{" "}
+                Opt-Out:{' '}
                 <a
                   href="https://privacy.xing.com/de/datenschutzerklaerung"
                   rel="nofollow noopener noreferrer"
@@ -588,7 +593,7 @@ const Privacy: React.FC = () => {
               </li>
               <li>
                 <strong>LinkedIn</strong> (LinkedIn Ireland Unlimited Company, Wilton Place, Dublin 2, Irland) –
-                Datenschutzerklärung:{" "}
+                Datenschutzerklärung:{' '}
                 <a
                   href="https://www.linkedin.com/legal/privacy-policy"
                   rel="nofollow noopener noreferrer"
@@ -596,7 +601,7 @@ const Privacy: React.FC = () => {
                 >
                   https://www.linkedin.com/legal/privacy-policy
                 </a>
-                , Cookie-Richtlinie und Opt-Out:{" "}
+                , Cookie-Richtlinie und Opt-Out:{' '}
                 <a
                   href="https://www.linkedin.com/legal/cookie-policy"
                   rel="nofollow noopener noreferrer"
@@ -604,7 +609,7 @@ const Privacy: React.FC = () => {
                 >
                   https://www.linkedin.com/legal/cookie-policy
                 </a>
-                , Privacy Shield der US-Firma LinkedIn Inc.:{" "}
+                , Privacy Shield der US-Firma LinkedIn Inc.:{' '}
                 <a
                   href="https://www.privacyshield.gov/participant?id=a2zt0000000L0UZAA0&status=Active"
                   rel="nofollow noopener noreferrer"
@@ -736,7 +741,7 @@ const Privacy: React.FC = () => {
           geeignete technische und organisatorische Sicherheitsmaßnahmen getroffen. Deshalb werden unter anderem alle
           Daten zwischen Ihrem Browser und unserem Server über eine sichere SSL-Verbindung verschlüsselt übertragen.
         </p>
-        <p style={{ textAlign: "right" }}>Letzte Aktualisierung: 09.12.2019</p>
+        <p style={{ textAlign: 'right' }}>Letzte Aktualisierung: 09.12.2019</p>
       </section>
       <Footer />
     </>

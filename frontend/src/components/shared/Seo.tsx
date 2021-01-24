@@ -1,5 +1,5 @@
-import React from "react";
-import { Helmet } from "react-helmet-async";
+import { FC } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 interface SeoProps {
   title: string;
@@ -10,7 +10,7 @@ interface SeoProps {
     title?: string;
     image?: string;
     url?: string;
-    type: "website" | "article";
+    type: 'website' | 'article';
     article?: {
       publishedTime?: Date;
       modifiedTime?: Date;
@@ -26,7 +26,7 @@ interface SeoProps {
   };
 }
 
-const Seo: React.FC<SeoProps> = props => {
+const Seo: FC<SeoProps> = (props) => {
   return (
     <Helmet>
       <title>{props.title}</title>
@@ -40,7 +40,7 @@ const Seo: React.FC<SeoProps> = props => {
       <meta property="og:url" content={props.og.url || props.url} />
       <meta property="og:locale" content="de_DE" />
       <meta property="og:site_name" content="IT Service Böhm" />
-      {props.og.type === "article" && (
+      {props.og.type === 'article' && (
         <>
           {props.og.article?.publishedTime && (
             <meta property="article:published_time" content={props.og.article.publishedTime.toISOString()} />
@@ -61,8 +61,8 @@ const Seo: React.FC<SeoProps> = props => {
       <meta name="twitter:title" content={props.og.title || props.title} />
       <meta name="twitter:description" content={props.description} />
       <meta name="twitter:image" content={props.og.image} />
-      <meta name="twitter:site" content={props.twitter?.site || "@itsboehm"} />
-      <meta name="twitter:creator" content={props.twitter?.creator || "@itsboehm"} />
+      <meta name="twitter:site" content={props.twitter?.site || '@itsboehm'} />
+      <meta name="twitter:creator" content={props.twitter?.creator || '@itsboehm'} />
     </Helmet>
   );
 };

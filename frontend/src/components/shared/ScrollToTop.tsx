@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { RouteComponentProps, withRouter } from "react-router";
+import { FC, useEffect } from 'react';
+import { RouteComponentProps, withRouter } from 'react-router';
 
-const ScrollToTop: React.FC<RouteComponentProps> = ({ children, history }) => {
+const ScrollToTop: FC<RouteComponentProps> = ({ children, history }) => {
   useEffect(() => {
     return () => {
       history.listen(() => {
@@ -10,7 +10,7 @@ const ScrollToTop: React.FC<RouteComponentProps> = ({ children, history }) => {
     };
   });
 
-  return <React.Fragment>{children}</React.Fragment>;
+  return <>{children}</>;
 };
 
 export default withRouter(ScrollToTop);

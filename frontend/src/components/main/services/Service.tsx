@@ -1,9 +1,9 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FC } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { ServiceModel } from "./service.model";
+import { ServiceModel } from './service.model';
 
-const Service: React.FC<ServiceModel> = ({ icon, header, text, num }) => {
+const Service: FC<ServiceModel> = ({ icon, header, text, num }) => {
   return (
     <div className="Service">
       <div className="icon">

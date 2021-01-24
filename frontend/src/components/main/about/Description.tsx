@@ -1,6 +1,6 @@
-import React from "react";
+import { FC } from 'react';
 
-const Description: React.FC = () => {
+const Description: FC = () => {
   return (
     <section className="description">
       <h4>

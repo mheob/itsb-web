@@ -1,22 +1,22 @@
-import { StatModel } from "./stat.model";
+import { StatModel } from './stat.model';
 
 // TODO #27: Load some data from a database.
 export const statData: StatModel[] = [
   {
-    upperTitle: "bislang",
-    lowerTitle: "vollendete Projekte",
-    target: 17
+    upperTitle: 'bislang',
+    lowerTitle: 'vollendete Projekte',
+    target: 17,
   },
   {
-    upperTitle: "über",
-    lowerTitle: "erstellte Codezeilen",
+    upperTitle: 'über',
+    lowerTitle: 'erstellte Codezeilen',
     target: 410,
     startAt: 150,
-    suffix: "k"
+    suffix: 'k',
   },
   {
-    upperTitle: "aktuell",
-    lowerTitle: "aktive Kunden",
-    target: 8
-  }
+    upperTitle: 'aktuell',
+    lowerTitle: 'aktive Kunden',
+    target: 8,
+  },
 ];

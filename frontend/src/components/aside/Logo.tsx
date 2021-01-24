@@ -1,11 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { FC } from 'react';
+import { Link } from 'react-router-dom';
 
-import { removeBodyClassHandler } from "../../utils/domHandler";
+import { removeBodyClassHandler } from '../../utils/domHandler';
 
-const Logo: React.FC = () => {
+const Logo: FC = () => {
   const clickHandler = () => {
-    removeBodyClassHandler("offcanvas");
+    removeBodyClassHandler('offcanvas');
   };
 
   return (

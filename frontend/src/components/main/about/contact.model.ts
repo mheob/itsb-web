@@ -1,4 +1,4 @@
-import { LinkType } from "../../shared/ContactLink";
+import { LinkType } from '../../shared/ContactLink';
 
 export interface ContactModel {
   definition: string;

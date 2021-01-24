@@ -1,10 +1,5 @@
 {
   "minify": true,
-  "options": [
-    "setClasses"
-  ],
-  "feature-detects": [
-    "test/img/jpeg2000",
-    "test/img/webp"
-  ]
+  "options": ["setClasses"],
+  "feature-detects": ["test/img/jpeg2000", "test/img/webp"]
 }

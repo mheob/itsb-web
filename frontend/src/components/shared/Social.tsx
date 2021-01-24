@@ -1,9 +1,9 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FC } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { SocialModel } from "./social.model";
+import { SocialModel } from './social.model';
 
-const Social: React.FC<SocialModel> = links => {
+const Social: FC<SocialModel> = (links) => {
   return (
     <ul className="social">
       {links.links.map((links, index) => {

@@ -1,6 +1,6 @@
-import React, { useEffect, useReducer } from "react";
+import { ChangeEvent, FC, FocusEvent, Reducer, useEffect, useReducer } from 'react';
 
-import { ValidatorType, validate } from "../../utils/validators";
+import { ValidatorType, validate } from '../../utils/validators';
 
 type InputProps = {
   className?: string;
@@ -19,25 +19,25 @@ type InputState = {
 };
 
 type InputAction = {
-  type: "CHANGE" | "TOUCH" | "TOUCH_PHONE";
+  type: 'CHANGE' | 'TOUCH' | 'TOUCH_PHONE';
   val?: string;
   validators?: ValidatorType[];
 };
 
 const inputReducer = (state: InputState, action: InputAction): InputState => {
   switch (action.type) {
-    case "CHANGE":
+    case 'CHANGE':
       return {
         ...state,
         value: action.val!,
         isValid: validate(action.val!, action.validators!),
       };
-    case "TOUCH":
+    case 'TOUCH':
       return {
         ...state,
         isTouched: true,
       };
-    case "TOUCH_PHONE":
+    case 'TOUCH_PHONE':
       return {
         ...state,
         isValid: true,
@@ -47,9 +47,9 @@ const inputReducer = (state: InputState, action: InputAction): InputState => {
   }
 };
 
-const Input: React.FC<InputProps> = (props) => {
-  const [inputState, dispatch] = useReducer<React.Reducer<InputState, InputAction>>(inputReducer, {
-    value: "",
+const Input: FC<InputProps> = (props) => {
+  const [inputState, dispatch] = useReducer<Reducer<InputState, InputAction>>(inputReducer, {
+    value: '',
     isTouched: false,
     isValid: false,
   });
@@ -59,27 +59,31 @@ const Input: React.FC<InputProps> = (props) => {
     onInput(id, inputState.value, inputState.isValid);
   }, [inputState.isValid, inputState.value, onInput, id]);
 
-  const changeHandler = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
-    dispatch({ type: "CHANGE", val: event.target.value, validators: props.validators });
+  const changeHandler = (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+    dispatch({
+      type: 'CHANGE',
+      val: event.target.value,
+      validators: props.validators,
+    });
   };
 
-  const focusHandler = (event: React.FocusEvent<HTMLTextAreaElement | HTMLInputElement>) => {
-    if (props.type === "phone") {
-      dispatch({ type: "TOUCH_PHONE" });
+  const focusHandler = (event: FocusEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+    if (props.type === 'phone') {
+      dispatch({ type: 'TOUCH_PHONE' });
     }
   };
 
-  const touchHandler = (event: React.FocusEvent<HTMLTextAreaElement | HTMLInputElement>) => {
-    dispatch({ type: "TOUCH" });
+  const touchHandler = (event: FocusEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+    dispatch({ type: 'TOUCH' });
   };
 
   return (
     <>
       <label>
-        <span style={{ display: "none" }}>{props.label}</span>
-        {props.type === "textarea" ? (
+        <span style={{ display: 'none' }}>{props.label}</span>
+        {props.type === 'textarea' ? (
           <textarea
-            className={inputState.isTouched && !inputState.isValid ? "error" : ""}
+            className={inputState.isTouched && !inputState.isValid ? 'error' : ''}
             name={props.id}
             id={props.id}
             placeholder={props.label}
@@ -90,7 +94,7 @@ const Input: React.FC<InputProps> = (props) => {
           />
         ) : (
           <input
-            className={inputState.isTouched && !inputState.isValid ? "error" : ""}
+            className={inputState.isTouched && !inputState.isValid ? 'error' : ''}
             type={props.type}
             name={props.id}
             id={props.id}

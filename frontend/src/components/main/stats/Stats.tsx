@@ -1,10 +1,10 @@
-import React from "react";
+import { FC } from 'react';
 
-import { statData } from "./stat.data";
-import Stat from "./Stat";
-import SectionHeader from "../../shared/SectionHeader";
+import { statData } from './stat.data';
+import Stat from './Stat';
+import SectionHeader from '../../shared/SectionHeader';
 
-const Stats: React.FC = () => {
+const Stats: FC = () => {
   return (
     <section className="Stats" id="stats">
       <SectionHeader mainText="Ein paar Zahlen über mich" smallText="Statistiken" bgText="Stats" />

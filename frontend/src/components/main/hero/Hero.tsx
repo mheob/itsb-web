@@ -1,7 +1,7 @@
-import React from "react";
-import Typed from "react-typed";
+import { FC } from 'react';
+import Typed from 'react-typed';
 
-const Hero: React.FC = () => {
+const Hero: FC = () => {
   return (
     <section className="Hero" id="home">
       <a className="btn btn-primary-outline" href="#contact">
@@ -16,10 +16,10 @@ const Hero: React.FC = () => {
           <h2>
             <Typed
               strings={[
-                "Neuer Webauftritt benötigt?",
-                "Alter Webauftritt ist nicht mehr zeitgemäß?",
-                "Interaktive Webapplikation gefällig?",
-                "Google zeigt nur die Konkurrenz?"
+                'Neuer Webauftritt benötigt?',
+                'Alter Webauftritt ist nicht mehr zeitgemäß?',
+                'Interaktive Webapplikation gefällig?',
+                'Google zeigt nur die Konkurrenz?',
               ]}
               typeSpeed={50}
               backSpeed={25}

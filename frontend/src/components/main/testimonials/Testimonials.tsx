@@ -1,11 +1,11 @@
-import React from "react";
-import Carousel from "nuka-carousel";
+import { FC } from 'react';
+import Carousel from 'nuka-carousel';
 
-import { testimonialData } from "./testimonial.data";
-import Testimonial from "./Testimonial";
-import SectionHeader from "../../shared/SectionHeader";
+import { testimonialData } from './testimonial.data';
+import Testimonial from './Testimonial';
+import SectionHeader from '../../shared/SectionHeader';
 
-const Testimonials: React.FC = () => {
+const Testimonials: FC = () => {
   return (
     <section className="Testimonials" id="testimonials">
       <div className="overlay" />

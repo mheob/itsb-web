@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 enum ValidationType {
   MIN_LENGTH,
   MAX_LENGTH,
@@ -10,10 +11,20 @@ export interface ValidatorType {
   val?: number;
 }
 
-export const VALIDATOR_MIN_LENGTH = (val: number): ValidatorType => ({ type: ValidationType.MIN_LENGTH, val });
-export const VALIDATOR_MAX_LENGTH = (val: number): ValidatorType => ({ type: ValidationType.MAX_LENGTH, val });
-export const VALIDATOR_EMAIL = (): ValidatorType => ({ type: ValidationType.EMAIL });
-export const VALIDATOR_PHONE = (): ValidatorType => ({ type: ValidationType.PHONE });
+export const VALIDATOR_MIN_LENGTH = (val: number): ValidatorType => ({
+  type: ValidationType.MIN_LENGTH,
+  val,
+});
+export const VALIDATOR_MAX_LENGTH = (val: number): ValidatorType => ({
+  type: ValidationType.MAX_LENGTH,
+  val,
+});
+export const VALIDATOR_EMAIL = (): ValidatorType => ({
+  type: ValidationType.EMAIL,
+});
+export const VALIDATOR_PHONE = (): ValidatorType => ({
+  type: ValidationType.PHONE,
+});
 
 export const validate = (value: string, validators: ValidatorType[]) => {
   let isValid = true;

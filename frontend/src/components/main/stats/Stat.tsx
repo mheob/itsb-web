@@ -1,15 +1,17 @@
-import React, { useState } from "react";
-import CountUp from "react-countup";
-import { Waypoint } from "react-waypoint";
+import { FC, useState } from 'react';
+import CountUp from 'react-countup';
+import { Waypoint } from 'react-waypoint';
 
-import { StatModel } from "./stat.model";
+import { StatModel } from './stat.model';
 
 type CounterState = {
   isFired: boolean;
 };
 
-const Stat: React.FC<StatModel> = props => {
-  const [counterState, setCounterState] = useState<CounterState>({ isFired: false });
+const Stat: FC<StatModel> = (props) => {
+  const [counterState, setCounterState] = useState<CounterState>({
+    isFired: false,
+  });
 
   const waypointEnterHandler = (start: () => void) => {
     if (!counterState.isFired) {

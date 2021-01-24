@@ -1,14 +1,14 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDiscord } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope, faPhoneAlt } from "@fortawesome/free-solid-svg-icons";
+import { FC } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDiscord } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope, faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
 
-import Modal from "../../shared/Modal";
+import Modal from '../../shared/Modal';
 
 interface ResponseModalProps {
   show: boolean;
   onCancel: () => void;
-  type: "SUCCESS" | "ERROR";
+  type: 'SUCCESS' | 'ERROR';
   mailData: {
     name: string;
     email: string;
@@ -19,15 +19,15 @@ interface ResponseModalProps {
   errorMsg?: string;
 }
 
-const ResponseModal: React.FC<ResponseModalProps> = props => {
+const ResponseModal: FC<ResponseModalProps> = (props) => {
   return (
     <Modal
       contentClass="response-modal"
       show={props.show}
       onCancel={props.onCancel}
-      header={props.type === "SUCCESS" ? "Danke für Deine Nachricht :)" : "Sorry, da lief etwas schief :("}
+      header={props.type === 'SUCCESS' ? 'Danke für Deine Nachricht :)' : 'Sorry, da lief etwas schief :('}
     >
-      {props.type === "SUCCESS" ? (
+      {props.type === 'SUCCESS' ? (
         <>
           <p>
             Deine Daten wurden versandt. Um sicherzugehen, dass alles korrekt war erhältst Du ebenfalls eine Kopie der

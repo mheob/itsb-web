@@ -1,20 +1,20 @@
-import React, { useState, useRef } from "react";
+import { FC, useState, useRef, FormEvent } from 'react';
 
-import PrivacyModal from "./PrivacyModal";
-import ResponseModal from "./ResponseModal";
-import Input from "../../shared/Input";
+import PrivacyModal from './PrivacyModal';
+import ResponseModal from './ResponseModal';
+import Input from '../../shared/Input';
 import {
   VALIDATOR_MIN_LENGTH,
   VALIDATOR_MAX_LENGTH,
   VALIDATOR_EMAIL,
-  VALIDATOR_PHONE
-} from "../../../utils/validators";
-import Spinner from "../../shared/Spinner";
-import { FormState, useContactForm } from "../../../hooks/contactFormHook";
+  VALIDATOR_PHONE,
+} from '../../../utils/validators';
+import Spinner from '../../shared/Spinner';
+import { FormState, useContactForm } from '../../../hooks/contactFormHook';
 
 interface ResponseState {
   showModal: boolean;
-  type: "SUCCESS" | "ERROR";
+  type: 'SUCCESS' | 'ERROR';
   mailData: {
     name: string;
     email: string;
@@ -39,34 +39,34 @@ interface ResponseData {
 const defaultFormState: FormState = {
   inputs: {
     name: {
-      value: "",
-      isValid: false
+      value: '',
+      isValid: false,
     },
     email: {
-      value: "",
-      isValid: false
+      value: '',
+      isValid: false,
     },
     phone: {
-      value: "",
-      isValid: false
+      value: '',
+      isValid: false,
     },
     message: {
-      value: "",
-      isValid: false
-    }
+      value: '',
+      isValid: false,
+    },
   },
-  isValid: false
+  isValid: false,
 };
 
 const defaultMailData = {
-  name: "",
-  email: "",
-  phone: "",
-  privacy: "",
-  message: ""
+  name: '',
+  email: '',
+  phone: '',
+  privacy: '',
+  message: '',
 };
 
-const ContactForm: React.FC = () => {
+const ContactForm: FC = () => {
   const form = useRef<HTMLFormElement>(null);
   const { formState, inputHandler } = useContactForm(defaultFormState);
   const [sendCopyState, setSendCopyState] = useState(true);
@@ -75,39 +75,42 @@ const ContactForm: React.FC = () => {
   const [sendingState, setSendingState] = useState(false);
   const [responseState, setResponseState] = useState<ResponseState>({
     showModal: false,
-    type: "SUCCESS",
-    mailData: defaultMailData
+    type: 'SUCCESS',
+    mailData: defaultMailData,
   });
 
-  const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
+  const submitHandler = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     setSendingState(true);
 
     let response: Response;
-    let responseData: ResponseData = { message: "", createdContact: defaultMailData };
+    let responseData: ResponseData = {
+      message: '',
+      createdContact: defaultMailData,
+    };
     try {
-      response = await fetch(process.env.REACT_APP_API_URL! + "contact/send", {
-        method: "POST",
+      response = await fetch(process.env.REACT_APP_API_URL! + 'contact/send', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json"
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           name: formState.inputs.name.value.trim(),
           email: formState.inputs.email.value.trim(),
           phone: formState.inputs.phone.value.trim(),
           sendCopy: sendCopyState,
-          privacy: acceptPrivacyState ? "akzeptiert" : "widersprochen",
-          message: formState.inputs.message.value.trim().replace(/\r\n|\r|\n/g, "<br />")
-        })
+          privacy: acceptPrivacyState ? 'akzeptiert' : 'widersprochen',
+          message: formState.inputs.message.value.trim().replace(/\r\n|\r|\n/g, '<br />'),
+        }),
       });
 
       responseData = await response.json();
 
       setResponseState({
         showModal: true,
-        type: "SUCCESS",
-        mailData: responseData.createdContact
+        type: 'SUCCESS',
+        mailData: responseData.createdContact,
       });
 
       // TODO #22: Reset the form after successfully submit.
@@ -115,9 +118,9 @@ const ContactForm: React.FC = () => {
     } catch (error) {
       setResponseState({
         showModal: true,
-        type: "ERROR",
+        type: 'ERROR',
         mailData: responseData.createdContact,
-        errorMsg: responseData.message
+        errorMsg: responseData.message,
       });
     }
 
@@ -141,10 +144,14 @@ const ContactForm: React.FC = () => {
   };
 
   const closeResponseModalHandler = () => {
-    setResponseState({ showModal: false, type: responseState.type, mailData: responseState.mailData });
+    setResponseState({
+      showModal: false,
+      type: responseState.type,
+      mailData: responseState.mailData,
+    });
   };
 
-  const handleReset = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleReset = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     form.current?.reset();
   };
@@ -179,28 +186,30 @@ const ContactForm: React.FC = () => {
       <Input
         type="textarea"
         id="message"
+        // eslint-disable-next-line max-len
         label="Dein Begehren (Sollte ein Rückruf, anstatt einer Antwortmail, gewünscht sein, dann bitte hier mit angeben.)"
         validators={[VALIDATOR_MIN_LENGTH(30), VALIDATOR_MAX_LENGTH(10240)]}
         onInput={inputHandler}
+        // eslint-disable-next-line max-len
         errorText="Ich brauche eine möglichst erklärende Nachricht von Dir, damit ich auch konkret darauf eingehen kann. Diese sollte mindestens 30, aber nicht viel mehr als 10.000 Zeichen, haben."
       />
       <label htmlFor="send-copy">
-        <span style={{ display: "none" }}>Kopie der E-Mail erhalten:</span>
+        <span style={{ display: 'none' }}>Kopie der E-Mail erhalten:</span>
       </label>
       <div className="switch">
         <input type="checkbox" id="send-copy" name="send-copy" onChange={sendCopyHandler} checked={sendCopyState} />
         <div className="switch__text">Ich möchte eine Kopie der E-Mail erhalten.</div>
       </div>
       <label htmlFor="privacy">
-        <span style={{ display: "none" }}>Mit Datenschutzbestimmungen einverstanden:</span>
+        <span style={{ display: 'none' }}>Mit Datenschutzbestimmungen einverstanden:</span>
       </label>
       <div className="switch">
         <input type="checkbox" id="privacy" name="privacy" onChange={privacyHandler} checked={acceptPrivacyState} />
         <div className="switch__text">
-          Ich bin mit der Verwendung meiner Daten gemäß der{" "}
+          Ich bin mit der Verwendung meiner Daten gemäß der{' '}
           <span className="anchor" onClick={openPrivacyHandler}>
             Datenschutzbestimmungen
-          </span>{" "}
+          </span>{' '}
           ausdrücklich einverstanden.
         </div>
       </div>

@@ -1,0 +1,9 @@
+root: true
+extends:
+  - react-app
+  - semistandard
+rules:
+  comma-dangle: [error, only-multiline]
+  max-len: [error, { code: 120 }]
+  multiline-ternary: [error, never]
+  space-before-function-paren: [error, { anonymous: always, named: never, asyncArrow: always }]

@@ -1,16 +1,20 @@
-import React from "react";
+import { FC } from 'react';
 
-import Seo from "../shared/Seo";
-import Footer from "../shared/Footer";
+import Seo from '../shared/Seo';
+import Footer from '../shared/Footer';
 
-const Impress: React.FC = () => {
+const Impress: FC = () => {
   return (
     <>
       <Seo
         title="Impressum >> IT Service Böhm >> Dein Partner rund ums Web aus Neuwied"
+        // eslint-disable-next-line max-len
         description="Alexander Böhm aus Neuwied stellt sich und seine Arbeit rund um Web Design, SEO und Web Development vor."
         url="https://www.its-boehm.de/impressum"
-        og={{ image: "https://www.its-boehm.de/images/itsb-boehm-alexander-bg.jpg", type: "website" }}
+        og={{
+          image: 'https://www.its-boehm.de/images/itsb-boehm-alexander-bg.jpg',
+          type: 'website',
+        }}
         noIndex
       />
       {

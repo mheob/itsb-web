@@ -1,11 +1,11 @@
-import React from "react";
+import { FC } from 'react';
 
-import { serviceData } from "./contact.data";
-import ContactDetail from "./ContactDetail";
-import ContactForm from "./ContactForm";
-import SectionHeader from "../../shared/SectionHeader";
+import { serviceData } from './contact.data';
+import ContactDetail from './ContactDetail';
+import ContactForm from './ContactForm';
+import SectionHeader from '../../shared/SectionHeader';
 
-const Contact: React.FC = () => {
+const Contact: FC = () => {
   return (
     <section className="Contact" id="contact">
       <SectionHeader mainText="Stelle Fragen. Erhalte Antworten." smallText="Kontaktaufnahme" bgText="Kontakt" />

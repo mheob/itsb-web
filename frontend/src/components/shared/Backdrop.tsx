@@ -1,14 +1,14 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import { FC, MouseEvent } from 'react';
+import ReactDOM from 'react-dom';
 
 type BackdropProps = {
-  onClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  onClick: (event: MouseEvent<HTMLDivElement, globalThis.MouseEvent>) => void;
 };
 
-const Backdrop: React.FC<BackdropProps> = (props) => {
+const Backdrop: FC<BackdropProps> = (props) => {
   return ReactDOM.createPortal(
     <div className="Backdrop" onClick={props.onClick}></div>,
-    document.getElementById("backdrop")!
+    document.getElementById('backdrop')!
   );
 };
 

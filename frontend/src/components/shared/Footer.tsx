@@ -1,10 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { FC } from 'react';
+import { Link } from 'react-router-dom';
 
-import { socialData } from "./social.data";
-import Social from "./Social";
+import { socialData } from './social.data';
+import Social from './Social';
 
-const Footer: React.FC = () => {
+const Footer: FC = () => {
   return (
     <footer className="Footer">
       <p className="logo">

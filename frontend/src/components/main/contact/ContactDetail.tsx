@@ -1,10 +1,10 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FC } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { ContactModel } from "./contact.model";
-import ContactLink from "../../shared/ContactLink";
+import { ContactModel } from './contact.model';
+import ContactLink from '../../shared/ContactLink';
 
-const ContactDetail: React.FC<ContactModel> = detail => {
+const ContactDetail: FC<ContactModel> = (detail) => {
   return (
     <div className="contact-detail">
       <div className="icon">
@@ -19,8 +19,8 @@ const ContactDetail: React.FC<ContactModel> = detail => {
           <a
             href={detail.anchor.href}
             title={detail.anchor.title}
-            target={detail.anchor.target ?? ""}
-            rel={detail.anchor.rel ?? ""}
+            target={detail.anchor.target ?? ''}
+            rel={detail.anchor.rel ?? ''}
           >
             {detail.anchor.text}
           </a>

@@ -1,6 +1,6 @@
-import { IconDefinition } from "@fortawesome/free-regular-svg-icons";
+import { IconDefinition } from '@fortawesome/free-regular-svg-icons';
 
-import { LinkType } from "../../shared/ContactLink";
+import { LinkType } from '../../shared/ContactLink';
 
 export interface ContactModel {
   icon: IconDefinition;

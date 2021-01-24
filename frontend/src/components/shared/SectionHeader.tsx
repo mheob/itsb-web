@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from 'react';
 
 type SectionHeaderProps = {
   mainText: string;
@@ -6,7 +6,7 @@ type SectionHeaderProps = {
   bgText: string;
 };
 
-const SectionHeader: React.FC<SectionHeaderProps> = ({ mainText, smallText, bgText }) => {
+const SectionHeader: FC<SectionHeaderProps> = ({ mainText, smallText, bgText }) => {
   return (
     <header className="section-header">
       <h5>{smallText}</h5>

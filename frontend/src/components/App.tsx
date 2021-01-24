@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
-import { Waypoint } from "react-waypoint";
-import { CSSTransition } from "react-transition-group";
+import { FC, useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+import { Waypoint } from 'react-waypoint';
+import { CSSTransition } from 'react-transition-group';
 
-import Navigation from "./mobileNavigation/Navigation";
-import Aside from "./aside/Aside";
-import Home from "./main/Home";
-import Impress from "./main/Impress";
-import Privacy from "./main/Privacy";
-import Spinner from "./shared/Spinner";
-import ScrollToTop from "./shared/ScrollToTop";
-import ScrollUpButton from "./shared/ScrollTopButton";
+import Navigation from './mobileNavigation/Navigation';
+import Aside from './aside/Aside';
+import Home from './main/Home';
+import Impress from './main/Impress';
+import Privacy from './main/Privacy';
+import Spinner from './shared/Spinner';
+import ScrollToTop from './shared/ScrollToTop';
+import ScrollUpButton from './shared/ScrollTopButton';
 
 type ScrollUpButtonState = {
   isVisible: boolean;
@@ -18,7 +18,7 @@ type ScrollUpButtonState = {
 
 type PreloaderState = boolean;
 
-const App: React.FC = () => {
+const App: FC = () => {
   const [scrollUpButtonState, setScrollUpButtonState] = useState<ScrollUpButtonState>({ isVisible: false });
   const [preloaderState, setPreloaderState] = useState<PreloaderState>(true);
 
@@ -31,9 +31,9 @@ const App: React.FC = () => {
   };
 
   const routes = [
-    { path: "/", name: "Home", Component: Home },
-    { path: "/impressum", name: "Impressum", Component: Impress },
-    { path: "/datenschutz", name: "Datenschutz", Component: Privacy }
+    { path: '/', name: 'Home', Component: Home },
+    { path: '/impressum', name: 'Impressum', Component: Impress },
+    { path: '/datenschutz', name: 'Datenschutz', Component: Privacy },
   ];
 
   return (

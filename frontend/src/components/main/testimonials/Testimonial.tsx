@@ -1,8 +1,8 @@
-import React from "react";
+import { FC } from 'react';
 
-import { TestimonialModel } from "./testimonial.model";
+import { TestimonialModel } from './testimonial.model';
 
-const Testimonial: React.FC<TestimonialModel> = props => {
+const Testimonial: FC<TestimonialModel> = (props) => {
   const imgPathWithOutExt = `${process.env.PUBLIC_URL}/images/${props.imgSource}`;
 
   return (
@@ -14,7 +14,7 @@ const Testimonial: React.FC<TestimonialModel> = props => {
       </picture>
       <div className="quote">
         <span>&bdquo;</span>
-        {" " + props.quote + " "}
+        {' ' + props.quote + ' '}
         <span>&ldquo;</span>
       </div>
       <div className="cite-holder">
