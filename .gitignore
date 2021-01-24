@@ -7,12 +7,15 @@ node_modules
 # DeepCode
 .dccache
 
+# EsLint
+.eslintcache
+
 # Credentials
 .env
 .env.production
 
 # Builds
-backend/build/*
-backend/dist/*
-frontend/build/*
-frontend/src/styles/css/*
+backend/build
+backend/dist
+frontend/build
+frontend/src/styles/css
