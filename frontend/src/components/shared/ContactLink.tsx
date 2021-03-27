@@ -41,8 +41,8 @@ const ContactLink: FC<ContactLinkProps> = (props) => {
     return props.type === LinkType.EMAIL
       ? 'mailto:' + (props.header ? `${props.href}?${combinedHeader}` : props.href)
       : 'tel:' + props.href;
+    /* eslint-enable multiline-ternary */
   };
-  /* eslint-enable multiline-ternary */
 
   const reverse = (stringToReverse: string) => {
     return stringToReverse.split('').reverse().join('').replace('(', ')').replace(')', '(');
