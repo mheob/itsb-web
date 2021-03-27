@@ -1,6 +1,13 @@
 {
-  "extends": ["config:base"],
+  "extends": ["config:base", ":preserveSemverRanges"],
   "assignees": ["mheob"],
   "reviewers": ["mheob"],
-  "labels": ["dependencies"]
+  "labels": ["dependencies"],
+  "ignorePaths": ["**/node_modules/**"],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest", "lockFileMaintenance", "rollback", "bump"],
+      "enabled": false
+    }
+  ]
 }
