@@ -42,7 +42,7 @@
     "react-scrollspy": "^3.4.3",
     "react-transition-group": "^4.4.1",
     "react-typed": "^1.2.0",
-    "react-waypoint": "^9.0.3"
+    "react-waypoint": "^10.0.0"
   },
   "devDependencies": {
     "@types/jest": "^26.0.22",
