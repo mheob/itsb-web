@@ -48,7 +48,7 @@
     "@types/jest": "^26.0.24",
     "@types/node": "^15.14.9",
     "@types/node-sass": "^4.11.2",
-    "@types/react": "^17.0.37",
+    "@types/react": "^17.0.38",
     "@types/react-count-to": "^0.12.1",
     "@types/react-dom": "^17.0.11",
     "@types/react-gtm-module": "^2.0.1",
