@@ -11,17 +11,17 @@
     "start": "nodemon dist/app.js"
   },
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.19.2",
     "copyfiles": "^2.4.1",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "express-validator": "^6.8.0",
-    "nodemailer": "^6.4.17"
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-validator": "^6.14.0",
+    "nodemailer": "^6.7.2"
   },
   "devDependencies": {
-    "@types/express": "4.17.11",
-    "@types/node": "14.14.22",
-    "@types/nodemailer": "6.4.0",
-    "nodemon": "2.0.7"
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.21",
+    "@types/nodemailer": "^6.4.4",
+    "nodemon": "^2.0.15"
   }
 }

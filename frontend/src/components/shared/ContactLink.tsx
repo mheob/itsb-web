@@ -1,11 +1,9 @@
 import { CSSProperties, FC, useState } from 'react';
 
-/* eslint-disable no-unused-vars */
 export enum LinkType {
   EMAIL,
   PHONE,
 }
-/* eslint-enable no-unused-vars */
 
 interface HeaderProps {
   cc?: string;
@@ -37,12 +35,10 @@ const ContactLink: FC<ContactLinkProps> = (props) => {
         .map((key) => `${key}=${encodeURIComponent(props.header![key]!)}`)
         .join('&');
 
-    /* eslint-disable multiline-ternary */
     return props.type === LinkType.EMAIL
       ? 'mailto:' + (props.header ? `${props.href}?${combinedHeader}` : props.href)
       : 'tel:' + props.href;
   };
-  /* eslint-enable multiline-ternary */
 
   const reverse = (stringToReverse: string) => {
     return stringToReverse.split('').reverse().join('').replace('(', ')').replace(')', '(');
