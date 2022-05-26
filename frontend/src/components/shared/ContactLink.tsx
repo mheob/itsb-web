@@ -1,9 +1,6 @@
 import { CSSProperties, FC, useState } from 'react';
 
-export enum LinkType {
-  EMAIL,
-  PHONE,
-}
+export type LinkType = 'email' | 'phone';
 
 interface HeaderProps {
   cc?: string;
@@ -35,9 +32,10 @@ const ContactLink: FC<ContactLinkProps> = (props) => {
         .map((key) => `${key}=${encodeURIComponent(props.header![key]!)}`)
         .join('&');
 
-    return props.type === LinkType.EMAIL
-      ? 'mailto:' + (props.header ? `${props.href}?${combinedHeader}` : props.href)
-      : 'tel:' + props.href;
+    let link = 'mailto:' + (props.header ? `${props.href}?${combinedHeader}` : props.href);
+    if (props.type === 'phone') link = 'tel:' + props.href;
+
+    return link;
   };
 
   const reverse = (stringToReverse: string) => {

@@ -1,10 +1,10 @@
-import { CSSProperties, FC, MouseEvent } from 'react';
+import { CSSProperties, FC, MouseEvent, ReactNode } from 'react';
 import ReactDOM from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
-
 import Backdrop from '../shared/Backdrop';
 
 interface ModalOverlayProps {
+  children?: ReactNode;
   className?: string;
   style?: CSSProperties;
   headerClass?: string;

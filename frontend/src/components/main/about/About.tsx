@@ -1,11 +1,10 @@
 import { FC, useState } from 'react';
-import { Waypoint } from 'react-waypoint';
 import { CSSTransition } from 'react-transition-group';
-
-import Description from './Description';
-import Contact from './Contact';
-import Actions from './Actions';
+import { Waypoint } from 'react-waypoint';
 import SectionHeader from '../../shared/SectionHeader';
+import Actions from './Actions';
+import Contact from './Contact';
+import Description from './Description';
 
 type VisibilityState = {
   isVisibleImage: boolean;
@@ -34,6 +33,7 @@ const About: FC = () => {
 
   return (
     <section className="About" id="about">
+      {/* @ts-ignore */}
       <Waypoint onEnter={handleWaypoint.bind(null, 'image', true)} onLeave={handleWaypoint.bind(null, 'image', false)}>
         <div className="box box--image">
           <CSSTransition in={visibility.isVisibleImage} timeout={1500} classNames="design-bg">
@@ -44,6 +44,7 @@ const About: FC = () => {
         </div>
       </Waypoint>
 
+      {/* @ts-ignore */}
       <Waypoint
         onEnter={handleWaypoint.bind(null, 'welcome', true)}
         onLeave={handleWaypoint.bind(null, 'welcome', false)}

@@ -48,8 +48,8 @@ export const useContactForm = (initialFormState: FormState) => {
     dispatch({
       type: 'INPUT_CHANGE',
       inputId: id,
-      value: value,
-      isValid: isValid,
+      value,
+      isValid,
     });
   }, []);
 

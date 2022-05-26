@@ -1,6 +1,5 @@
-import { ContactModel } from './contact.model';
-import { LinkType } from '../../shared/ContactLink';
 import { age } from '../../../utils/calculations';
+import { ContactModel } from './contact.model';
 
 // TODO #27: Load some data from a database.
 export const contactData: ContactModel[] = [
@@ -9,7 +8,7 @@ export const contactData: ContactModel[] = [
   {
     definition: 'E-Mail',
     content: {
-      type: LinkType.EMAIL,
+      type: 'email',
       href: 'ab@its-boehm.de',
       title: 'Schreib mir per E-Mail',
     },
@@ -17,7 +16,7 @@ export const contactData: ContactModel[] = [
   {
     definition: 'Telefon',
     content: {
-      type: LinkType.PHONE,
+      type: 'phone',
       href: '+49 160 8206654',
       title: 'Ruf mich einfach an',
     },

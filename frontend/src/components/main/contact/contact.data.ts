@@ -1,8 +1,6 @@
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
-import { faPhoneAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-
+import { faEnvelope, faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
 import { ContactModel } from './contact.model';
-import { LinkType } from '../../shared/ContactLink';
 
 // TODO #27: Load some data from a database.
 export const serviceData: ContactModel[] = [
@@ -14,7 +12,7 @@ export const serviceData: ContactModel[] = [
       href: '+49 160 8206654',
       title: 'Ruf mich einfach an.',
       text: '+49 160 8206654',
-      type: LinkType.PHONE,
+      type: 'phone',
     },
   },
   {
@@ -37,7 +35,7 @@ export const serviceData: ContactModel[] = [
       href: 'ab@its-boehm.de',
       title: 'Schreib mir per E-Mail.',
       text: 'ab@its-boehm.de',
-      type: LinkType.EMAIL,
+      type: 'email',
     },
   },
 ];

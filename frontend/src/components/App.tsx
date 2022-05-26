@@ -1,16 +1,13 @@
 import { FC, useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Waypoint } from 'react-waypoint';
-import { CSSTransition } from 'react-transition-group';
-
-import Navigation from './mobileNavigation/Navigation';
 import Aside from './aside/Aside';
 import Home from './main/Home';
 import Impress from './main/Impress';
 import Privacy from './main/Privacy';
-import Spinner from './shared/Spinner';
-import ScrollToTop from './shared/ScrollToTop';
+import Navigation from './mobileNavigation/Navigation';
 import ScrollUpButton from './shared/ScrollTopButton';
+import Spinner from './shared/Spinner';
 
 type ScrollUpButtonState = {
   isVisible: boolean;
@@ -46,22 +43,26 @@ const App: FC = () => {
       />
       <Navigation />
       <Aside />
-      <ScrollToTop>
-        <Switch>
-          {routes.map(({ path, Component }) => (
-            <Route key={path} exact path={path}>
-              {({ match }) => (
-                <CSSTransition in={match != null} timeout={1200} classNames="Main" unmountOnExit>
-                  <section className="Main">
-                    <Component />
-                  </section>
-                </CSSTransition>
-              )}
-            </Route>
-          ))}
-          <Redirect to="/" />
-        </Switch>
-      </ScrollToTop>
+      <Routes>
+        {routes.map(({ path, Component }) => (
+          <Route
+            key={path}
+            path={path}
+            element={
+              <>
+                {/* {({ match }) => ( */}
+                {/* <CSSTransition in={match != null} timeout={1200} classNames="Main" unmountOnExit> */}
+                <section className="Main">
+                  <Component />
+                </section>
+                {/* </CSSTransition> */}
+                {/* )} */}
+              </>
+            }
+          />
+        ))}
+        {/* <Navigate to="/" /> */}
+      </Routes>
       <ScrollUpButton isVisible={scrollUpButtonState.isVisible} />
     </Router>
   );

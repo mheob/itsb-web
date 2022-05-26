@@ -1,7 +1,6 @@
 import { FC, useState } from 'react';
 import CountUp from 'react-countup';
 import { Waypoint } from 'react-waypoint';
-
 import { StatModel } from './stat.model';
 
 type CounterState = {
@@ -43,7 +42,9 @@ const Stat: FC<StatModel> = (props) => {
         }}
       >
         {({ countUpRef, start }) => (
+          // @ts-ignore
           <Waypoint onEnter={waypointEnterHandler.bind(null, start!)} onLeave={waypointLeaveHandler}>
+            {/* @ts-ignore */}
             <div className="counter" ref={countUpRef} />
           </Waypoint>
         )}

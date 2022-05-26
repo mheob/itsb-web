@@ -1,7 +1,6 @@
 import { FC } from 'react';
-
-import { contactData } from './contact.data';
 import ContactLink from '../../shared/ContactLink';
+import { contactData } from './contact.data';
 
 const Contact: FC = () => {
   return (
