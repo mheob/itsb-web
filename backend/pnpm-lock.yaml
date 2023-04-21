@@ -14,8 +14,8 @@ dependencies:
     specifier: ^4.18.2
     version: 4.18.2
   express-validator:
-    specifier: ^6.15.0
-    version: 6.15.0
+    specifier: ^7.0.0
+    version: 7.0.0
   nodemailer:
     specifier: ^6.9.1
     version: 6.9.1
@@ -344,8 +344,8 @@ packages:
     engines: {node: '>= 0.6'}
     dev: false
 
-  /express-validator@6.15.0:
-    resolution: {integrity: sha512-r05VYoBL3i2pswuehoFSy+uM8NBuVaY7avp5qrYjQBDzagx2Z5A77FZqPT8/gNLF3HopWkIzaTFaC4JysWXLqg==}
+  /express-validator@7.0.0:
+    resolution: {integrity: sha512-2qH4AKc9iCId69sTJwj5t7o3YwZ6oNctk+gTgVIpztsRGWLTkcNITQOG3+wBGeA4k8Z5Vl0C1yNV40k/Ml05Xw==}
     engines: {node: '>= 8.0.0'}
     dependencies:
       lodash: 4.17.21
