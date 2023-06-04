@@ -94,7 +94,7 @@
     "@babel/plugin-syntax-flow": "^7.17.12",
     "@babel/plugin-transform-react-jsx": "^7.17.12",
     "@typescript-eslint/parser": "^5.26.0",
-    "eslint-plugin-n": "^15.2.0",
+    "eslint-plugin-n": "^16.0.0",
     "eslint-plugin-promise": "^6.0.0"
   }
 }
