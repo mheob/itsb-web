@@ -24,8 +24,8 @@ dependencies:
     specifier: ^4.1.1
     version: 4.1.1
   nuka-carousel:
-    specifier: ^6.0.3
-    version: 6.0.3(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^7.0.0
+    version: 7.0.0(react-dom@18.2.0)(react@18.2.0)
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -39,8 +39,8 @@ dependencies:
     specifier: ^2.0.11
     version: 2.0.11
   react-helmet-async:
-    specifier: ^1.3.0
-    version: 1.3.0(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^2.0.1
+    version: 2.0.4(react-dom@18.2.0)(react@18.2.0)
   react-router:
     specifier: ^6.16.0
     version: 6.16.0(react@18.2.0)
@@ -188,8 +188,8 @@ devDependencies:
     specifier: ^6.0.3
     version: 6.0.3(stylelint@15.10.3)
   stylelint-prettier:
-    specifier: ^4.0.2
-    version: 4.0.2(prettier@3.0.3)(stylelint@15.10.3)
+    specifier: ^5.0.0
+    version: 5.0.0(prettier@3.0.3)(stylelint@15.10.3)
   typescript:
     specifier: ^5.2.2
     version: 5.2.2
@@ -10355,8 +10355,8 @@ packages:
       boolbase: 1.0.0
     dev: false
 
-  /nuka-carousel@6.0.3(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-DYxCTp4xIv9/vfrfOr9FAmYizMr7AefL7mbqsBaBTwdrZ77mAsR/SNZtk+/KHJSuH+9gZLrugj/RC6qM8MJr+Q==}
+  /nuka-carousel@7.0.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-KE0WV1MuE4Gq6ynL8P3qJH2rGq/DkJ0ej+ezo0IuZp4oklV8WNqu6P6O1utJqihHLGoEuFppq5wlHSHfhdCHXA==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       react: '>=18.0.0'
@@ -12381,15 +12381,13 @@ packages:
     resolution: {integrity: sha512-8gyj4TTxeP7eEyc2QKawEuQoAZdjKvMY4pgWfycGmqGByhs17fR+zEBs0JUDq4US/l+vbTl+6zvUIx27iDo/Vw==}
     dev: false
 
-  /react-helmet-async@1.3.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-9jZ57/dAn9t3q6hneQS0wukqC2ENOBgMNVEhb/ZG9ZSxUetzVIw4iAmEU38IaVg3QGYauQPhSeUTuIUtFglWpg==}
+  /react-helmet-async@2.0.4(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-yxjQMWposw+akRfvpl5+8xejl4JtUlHnEBcji6u8/e6oc7ozT+P9PNTWMhCbz2y9tc5zPegw2BvKjQA+NwdEjQ==}
     peerDependencies:
       react: ^16.6.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.6.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@babel/runtime': 7.23.1
       invariant: 2.2.4
-      prop-types: 15.8.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       react-fast-compare: 3.2.2
@@ -14152,12 +14150,12 @@ packages:
       stylelint: 15.10.3(typescript@5.2.2)
     dev: true
 
-  /stylelint-prettier@4.0.2(prettier@3.0.3)(stylelint@15.10.3):
-    resolution: {integrity: sha512-EoHnR2PiaWgpGtoI4VW7AzneMfwmwQsNwQ+3/E2k/a+ju5yO6rfPfop4vzPQKcJN4ZM1YbspEOPu88D8538sbg==}
-    engines: {node: ^14.17.0 || >=16.0.0}
+  /stylelint-prettier@5.0.0(prettier@3.0.3)(stylelint@15.10.3):
+    resolution: {integrity: sha512-RHfSlRJIsaVg5Br94gZVdWlz/rBTyQzZflNE6dXvSxt/GthWMY3gEHsWZEBaVGg7GM+XrtVSp4RznFlB7i0oyw==}
+    engines: {node: '>=18.12.0'}
     peerDependencies:
       prettier: '>=3.0.0'
-      stylelint: '>=15.8.0'
+      stylelint: '>=16.0.0'
     dependencies:
       prettier: 3.0.3
       prettier-linter-helpers: 1.0.0
