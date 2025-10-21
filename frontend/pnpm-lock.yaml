@@ -45,14 +45,14 @@ importers:
         specifier: ^2.0.1
         version: 2.0.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react-router:
-        specifier: ^6.16.0
-        version: 6.16.0(react@18.2.0)
+        specifier: ^7.0.0
+        version: 7.9.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react-router-dom:
-        specifier: ^6.16.0
-        version: 6.16.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: ^7.0.0
+        version: 7.9.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react-router-hash-link:
         specifier: ^2.4.3
-        version: 2.4.3(react-router-dom@6.16.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react@18.2.0)
+        version: 2.4.3(react-router-dom@7.9.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react@18.2.0)
       react-scripts:
         specifier: ^5.0.1
         version: 5.0.1(@babel/plugin-syntax-flow@7.22.5(@babel/core@7.23.0))(@babel/plugin-transform-react-jsx@7.22.15(@babel/core@7.23.0))(@types/babel__core@7.20.2)(eslint@9.0.0)(node-sass@9.0.0)(react@18.2.0)(type-fest@0.21.3)(typescript@5.2.2)
@@ -1331,10 +1331,6 @@ packages:
         optional: true
       webpack-plugin-serve:
         optional: true
-
-  '@remix-run/router@1.9.0':
-    resolution: {integrity: sha512-bV63itrKBC0zdT27qYm6SDZHlkXwFL1xMBuhkn+X7l0+IIhNaH5wuuvZKp6eKhCD4KFhujhfhCT1YxXW6esUIA==}
-    engines: {node: '>=14.0.0'}
 
   '@rollup/plugin-babel@5.3.1':
     resolution: {integrity: sha512-WFfdLWU/xVWKeRQnKmIAQULUI7Il0gZnBIH/ZFO069wYIfPu+8zrfp/KMW0atmELoRDq8FbiP3VCss9MhCut7Q==}
@@ -2740,6 +2736,10 @@ packages:
     resolution: {integrity: sha512-U71cyTamuh1CRNCfpGY6to28lxvNwPG4Guz/EVjgf3Jmzv0vlDp1atT9eS5dDjMYHucpHbWns6Lwf3BKz6svdw==}
     engines: {node: '>= 0.6'}
 
+  cookie@1.0.2:
+    resolution: {integrity: sha512-9Kr/j4O16ISv8zBBhJoi4bXOYNTkFLOqSL3UDB0njXxCXNezjeyVrJyGOWtgfs/q2km1gwBcfH8q1yEGoMYunA==}
+    engines: {node: '>=18'}
+
   copy-descriptor@0.1.1:
     resolution: {integrity: sha512-XgZ0pFcakEUlbwQEVNg3+QAis1FyTL3Qel9FYy8pSkQqoG3PNoT0bOCQtOXcOkur21r2Eq2kI+IE+gsmAEVlYw==}
     engines: {node: '>=0.10.0'}
@@ -4123,6 +4123,7 @@ packages:
   graphql@14.6.0:
     resolution: {integrity: sha512-VKzfvHEKybTKjQVpTFrA5yUq2S9ihcZvfJAtsDBBCuV6wauPu1xl/f9ehgVf0FcEJJs4vz6ysb/ZMkGigQZseg==}
     engines: {node: '>= 6.x'}
+    deprecated: 'No longer supported; please update to a newer version. Details: https://github.com/graphql/graphql-js#version-support'
 
   gzip-size@6.0.0:
     resolution: {integrity: sha512-ax7ZYomf6jqPTQ4+XCpUGyXKHk5WweS+e05MBO4/y3WJ5RkmPXNKvX+bx1behVILVwr6JSQvZAku021CHPXG3Q==}
@@ -6874,12 +6875,12 @@ packages:
     resolution: {integrity: sha512-F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A==}
     engines: {node: '>=0.10.0'}
 
-  react-router-dom@6.16.0:
-    resolution: {integrity: sha512-aTfBLv3mk/gaKLxgRDUPbPw+s4Y/O+ma3rEN1u8EgEpLpPe6gNjIsWt9rxushMHHMb7mSwxRGdGlGdvmFsyPIg==}
-    engines: {node: '>=14.0.0'}
+  react-router-dom@7.9.4:
+    resolution: {integrity: sha512-f30P6bIkmYvnHHa5Gcu65deIXoA2+r3Eb6PJIAddvsT9aGlchMatJ51GgpU470aSqRRbFX22T70yQNUGuW3DfA==}
+    engines: {node: '>=20.0.0'}
     peerDependencies:
-      react: '>=16.8'
-      react-dom: '>=16.8'
+      react: '>=18'
+      react-dom: '>=18'
 
   react-router-hash-link@2.4.3:
     resolution: {integrity: sha512-NU7GWc265m92xh/aYD79Vr1W+zAIXDWp3L2YZOYP4rCqPnJ6LI6vh3+rKgkidtYijozHclaEQTAHaAaMWPVI4A==}
@@ -6887,11 +6888,15 @@ packages:
       react: '>=15'
       react-router-dom: '>=4'
 
-  react-router@6.16.0:
-    resolution: {integrity: sha512-VT4Mmc4jj5YyjpOi5jOf0I+TYzGpvzERy4ckNSvSh2RArv8LLoCxlsZ2D+tc7zgjxcY34oTz2hZaeX5RVprKqA==}
-    engines: {node: '>=14.0.0'}
+  react-router@7.9.4:
+    resolution: {integrity: sha512-SD3G8HKviFHg9xj7dNODUKDFgpG4xqD5nhyd0mYoB5iISepuZAvzSr8ywxgxKJ52yRzf/HWtVHc9AWwoTbljvA==}
+    engines: {node: '>=20.0.0'}
     peerDependencies:
-      react: '>=16.8'
+      react: '>=18'
+      react-dom: '>=18'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
 
   react-scripts@5.0.1:
     resolution: {integrity: sha512-8VAmEm/ZAwQzJ+GOMLbBsTdDKOpuZh7RPs0UymvBR2vRk4iZWCskjbFnxqjrzoIvlNNRZ3QJFx6/qDSi6zSnaQ==}
@@ -7373,6 +7378,9 @@ packages:
   set-blocking@2.0.0:
     resolution: {integrity: sha512-KiKBS8AnWGEyLzofFfmvKwpdPzqiy16LvQfK3yv/fVH7Bj13/wl3JSR1J+rfgRE9q7xUJK4qvgS8raSOeLUehw==}
 
+  set-cookie-parser@2.7.1:
+    resolution: {integrity: sha512-IOc8uWeOZgnb3ptbCURJWNjWUPcO3ZnTTdzsurqERrP6nPyv+paC55vJM0LpOlT2ne+Ix+9+CRG1MNLlyZ4GjQ==}
+
   set-function-name@2.0.1:
     resolution: {integrity: sha512-tMNCiqYVkXIZgc2Hnoy2IvC/f8ezc5koaRFkCjrpWzGpCd3qbZXPzVy9MAZzK1ch/X0jvSkojys3oqJN0qCmdA==}
     engines: {node: '>= 0.4'}
@@ -7530,6 +7538,7 @@ packages:
   source-map@0.8.0-beta.0:
     resolution: {integrity: sha512-2ymg6oRBpebeZi9UUNsgQ89bhx01TcTkmNTGnNO88imTmbSgy4nfujrgVEFKWpMTEGA11EDkTt7mqObTPdigIA==}
     engines: {node: '>= 8'}
+    deprecated: The work that was done in this beta branch won't be included in future versions
 
   sourcemap-codec@1.4.8:
     resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
@@ -10079,8 +10088,6 @@ snapshots:
       type-fest: 0.21.3
       webpack-dev-server: 4.15.1(webpack@5.88.2)
 
-  '@remix-run/router@1.9.0': {}
-
   '@rollup/plugin-babel@5.3.1(@babel/core@7.23.0)(@types/babel__core@7.20.2)(rollup@2.79.2)':
     dependencies:
       '@babel/core': 7.23.0
@@ -11706,6 +11713,8 @@ snapshots:
 
   cookie@0.6.0: {}
 
+  cookie@1.0.2: {}
+
   copy-descriptor@0.1.1: {}
 
   core-js-compat@3.33.0:
@@ -12344,11 +12353,11 @@ snapshots:
       - jest
       - supports-color
 
-  eslint-config-semistandard@17.0.0(eslint-config-standard@17.0.0(eslint-plugin-import@2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@8.50.0))(eslint-plugin-n@15.7.0(eslint@8.50.0))(eslint-plugin-promise@6.1.1(eslint@8.50.0))(eslint@8.50.0))(eslint-plugin-import@2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@8.50.0))(eslint-plugin-n@15.7.0(eslint@8.50.0))(eslint-plugin-promise@6.1.1(eslint@8.50.0))(eslint@8.50.0):
+  eslint-config-semistandard@17.0.0(eslint-config-standard@17.0.0(eslint-plugin-import@2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@9.0.0))(eslint-plugin-n@15.7.0(eslint@8.50.0))(eslint-plugin-promise@6.1.1(eslint@8.50.0))(eslint@8.50.0))(eslint-plugin-import@2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@9.0.0))(eslint-plugin-n@15.7.0(eslint@8.50.0))(eslint-plugin-promise@6.1.1(eslint@8.50.0))(eslint@8.50.0):
     dependencies:
       eslint: 8.50.0
-      eslint-config-standard: 17.0.0(eslint-plugin-import@2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@8.50.0))(eslint-plugin-n@15.7.0(eslint@8.50.0))(eslint-plugin-promise@6.1.1(eslint@8.50.0))(eslint@8.50.0)
-      eslint-plugin-import: 2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@8.50.0)
+      eslint-config-standard: 17.0.0(eslint-plugin-import@2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@9.0.0))(eslint-plugin-n@15.7.0(eslint@8.50.0))(eslint-plugin-promise@6.1.1(eslint@8.50.0))(eslint@8.50.0)
+      eslint-plugin-import: 2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@9.0.0)
       eslint-plugin-n: 15.7.0(eslint@8.50.0)
       eslint-plugin-promise: 6.1.1(eslint@8.50.0)
 
@@ -12360,15 +12369,15 @@ snapshots:
       eslint-plugin-n: 17.2.1(eslint@9.0.0)
       eslint-plugin-promise: 7.0.0(eslint@9.0.0)
 
-  eslint-config-standard-jsx@11.0.0(eslint-plugin-react@7.33.2(eslint@8.50.0))(eslint@8.50.0):
+  eslint-config-standard-jsx@11.0.0(eslint-plugin-react@7.33.2(eslint@9.0.0))(eslint@8.50.0):
     dependencies:
       eslint: 8.50.0
-      eslint-plugin-react: 7.33.2(eslint@8.50.0)
+      eslint-plugin-react: 7.33.2(eslint@9.0.0)
 
-  eslint-config-standard@17.0.0(eslint-plugin-import@2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@8.50.0))(eslint-plugin-n@15.7.0(eslint@8.50.0))(eslint-plugin-promise@6.1.1(eslint@8.50.0))(eslint@8.50.0):
+  eslint-config-standard@17.0.0(eslint-plugin-import@2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@9.0.0))(eslint-plugin-n@15.7.0(eslint@8.50.0))(eslint-plugin-promise@6.1.1(eslint@8.50.0))(eslint@8.50.0):
     dependencies:
       eslint: 8.50.0
-      eslint-plugin-import: 2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@8.50.0)
+      eslint-plugin-import: 2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@9.0.0)
       eslint-plugin-n: 15.7.0(eslint@8.50.0)
       eslint-plugin-promise: 6.1.1(eslint@8.50.0)
 
@@ -16739,23 +16748,25 @@ snapshots:
 
   react-refresh@0.11.0: {}
 
-  react-router-dom@6.16.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+  react-router-dom@7.9.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
-      '@remix-run/router': 1.9.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      react-router: 6.16.0(react@18.2.0)
+      react-router: 7.9.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
 
-  react-router-hash-link@2.4.3(react-router-dom@6.16.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react@18.2.0):
+  react-router-hash-link@2.4.3(react-router-dom@7.9.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react@18.2.0):
     dependencies:
       prop-types: 15.8.1
       react: 18.2.0
-      react-router-dom: 6.16.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      react-router-dom: 7.9.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
 
-  react-router@6.16.0(react@18.2.0):
+  react-router@7.9.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
-      '@remix-run/router': 1.9.0
+      cookie: 1.0.2
       react: 18.2.0
+      set-cookie-parser: 2.7.1
+    optionalDependencies:
+      react-dom: 18.2.0(react@18.2.0)
 
   react-scripts@5.0.1(@babel/plugin-syntax-flow@7.22.5(@babel/core@7.23.0))(@babel/plugin-transform-react-jsx@7.22.15(@babel/core@7.23.0))(@types/babel__core@7.20.2)(eslint@9.0.0)(node-sass@9.0.0)(react@18.2.0)(type-fest@0.21.3)(typescript@5.2.2):
     dependencies:
@@ -17352,9 +17363,9 @@ snapshots:
   semistandard@17.0.0(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2)):
     dependencies:
       eslint: 8.50.0
-      eslint-config-semistandard: 17.0.0(eslint-config-standard@17.0.0(eslint-plugin-import@2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@8.50.0))(eslint-plugin-n@15.7.0(eslint@8.50.0))(eslint-plugin-promise@6.1.1(eslint@8.50.0))(eslint@8.50.0))(eslint-plugin-import@2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@8.50.0))(eslint-plugin-n@15.7.0(eslint@8.50.0))(eslint-plugin-promise@6.1.1(eslint@8.50.0))(eslint@8.50.0)
-      eslint-config-standard: 17.0.0(eslint-plugin-import@2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@8.50.0))(eslint-plugin-n@15.7.0(eslint@8.50.0))(eslint-plugin-promise@6.1.1(eslint@8.50.0))(eslint@8.50.0)
-      eslint-config-standard-jsx: 11.0.0(eslint-plugin-react@7.33.2(eslint@8.50.0))(eslint@8.50.0)
+      eslint-config-semistandard: 17.0.0(eslint-config-standard@17.0.0(eslint-plugin-import@2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@9.0.0))(eslint-plugin-n@15.7.0(eslint@8.50.0))(eslint-plugin-promise@6.1.1(eslint@8.50.0))(eslint@8.50.0))(eslint-plugin-import@2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@9.0.0))(eslint-plugin-n@15.7.0(eslint@8.50.0))(eslint-plugin-promise@6.1.1(eslint@8.50.0))(eslint@8.50.0)
+      eslint-config-standard: 17.0.0(eslint-plugin-import@2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@9.0.0))(eslint-plugin-n@15.7.0(eslint@8.50.0))(eslint-plugin-promise@6.1.1(eslint@8.50.0))(eslint@8.50.0)
+      eslint-config-standard-jsx: 11.0.0(eslint-plugin-react@7.33.2(eslint@9.0.0))(eslint@8.50.0)
       eslint-plugin-import: 2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@8.50.0)
       eslint-plugin-n: 15.7.0(eslint@8.50.0)
       eslint-plugin-promise: 6.1.1(eslint@8.50.0)
@@ -17432,6 +17443,8 @@ snapshots:
       - supports-color
 
   set-blocking@2.0.0: {}
+
+  set-cookie-parser@2.7.1: {}
 
   set-function-name@2.0.1:
     dependencies:
