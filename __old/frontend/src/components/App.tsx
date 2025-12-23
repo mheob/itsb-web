@@ -1,5 +1,5 @@
-import { FC, useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { type FC, useEffect, useState } from 'react';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { Waypoint } from 'react-waypoint';
 import Aside from './aside/Aside';
 import Home from './main/Home';
@@ -16,12 +16,13 @@ type ScrollUpButtonState = {
 type PreloaderState = boolean;
 
 const App: FC = () => {
-  const [scrollUpButtonState, setScrollUpButtonState] = useState<ScrollUpButtonState>({ isVisible: false });
+  const [scrollUpButtonState, setScrollUpButtonState] =
+    useState<ScrollUpButtonState>({ isVisible: false });
   const [preloaderState, setPreloaderState] = useState<PreloaderState>(true);
 
   useEffect(() => {
     setPreloaderState(false);
-  }, [preloaderState]);
+  }, []);
 
   const scrollUpButtonHandler = (isEntered: boolean) => {
     setScrollUpButtonState({ isVisible: isEntered });

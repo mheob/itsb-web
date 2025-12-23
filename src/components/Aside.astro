@@ -1,0 +1,67 @@
+---
+import Footer from './AsideFooter.astro';
+import HeaderLogo from './HeaderLogo.astro';
+import MainNavigation from './MainNavigation.astro';
+---
+<aside class="sidebar">
+  <div>
+    <HeaderLogo />
+    <MainNavigation />
+  </div>
+  <Footer />
+</aside>
+
+<style>
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 901;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: var(--layout-aside-xs);
+    padding: 3rem;
+    padding-left: 3em;
+    background: var(--black);
+    transform: translateX(-270px);
+    transition: var(--transition-duration);
+
+    @media (min-width: 700px) {
+      width: var(--layout-aside-s);
+      transform: translateX(0);
+    }
+
+    @media (min-width: 900px) {
+      width: var(--layout-aside-m);
+      padding: 4rem 3rem;
+    }
+
+    @media (min-width: 1200px) {
+      width: var(--layout-aside-l);
+    }
+
+    @media (min-width: 1600px) {
+      width: var(--layout-aside-xl);
+    }
+
+    .offcanvas & {
+      position: fixed;
+      z-index: 899;
+      width: 270px;
+      background: var(--black);
+      transform: translateX(0);
+    }
+
+    .logo {
+      margin-bottom: 1rem;
+      text-align: right;
+
+      a {
+        text-indent: 99999rem;
+        background-position-x: right;
+      }
+    }
+  }
+</style>
