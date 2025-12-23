@@ -1,7 +1,0 @@
-Resolves #
-
-## Proposed Changes
-
--
--
--
