@@ -1,0 +1,20 @@
+---
+import { contactDataEN } from '@/data/contact';
+import ContactLink from './ContactLink.svelte';
+---
+<section class="contact">
+  {contactDataEN.map(({ definition, content }) => {
+    return (
+      <div class="info">
+        <span>{definition}:</span>
+        <span>
+          {typeof content === 'string' ? (
+            content
+          ) : (
+            <ContactLink prefix={content.prefix} href={content.href} title={content.title} client:visible />
+          )}
+        </span>
+      </div>
+    );
+  })}
+</section>

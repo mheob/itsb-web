@@ -1,8 +1,4 @@
-export interface SocialMediaLink {
-  href: string;
-  title: string;
-  icon: string;
-}
+import type { SocialMediaLink } from '@/types/social';
 
 export const socialData: SocialMediaLink[] = [
   {

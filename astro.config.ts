@@ -1,3 +1,4 @@
+import svelte from '@astrojs/svelte';
 import vercel from '@astrojs/vercel';
 import { defineConfig } from 'astro/config';
 import icon from 'astro-icon';
@@ -14,7 +15,7 @@ export default defineConfig({
     locales: ['de', 'en'],
     routing: { prefixDefaultLocale: false },
   },
-  integrations: [icon()],
+  integrations: [icon(), svelte()],
   prefetch: { prefetchAll: true },
   site: env.BASE_URL,
   trailingSlash: 'never',

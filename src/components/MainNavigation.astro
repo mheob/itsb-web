@@ -1,4 +1,5 @@
 ---
+import { getAbsoluteLocaleUrl } from 'astro:i18n';
 ---
 <nav class="main-navigation">
   <!-- TODO: Add scrollspy -->
@@ -16,35 +17,35 @@
     </li>
     <li>
       <a href="/#services">
-        Angebot
+        Services
       </a>
     </li>
     <li>
       <a href="/#stats">
-        Statistiken
+        Stats
       </a>
     </li>
     <li>
       <a href="/#testimonials">
-        Meinungen
+        Testimonials
       </a>
     </li>
     <li>
       <a href="/#contact">
-        Kontakt
+        Contact
       </a>
     </li>
     <li>
       <hr />
     </li>
     <li>
-      <a href="/impressum">
-        Impressum
+      <a href={getAbsoluteLocaleUrl('en', 'imprint')}>
+        Imprint
       </a>
     </li>
     <li>
-      <a href="/datenschutz">
-        Datenschutz
+      <a href={getAbsoluteLocaleUrl('en', 'privacy')}>
+        Privacy Policy
       </a>
     </li>
   </ul>

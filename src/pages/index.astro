@@ -1,14 +1,21 @@
 ---
+import About from '@/components/About.astro';
+import Aside from '@/components/Aside.astro';
 import Hero from '@/components/Hero.astro';
+import Services from '@/components/Services.astro';
+import Stats from '@/components/Stats.astro';
 import MainLayout from '@/layouts/MainLayout.astro';
 ---
 
 <MainLayout>
-	<Hero />
-	<!-- <About /> -->
-	<!-- <Services /> -->
-	<!-- <Stats /> -->
-	<!-- <Testimonials /> -->
-	<!-- <Contact /> -->
-	<!-- <Footer /> -->
+	<Aside />
+	<main id="main">
+		<Hero />
+		<About />
+		<Services />
+		<Stats />
+		<!-- <Testimonials /> -->
+		<!-- <Contact /> -->
+		<!-- <Footer /> -->
+	</main>
 </MainLayout>

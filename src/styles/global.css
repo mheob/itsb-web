@@ -53,18 +53,18 @@ body {
     display: block;
     width: 0.5rem;
   }
+}
 
-  &-track {
-    border-radius: 1.5rem;
-  }
+::-webkit-scrollbar-track {
+  border-radius: 1.5rem;
+}
 
-  &-thumb {
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 0.5rem;
+
+  &:hover {
     background: var(--primary);
-    border-radius: 0.5rem;
-
-    &:hover {
-      background: var(--primary);
-    }
   }
 }
 
@@ -198,7 +198,7 @@ textarea {
   overflow: hidden;
 }
 
-.main {
+#main {
   display: block;
   float: right;
   width: 100%;
@@ -249,11 +249,34 @@ textarea {
   }
 }
 
-.about,
-.contact,
-.services,
-.stats,
-.testimonials {
+.main {
+  display: block;
+  float: right;
+  width: 100%;
+  transition: var(--transition-duration);
+
+  @media (min-width: 700px) {
+    width: var(--layout-main-s);
+  }
+
+  @media (min-width: 900px) {
+    width: var(--layout-main-m);
+  }
+
+  @media (min-width: 1200px) {
+    width: var(--layout-main-l);
+  }
+
+  @media (min-width: 1600px) {
+    width: var(--layout-main-xl);
+  }
+
+  .offcanvas & {
+    transform: translateX(var(--layout-main-xs));
+  }
+}
+
+.main-section {
   position: relative;
   display: flex;
   flex-direction: row;
@@ -282,30 +305,30 @@ textarea {
     outline: none;
     box-shadow: none;
   }
+}
 
-  &-primary {
-    color: var(--black);
-    background-color: var(--primary);
-    border-color: var(--primary);
+.btn-primary {
+  color: var(--black);
+  background-color: var(--primary);
+  border-color: var(--primary);
 
-    &:hover,
-    &:focus {
-      color: var(--primary);
-      background-color: transparent;
-      border-color: var(--primary);
-    }
-  }
-
-  &-primary-outline {
+  &:hover,
+  &:focus {
     color: var(--primary);
     background-color: transparent;
     border-color: var(--primary);
+  }
+}
 
-    &:hover,
-    &:focus {
-      color: var(--black);
-      background-color: var(--primary);
-      border-color: var(--primary);
-    }
+.btn-primary-outline {
+  color: var(--primary);
+  background-color: transparent;
+  border-color: var(--primary);
+
+  &:hover,
+  &:focus {
+    color: var(--black);
+    background-color: var(--primary);
+    border-color: var(--primary);
   }
 }

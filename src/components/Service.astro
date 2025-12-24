@@ -1,0 +1,85 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { Service } from '@/types/services';
+
+type Props = Service;
+
+const { icon, header, text, num } = Astro.props;
+---
+<div class="service">
+  <div class="icon">
+    <Icon name={icon} />
+  </div>
+  <div class="num">{num}</div>
+  <div class="text">
+    <h3>{header}</h3>
+    <p>{text}</p>
+  </div>
+</div>
+
+<style>
+  .service {
+    position: relative;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem 0;
+    border: 1px solid color-mix(in srgb, var(--primary) 10%, transparent);
+    border-radius: 3px;
+    transition: all var(--transition-duration-slow) ease-out;
+
+    &:hover {
+      background-color: var(--black);
+      border-color: var(--primary);
+    }
+
+    .icon {
+      --size: 6.25rem;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: var(--size);
+
+      svg {
+        display: block;
+        height: var(--size);
+        margin: auto;
+        color: var(--primary);
+        font-size: 2.5rem;
+      }
+    }
+
+    .num {
+      position: absolute;
+      top: 60%;
+      left: 2rem;
+      color: color-mix(in srgb, var(--white) 10%, transparent);
+      font-weight: 700;
+      font-size: 1.875rem;
+      transform: translateY(-50%);
+
+      @media (min-width: 700px) {
+        top: 50%;
+      }
+    }
+
+    .text {
+      width: 100%;
+      padding-right: 2rem;
+      padding-left: 6rem;
+
+      h3 {
+        margin: 0 0 1.25rem;
+        padding: 0;
+        color: var(--primary);
+        font-weight: 500;
+        font-size: 0.875rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+</style>
