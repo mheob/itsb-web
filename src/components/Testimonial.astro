@@ -1,0 +1,57 @@
+---
+import { Image } from 'astro:assets';
+import { getSecret } from 'astro:env/server';
+import type { Testimonial } from '@/types/testimonial';
+
+type Props = Testimonial;
+
+const { quote, name, company, image } = Astro.props;
+---
+<div class="testimonial embla__slide">
+	<Image src={image} alt={`${name} - ${company}`} width={104} height={104} />
+	<div class="quote">
+		<span>&bdquo;</span>
+		<span>{' '}{quote}{' '}</span>
+		<span>&ldquo;</span>
+	</div>
+	<div class="cite-holder">
+		<span class="name">{name}</span>
+		<span class="company">{company}</span>
+	</div>
+</div>
+
+<style>
+	.testimonial {
+		img {
+			width: 6.5rem;
+			margin: 0 auto 2rem;
+			border-radius: 6.5rem;
+		}
+
+		.quote {
+			max-width: 40rem;
+			margin: auto;
+			padding-bottom: 1rem;
+
+			span {
+				font-size: 1.5rem;
+				line-height: 0;
+			}
+		}
+
+		.name,
+		.company {
+			display: block;
+		}
+
+		.company {
+			font-size: 0.75rem;
+		}
+	}
+
+	.embla__slide {
+		flex: 0 0 100%;
+		min-width: 0;
+		cursor: grab !important;
+	}
+</style>

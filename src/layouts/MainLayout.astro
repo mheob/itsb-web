@@ -1,5 +1,6 @@
 ---
-import '@fontsource/geist-sans';
+import '@fontsource/geist-sans/400.css';
+import '@fontsource/geist-sans/700.css';
 
 import Head from '@/components/Head.astro';
 import NavigationToggle from '@/components/NavigationToggle.astro';
@@ -13,22 +14,22 @@ interface Props {
 const { lang = 'en' }: Props = Astro.props;
 ---
 <html lang={lang}>
-  <head>
-    <Head />
-  </head>
-  <body>
-    <div id="root">
-      <NavigationToggle />
-      <slot />
-    </div>
-  </body>
+	<head>
+		<Head />
+	</head>
+	<body>
+		<div id="root">
+			<NavigationToggle />
+			<slot />
+		</div>
+	</body>
 </html>
 
 <style>
-  #root {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    min-height: 100vh;
-  }
+	#root {
+		position: relative;
+		width: 100%;
+		overflow: hidden;
+		min-height: 100vh;
+	}
 </style>

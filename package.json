@@ -19,6 +19,8 @@
     "@iconify-json/fa6-solid": "1.2.4",
     "astro": "5.16.6",
     "astro-icon": "1.1.5",
+    "embla-carousel": "8.6.0",
+    "embla-carousel-autoplay": "8.6.0",
     "svelte": "^5.46.1",
     "svelte-inview": "4.0.4",
     "typescript": "^5.9.3"
