@@ -1,10 +1,10 @@
 <script lang="ts">
 import type { Snippet } from 'svelte';
 import type { HTMLAnchorAttributes } from 'svelte/elements';
-import type { LinkPrefix } from '@/types/contact';
+import type { Protocol } from '@/types/url';
 
 interface ContactLinkProps extends HTMLAnchorAttributes {
-	prefix: LinkPrefix;
+	protocol: Protocol;
 	header?: {
 		[index: string]: string | undefined;
 		bcc?: string;
