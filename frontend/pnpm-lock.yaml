@@ -184,8 +184,8 @@ importers:
         specifier: ^0.1.2
         version: 0.1.2
       stylelint-order:
-        specifier: ^6.0.3
-        version: 6.0.3(stylelint@16.1.0(typescript@5.2.2))
+        specifier: ^7.0.0
+        version: 7.0.1(stylelint@16.1.0(typescript@5.2.2))
       stylelint-prettier:
         specifier: ^5.0.0
         version: 5.0.0(prettier@3.0.3)(stylelint@16.1.0(typescript@5.2.2))
@@ -1103,6 +1103,7 @@ packages:
 
   '@fortawesome/react-fontawesome@0.2.0':
     resolution: {integrity: sha512-uHg75Rb/XORTtVt7OS9WoK8uM276Ufi7gCzshVWkUJbHhh3svsUUeqXerrM96Wm7fRiDzfKRwSoahhMIkGAYHw==}
+    deprecated: v0.2.x is no longer supported. Unless you are still using FontAwesome 5, please update to v3.1.1 or greater.
     peerDependencies:
       '@fortawesome/fontawesome-svg-core': ~1 || ~6
       react: '>=16.3'
@@ -4123,6 +4124,7 @@ packages:
   graphql@14.6.0:
     resolution: {integrity: sha512-VKzfvHEKybTKjQVpTFrA5yUq2S9ihcZvfJAtsDBBCuV6wauPu1xl/f9ehgVf0FcEJJs4vz6ysb/ZMkGigQZseg==}
     engines: {node: '>= 6.x'}
+    deprecated: 'No longer supported; please update to a newer version. Details: https://github.com/graphql/graphql-js#version-support'
 
   gzip-size@6.0.0:
     resolution: {integrity: sha512-ax7ZYomf6jqPTQ4+XCpUGyXKHk5WweS+e05MBO4/y3WJ5RkmPXNKvX+bx1behVILVwr6JSQvZAku021CHPXG3Q==}
@@ -5626,6 +5628,11 @@ packages:
   nan@2.18.0:
     resolution: {integrity: sha512-W7tfG7vMOGtD30sHoZSSc/JVYiyDPEyQVso/Zz+/uQd0B0L46gtC+pHha5FFMRpil6fm/AoEcRWyOVi4+E/f8w==}
 
+  nanoid@3.3.11:
+    resolution: {integrity: sha512-N8SpfPUnUp1bK+PMYW8qSWdl9U+wwNWI4QKxOYDy9JAro3WMX7p2OeVRF9v+347pnakNevPmiHhNmZ2HbFA76w==}
+    engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
+    hasBin: true
+
   nanoid@3.3.6:
     resolution: {integrity: sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
@@ -6033,6 +6040,9 @@ packages:
 
   picocolors@1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
+
+  picocolors@1.1.1:
+    resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
 
   picomatch@2.3.1:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
@@ -6588,8 +6598,8 @@ packages:
     resolution: {integrity: sha512-r4T2oQd1giURJdHQ/RMb72dKZCuLOdWx2B/XhXN1Y1ZdnwXsKH896Qz6vD4tFy9xSjpKNYhlZoJmWyhH/7JUQw==}
     engines: {node: '>=6.14.3'}
 
-  postcss-sorting@8.0.2:
-    resolution: {integrity: sha512-M9dkSrmU00t/jK7rF6BZSZauA5MAaBW4i5EnJXspMwt4iqTh/L9j6fgMnbElEOfyRyfLfVbIHj/R52zHzAPe1Q==}
+  postcss-sorting@9.1.0:
+    resolution: {integrity: sha512-Mn8KJ45HNNG6JBpBizXcyf6LqY/qyqetGcou/nprDnFwBFBLGj0j/sNKV2lj2KMOVOwdXu14aEzqJv8CIV6e8g==}
     peerDependencies:
       postcss: ^8.4.20
 
@@ -6654,6 +6664,10 @@ packages:
 
   postcss@8.4.33:
     resolution: {integrity: sha512-Kkpbhhdjw2qQs2O2DGX+8m5OVqEcbB9HRBvuYM9pgrjEFUg30A9LmXNlTAUj4S9kgtGyrMbTzVjH7E+s5Re2yg==}
+    engines: {node: ^10 || ^12 || >=14}
+
+  postcss@8.5.6:
+    resolution: {integrity: sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==}
     engines: {node: ^10 || ^12 || >=14}
 
   prelude-ls@1.1.2:
@@ -7498,6 +7512,10 @@ packages:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
     engines: {node: '>=0.10.0'}
 
+  source-map-js@1.2.1:
+    resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
+    engines: {node: '>=0.10.0'}
+
   source-map-loader@3.0.2:
     resolution: {integrity: sha512-BokxPoLjyl3iOrgkWaakaxqnelAJSS+0V+De0kKIq6lyWrXuiPgYTGp6z3iHmqljKAaLXwZa+ctD8GccRJeVvg==}
     engines: {node: '>= 12.13.0'}
@@ -7530,6 +7548,7 @@ packages:
   source-map@0.8.0-beta.0:
     resolution: {integrity: sha512-2ymg6oRBpebeZi9UUNsgQ89bhx01TcTkmNTGnNO88imTmbSgy4nfujrgVEFKWpMTEGA11EDkTt7mqObTPdigIA==}
     engines: {node: '>= 8'}
+    deprecated: The work that was done in this beta branch won't be included in future versions
 
   sourcemap-codec@1.4.8:
     resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
@@ -7774,10 +7793,11 @@ packages:
     peerDependencies:
       stylelint: ^9.10.1 || ^10.0.0
 
-  stylelint-order@6.0.3:
-    resolution: {integrity: sha512-1j1lOb4EU/6w49qZeT2SQVJXm0Ht+Qnq9GMfUa3pMwoyojIWfuA+JUDmoR97Bht1RLn4ei0xtLGy87M7d29B1w==}
+  stylelint-order@7.0.1:
+    resolution: {integrity: sha512-GWPei1zBVDDjxM+/BmcSCiOcHNd8rSqW6FUZtqQGlTRpD0Z5nSzspzWD8rtKif5KPdzUG68DApKEV/y/I9VbTw==}
+    engines: {node: '>=20.19.0'}
     peerDependencies:
-      stylelint: ^14.0.0 || ^15.0.0
+      stylelint: ^16.18.0 || ^17.0.0
 
   stylelint-prettier@5.0.0:
     resolution: {integrity: sha512-RHfSlRJIsaVg5Br94gZVdWlz/rBTyQzZflNE6dXvSxt/GthWMY3gEHsWZEBaVGg7GM+XrtVSp4RznFlB7i0oyw==}
@@ -8450,6 +8470,7 @@ packages:
 
   whatwg-encoding@1.0.5:
     resolution: {integrity: sha512-b5lim54JOPN9HtzvK9HFXvBma/rnfFeqsic0hSpjtDbVxR3dJKLc+KB4V6GgiGOvl7CY/KNh8rxSo9DKQrnUEw==}
+    deprecated: Use @exodus/bytes instead for a more spec-conformant and faster implementation
 
   whatwg-fetch@3.6.19:
     resolution: {integrity: sha512-d67JP4dHSbm2TrpFj8AbO8DnL1JXL5J9u0Kq2xW6d0TFDbCA3Muhdt8orXC22utleTVj7Prqt82baN6RBvnEgw==}
@@ -12344,11 +12365,11 @@ snapshots:
       - jest
       - supports-color
 
-  eslint-config-semistandard@17.0.0(eslint-config-standard@17.0.0(eslint-plugin-import@2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@8.50.0))(eslint-plugin-n@15.7.0(eslint@8.50.0))(eslint-plugin-promise@6.1.1(eslint@8.50.0))(eslint@8.50.0))(eslint-plugin-import@2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@8.50.0))(eslint-plugin-n@15.7.0(eslint@8.50.0))(eslint-plugin-promise@6.1.1(eslint@8.50.0))(eslint@8.50.0):
+  eslint-config-semistandard@17.0.0(eslint-config-standard@17.0.0(eslint-plugin-import@2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@9.0.0))(eslint-plugin-n@15.7.0(eslint@8.50.0))(eslint-plugin-promise@6.1.1(eslint@8.50.0))(eslint@8.50.0))(eslint-plugin-import@2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@9.0.0))(eslint-plugin-n@15.7.0(eslint@8.50.0))(eslint-plugin-promise@6.1.1(eslint@8.50.0))(eslint@8.50.0):
     dependencies:
       eslint: 8.50.0
-      eslint-config-standard: 17.0.0(eslint-plugin-import@2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@8.50.0))(eslint-plugin-n@15.7.0(eslint@8.50.0))(eslint-plugin-promise@6.1.1(eslint@8.50.0))(eslint@8.50.0)
-      eslint-plugin-import: 2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@8.50.0)
+      eslint-config-standard: 17.0.0(eslint-plugin-import@2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@9.0.0))(eslint-plugin-n@15.7.0(eslint@8.50.0))(eslint-plugin-promise@6.1.1(eslint@8.50.0))(eslint@8.50.0)
+      eslint-plugin-import: 2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@9.0.0)
       eslint-plugin-n: 15.7.0(eslint@8.50.0)
       eslint-plugin-promise: 6.1.1(eslint@8.50.0)
 
@@ -12360,15 +12381,15 @@ snapshots:
       eslint-plugin-n: 17.2.1(eslint@9.0.0)
       eslint-plugin-promise: 7.0.0(eslint@9.0.0)
 
-  eslint-config-standard-jsx@11.0.0(eslint-plugin-react@7.33.2(eslint@8.50.0))(eslint@8.50.0):
+  eslint-config-standard-jsx@11.0.0(eslint-plugin-react@7.33.2(eslint@9.0.0))(eslint@8.50.0):
     dependencies:
       eslint: 8.50.0
-      eslint-plugin-react: 7.33.2(eslint@8.50.0)
+      eslint-plugin-react: 7.33.2(eslint@9.0.0)
 
-  eslint-config-standard@17.0.0(eslint-plugin-import@2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@8.50.0))(eslint-plugin-n@15.7.0(eslint@8.50.0))(eslint-plugin-promise@6.1.1(eslint@8.50.0))(eslint@8.50.0):
+  eslint-config-standard@17.0.0(eslint-plugin-import@2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@9.0.0))(eslint-plugin-n@15.7.0(eslint@8.50.0))(eslint-plugin-promise@6.1.1(eslint@8.50.0))(eslint@8.50.0):
     dependencies:
       eslint: 8.50.0
-      eslint-plugin-import: 2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@8.50.0)
+      eslint-plugin-import: 2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@9.0.0)
       eslint-plugin-n: 15.7.0(eslint@8.50.0)
       eslint-plugin-promise: 6.1.1(eslint@8.50.0)
 
@@ -15348,6 +15369,8 @@ snapshots:
 
   nan@2.18.0: {}
 
+  nanoid@3.3.11: {}
+
   nanoid@3.3.6: {}
 
   nanoid@3.3.7: {}
@@ -15788,6 +15811,8 @@ snapshots:
   picocolors@0.2.1: {}
 
   picocolors@1.0.0: {}
+
+  picocolors@1.1.1: {}
 
   picomatch@2.3.1: {}
 
@@ -16344,9 +16369,9 @@ snapshots:
       lodash: 4.17.21
       postcss: 7.0.39
 
-  postcss-sorting@8.0.2(postcss@8.4.31):
+  postcss-sorting@9.1.0(postcss@8.5.6):
     dependencies:
-      postcss: 8.4.31
+      postcss: 8.5.6
 
   postcss-svgo@5.1.0(postcss@8.4.31):
     dependencies:
@@ -16408,6 +16433,12 @@ snapshots:
       nanoid: 3.3.7
       picocolors: 1.0.0
       source-map-js: 1.0.2
+
+  postcss@8.5.6:
+    dependencies:
+      nanoid: 3.3.11
+      picocolors: 1.1.1
+      source-map-js: 1.2.1
 
   prelude-ls@1.1.2: {}
 
@@ -17352,9 +17383,9 @@ snapshots:
   semistandard@17.0.0(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2)):
     dependencies:
       eslint: 8.50.0
-      eslint-config-semistandard: 17.0.0(eslint-config-standard@17.0.0(eslint-plugin-import@2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@8.50.0))(eslint-plugin-n@15.7.0(eslint@8.50.0))(eslint-plugin-promise@6.1.1(eslint@8.50.0))(eslint@8.50.0))(eslint-plugin-import@2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@8.50.0))(eslint-plugin-n@15.7.0(eslint@8.50.0))(eslint-plugin-promise@6.1.1(eslint@8.50.0))(eslint@8.50.0)
-      eslint-config-standard: 17.0.0(eslint-plugin-import@2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@8.50.0))(eslint-plugin-n@15.7.0(eslint@8.50.0))(eslint-plugin-promise@6.1.1(eslint@8.50.0))(eslint@8.50.0)
-      eslint-config-standard-jsx: 11.0.0(eslint-plugin-react@7.33.2(eslint@8.50.0))(eslint@8.50.0)
+      eslint-config-semistandard: 17.0.0(eslint-config-standard@17.0.0(eslint-plugin-import@2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@9.0.0))(eslint-plugin-n@15.7.0(eslint@8.50.0))(eslint-plugin-promise@6.1.1(eslint@8.50.0))(eslint@8.50.0))(eslint-plugin-import@2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@9.0.0))(eslint-plugin-n@15.7.0(eslint@8.50.0))(eslint-plugin-promise@6.1.1(eslint@8.50.0))(eslint@8.50.0)
+      eslint-config-standard: 17.0.0(eslint-plugin-import@2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@9.0.0))(eslint-plugin-n@15.7.0(eslint@8.50.0))(eslint-plugin-promise@6.1.1(eslint@8.50.0))(eslint@8.50.0)
+      eslint-config-standard-jsx: 11.0.0(eslint-plugin-react@7.33.2(eslint@9.0.0))(eslint@8.50.0)
       eslint-plugin-import: 2.28.1(@typescript-eslint/parser@8.0.1(eslint@9.0.0)(typescript@5.2.2))(eslint@8.50.0)
       eslint-plugin-n: 15.7.0(eslint@8.50.0)
       eslint-plugin-promise: 6.1.1(eslint@8.50.0)
@@ -17563,6 +17594,8 @@ snapshots:
   source-list-map@2.0.1: {}
 
   source-map-js@1.0.2: {}
+
+  source-map-js@1.2.1: {}
 
   source-map-loader@3.0.2(webpack@5.88.2):
     dependencies:
@@ -17863,10 +17896,10 @@ snapshots:
       postcss-sorting: 4.1.0
       stylelint: 9.10.1
 
-  stylelint-order@6.0.3(stylelint@16.1.0(typescript@5.2.2)):
+  stylelint-order@7.0.1(stylelint@16.1.0(typescript@5.2.2)):
     dependencies:
-      postcss: 8.4.31
-      postcss-sorting: 8.0.2(postcss@8.4.31)
+      postcss: 8.5.6
+      postcss-sorting: 9.1.0(postcss@8.5.6)
       stylelint: 16.1.0(typescript@5.2.2)
 
   stylelint-prettier@5.0.0(prettier@3.0.3)(stylelint@16.1.0(typescript@5.2.2)):
