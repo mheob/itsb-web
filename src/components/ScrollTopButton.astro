@@ -1,0 +1,51 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+<a class="scroll-top-button" href="#root" id="scroll-top-button">
+	<Icon name="fa7-solid:chevron-up" aria-label="Arrow Top" size="1.2rem" />
+</a>
+
+<script>
+	const button = document.getElementById('scroll-top-button');
+	const scrollThreshold = window.innerHeight;
+
+	function toggleButton() {
+		if (window.scrollY > scrollThreshold) {
+			button?.classList.add('visible');
+		} else {
+			button?.classList.remove('visible');
+		}
+	}
+
+	window.addEventListener('scroll', toggleButton);
+	toggleButton();
+</script>
+
+<style>
+	.scroll-top-button {
+		position: fixed;
+		right: 1.5rem;
+		bottom: 1.5rem;
+		z-index: -988;
+		display: grid;
+		place-items: center;
+		padding: 0.5rem;
+		background: color-mix(in srgb, var(--black) 70%, transparent);
+		border: 1px solid var(--primary);
+		opacity: 0;
+		transition: all var(--transition-duration);
+
+		&:hover {
+			border-color: var(--white);
+		}
+
+		&.visible {
+			z-index: 988;
+			opacity: 1;
+		}
+
+		svg {
+			display: initial;
+		}
+	}
+</style>

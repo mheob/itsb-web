@@ -4,6 +4,7 @@ import '@fontsource/geist-sans/700.css';
 
 import Head from '@/components/Head.astro';
 import NavigationToggle from '@/components/NavigationToggle.astro';
+import ScrollTopButton from '@/components/ScrollTopButton.astro';
 
 import '@/styles/global.css';
 
@@ -21,6 +22,7 @@ const { lang = 'en' }: Props = Astro.props;
 		<div id="root">
 			<NavigationToggle />
 			<slot />
+      <ScrollTopButton />
 		</div>
 	</body>
 </html>
