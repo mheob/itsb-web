@@ -2,8 +2,6 @@
 import { getAbsoluteLocaleUrl } from 'astro:i18n';
 ---
 <nav class="main-navigation">
-  <!-- TODO: Add scrollspy -->
-  <!-- <Scrollspy items={['home', 'about', 'services', 'stats', 'testimonials', 'contact']} currentClassName="active"> -->
   <ul>
     <li>
       <a href="/#root">
@@ -45,12 +43,56 @@ import { getAbsoluteLocaleUrl } from 'astro:i18n';
     </li>
     <li>
       <a href={getAbsoluteLocaleUrl('en', 'privacy')}>
-        Privacy Policy
+        Privacy
       </a>
     </li>
   </ul>
-  <!-- </Scrollspy> -->
 </nav>
+
+<script>
+  const sections = ['root', 'about', 'services', 'stats', 'testimonials', 'contact-section'];
+
+  function updateActiveNav() {
+    const scrollPosition = window.scrollY + (window.innerHeight / 2); // Offset for better UX
+
+    let currentSection = sections[0];
+
+    for (const sectionId of sections) {
+      const section = document.getElementById(sectionId);
+      if (section && section.offsetTop <= scrollPosition) {
+        currentSection = sectionId;
+      }
+    }
+
+    // Update active class on navigation links
+    const navLinks = document.querySelectorAll('.main-navigation a[href^="/#"]');
+    navLinks.forEach((link) => {
+      const href = link.getAttribute('href');
+      const linkSection = href?.replace('/#', '');
+
+      if (linkSection === currentSection) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  }
+
+  // Run on scroll with throttling for performance
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateActiveNav();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  // Run on page load
+  updateActiveNav();
+</script>
 
 <style>
   .main-navigation {

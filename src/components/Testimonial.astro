@@ -11,7 +11,7 @@ const { quote, name, company, image } = Astro.props;
 	<Image src={image} alt={`${name} - ${company}`} width={104} height={104} />
 	<div class="quote">
 		<span>&bdquo;</span>
-		<span>{' '}{quote}{' '}</span>
+		<span>{quote}</span>
 		<span>&ldquo;</span>
 	</div>
 	<div class="cite-holder">

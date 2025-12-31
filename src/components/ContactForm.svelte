@@ -1,4 +1,6 @@
 <script lang="ts">
+import { getAbsoluteLocaleUrl } from 'astro:i18n';
+
 // Form field values
 let name = $state('');
 let email = $state('');
@@ -281,7 +283,7 @@ async function handleSubmit(event: SubmitEvent) {
 			<div class="modal-content">
 				<p>By clicking on the "Contact us" button and submitting the data entered in the contact form, you agree that I may use your details to respond to your enquiry or to contact you.</p>
 				<p>Information will not be passed on to third parties unless applicable data protection regulations justify such a transfer or I am legally obliged to do so.</p>
-				<p>You can revoke your consent at any time with future effect. In the event of revocation, your data will be deleted immediately. Your data will also be deleted once I have processed your request or the purpose for storing it no longer applies. You can request information about the data stored about you at any time. Further information on data protection can also be found in the <a href="/datenschutz">privacy policy</a> on this website.</p>
+				<p>You can revoke your consent at any time with future effect. In the event of revocation, your data will be deleted immediately. Your data will also be deleted once I have processed your request or the purpose for storing it no longer applies. You can request information about the data stored about you at any time. Further information on data protection can also be found in the <a href={getAbsoluteLocaleUrl('en', 'privacy')}>privacy policy</a> on this website.</p>
 			</div>
 		</dialog>
 	</label>
