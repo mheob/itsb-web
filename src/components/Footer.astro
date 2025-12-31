@@ -1,0 +1,52 @@
+---
+import { socialData } from '@/data/social';
+import Social from './Social.astro';
+---
+<footer class="footer">
+	<p class="logo">
+		<a href="/">ITSB</a>
+	</p>
+	<Social links={socialData.map((link) => link)} />
+	<p class="copyright">Copyright &copy; {new Date().getFullYear()} All rights reserved</p>
+</footer>
+
+<style>
+	.footer {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		padding: 2.75rem;
+		text-align: center;
+		background-color: var(--background-dark);
+
+		@media (min-width: 1200px) {
+			flex-direction: row-reverse;
+		}
+
+		.logo,
+		.social,
+		.copyright {
+			width: 100%;
+		}
+
+		.logo {
+			margin: initial;
+			width: 100%;
+			font-size: 3rem;
+
+			a {
+				display: inline-block;
+				width: 100%;
+				text-indent: -99999rem;
+				background: url(../images/its-boehm-logo.svg) no-repeat center;
+			}
+		}
+
+		.copyright {
+			margin: initial;
+			font-size: 0.75rem;
+		}
+	}
+</style>
