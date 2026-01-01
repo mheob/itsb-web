@@ -1,29 +1,31 @@
 ---
+
 ---
+
 <h1 class="logo">
-  <a href="/" aria-label="Logo von Alex Böhm">ITSB</a>
+	<a href="/" aria-label="Logo von Alex Böhm">ITSB</a>
 </h1>
 
 <script>
-  import { removeBodyClassHandler } from '@/utils/dom-handler';
-  const anchor = document.querySelector('.logo a') as HTMLAnchorElement;
-  anchor.addEventListener('click', () => {
-    removeBodyClassHandler('offcanvas');
-  });
+	import { removeBodyClassHandler } from "@/utils/dom-handler";
+	const anchor = document.querySelector(".logo a") as HTMLAnchorElement;
+	anchor.addEventListener("click", () => {
+		removeBodyClassHandler("offcanvas");
+	});
 </script>
 
 <style>
-  .logo {
-    display: block;
-    width: 100%;
-    font-size: 3rem;
-    text-transform: uppercase;
+	.logo {
+		display: block;
+		width: 100%;
+		font-size: 3rem;
+		text-transform: uppercase;
 
-    a {
-      display: inline-block;
-      width: 100%;
-      text-indent: -99999rem;
-      background: url(../images/its-boehm-logo.svg) no-repeat center;
-    }
-  }
+		a {
+			display: inline-block;
+			width: 100%;
+			text-indent: -99999rem;
+			background: url(../images/its-boehm-logo.svg) no-repeat center;
+		}
+	}
 </style>

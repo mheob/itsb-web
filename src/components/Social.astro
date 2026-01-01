@@ -1,6 +1,6 @@
 ---
-import { Icon } from 'astro-icon/components';
-import type { SocialMediaLink } from '@/types/social';
+import { Icon } from "astro-icon/components";
+import type { SocialMediaLink } from "@/types/social";
 
 interface Props {
 	links: SocialMediaLink[];
@@ -8,37 +8,45 @@ interface Props {
 
 const { links } = Astro.props;
 ---
+
 <ul class="social">
-  {links.map(({ href, title, icon }) => {
-    return (
-      <li>
-        <a href={href} title={title} target="_blank" rel="noopener noreferrer">
-          <Icon name={icon} />
-        </a>
-      </li>
-    );
-  })}
+	{
+		links.map(({ href, title, icon }) => {
+			return (
+				<li>
+					<a
+						href={href}
+						title={title}
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<Icon name={icon} />
+					</a>
+				</li>
+			);
+		})
+	}
 </ul>
 
 <style>
-  .social {
-    display: flex;
-    justify-content: space-between;
-    max-width: 12.5rem;
-    margin: 0 auto;
-    padding: 0;
+	.social {
+		display: flex;
+		justify-content: space-between;
+		max-width: 12.5rem;
+		margin: 0 auto;
+		padding: 0;
 
-    li {
-      list-style: none;
+		li {
+			list-style: none;
 
-      a {
-        color: var(--white);
-        font-size: 2rem;
+			a {
+				color: var(--white);
+				font-size: 2rem;
 
-        &:hover {
-          color: var(--primary);
-        }
-      }
-    }
-  }
+				&:hover {
+					color: var(--primary);
+				}
+			}
+		}
+	}
 </style>

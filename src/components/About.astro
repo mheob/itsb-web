@@ -1,193 +1,199 @@
 ---
-import Actions from './Actions.astro';
-import Contact from './Contact.astro';
-import Description from './Description.astro';
-import SectionHeader from './SectionHeader.astro';
+import Actions from "./Actions.astro";
+import Contact from "./Contact.astro";
+import Description from "./Description.astro";
+import SectionHeader from "./SectionHeader.astro";
 ---
-<section class="about main-section" id="about">
-  <div class="box box--image">
-    <div class="design-bg">
-      <div class="img"></div>
-    </div>
-  </div>
 
-  <div class="box box--description">
-    <div class="inner-box">
-      <SectionHeader mainText="That's me" smallText="Welcome &amp; introduction" bgText="Welcome" />
-      <div class="content">
-        <Description />
-        <Contact />
-        <Actions />
-      </div>
-    </div>
-  </div>
+<section class="about main-section" id="about">
+	<div class="box box--image">
+		<div class="design-bg">
+			<div class="img"></div>
+		</div>
+	</div>
+
+	<div class="box box--description">
+		<div class="inner-box">
+			<SectionHeader
+				mainText="That's me"
+				smallText="Welcome & introduction"
+				bgText="Welcome"
+			/>
+			<div class="content">
+				<Description />
+				<Contact />
+				<Actions />
+			</div>
+		</div>
+	</div>
 </section>
 
 <style>
-.about {
-  .box {
-    display: flex;
-    flex-basis: 100%;
-    flex-direction: column;
+	.about {
+		.box {
+			display: flex;
+			flex-basis: 100%;
+			flex-direction: column;
 
-    @media (min-width: 700px) {
-      flex: 1;
-    }
-  }
+			@media (min-width: 700px) {
+				flex: 1;
+			}
+		}
 
-  .box--image {
-    margin-bottom: 3rem;
+		.box--image {
+			margin-bottom: 3rem;
 
-    @media (min-width: 700px) {
-      margin-bottom: 0;
-    }
+			@media (min-width: 700px) {
+				margin-bottom: 0;
+			}
 
-    .design-bg {
-      position: relative;
-      width: 65%;
-      height: 550px;
-      border: 1px solid rgba($primary, 0.1);
+			.design-bg {
+				position: relative;
+				width: 65%;
+				height: 550px;
+				border: 1px solid rgba($primary, 0.1);
 
-      &::after {
-        position: absolute;
-        left: 35px;
-        bottom: 15px;
-        z-index: -2;
-        width: 144px;
-        height: 166px;
-        background-image: url(../images/dots-secondary.svg);
-        background-repeat: no-repeat;
-        background-size: 144px 166px;
-        content: "";
-        opacity: 0.5;
-      }
+				&::after {
+					position: absolute;
+					left: 35px;
+					bottom: 15px;
+					z-index: -2;
+					width: 144px;
+					height: 166px;
+					background-image: url(../images/dots-secondary.svg);
+					background-repeat: no-repeat;
+					background-size: 144px 166px;
+					content: "";
+					opacity: 0.5;
+				}
 
-      &,
-      .img {
-        background-repeat: no-repeat;
-        background-position: top center;
-        background-size: cover;
-      }
+				&,
+				.img {
+					background-repeat: no-repeat;
+					background-position: top center;
+					background-size: cover;
+				}
 
-      .img {
-        position: absolute;
-        top: 85px;
-        right: -110px;
-        width: 100%;
-        height: 390px;
-        border-radius: 4px;
-        transition: top var(--transition-duration-slow) ease-in-out;
-        background-image: url(../images/itsb-boehm-alexander-portrait.webp);
-        @include retina("../images/itsb-boehm-alexander-portrait@2x.webp");
+				.img {
+					position: absolute;
+					top: 85px;
+					right: -110px;
+					width: 100%;
+					height: 390px;
+					border-radius: 4px;
+					transition: top var(--transition-duration-slow) ease-in-out;
+					background-image: url(../images/itsb-boehm-alexander-portrait.webp);
+					@include retina("../images/itsb-boehm-alexander-portrait@2x.webp");
 
-        &:hover {
-          top: 50px;
-        }
-      }
-    }
-  }
+					&:hover {
+						top: 50px;
+					}
+				}
+			}
+		}
 
-  .box--description {
-    @media (min-width: 700px) {
-      .section-header {
-        text-align: inherit;
+		.box--description {
+			@media (min-width: 700px) {
+				.section-header {
+					text-align: inherit;
 
-        h4 {
-          left: -1rem;
-        }
-      }
-    }
+					h4 {
+						left: -1rem;
+					}
+				}
+			}
 
-    .inner-box {
-      &-enter {
-        animation-name: fadeInRight;
-        animation-duration: var(--transition-duration-slow);
-      }
+			.inner-box {
+				&-enter {
+					animation-name: fadeInRight;
+					animation-duration: var(--transition-duration-slow);
+				}
 
-      &-exit {
-        animation-name: fadeOut;
-        animation-duration: var(--transition-duration);
-      }
-    }
+				&-exit {
+					animation-name: fadeOut;
+					animation-duration: var(--transition-duration);
+				}
+			}
 
-    .content {
-      padding: 0 1rem;
+			.content {
+				padding: 0 1rem;
 
-      .description {
-        h4 strong {
-          text-shadow: var(--primary) 0 0 7px;
-        }
+				.description {
+					h4 strong {
+						text-shadow: var(--primary) 0 0 7px;
+					}
 
-        p:first-of-type {
-          margin-bottom: 0.5rem;
-        }
-      }
+					p:first-of-type {
+						margin-bottom: 0.5rem;
+					}
+				}
 
-      .description,
-      .contact {
-        margin-bottom: 1.5rem;
-        border-bottom: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
-      }
+				.description,
+				.contact {
+					margin-bottom: 1.5rem;
+					border-bottom: 1px solid
+						color-mix(in srgb, var(--primary) 20%, transparent);
+				}
 
-      .contact {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        margin-top: 1.5rem;
+				.contact {
+					display: flex;
+					flex-direction: row;
+					flex-wrap: wrap;
+					margin-top: 1.5rem;
 
-        .info {
-          display: flex;
-          flex-basis: 100%;
-          margin-bottom: 1rem;
+					.info {
+						display: flex;
+						flex-basis: 100%;
+						margin-bottom: 1rem;
 
-          @media (min-width: 500px) {
-            flex-basis: 50%;
-          }
+						@media (min-width: 500px) {
+							flex-basis: 50%;
+						}
 
-          @media (min-width: 700px) {
-            flex-basis: 100%;
-          }
+						@media (min-width: 700px) {
+							flex-basis: 100%;
+						}
 
-          @media (min-width: 1200px) {
-            flex-basis: 50%;
-          }
+						@media (min-width: 1200px) {
+							flex-basis: 50%;
+						}
 
-          span {
-            display: inline-block;
+						span {
+							display: inline-block;
 
-            &:first-child {
-              width: 5rem;
-            }
-          }
-        }
-      }
+							&:first-child {
+								width: 5rem;
+							}
+						}
+					}
+				}
 
-      .actions {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
+				.actions {
+					display: flex;
+					flex-wrap: wrap;
+					justify-content: space-around;
 
-        .btn {
-          width: 100%;
-          margin: 0.5rem 0;
+					.btn {
+						width: 100%;
+						margin: 0.5rem 0;
 
-          @media (min-width: 500px) {
-            width: inherit;
-            margin: 0 0.5rem;
-          }
+						@media (min-width: 500px) {
+							width: inherit;
+							margin: 0 0.5rem;
+						}
 
-          @media (min-width: 700px) {
-            width: 100%;
-            margin: 0.5rem 0;
-          }
+						@media (min-width: 700px) {
+							width: 100%;
+							margin: 0.5rem 0;
+						}
 
-          @media (min-width: 1200px) {
-            width: inherit;
-            margin: 0 0.5rem;
-          }
-        }
-      }
-    }
-  }
-}
+						@media (min-width: 1200px) {
+							width: inherit;
+							margin: 0 0.5rem;
+						}
+					}
+				}
+			}
+		}
+	}
 </style>

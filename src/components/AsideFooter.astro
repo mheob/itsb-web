@@ -1,24 +1,25 @@
 ---
-import { socialData } from '@/data/social';
-import Social from './Social.astro';
+import { socialData } from "@/data/social";
+import Social from "./Social.astro";
 ---
+
 <footer class="footer">
-  <Social links={socialData.map((link) => link)} />
+	<Social links={socialData.map((link) => link)} />
 </footer>
 
 <style>
-  .footer {
-    padding: 0;
-    color: var(--white);
-    font-weight: 400;
-    text-align: center;
+	.footer {
+		padding: 0;
+		color: var(--white);
+		font-weight: 400;
+		text-align: center;
 
-    p {
-      font-size: 0.6rem;
+		p {
+			font-size: 0.6rem;
 
-      @media (min-width: 700px) {
-        font-size: 0.7rem;
-      }
-    }
-  }
+			@media (min-width: 700px) {
+				font-size: 0.7rem;
+			}
+		}
+	}
 </style>

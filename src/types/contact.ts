@@ -9,7 +9,7 @@ export const contactSchema = z.object({
 		protocol: protocolSchema,
 		href: z.string(),
 		title: z.string(),
-	})
+	}),
 });
 
 export type Contact = z.infer<typeof contactSchema>;

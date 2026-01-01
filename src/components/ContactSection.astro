@@ -1,26 +1,33 @@
 ---
-import { contactDataEN } from '@/data/contact';
-import ContactDetails from './ContactDetails.astro';
-import ContactForm from './ContactForm.svelte';
-import SectionHeader from './SectionHeader.astro';
+import { contactDataEN } from "@/data/contact";
+import ContactDetails from "./ContactDetails.astro";
+import ContactForm from "./ContactForm.svelte";
+import SectionHeader from "./SectionHeader.astro";
 ---
+
 <section class="contact-section main-section" id="contact-section">
-	<SectionHeader mainText="Ask questions. Get answers." smallText="Create contact" bgText="Contact" />
+	<SectionHeader
+		mainText="Ask questions. Get answers."
+		smallText="Create contact"
+		bgText="Contact"
+	/>
 
 	<section class="details">
-		{contactDataEN.map(({ icon, header, text, anchor }) => {
-			return (
-				<ContactDetails
-					icon={icon}
-					header={header}
-					text={text}
-					anchor={anchor}
-				/>
-			);
-		})}
+		{
+			contactDataEN.map(({ icon, header, text, anchor }) => {
+				return (
+					<ContactDetails
+						icon={icon}
+						header={header}
+						text={text}
+						anchor={anchor}
+					/>
+				);
+			})
+		}
 	</section>
 
-	<ContactForm  client:load/>
+	<ContactForm client:load />
 </section>
 
 <style>

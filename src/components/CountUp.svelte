@@ -18,10 +18,10 @@
 		duration = 1500,
 		format = true,
 		initial = 0,
-		prefix = '',
+		prefix = "",
 		roundTo = 1,
 		step = 1,
-		suffix = '',
+		suffix = "",
 	}: Props = $props();
 
 	const id = nanoid();
@@ -69,7 +69,7 @@
 					}
 				}
 			},
-			duration / ((max - initial) / adjustedStep)
+			duration / ((max - initial) / adjustedStep),
 		);
 
 		// Cleanup on unmount or when dependencies change
@@ -84,7 +84,7 @@
 <span
 	use:inview
 	oninview_change={(event) => {
-    const { inView } = event.detail;
-    isInView = inView;
-	}}
->{prefix}{formatNumber(displayValue)}{suffix}</span>
+		const { inView } = event.detail;
+		isInView = inView;
+	}}>{prefix}{formatNumber(displayValue)}{suffix}</span
+>

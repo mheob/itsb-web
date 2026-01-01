@@ -1,47 +1,54 @@
 ---
-import { statDataEN } from '@/data/stat';
-import SectionHeader from './SectionHeader.astro';
-import Stat from './Stat.astro';
+import { statDataEN } from "@/data/stat";
+import SectionHeader from "./SectionHeader.astro";
+import Stat from "./Stat.astro";
 ---
-<section class="stats main-section" id="stats">
-  <SectionHeader mainText="A few figures about me" smallText="statistics" bgText="Stats" />
 
-  <section class="content">
-    {statDataEN.map((props) => (
-      <Stat
-        upperTitle={props.upperTitle}
-        lowerTitle={props.lowerTitle}
-        value={props.value}
-        duration={props.duration}
-        format={props.format}
-        initial={props.initial}
-        prefix={props.prefix}
-        roundTo={props.roundTo}
-        step={props.step}
-        suffix={props.suffix}
-      />
-    ))}
-  </section>
+<section class="stats main-section" id="stats">
+	<SectionHeader
+		mainText="A few figures about me"
+		smallText="statistics"
+		bgText="Stats"
+	/>
+
+	<section class="content">
+		{
+			statDataEN.map((props) => (
+				<Stat
+					upperTitle={props.upperTitle}
+					lowerTitle={props.lowerTitle}
+					value={props.value}
+					duration={props.duration}
+					format={props.format}
+					initial={props.initial}
+					prefix={props.prefix}
+					roundTo={props.roundTo}
+					step={props.step}
+					suffix={props.suffix}
+				/>
+			))
+		}
+	</section>
 </section>
 
 <style>
-  .stats {
-    @media (min-width: 1200px) {
-      max-width: 75rem;
-      margin-right: auto;
-      margin-left: auto;
-    }
+	.stats {
+		@media (min-width: 1200px) {
+			max-width: 75rem;
+			margin-right: auto;
+			margin-left: auto;
+		}
 
-    .content {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      margin-bottom: 1.5rem;
+		.content {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			margin-bottom: 1.5rem;
 
-      @media (min-width: 1200px) {
-        flex-direction: row;
-        justify-content: space-around;
-      }
-    }
-  }
+			@media (min-width: 1200px) {
+				flex-direction: row;
+				justify-content: space-around;
+			}
+		}
+	}
 </style>

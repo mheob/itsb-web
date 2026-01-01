@@ -1,6 +1,6 @@
 ---
-import type { Stat } from '@/types/stat';
-import CountUp from './CountUp.svelte';
+import type { Stat } from "@/types/stat";
+import CountUp from "./CountUp.svelte";
 
 type Props = Stat;
 
@@ -17,55 +17,57 @@ const {
 	step,
 } = Astro.props;
 ---
+
 <div class="stat-item">
-  <div class="upper-title">{upperTitle}</div>
-  <div class="counter">
-    <CountUp
-      value={value}
-      duration={duration}
-      format={format}
-      initial={initial}
-      prefix={prefix}
-      roundTo={roundTo}
-      step={step}
-      suffix={suffix}
-      client:visible
-    />
-  </div>
-  <div class="lower-title">{lowerTitle}</div>
+	<div class="upper-title">{upperTitle}</div>
+	<div class="counter">
+		<CountUp
+			value={value}
+			duration={duration}
+			format={format}
+			initial={initial}
+			prefix={prefix}
+			roundTo={roundTo}
+			step={step}
+			suffix={suffix}
+			client:visible
+		/>
+	</div>
+	<div class="lower-title">{lowerTitle}</div>
 </div>
 
 <style>
-  .stat-item {
-    text-align: center;
+	.stat-item {
+		text-align: center;
 
-    &:not(:last-of-type) {
-      border-bottom: 1px solid color-mix(in srgb, var(--primary) 10%, transparent);
+		&:not(:last-of-type) {
+			border-bottom: 1px solid
+				color-mix(in srgb, var(--primary) 10%, transparent);
 
-      @media (min-width: 1200px) {
-        border: 0;
-      }
-    }
+			@media (min-width: 1200px) {
+				border: 0;
+			}
+		}
 
-    .counter {
-      font-size: 2.5rem;
-    }
+		.counter {
+			font-size: 2.5rem;
+		}
 
-    .upper-title,
-    .lower-title {
-      max-width: 10rem;
-      margin: auto;
-      font-size: 0.875rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-    }
+		.upper-title,
+		.lower-title {
+			max-width: 10rem;
+			margin: auto;
+			font-size: 0.875rem;
+			letter-spacing: 4px;
+			text-transform: uppercase;
+		}
 
-    .upper-title {
-      margin-top: 1rem;
-    }
+		.upper-title {
+			margin-top: 1rem;
+		}
 
-    .lower-title {
-      margin-bottom: 1rem;
-    }
-  }
+		.lower-title {
+			margin-bottom: 1rem;
+		}
+	}
 </style>

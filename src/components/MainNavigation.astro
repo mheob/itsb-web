@@ -1,11 +1,13 @@
 ---
-import { getAbsoluteLocaleUrl } from 'astro:i18n';
+import { getAbsoluteLocaleUrl } from "astro:i18n";
 
 const currentPath = Astro.url.pathname;
-const isHomePage = currentPath === '/' || currentPath === '/de' || currentPath === '/de/';
-const isImprintPage = currentPath.includes('/imprint');
-const isPrivacyPage = currentPath.includes('/privacy');
+const isHomePage =
+	currentPath === "/" || currentPath === "/de" || currentPath === "/de/";
+const isImprintPage = currentPath.includes("/imprint");
+const isPrivacyPage = currentPath.includes("/privacy");
 ---
+
 <nav class="main-navigation" data-is-home={isHomePage}>
 	<ul>
 		<li><a href="/#root">Home</a></li>
@@ -15,20 +17,35 @@ const isPrivacyPage = currentPath.includes('/privacy');
 		<li><a href="/#testimonials">Testimonials</a></li>
 		<li><a href="/#contact-section">Contact</a></li>
 		<li><hr /></li>
-		<li><a href={getAbsoluteLocaleUrl('en', 'imprint')} class:list={[{ active: isImprintPage }]}>Imprint</a></li>
-		<li><a href={getAbsoluteLocaleUrl('en', 'privacy')} class:list={[{ active: isPrivacyPage }]}>Privacy</a></li>
+		<li>
+			<a
+				href={getAbsoluteLocaleUrl("en", "imprint")}
+				class:list={[{ active: isImprintPage }]}>Imprint</a>
+		</li>
+		<li>
+			<a
+				href={getAbsoluteLocaleUrl("en", "privacy")}
+				class:list={[{ active: isPrivacyPage }]}>Privacy</a>
+		</li>
 	</ul>
 </nav>
 
 <script>
-	const nav = document.querySelector('.main-navigation');
-	const isHomePage = nav?.getAttribute('data-is-home') === 'true';
+	const nav = document.querySelector(".main-navigation");
+	const isHomePage = nav?.getAttribute("data-is-home") === "true";
 
 	if (isHomePage) {
-		const sections = ['root', 'about', 'services', 'stats', 'testimonials', 'contact-section'];
+		const sections = [
+			"root",
+			"about",
+			"services",
+			"stats",
+			"testimonials",
+			"contact-section",
+		];
 
 		function updateActiveNav() {
-			const scrollPosition = window.scrollY + (window.innerHeight / 2); // Offset for better UX
+			const scrollPosition = window.scrollY + window.innerHeight / 2; // Offset for better UX
 
 			let currentSection = sections[0];
 
@@ -40,22 +57,24 @@ const isPrivacyPage = currentPath.includes('/privacy');
 			}
 
 			// Update active class on navigation links
-			const navLinks = document.querySelectorAll('.main-navigation a[href^="/#"]');
+			const navLinks = document.querySelectorAll(
+				'.main-navigation a[href^="/#"]',
+			);
 			navLinks.forEach((link) => {
-				const href = link.getAttribute('href');
-				const linkSection = href?.replace('/#', '');
+				const href = link.getAttribute("href");
+				const linkSection = href?.replace("/#", "");
 
 				if (linkSection === currentSection) {
-					link.classList.add('active');
+					link.classList.add("active");
 				} else {
-					link.classList.remove('active');
+					link.classList.remove("active");
 				}
 			});
 		}
 
 		// Run on scroll with throttling for performance
 		let ticking = false;
-		window.addEventListener('scroll', () => {
+		window.addEventListener("scroll", () => {
 			if (!ticking) {
 				window.requestAnimationFrame(() => {
 					updateActiveNav();

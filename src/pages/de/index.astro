@@ -1,11 +1,11 @@
 ---
-import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getRelativeLocaleUrl } from "astro:i18n";
 
-import MainLayout from '@/layouts/MainLayout.astro';
+import MainLayout from "@/layouts/MainLayout.astro";
 ---
 
-<MainLayout lang='de'>
+<MainLayout lang="de">
 	<h1>Astro DE</h1>
 
-	<a href={getRelativeLocaleUrl('en')}>EN</a>
+	<a href={getRelativeLocaleUrl("en")}>EN</a>
 </MainLayout>

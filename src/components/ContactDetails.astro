@@ -1,20 +1,28 @@
 ---
-import { Icon } from 'astro-icon/components';
-import type { Contact } from '@/types/contact';
-import ContactLink from './ContactLink.svelte';
+import { Icon } from "astro-icon/components";
+import type { Contact } from "@/types/contact";
+import ContactLink from "./ContactLink.svelte";
 
 type Props = Contact;
 
 const { icon, header, text, anchor } = Astro.props;
 ---
+
 <div class="contact-details">
 	<div class="icon">
-    <Icon name={icon} />
+		<Icon name={icon} />
 	</div>
 	<div class="content">
 		<h4>{header}</h4>
 		<p>{text}</p>
-		<div><ContactLink protocol={anchor.protocol} href={anchor.href} title={anchor.title} client:visible /></div>
+		<div>
+			<ContactLink
+				protocol={anchor.protocol}
+				href={anchor.href}
+				title={anchor.title}
+				client:visible
+			/>
+		</div>
 	</div>
 </div>
 
@@ -30,7 +38,8 @@ const { icon, header, text, anchor } = Astro.props;
 
 		&:not(:last-of-type) {
 			padding-bottom: 2.5rem;
-			border-bottom: 1px solid color-mix(in srgb, var(--primary) 10%, transparent);
+			border-bottom: 1px solid
+				color-mix(in srgb, var(--primary) 10%, transparent);
 		}
 
 		&:not(:first-of-type) {

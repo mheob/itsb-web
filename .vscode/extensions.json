@@ -1,7 +1,8 @@
 {
-  "recommendations": [
-    "astro-build.astro-vscode",
-    "svelte.svelte-vscode",
-  ],
-  "unwantedRecommendations": []
+	"recommendations": [
+		"astro-build.astro-vscode",
+		"biomejs.biome",
+		"svelte.svelte-vscode",
+	],
+	"unwantedRecommendations": []
 }

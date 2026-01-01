@@ -1,12 +1,12 @@
 ---
-import { Image } from 'astro:assets';
-import { getSecret } from 'astro:env/server';
-import type { Testimonial } from '@/types/testimonial';
+import { Image } from "astro:assets";
+import type { Testimonial } from "@/types/testimonial";
 
 type Props = Testimonial;
 
 const { quote, name, company, image } = Astro.props;
 ---
+
 <div class="testimonial embla__slide">
 	<Image src={image} alt={`${name} - ${company}`} width={104} height={104} />
 	<div class="quote">

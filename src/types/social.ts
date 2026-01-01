@@ -7,4 +7,3 @@ export const socialMediaLinkSchema = z.object({
 });
 
 export type SocialMediaLink = z.infer<typeof socialMediaLinkSchema>;
-

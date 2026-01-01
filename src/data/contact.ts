@@ -18,8 +18,7 @@ export const contactDataEN: Contact[] = [
 		anchor: {
 			protocol: 'https://',
 			href: 'discord.me/itsb',
-			title:
-				'Use Discord as a service for instant messaging, chat, voice conferencing, and video conferencing.',
+			title: 'Use Discord as a service for instant messaging, chat, voice conferencing, and video conferencing.',
 		},
 	},
 	{
@@ -52,8 +51,7 @@ export const contactDataDE: Contact[] = [
 		anchor: {
 			protocol: 'https://',
 			href: 'discord.me/itsb',
-			title:
-				'Nutze Discord als Dienst für Instant Messaging, Chat, Sprachkonferenzen und Videokonferenzen.',
+			title: 'Nutze Discord als Dienst für Instant Messaging, Chat, Sprachkonferenzen und Videokonferenzen.',
 		},
 	},
 	{

@@ -1,134 +1,135 @@
 ---
 
 ---
+
 <section class="hero main-section">
-  <a class="btn btn-primary-outline" href="#contact-section">Let's talk</a>
-  <div class="content">
-    <div class="overlay"></div>
-    <header>
-      <h1>Alexander Böhm</h1>
-      <h2>
-        <div>Need a new website?</div>
-        <div>Your old website isn't up to date anymore?</div>
-        <div>Want an interactive web application?</div>
-        <div>Google only shows your competitors?</div>
-      </h2>
-    </header>
-  </div>
+	<a class="btn btn-primary-outline" href="#contact-section">Let's talk</a>
+	<div class="content">
+		<div class="overlay"></div>
+		<header>
+			<h1>Alexander Böhm</h1>
+			<h2>
+				<div>Need a new website?</div>
+				<div>Your old website isn't up to date anymore?</div>
+				<div>Want an interactive web application?</div>
+				<div>Google only shows your competitors?</div>
+			</h2>
+		</header>
+	</div>
 </section>
 
 <style>
-  .hero {
-    position: relative;
-    float: left;
-    clear: both;
-    width: 100%;
-    height: 100vh;
-    min-height: 100vh;
-    margin-bottom: 2rem;
+	.hero {
+		position: relative;
+		float: left;
+		clear: both;
+		width: 100%;
+		height: 100vh;
+		min-height: 100vh;
+		margin-bottom: 2rem;
 
-    @media (min-width: 700px) {
-      margin-bottom: 5rem;
-    }
+		@media (min-width: 700px) {
+			margin-bottom: 5rem;
+		}
 
-    &::after {
-      position: absolute;
-      right: 0;
-      bottom: -83px;
-      z-index: 2;
-      width: 144px;
-      height: 166px;
-      background-image: url(../images/dots-main.svg);
-      background-repeat: no-repeat;
-      background-size: 144px 166px;
-      content: "";
-      opacity: 0.5;
-    }
+		&::after {
+			position: absolute;
+			right: 0;
+			bottom: -83px;
+			z-index: 2;
+			width: 144px;
+			height: 166px;
+			background-image: url(../images/dots-main.svg);
+			background-repeat: no-repeat;
+			background-size: 144px 166px;
+			content: "";
+			opacity: 0.5;
+		}
 
-    .btn {
-      position: absolute;
-      top: 1.25rem;
-      right: 1.25rem;
-      z-index: 25;
-      margin: 0 0.25rem 0.25rem 0;
-    }
+		.btn {
+			position: absolute;
+			top: 1.25rem;
+			right: 1.25rem;
+			z-index: 25;
+			margin: 0 0.25rem 0.25rem 0;
+		}
 
-    .content {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      height: 100vh;
-      min-height: 400px;
-      overflow: hidden;
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: cover;
-      background-attachment: fixed;
-      background-image: url(../images/itsb-boehm-alexander-bg.webp);
+		.content {
+			position: relative;
+			z-index: 2;
+			width: 100%;
+			height: 100vh;
+			min-height: 400px;
+			overflow: hidden;
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: cover;
+			background-attachment: fixed;
+			background-image: url(../images/itsb-boehm-alexander-bg.webp);
 
-      @media only screen and (min-device-pixel-ratio: 2),
-        only screen and (min-resolution: 192dpi),
-        only screen and (min-resolution: 2dppx) {
-        background-image: url(../images/itsb-boehm-alexander-bg@2x.webp);
-      }
+			@media only screen and (min-device-pixel-ratio: 2),
+				only screen and (min-resolution: 192dpi),
+				only screen and (min-resolution: 2dppx) {
+				background-image: url(../images/itsb-boehm-alexander-bg@2x.webp);
+			}
 
-      .overlay {
-        position: absolute;
-        z-index: 5;
-        width: 100%;
-        height: 100vh;
-        background: color-mix(in srgb, var(--black) 65%, transparent);
-      }
+			.overlay {
+				position: absolute;
+				z-index: 5;
+				width: 100%;
+				height: 100vh;
+				background: color-mix(in srgb, var(--black) 65%, transparent);
+			}
 
-      header {
-        position: relative;
-        z-index: 9;
-        margin-top: 12rem;
-        padding: 5rem;
+			header {
+				position: relative;
+				z-index: 9;
+				margin-top: 12rem;
+				padding: 5rem;
 
-        @media (min-width: 500px) {
-          margin-top: 15rem;
-        }
+				@media (min-width: 500px) {
+					margin-top: 15rem;
+				}
 
-        @media (min-width: 900px) {
-          margin-top: 20rem;
-        }
+				@media (min-width: 900px) {
+					margin-top: 20rem;
+				}
 
-        @media (min-width: 1200px) {
-          margin-top: 25rem;
-        }
+				@media (min-width: 1200px) {
+					margin-top: 25rem;
+				}
 
-        h1 {
-          color: color-mix(in srgb, var(--white) 90%, transparent);
-          margin-bottom: 0.625rem;
-          font-weight: 600;
-          font-size: 2rem;
-          line-height: 1.3;
+				h1 {
+					color: color-mix(in srgb, var(--white) 90%, transparent);
+					margin-bottom: 0.625rem;
+					font-weight: 600;
+					font-size: 2rem;
+					line-height: 1.3;
 
-          @media (min-width: 900px) {
-            font-size: 4rem;
-          }
-        }
+					@media (min-width: 900px) {
+						font-size: 4rem;
+					}
+				}
 
-        h2 {
-          margin-bottom: 2rem;
-          color: color-mix(in srgb, var(--white) 70%, transparent);
-          font-weight: 500;
-          font-size: 1.5rem;
-          line-height: 1.5;
-          width: fit-content;
-          margin-inline-start: -1rem;
-          padding: 1rem;
+				h2 {
+					margin-bottom: 2rem;
+					color: color-mix(in srgb, var(--white) 70%, transparent);
+					font-weight: 500;
+					font-size: 1.5rem;
+					line-height: 1.5;
+					width: fit-content;
+					margin-inline-start: -1rem;
+					padding: 1rem;
 
-          @media (min-width: 900px) {
-            font-size: 2rem;
-          }
+					@media (min-width: 900px) {
+						font-size: 2rem;
+					}
 
-          div {
-            margin-bottom: 0.5rem;
-          }
-        }
-      }
-    }
-  }
+					div {
+						margin-bottom: 0.5rem;
+					}
+				}
+			}
+		}
+	}
 </style>

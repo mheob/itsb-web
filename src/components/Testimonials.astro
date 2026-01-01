@@ -1,23 +1,30 @@
 ---
-import { testimonialDataEN } from '@/data/testimonial';
-import Carousel from './Carousel.astro';
-import SectionHeader from './SectionHeader.astro';
-import Testimonial from './Testimonial.astro';
+import { testimonialDataEN } from "@/data/testimonial";
+import Carousel from "./Carousel.astro";
+import SectionHeader from "./SectionHeader.astro";
+import Testimonial from "./Testimonial.astro";
 ---
-<section class="testimonials main-section" id="testimonials">
-	<div class="overlay" />
 
-	<SectionHeader mainText="What customers say about my work" smallText="Customer testimonials" bgText="Quotations" />
+<section class="testimonials main-section" id="testimonials">
+	<div class="overlay"></div>
+
+	<SectionHeader
+		mainText="What customers say about my work"
+		smallText="Customer testimonials"
+		bgText="Quotations"
+	/>
 
 	<Carousel>
-		{testimonialDataEN.map(({ quote, name, company, image }) => (
-			<Testimonial
-				quote={quote}
-				name={name}
-				company={company}
-				image={image}
-			/>
-		))}
+		{
+			testimonialDataEN.map(({ quote, name, company, image }) => (
+				<Testimonial
+					quote={quote}
+					name={name}
+					company={company}
+					image={image}
+				/>
+			))
+		}
 	</Carousel>
 </section>
 
@@ -30,10 +37,10 @@ import Testimonial from './Testimonial.astro';
 		background-image: url(../images/itsb-testimonials-bg.webp);
 
 		@media only screen and (min-device-pixel-ratio: 2),
-        only screen and (min-resolution: 192dpi),
-        only screen and (min-resolution: 2dppx) {
-        background-image: url(../images/itsb-testimonials-bg@2x.webp);
-      }
+			only screen and (min-resolution: 192dpi),
+			only screen and (min-resolution: 2dppx) {
+			background-image: url(../images/itsb-testimonials-bg@2x.webp);
+		}
 
 		.overlay {
 			position: absolute;

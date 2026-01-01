@@ -1,20 +1,28 @@
 ---
-import { serviceContactDataEN } from '@/data/service-contact';
-import ContactLink from './ContactLink.svelte';
+import { serviceContactDataEN } from "@/data/service-contact";
+import ContactLink from "./ContactLink.svelte";
 ---
+
 <section class="contact">
-  {serviceContactDataEN.map(({ definition, content }) => {
-    return (
-      <div class="info">
-        <span>{definition}:</span>
-        <span>
-          {typeof content === 'string' ? (
-            content
-          ) : (
-            <ContactLink protocol={content.protocol} href={content.href} title={content.title} client:visible />
-          )}
-        </span>
-      </div>
-    );
-  })}
+	{
+		serviceContactDataEN.map(({ definition, content }) => {
+			return (
+				<div class="info">
+					<span>{definition}:</span>
+					<span>
+						{typeof content === "string" ? (
+							content
+						) : (
+							<ContactLink
+								protocol={content.protocol}
+								href={content.href}
+								title={content.title}
+								client:visible
+							/>
+						)}
+					</span>
+				</div>
+			);
+		})
+	}
 </section>
