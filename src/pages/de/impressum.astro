@@ -1,0 +1,81 @@
+---
+import Aside from "@/components/Aside.astro";
+import ContactLink from "@/components/ContactLink.svelte";
+import Footer from "@/components/Footer.astro";
+import MainLayout from "@/layouts/MainLayout.astro";
+---
+
+<MainLayout>
+	<Aside />
+	<main id="main">
+		<section class="main-section content-page">
+			<div class="container">
+				<h1>Impressum</h1>
+
+				<address>
+					<strong>Alexander Böhm</strong><br />
+					Full-Stack-Developer<br />
+					Theodor-Heuss-Str. 1<br />
+					56564 Neuwied<br />
+				</address>
+
+				<h2>Kontakt</h2>
+				<p>
+					Phone: <ContactLink
+						protocol="tel:"
+						href="+49 160 8206654"
+						title="Call me"
+						client:visible
+					/><br />
+					E-mail: <ContactLink
+						protocol="mailto:"
+						href="mail@alex-boehm.dev"
+						title="Send me an email"
+						client:visible
+					/>
+				</p>
+
+				<h2>Redaktionell verantwortlich:</h2>
+				<address>
+					Alexander Böhm<br />
+					Theodor-Heuss-Str. 1<br />
+					56564 Neuwied<br />
+				</address>
+
+				<h2>Verbraucherstreitbeilegung / Universalschlichtungsstelle</h2>
+				<p>
+					Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren
+					vor einer Verbraucherschlichtungsstelle teilzunehmen.
+				</p>
+			</div>
+		</section>
+		<Footer />
+	</main>
+</MainLayout>
+
+<style>
+	.content-page {
+		padding: 3rem 1rem 5rem;
+
+		@media (min-width: 700px) {
+			padding: 5rem 3rem;
+		}
+	}
+
+	.container {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	h1 {
+		margin-bottom: 3rem;
+		font-size: 2.5rem;
+		border-bottom: 1px solid color-mix(in srgb, var(--primary) 33%, transparent);
+		padding-bottom: 1rem;
+	}
+
+	h2 {
+		margin-top: 2.5rem;
+		margin-bottom: 1rem;
+	}
+</style>

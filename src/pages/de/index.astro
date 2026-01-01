@@ -1,11 +1,26 @@
 ---
-import { getRelativeLocaleUrl } from "astro:i18n";
-
+import About from "@/components/About.astro";
+import Aside from "@/components/Aside.astro";
+import ContactSection from "@/components/ContactSection.astro";
+import Footer from "@/components/Footer.astro";
+import Hero from "@/components/Hero.astro";
+import Services from "@/components/Services.astro";
+import Stats from "@/components/Stats.astro";
+import Testimonials from "@/components/Testimonials.astro";
 import MainLayout from "@/layouts/MainLayout.astro";
+
+const lang = Astro.url.pathname.split("/")[1] === "de" ? "de" : "en";
 ---
 
-<MainLayout lang="de">
-	<h1>Astro DE</h1>
-
-	<a href={getRelativeLocaleUrl("en")}>EN</a>
+<MainLayout lang={lang}>
+	<Aside />
+	<main id="main">
+		<Hero />
+		<About />
+		<Services />
+		<Stats />
+		<Testimonials />
+		<ContactSection />
+		<Footer />
+	</main>
 </MainLayout>

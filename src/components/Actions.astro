@@ -1,28 +1,56 @@
 ---
+import { useTranslations } from "@/utils/i18n";
 
+const ui = {
+	en: {
+		openDownloadVCardDialog: "Download vCard",
+		hireMe: "Hire me",
+		dialog: {
+			header: "Download contact details?",
+			content: {
+				"1": "Would you like to save my vCard?",
+				"2": "You can save them directly in your email programme, such as Outlook or Thunderbird.<br />Then you will always have my contact details to hand.",
+			},
+			action: "Download vCard now",
+		},
+	},
+	de: {
+		openDownloadVCardDialog: "Kontaktdaten herunterladen",
+		hireMe: "Beauftrage mich",
+		dialog: {
+			header: "Kontaktdaten herunterladen?",
+			content: {
+				"1": "Möchtest Du dir die vCard von mir abspeichern?",
+				"2": "Du kannst sie Dir direkt in deinem Mail-Programm, wie z.B. Outlook oder Thunderbird abspeichern.<br />Dann hast Du meine Kontaktdaten immer griffbereit.",
+			},
+			action: "vCard jetzt herunterladen",
+		},
+	},
+};
+
+const lang = Astro.url.pathname.split("/")[1] === "de" ? "de" : "en";
+
+const t = useTranslations(ui, lang);
 ---
 
 <section class="actions">
 	<button id="open-download-vc-modal" class="btn btn-primary-outline"
-		>Download vCard</button
+		>{t("openDownloadVCardDialog")}</button
 	>
-	<a href="/#contact-section" class="btn btn-primary">Hire me</a>
+	<a href="/#contact-section" class="btn btn-primary">{t("hireMe")}</a>
 	<dialog id="download-vc-modal">
 		<header>
-			<h2>Download contact details?</h2>
+			<h2>{t("dialog.header")}</h2>
 		</header>
 		<div class="modal-content">
-			<p>Would you like to save my vCard?</p>
-			<p>
-				You can save them directly in your email programme, such as Outlook or
-				Thunderbird.<br />Then you will always have my contact details to hand.
-			</p>
+			<p>{t("dialog.content.1")}</p>
+			<p set:html={t("dialog.content.2")} />
 			<p class="modal-content-actions">
 				<a
 					id="close-download-vc-modal"
 					href="/downloads/IT Service Böhm -- Alexander Böhm.vcf"
 					class="btn btn-primary"
-					download>Download vCard now</a
+					download>{t("dialog.action")}</a
 				>
 			</p>
 		</div>
@@ -47,6 +75,32 @@
 </script>
 
 <style>
+	.actions {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+
+		.btn {
+			width: 100%;
+			margin: 0.5rem 0;
+
+			@media (min-width: 500px) {
+				width: inherit;
+				margin: 0 0.5rem;
+			}
+
+			@media (min-width: 700px) {
+				width: 100%;
+				margin: 0.5rem 0;
+			}
+
+			@media (min-width: 1200px) {
+				width: inherit;
+				margin: 0 0.5rem;
+			}
+		}
+	}
+
 	dialog::backdrop {
 		background: rgba(0, 0, 0, 0.5);
 	}

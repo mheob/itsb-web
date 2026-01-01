@@ -1,8 +1,50 @@
 ---
+import {
+	serviceContactDataDE,
+	serviceContactDataEN,
+} from "@/data/service-contact";
+import { useTranslations } from "@/utils/i18n";
 import Actions from "./Actions.astro";
 import Contact from "./Contact.astro";
-import Description from "./Description.astro";
 import SectionHeader from "./SectionHeader.astro";
+
+const ui = {
+	en: {
+		SectionHeader: {
+			bgText: "Welcome",
+			mainText: "That's me",
+			smallText: "Welcome & introduction",
+		},
+		description: {
+			heading: "Hi! I am <strong>Alex</strong>!",
+			content: {
+				"1": "A few years ago, I discovered my love for web content. It started with simple games for my own personal use, but it has steadily developed into something more.",
+				"2": "At first, it was friends and family who wanted their own websites. Then came websites, especially for non-profit organisations, and now professional companies as well.",
+			},
+		},
+	},
+	de: {
+		SectionHeader: {
+			bgText: "Willkommen",
+			mainText: "Das bin ich",
+			smallText: "Willkommen & Einführung",
+		},
+		description: {
+			heading: "Hi! Ich bin der <strong>Alex</strong>!",
+			content: {
+				"1": "Vor einigen Jahren habe ich meine Liebe zum Webcontent entdeckt. Angefangen mit einfachen Spielereien für meine privaten Zwecke, hat sich daraus stetig mehr entwickelt.",
+				"2": "Zuerst waren es Freunde und Familie, die einen eigenen Webauftritt haben wollten. In der Folge kamen Webseiten, insbesondere für gemeinnützige Vereine, und inzwischen auch professionelle Unternehmen dazu.",
+			},
+		},
+	},
+};
+
+const lang = Astro.url.pathname.split("/")[1] === "de" ? "de" : "en";
+
+const t = useTranslations(ui, lang);
+
+const serviceContactData =
+	lang === "en" ? serviceContactDataEN : serviceContactDataDE;
 ---
 
 <section class="about main-section" id="about">
@@ -15,13 +57,17 @@ import SectionHeader from "./SectionHeader.astro";
 	<div class="box box--description">
 		<div class="inner-box">
 			<SectionHeader
-				mainText="That's me"
-				smallText="Welcome & introduction"
-				bgText="Welcome"
+				mainText={t("SectionHeader.mainText")}
+				smallText={t("SectionHeader.smallText")}
+				bgText={t("SectionHeader.bgText")}
 			/>
 			<div class="content">
-				<Description />
-				<Contact />
+				<section class="description">
+					<h4 set:html={t("description.heading")} />
+					<p>{t("description.content.1")}</p>
+					<p>{t("description.content.2")}</p>
+				</section>
+				<Contact data={serviceContactData} />
 				<Actions />
 			</div>
 		</div>
@@ -128,70 +174,10 @@ import SectionHeader from "./SectionHeader.astro";
 					}
 				}
 
-				.description,
-				.contact {
+				.description {
 					margin-bottom: 1.5rem;
 					border-bottom: 1px solid
 						color-mix(in srgb, var(--primary) 20%, transparent);
-				}
-
-				.contact {
-					display: flex;
-					flex-direction: row;
-					flex-wrap: wrap;
-					margin-top: 1.5rem;
-
-					.info {
-						display: flex;
-						flex-basis: 100%;
-						margin-bottom: 1rem;
-
-						@media (min-width: 500px) {
-							flex-basis: 50%;
-						}
-
-						@media (min-width: 700px) {
-							flex-basis: 100%;
-						}
-
-						@media (min-width: 1200px) {
-							flex-basis: 50%;
-						}
-
-						span {
-							display: inline-block;
-
-							&:first-child {
-								width: 5rem;
-							}
-						}
-					}
-				}
-
-				.actions {
-					display: flex;
-					flex-wrap: wrap;
-					justify-content: space-around;
-
-					.btn {
-						width: 100%;
-						margin: 0.5rem 0;
-
-						@media (min-width: 500px) {
-							width: inherit;
-							margin: 0 0.5rem;
-						}
-
-						@media (min-width: 700px) {
-							width: 100%;
-							margin: 0.5rem 0;
-						}
-
-						@media (min-width: 1200px) {
-							width: inherit;
-							margin: 0 0.5rem;
-						}
-					}
 				}
 			}
 		}

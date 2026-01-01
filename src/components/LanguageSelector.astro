@@ -1,0 +1,92 @@
+---
+import { useTranslations } from "@/utils/i18n";
+import { getLocalizedPath } from "@/utils/routes";
+
+const currentLocale = Astro.currentLocale ?? "en";
+const currentPath = Astro.url.pathname;
+
+const locales = [
+	{ code: "en", label: "EN" },
+	{ code: "de", label: "DE" },
+] as const;
+
+const ui = {
+	en: { label: "Language selector" },
+	de: { label: "Sprachauswahl" },
+};
+
+const lang = Astro.url.pathname.split("/")[1] === "de" ? "de" : "en";
+
+const t = useTranslations(ui, lang);
+---
+
+<nav class="language-selector" aria-label={t("label")}>
+	<ul>
+		{
+			locales.map((locale) => (
+				<li>
+					<a
+						href={getLocalizedPath(currentPath, locale.code)}
+						class:list={[{ active: currentLocale === locale.code }]}
+						aria-current={currentLocale === locale.code ? "page" : undefined}
+					>
+						{locale.label}
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</nav>
+
+<script>
+	// Preserve hash fragment when switching languages
+	document.querySelectorAll(".language-selector a").forEach((link) => {
+		link.addEventListener("click", (e) => {
+			const hash = window.location.hash;
+			if (hash) {
+				e.preventDefault();
+				const href = (e.currentTarget as HTMLAnchorElement).getAttribute("href");
+				window.location.href = href + hash;
+			}
+		});
+	});
+</script>
+
+<style>
+	.language-selector {
+		margin-bottom: 1.5rem;
+
+		ul {
+			display: flex;
+			gap: 0.75rem;
+			justify-content: flex-end;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+
+			li {
+				a {
+					padding: 0.25rem 0.5rem;
+					color: var(--white);
+					font-weight: 500;
+					font-size: 0.75rem;
+					letter-spacing: 1px;
+					text-decoration: none;
+					transition: var(--transition-duration-fast);
+
+					@media (min-width: 700px) {
+						font-size: 0.875rem;
+					}
+
+					&:hover {
+						color: var(--primary);
+					}
+
+					&.active {
+						color: var(--primary);
+					}
+				}
+			}
+		}
+	}
+</style>

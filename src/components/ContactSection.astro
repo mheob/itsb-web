@@ -1,20 +1,44 @@
 ---
-import { contactDataEN } from "@/data/contact";
+import { contactDataDE, contactDataEN } from "@/data/contact";
+import { useTranslations } from "@/utils/i18n";
 import ContactDetails from "./ContactDetails.astro";
 import ContactForm from "./ContactForm.svelte";
 import SectionHeader from "./SectionHeader.astro";
+
+const ui = {
+	en: {
+		SectionHeader: {
+			mainText: "Ask questions. Get answers.",
+			smallText: "Create contact",
+			bgText: "Contact",
+		},
+	},
+	de: {
+		SectionHeader: {
+			mainText: "Stelle Fragen. Erhalte Antworten.",
+			smallText: "Kontaktaufnahme",
+			bgText: "Kontakt",
+		},
+	},
+};
+
+const lang = Astro.url.pathname.split("/")[1] === "de" ? "de" : "en";
+
+const t = useTranslations(ui, lang);
+
+const contactData = lang === "en" ? contactDataEN : contactDataDE;
 ---
 
 <section class="contact-section main-section" id="contact-section">
 	<SectionHeader
-		mainText="Ask questions. Get answers."
-		smallText="Create contact"
-		bgText="Contact"
+		mainText={t("SectionHeader.mainText")}
+		smallText={t("SectionHeader.smallText")}
+		bgText={t("SectionHeader.bgText")}
 	/>
 
 	<section class="details">
 		{
-			contactDataEN.map(({ icon, header, text, anchor }) => {
+			contactData.map(({ icon, header, text, anchor }) => {
 				return (
 					<ContactDetails
 						icon={icon}
@@ -27,7 +51,7 @@ import SectionHeader from "./SectionHeader.astro";
 		}
 	</section>
 
-	<ContactForm client:load />
+	<ContactForm lang={lang} client:load />
 </section>
 
 <style>

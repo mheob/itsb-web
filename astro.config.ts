@@ -1,3 +1,4 @@
+import sitemap from '@astrojs/sitemap';
 import svelte from '@astrojs/svelte';
 import vercel from '@astrojs/vercel';
 import { defineConfig } from 'astro/config';
@@ -15,7 +16,19 @@ export default defineConfig({
 		locales: ['de', 'en'],
 		routing: { prefixDefaultLocale: false },
 	},
-	integrations: [icon(), svelte()],
+	integrations: [
+		icon(),
+		svelte(),
+		sitemap({
+			i18n: {
+				defaultLocale: 'en',
+				locales: {
+					de: 'de-DE',
+					en: 'en-US',
+				},
+			},
+		}),
+	],
 	prefetch: { prefetchAll: true },
 	site: env.BASE_URL,
 	trailingSlash: 'never',

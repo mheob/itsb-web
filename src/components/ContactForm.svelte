@@ -1,5 +1,89 @@
 <script lang="ts">
 	import { getAbsoluteLocaleUrl } from "astro:i18n";
+	import { useTranslations } from "@/utils/i18n";
+
+	interface Props {
+		lang: "en" | "de";
+	}
+
+	let { lang }: Props = $props();
+
+	const ui = {
+		en: {
+			labels: {
+				name: "Your Name",
+				email: "Your E-Mail",
+				phone: "Your Phone (optional)",
+				message: "Your Message",
+				privacy: {
+					"1": "I expressly agree to the use of my data in accordance with the ",
+					"2": "privacy policy",
+					"3": ".",
+				},
+			},
+			errors: {
+				name: "Please provide a name that I can use to address you.",
+				email: "Please provide a valid email address so that I can reply.",
+				phone: "Please enter a valid phone number or leave this field blank.",
+				message:
+					"I need as much information as possible from you so that I can respond in detail. Your message should be at least 30 characters long, but not much more than 10,000 characters.",
+				privacy: "You must accept the privacy policy.",
+			},
+			submitText: "Get in touch",
+			privacyDialog: {
+				header: "Provisions regarding the use of your data",
+				content: {
+					"1": 'By clicking on the "Contact us" button and submitting the data entered in the contact form, you agree that I may use your details to respond to your enquiry or to contact you.',
+					"2": "Information will not be passed on to third parties unless applicable data protection regulations justify such a transfer or I am legally obliged to do so.",
+					"3": {
+						"1": "You can revoke your consent at any time with future effect. In the event of revocation, your data will be deleted immediately. Your data will also be deleted once I have processed your request or the purpose for storing it no longer applies. You can request information about the data stored about you at any time. Further information on data protection can also be found in the",
+						"2": "privacy policy",
+						"3": "on this website.",
+					},
+				},
+			},
+		},
+		de: {
+			labels: {
+				name: "Dein Name",
+				email: "Deine E-Mail",
+				phone: "Deine Telefonnummer (optional)",
+				message: "Deine Nachricht",
+				privacy: {
+					"1": "Ich erkläre mich mit der Verarbeitung meiner Daten einverstanden, die in Übereinstimmung mit der ",
+					"2": "Datenschutzrichtlinie",
+					"3": " verarbeitet werden.",
+				},
+				privacyPolicy: "Datenschutzrichtlinie",
+			},
+			errors: {
+				name: "Bitte gebe einen Namen an, unter dem ich dich ansprechen kann.",
+				email:
+					"Bitte gebe eine gültige E-Mail-Adresse an, damit ich antworten kann.",
+				phone:
+					"Bitte gebe eine gültige Telefonnummer an oder lassen dieses Feld leer.",
+				message:
+					"Ich brauche eine möglichst erklärende Nachricht von dir, damit ich auch konkret darauf eingehen kann. Diese sollte mindestens 30, aber nicht viel mehr als 10.000 Zeichen, haben.",
+				privacy: "Du musst die Datenschutzrichtlinie akzeptieren",
+				privacyPolicy: "Datenschutzrichtlinie",
+			},
+			submitText: "Kontakt aufnehmen",
+			privacyDialog: {
+				header: "Bestimmungen zur Nutzung Deiner Daten",
+				content: {
+					"1": 'Wenn Du die im Kontaktformular eingegebenen Daten durch Klick auf den Button "In Kontakt treten" übersendest, erklärst Du dich damit einverstanden, dass ich Deine Angaben für die Beantwortung Deiner Anfrage bzw. Kontaktaufnahme verwende.',
+					"2": "Eine Weitergabe an Dritte findet grundsätzlich nicht statt, es sei denn geltende Datenschutzvorschriften rechtfertigen eine Übertragung oder ich dazu gesetzlich verpflichtet bin.",
+					"3": {
+						"1": "Du kannst Deine erteilte Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen. Im Falle des Widerrufs werden Deine Daten umgehend gelöscht. Deine Daten werden ansonsten ebenfalls gelöscht, wenn ich Deine Anfrage bearbeitet habe oder der Zweck der Speicherung entfallen ist. Du kannst Dich jederzeit über die Deiner Person gespeicherten Daten informieren. Weitere Informationen zum Datenschutz finden Du auch in der ",
+						"2": "Datenschutzrichtlinie",
+						"3": " dieser Webseite.",
+					},
+				},
+			},
+		},
+	};
+
+	const t = $derived(useTranslations(ui, lang));
 
 	// Form field values
 	let name = $state("");
@@ -39,35 +123,33 @@
 	// Validation rules
 	const validators = {
 		name: (value: string) => {
-			const msg = "Please provide a name that I can use to address you.";
+			const msg = t("errors.name");
 			if (!value.trim()) return msg;
 			if (value.trim().length < 3 || value.trim().length >= 128) return msg;
 			return null;
 		},
 		email: (value: string) => {
-			const msg = "Please provide a valid email address so that I can reply.";
+			const msg = t("errors.email");
 			if (!value.trim()) return msg;
 			const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,8})+$/;
 			if (!emailRegex.test(value)) return msg;
 			return null;
 		},
 		phone: (value: string) => {
-			const msg =
-				"Please enter a valid phone number or leave this field blank.";
+			const msg = t("errors.phone");
 			if (!value.trim()) return null; // Optional field
 			const phoneRegex = /(^$|^(\(?([\d -)+(]+){6,}\)?([ .-\]?)([\d]+))$)/;
 			if (!phoneRegex.test(value)) return msg;
 			return null;
 		},
 		message: (value: string) => {
-			const msg =
-				"I need as much information as possible from you so that I can respond in detail. Your message should be at least 30 characters long, but not much more than 10,000 characters.";
+			const msg = t("errors.message");
 			if (!value.trim()) return msg;
 			if (value.trim().length < 30 || value.trim().length >= 10_000) return msg;
 			return null;
 		},
 		privacy: (checked: boolean) => {
-			if (!checked) return "You must accept the privacy policy";
+			if (!checked) return t("errors.privacy");
 			return null;
 		},
 	};
@@ -204,11 +286,11 @@
 
 <form id="contact-form" onsubmit={handleSubmit}>
 	<label>
-		<div class="sr-only">Your Name</div>
+		<div class="sr-only">{t("labels.name")}</div>
 		<input
 			type="text"
 			name="name"
-			placeholder="Your Name"
+			placeholder={t("labels.name")}
 			bind:value={name}
 			onblur={() => handleBlur("name")}
 			oninput={() => handleInput("name")}
@@ -219,11 +301,11 @@
 		{/if}
 	</label>
 	<label>
-		<div class="sr-only">Your E-Mail</div>
+		<div class="sr-only">{t("labels.email")}</div>
 		<input
 			type="email"
 			name="email"
-			placeholder="Your E-Mail"
+			placeholder={t("labels.email")}
 			bind:value={email}
 			onblur={() => handleBlur("email")}
 			oninput={() => handleInput("email")}
@@ -234,11 +316,11 @@
 		{/if}
 	</label>
 	<label>
-		<div class="sr-only">Your Phone (optional)</div>
+		<div class="sr-only">{t("labels.phone")}</div>
 		<input
 			type="tel"
 			name="phone"
-			placeholder="Your Phone (optional)"
+			placeholder={t("labels.phone")}
 			bind:value={phone}
 			onblur={() => handleBlur("phone")}
 			oninput={() => handleInput("phone")}
@@ -249,10 +331,10 @@
 		{/if}
 	</label>
 	<label>
-		<div class="sr-only">Your Message</div>
+		<div class="sr-only">{t("labels.message")}</div>
 		<textarea
 			name="message"
-			placeholder="Your request (If you would prefer a callback instead of a reply email, please indicate this here.)"
+			placeholder={t("labels.message")}
 			rows="5"
 			bind:value={message}
 			onblur={() => handleBlur("message")}
@@ -273,11 +355,11 @@
 				onchange={() => handleBlur("privacy")}
 			/>
 			<span class="switch__text"
-				>I expressly agree to the use of my data in accordance with the <button
+				>{t("labels.privacy.1")}<button
 					class="anchor"
 					type="button"
-					onclick={openPrivacyModal}>privacy policy</button
-				>.</span
+					onclick={openPrivacyModal}>{t("labels.privacy.2")}</button
+				>{t("labels.privacy.3")}</span
 			>
 		</div>
 		{#if touched.privacy && errors.privacy}
@@ -289,28 +371,17 @@
 			onclick={handleModalClick}
 		>
 			<header>
-				<h2>Provisions regarding the use of your data</h2>
+				<h2>{t("privacyDialog.header")}</h2>
 			</header>
 			<div class="modal-content">
+				<p>{t("privacyDialog.content.1")}</p>
+				<p>{t("privacyDialog.content.2")}</p>
 				<p>
-					By clicking on the "Contact us" button and submitting the data entered
-					in the contact form, you agree that I may use your details to respond
-					to your enquiry or to contact you.
-				</p>
-				<p>
-					Information will not be passed on to third parties unless applicable
-					data protection regulations justify such a transfer or I am legally
-					obliged to do so.
-				</p>
-				<p>
-					You can revoke your consent at any time with future effect. In the
-					event of revocation, your data will be deleted immediately. Your data
-					will also be deleted once I have processed your request or the purpose
-					for storing it no longer applies. You can request information about
-					the data stored about you at any time. Further information on data
-					protection can also be found in the <a
-						href={getAbsoluteLocaleUrl("en", "privacy")}>privacy policy</a
-					> on this website.
+					{t("privacyDialog.content.3.1")}
+					<a href={getAbsoluteLocaleUrl("en", "privacy")}
+						>{t("privacyDialog.content.3.2")}</a
+					>
+					{t("privacyDialog.content.3.3")}
 				</p>
 			</div>
 		</dialog>

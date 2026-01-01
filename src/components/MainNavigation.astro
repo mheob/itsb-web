@@ -1,31 +1,61 @@
 ---
-import { getAbsoluteLocaleUrl } from "astro:i18n";
+import { useTranslations } from "@/utils/i18n";
+import { getLocalizedRoute } from "@/utils/routes";
 
 const currentPath = Astro.url.pathname;
-const isHomePage =
-	currentPath === "/" || currentPath === "/de" || currentPath === "/de/";
+const isHomePage = currentPath === "/" || currentPath === "/de";
 const isImprintPage = currentPath.includes("/imprint");
 const isPrivacyPage = currentPath.includes("/privacy");
+
+const ui = {
+	en: {
+		home: "Home",
+		about: "That's me",
+		services: "Services",
+		stats: "Stats",
+		testimonials: "Testimonials",
+		contact: "Contact",
+		imprint: "Imprint",
+		privacy: "Privacy",
+	},
+	de: {
+		home: "Startseite",
+		about: "Über mich",
+		services: "Dienstleistungen",
+		stats: "Statistiken",
+		testimonials: "Meinungen",
+		contact: "Kontakt",
+		imprint: "Impressum",
+		privacy: "Datenschutz",
+	},
+};
+
+const lang = Astro.url.pathname.split("/")[1] === "de" ? "de" : "en";
+const langPrefix = lang === "de" ? "/de" : "/";
+
+const t = useTranslations(ui, lang);
 ---
 
 <nav class="main-navigation" data-is-home={isHomePage}>
 	<ul>
-		<li><a href="/#root">Home</a></li>
-		<li><a href="/#about">That's me</a></li>
-		<li><a href="/#services">Services</a></li>
-		<li><a href="/#stats">Stats</a></li>
-		<li><a href="/#testimonials">Testimonials</a></li>
-		<li><a href="/#contact-section">Contact</a></li>
+		<li><a href={`${langPrefix}#root`}>{t("home")}</a></li>
+		<li><a href={`${langPrefix}#about`}>{t("about")}</a></li>
+		<li><a href={`${langPrefix}#services`}>{t("services")}</a></li>
+		<li><a href={`${langPrefix}#stats`}>{t("stats")}</a></li>
+		<li><a href={`${langPrefix}#testimonials`}>{t("testimonials")}</a></li>
+		<li><a href={`${langPrefix}#contact-section`}>{t("contact")}</a></li>
 		<li><hr /></li>
 		<li>
 			<a
-				href={getAbsoluteLocaleUrl("en", "imprint")}
-				class:list={[{ active: isImprintPage }]}>Imprint</a>
+				href={getLocalizedRoute(lang, "imprint")}
+				class:list={[{ active: isImprintPage }]}>{t("imprint")}</a
+			>
 		</li>
 		<li>
 			<a
-				href={getAbsoluteLocaleUrl("en", "privacy")}
-				class:list={[{ active: isPrivacyPage }]}>Privacy</a>
+				href={getLocalizedRoute(lang, "privacy")}
+				class:list={[{ active: isPrivacyPage }]}>{t("privacy")}</a
+			>
 		</li>
 	</ul>
 </nav>
@@ -56,13 +86,13 @@ const isPrivacyPage = currentPath.includes("/privacy");
 				}
 			}
 
-			// Update active class on navigation links
+			// Update active class on navigation links (hrefs contain hash like /#about or /de#about)
 			const navLinks = document.querySelectorAll(
-				'.main-navigation a[href^="/#"]',
+				'.main-navigation a[href*="#"]',
 			);
 			navLinks.forEach((link) => {
 				const href = link.getAttribute("href");
-				const linkSection = href?.replace("/#", "");
+				const linkSection = href?.split("#")[1];
 
 				if (linkSection === currentSection) {
 					link.classList.add("active");

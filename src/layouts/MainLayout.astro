@@ -8,11 +8,7 @@ import ScrollTopButton from "@/components/ScrollTopButton.astro";
 
 import "@/styles/global.css";
 
-interface Props {
-	lang?: "de" | "en";
-}
-
-const { lang = "en" }: Props = Astro.props;
+const lang = Astro.url.pathname.split("/")[1] === "de" ? "de" : "en";
 ---
 
 <html lang={lang}>

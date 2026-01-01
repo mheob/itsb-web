@@ -1,16 +1,29 @@
 ---
 import { socialData } from "@/data/social";
+import { useTranslations } from "@/utils/i18n";
 import Social from "./Social.astro";
+
+const ui = {
+	en: {
+		copyright: "Copyright &copy; {year} All rights reserved",
+	},
+	de: {
+		copyright: "Copyright &copy; {year} Alle Rechte vorbehalten",
+	},
+};
+
+const lang = Astro.url.pathname.split("/")[1] === "de" ? "de" : "en";
+
+const t = useTranslations(ui, lang);
 ---
 
 <footer class="footer">
-	<p class="logo">
-		<a href="/">ITSB</a>
-	</p>
+	<p class="logo"><a href="/">ITSB</a></p>
 	<Social links={socialData.map((link) => link)} />
-	<p class="copyright">
-		Copyright &copy; {new Date().getFullYear()} All rights reserved
-	</p>
+	<p
+		class="copyright"
+		set:html={t("copyright", { year: new Date().getFullYear() })}
+	/>
 </footer>
 
 <style>

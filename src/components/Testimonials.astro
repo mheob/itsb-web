@@ -1,22 +1,46 @@
 ---
-import { testimonialDataEN } from "@/data/testimonial";
+import { testimonialDataDE, testimonialDataEN } from "@/data/testimonial";
+import { useTranslations } from "@/utils/i18n";
 import Carousel from "./Carousel.astro";
 import SectionHeader from "./SectionHeader.astro";
 import Testimonial from "./Testimonial.astro";
+
+const ui = {
+	en: {
+		SectionHeader: {
+			mainText: "What customers say about my work",
+			smallText: "Customer testimonials",
+			bgText: "Quotations",
+		},
+	},
+	de: {
+		SectionHeader: {
+			mainText: "Was Kunden über meine Arbeit sagen",
+			smallText: "Kundenstimmen",
+			bgText: "Zitate",
+		},
+	},
+};
+
+const lang = Astro.url.pathname.split("/")[1] === "de" ? "de" : "en";
+
+const t = useTranslations(ui, lang);
+
+const testimonialData = lang === "en" ? testimonialDataEN : testimonialDataDE;
 ---
 
 <section class="testimonials main-section" id="testimonials">
 	<div class="overlay"></div>
 
 	<SectionHeader
-		mainText="What customers say about my work"
-		smallText="Customer testimonials"
-		bgText="Quotations"
+		mainText={t("SectionHeader.mainText")}
+		smallText={t("SectionHeader.smallText")}
+		bgText={t("SectionHeader.bgText")}
 	/>
 
 	<Carousel>
 		{
-			testimonialDataEN.map(({ quote, name, company, image }) => (
+			testimonialData.map(({ quote, name, company, image }) => (
 				<Testimonial
 					quote={quote}
 					name={name}
