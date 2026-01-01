@@ -117,7 +117,7 @@ h6 {
 	overflow: hidden;
 }
 
-.main {
+#main {
 	display: block;
 	float: right;
 	width: 100%;
