@@ -1,15 +1,20 @@
 import sitemap from '@astrojs/sitemap';
 import svelte from '@astrojs/svelte';
-import vercel from '@astrojs/vercel';
+import vercelStatic from '@astrojs/vercel/static';
 import { defineConfig } from 'astro/config';
 import icon from 'astro-icon';
 import { loadEnv } from 'vite';
 
-const env = loadEnv(process.env.NODE_ENV, process.cwd(), '');
+const nodeEnv = process.env.NODE_ENV ?? 'development';
+const env = loadEnv(nodeEnv, process.cwd(), '');
 
 /** @see {@link https://astro.build/config} */
 export default defineConfig({
-	adapter: vercel(),
+	adapter: vercelStatic({
+		webAnalytics: {
+			enabled: true,
+		},
+	}),
 	base: '/',
 	i18n: {
 		defaultLocale: 'en',
@@ -29,7 +34,8 @@ export default defineConfig({
 			},
 		}),
 	],
+	output: 'static',
 	prefetch: { prefetchAll: true },
-	site: env.BASE_URL,
+	site: (nodeEnv === 'production' ? 'https://' : 'http://') + env.PUBLIC_VERCEL_PROJECT_PRODUCTION_URL,
 	trailingSlash: 'never',
 });

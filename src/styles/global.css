@@ -139,59 +139,6 @@ h6 {
 		width: var(--layout-main-xl);
 	}
 
-	&-enter {
-		transform: scale(1.1);
-		opacity: 0;
-	}
-
-	&-enter-active {
-		transform: scale(1);
-		opacity: 1;
-		transition:
-			opacity var(--transition-duration-slow),
-			transform var(--transition-duration-slow);
-	}
-
-	&-exit {
-		transform: scale(1);
-		opacity: 1;
-	}
-
-	&-exit-active {
-		transform: scale(0.9);
-		opacity: 0;
-		transition:
-			opacity var(--transition-duration-slow),
-			transform var(--transition-duration-slow);
-	}
-
-	.offcanvas & {
-		transform: translateX(var(--layout-main-xs));
-	}
-}
-
-.main {
-	display: block;
-	float: right;
-	width: 100%;
-	transition: var(--transition-duration);
-
-	@media (min-width: 700px) {
-		width: var(--layout-main-s);
-	}
-
-	@media (min-width: 900px) {
-		width: var(--layout-main-m);
-	}
-
-	@media (min-width: 1200px) {
-		width: var(--layout-main-l);
-	}
-
-	@media (min-width: 1600px) {
-		width: var(--layout-main-xl);
-	}
-
 	.offcanvas & {
 		transform: translateX(var(--layout-main-xs));
 	}
