@@ -3,11 +3,15 @@ type Locale = 'en' | 'de';
 type NestedRecord = { [key: string]: string | NestedRecord };
 type Translations = Record<Locale, NestedRecord>;
 
-type FlattenKeys<T, Prefix extends string = ''> = T extends string
+type FlattenKeys<T, Prefix extends string = '', Depth extends number[] = []> = Depth['length'] extends 4
 	? Prefix
-	: {
-			[K in keyof T]: K extends string ? FlattenKeys<T[K], Prefix extends '' ? K : `${Prefix}.${K}`> : never;
-		}[keyof T];
+	: T extends string
+		? Prefix
+		: {
+				[K in keyof T]: K extends string
+					? FlattenKeys<T[K], Prefix extends '' ? K : `${Prefix}.${K}`, [...Depth, 0]>
+					: never;
+			}[keyof T];
 
 function getNestedValue(obj: NestedRecord, path: string): string | undefined {
 	const keys = path.split('.');
