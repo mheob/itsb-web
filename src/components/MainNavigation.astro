@@ -1,165 +1,141 @@
 ---
 import { getAbsoluteLocaleUrl } from 'astro:i18n';
+
+const currentPath = Astro.url.pathname;
+const isHomePage = currentPath === '/' || currentPath === '/de' || currentPath === '/de/';
+const isImprintPage = currentPath.includes('/imprint');
+const isPrivacyPage = currentPath.includes('/privacy');
 ---
-<nav class="main-navigation">
-  <ul>
-    <li>
-      <a href="/#root">
-        Home
-      </a>
-    </li>
-    <li>
-      <a href="/#about">
-        That's me
-      </a>
-    </li>
-    <li>
-      <a href="/#services">
-        Services
-      </a>
-    </li>
-    <li>
-      <a href="/#stats">
-        Stats
-      </a>
-    </li>
-    <li>
-      <a href="/#testimonials">
-        Testimonials
-      </a>
-    </li>
-    <li>
-      <a href="/#contact-section">
-        Contact
-      </a>
-    </li>
-    <li>
-      <hr />
-    </li>
-    <li>
-      <a href={getAbsoluteLocaleUrl('en', 'imprint')}>
-        Imprint
-      </a>
-    </li>
-    <li>
-      <a href={getAbsoluteLocaleUrl('en', 'privacy')}>
-        Privacy
-      </a>
-    </li>
-  </ul>
+<nav class="main-navigation" data-is-home={isHomePage}>
+	<ul>
+		<li><a href="/#root">Home</a></li>
+		<li><a href="/#about">That's me</a></li>
+		<li><a href="/#services">Services</a></li>
+		<li><a href="/#stats">Stats</a></li>
+		<li><a href="/#testimonials">Testimonials</a></li>
+		<li><a href="/#contact-section">Contact</a></li>
+		<li><hr /></li>
+		<li><a href={getAbsoluteLocaleUrl('en', 'imprint')} class:list={[{ active: isImprintPage }]}>Imprint</a></li>
+		<li><a href={getAbsoluteLocaleUrl('en', 'privacy')} class:list={[{ active: isPrivacyPage }]}>Privacy</a></li>
+	</ul>
 </nav>
 
 <script>
-  const sections = ['root', 'about', 'services', 'stats', 'testimonials', 'contact-section'];
+	const nav = document.querySelector('.main-navigation');
+	const isHomePage = nav?.getAttribute('data-is-home') === 'true';
 
-  function updateActiveNav() {
-    const scrollPosition = window.scrollY + (window.innerHeight / 2); // Offset for better UX
+	if (isHomePage) {
+		const sections = ['root', 'about', 'services', 'stats', 'testimonials', 'contact-section'];
 
-    let currentSection = sections[0];
+		function updateActiveNav() {
+			const scrollPosition = window.scrollY + (window.innerHeight / 2); // Offset for better UX
 
-    for (const sectionId of sections) {
-      const section = document.getElementById(sectionId);
-      if (section && section.offsetTop <= scrollPosition) {
-        currentSection = sectionId;
-      }
-    }
+			let currentSection = sections[0];
 
-    // Update active class on navigation links
-    const navLinks = document.querySelectorAll('.main-navigation a[href^="/#"]');
-    navLinks.forEach((link) => {
-      const href = link.getAttribute('href');
-      const linkSection = href?.replace('/#', '');
+			for (const sectionId of sections) {
+				const section = document.getElementById(sectionId);
+				if (section && section.offsetTop <= scrollPosition) {
+					currentSection = sectionId;
+				}
+			}
 
-      if (linkSection === currentSection) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
-  }
+			// Update active class on navigation links
+			const navLinks = document.querySelectorAll('.main-navigation a[href^="/#"]');
+			navLinks.forEach((link) => {
+				const href = link.getAttribute('href');
+				const linkSection = href?.replace('/#', '');
 
-  // Run on scroll with throttling for performance
-  let ticking = false;
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        updateActiveNav();
-        ticking = false;
-      });
-      ticking = true;
-    }
-  });
+				if (linkSection === currentSection) {
+					link.classList.add('active');
+				} else {
+					link.classList.remove('active');
+				}
+			});
+		}
 
-  // Run on page load
-  updateActiveNav();
+		// Run on scroll with throttling for performance
+		let ticking = false;
+		window.addEventListener('scroll', () => {
+			if (!ticking) {
+				window.requestAnimationFrame(() => {
+					updateActiveNav();
+					ticking = false;
+				});
+				ticking = true;
+			}
+		});
+
+		// Run on page load
+		updateActiveNav();
+	}
 </script>
 
 <style>
-  .main-navigation {
-    ul {
-      margin: 0 0 2rem 0;
-      padding: 0;
-      text-align: right;
+	.main-navigation {
+		ul {
+			margin: 0 0 2rem 0;
+			padding: 0;
+			text-align: right;
 
-      @media (min-width: 700px) {
-        margin: 0;
-      }
+			@media (min-width: 700px) {
+				margin: 0;
+			}
 
-      li {
-        margin: 0 0 0.625rem 0;
-        padding: 0;
-        font-weight: 500;
-        font-size: 0.75rem;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        list-style: none;
+			li {
+				margin: 0 0 0.625rem 0;
+				padding: 0;
+				font-weight: 500;
+				font-size: 0.75rem;
+				letter-spacing: 1px;
+				text-transform: uppercase;
+				list-style: none;
 
-        @media (min-width: 700px) {
-          font-size: 1rem;
-        }
+				@media (min-width: 700px) {
+					font-size: 1rem;
+				}
 
-        &.active a,
-        a.active {
-          color: var(--primary);
+				&.active a,
+				a.active {
+					color: var(--primary);
 
-          &::after {
-            transform: scaleX(1);
-            visibility: visible;
-          }
-        }
+					&::after {
+						transform: scaleX(1);
+						visibility: visible;
+					}
+				}
 
-        a {
-          position: relative;
-          padding: 10px 0;
-          color: var(--white);
-          text-decoration: none;
-          transition: var(--transition-duration-fast);
+				a {
+					position: relative;
+					padding: 10px 0;
+					color: var(--white);
+					text-decoration: none;
+					transition: var(--transition-duration-fast);
 
-          &:hover {
-            color: var(--primary);
+					&:hover {
+						color: var(--primary);
 
-            &::after {
-              transform: scaleX(1);
-              visibility: visible;
-            }
-          }
+						&::after {
+							transform: scaleX(1);
+							visibility: visible;
+						}
+					}
 
-          &::after {
-            position: absolute;
-            right: 0;
-            bottom: 1.06rem;
-            left: -1.5rem;
-            width: 1rem;
-            height: 1px;
-            background-color: var(--primary);
-            transform: scaleX(0);
-            visibility: hidden;
-            transition: all var(--transition-duration-fast)
-              cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            content: "";
-          }
-        }
-      }
-    }
-  }
+					&::after {
+						position: absolute;
+						right: 0;
+						bottom: 1.06rem;
+						left: -1.5rem;
+						width: 1rem;
+						height: 1px;
+						background-color: var(--primary);
+						transform: scaleX(0);
+						visibility: hidden;
+						transition: all var(--transition-duration-fast)
+							cubic-bezier(0.175, 0.885, 0.32, 1.275);
+						content: "";
+					}
+				}
+			}
+		}
+	}
 </style>

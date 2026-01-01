@@ -27,11 +27,6 @@
 	--transition-duration-slow: 800ms;
 }
 
-html {
-	scroll-behavior: smooth;
-	line-height: 1.15;
-}
-
 body {
 	margin: 0;
 	color: var(--white);
@@ -83,37 +78,8 @@ body {
 	background: var(--primary);
 }
 
-a,
-.anchor {
-	color: var(--primary);
-	text-decoration: none;
-	background-color: transparent;
-	cursor: pointer;
-	transition: var(--transition-duration);
-
-	&:hover,
-	&:active,
-	&:focus {
-		color: var(--white);
-		outline: none;
-	}
-}
-
 p {
 	margin: 0 0 1.5rem;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin: 0 0 2rem 0;
-	color: var(--white);
-	font-weight: 400;
-	font-family: var(--font-familie);
-	line-height: 1.4;
 }
 
 h1 {
@@ -138,52 +104,6 @@ h5 {
 
 h6 {
 	font-size: 0.75rem;
-}
-
-b,
-strong {
-	font-weight: bolder;
-}
-
-hr {
-	margin-top: 1.5rem;
-	margin-bottom: 1.5rem;
-	border: 0;
-	border-top: 1px solid color-mix(in srgb, var(--primary) 33%, transparent);
-}
-
-img {
-	max-width: 100%;
-	height: auto;
-	border-style: none;
-}
-
-address {
-	margin-bottom: 1rem;
-	font-style: normal;
-}
-
-button,
-input,
-textarea {
-	margin: 0;
-	font-size: 100%;
-	font-family: inherit;
-	line-height: 1.15;
-}
-
-button,
-input {
-	overflow: visible;
-}
-
-button,
-select {
-	text-transform: none;
-}
-
-textarea {
-	overflow: auto;
 }
 
 [type="checkbox"] {

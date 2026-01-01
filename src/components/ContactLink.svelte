@@ -29,11 +29,7 @@ function reverse(stringToReverse: string): string {
 		.join('');
 }
 
-function createContactLink({
-	prefix,
-	header,
-	href,
-}: Pick<ContactLinkProps, 'prefix' | 'header' | 'href'>): string {
+function createContactLink({ protocol, header, href }: Pick<ContactLinkProps, 'protocol' | 'header' | 'href'>): string {
 	const combinedHeader =
 		(header &&
 			Object.keys(header)
@@ -41,20 +37,20 @@ function createContactLink({
 				.join('&')) ||
 		'';
 
-	const link = prefix + href;
+	const link = protocol + href;
 
-	if (prefix === 'mailto:') {
+	if (protocol === 'mailto:') {
 		return header ? `${link}?${combinedHeader}` : link;
 	}
 
-	if (prefix === 'tel:') {
+	if (protocol === 'tel:') {
 		return link.replaceAll(/\s/g, '');
 	}
 
 	return link;
 }
 
-let { children, header, href, prefix, style, ...props }: ContactLinkProps = $props();
+let { children, header, href, protocol, style, ...props }: ContactLinkProps = $props();
 
 let hasInteracted = $state(false);
 
@@ -65,11 +61,7 @@ const handleInteraction = () => {
 };
 
 const directionStyle = $derived(
-	[
-		style,
-		`direction: ${children || hasInteracted ? 'ltr' : 'rtl'}`,
-		'unicode-bidi: bidi-override',
-	]
+	[style, `direction: ${children || hasInteracted ? 'ltr' : 'rtl'}`, 'unicode-bidi: bidi-override']
 		.filter(Boolean)
 		.join('; '),
 );
@@ -87,12 +79,8 @@ const handleKeyDown = (event: KeyboardEvent) => {
 	}
 };
 
-const computedHref = $derived(
-	hasInteracted ? createContactLink({ prefix, header, href }) : '#',
-);
-const computedAriaLabel = $derived(
-	hasInteracted ? undefined : 'Kontaktlink - tippen zum Anzeigen',
-);
+const computedHref = $derived(hasInteracted ? createContactLink({ protocol, header, href }) : '#');
+const computedAriaLabel = $derived(hasInteracted ? undefined : 'Kontaktlink - tippen zum Anzeigen');
 const computedRole = $derived(hasInteracted ? 'link' : 'button');
 const displayText = $derived(hasInteracted ? hrefText : reverse(hrefText));
 </script>

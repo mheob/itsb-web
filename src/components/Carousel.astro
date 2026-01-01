@@ -33,7 +33,5 @@
 	const emblaNode = document.querySelector('.embla') as HTMLElement;
 	const options: EmblaOptionsType = { loop: true };
 	const plugins = [Autoplay({ stopOnInteraction: false })]
-	const emblaApi = EmblaCarousel(emblaNode, options, plugins);
-
-	console.log(emblaApi.slideNodes()); // Access API
+	EmblaCarousel(emblaNode, options, plugins);
 </script>
