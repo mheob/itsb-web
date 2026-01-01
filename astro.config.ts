@@ -1,6 +1,6 @@
 import sitemap from '@astrojs/sitemap';
 import svelte from '@astrojs/svelte';
-import vercelStatic from '@astrojs/vercel';
+import vercelStatic from '@astrojs/vercel/static';
 import { defineConfig } from 'astro/config';
 import icon from 'astro-icon';
 import { loadEnv } from 'vite';
