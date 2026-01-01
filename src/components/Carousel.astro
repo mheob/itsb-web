@@ -1,0 +1,39 @@
+---
+
+---
+
+<div class="embla" id="embla">
+	<div class="embla__container">
+		<slot />
+	</div>
+</div>
+
+<style>
+	.embla {
+		overflow: hidden;
+		width: 100%;
+		z-index: 6;
+		margin-bottom: 1.5rem;
+		font-style: italic;
+		text-align: center;
+	}
+	.embla__container {
+		display: flex;
+	}
+
+	.embla__slide {
+		flex: 0 0 100%;
+		min-width: 0;
+		cursor: grab !important;
+	}
+</style>
+
+<script>
+	import EmblaCarousel, { type EmblaOptionsType } from "embla-carousel";
+	import Autoplay from "embla-carousel-autoplay";
+
+	const emblaNode = document.querySelector(".embla") as HTMLElement;
+	const options: EmblaOptionsType = { loop: true };
+	const plugins = [Autoplay({ stopOnInteraction: false })];
+	EmblaCarousel(emblaNode, options, plugins);
+</script>

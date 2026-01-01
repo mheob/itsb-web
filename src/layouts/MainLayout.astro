@@ -1,0 +1,34 @@
+---
+import "@fontsource/geist-sans/400.css";
+import "@fontsource/geist-sans/700.css";
+
+import Head from "@/components/Head.astro";
+import NavigationToggle from "@/components/NavigationToggle.astro";
+import ScrollTopButton from "@/components/ScrollTopButton.astro";
+
+import "@/styles/global.css";
+
+const lang = Astro.url.pathname.split("/")[1] === "de" ? "de" : "en";
+---
+
+<html lang={lang}>
+	<head>
+		<Head />
+	</head>
+	<body>
+		<div id="root">
+			<NavigationToggle />
+			<slot />
+			<ScrollTopButton />
+		</div>
+	</body>
+</html>
+
+<style>
+	#root {
+		position: relative;
+		width: 100%;
+		overflow: hidden;
+		min-height: 100vh;
+	}
+</style>

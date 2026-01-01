@@ -1,0 +1,56 @@
+---
+interface Props {
+	mainText: string;
+	smallText: string;
+	bgText: string;
+}
+
+const { mainText, smallText, bgText } = Astro.props;
+---
+
+<header class="section-header">
+	<h5>{smallText}</h5>
+	<h6>{bgText}</h6>
+	<h2>{mainText}</h2>
+</header>
+
+<style>
+	.section-header {
+		position: relative;
+		z-index: 6;
+		width: 100%;
+		text-align: center;
+
+		h2 {
+			margin-bottom: 3rem;
+			padding: 0 1rem;
+		}
+
+		h5 {
+			margin-bottom: 1rem;
+			color: color-mix(in srgb, var(--white) 50%, transparent);
+			font-weight: 500;
+			font-size: 0.625rem;
+			letter-spacing: 5px;
+			text-transform: uppercase;
+		}
+
+		h6 {
+			position: absolute;
+			top: -3rem;
+			right: 0;
+			left: 0;
+			color: color-mix(in srgb, var(--white) 3%, transparent);
+			font-weight: 500;
+			font-size: 3rem;
+			line-height: 2;
+			letter-spacing: 5px;
+			text-transform: uppercase;
+
+			@media (min-width: 700px) {
+				font-size: 3.75rem;
+				line-height: 1.5;
+			}
+		}
+	}
+</style>

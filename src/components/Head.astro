@@ -1,0 +1,56 @@
+---
+import { ClientRouter } from "astro:transitions";
+import { useTranslations } from "@/utils/i18n";
+
+const currentUrl = Astro.url.toString();
+
+const ui = {
+	en: {
+		title: "Alexander Böhm >> Your partner for all things web from Neuwied",
+		description:
+			"Alexander Böhm from Neuwied presents himself and his work around web design, SEO and web development.",
+		imageAlt: "Alexander Böhm with a laptop in his hands.",
+	},
+	de: {
+		title: "Alexander Böhm >> Dein Partner rund ums Web aus Neuwied",
+		description:
+			"Alexander Böhm aus Neuwied stellt sich und seine Arbeit rund um Web Design, SEO und Web Development vor.",
+		imageAlt: "Alexander Böhm mit einem Laptop in den Händen.",
+	},
+};
+
+const lang = Astro.url.pathname.split("/")[1] === "de" ? "de" : "en";
+
+const t = useTranslations(ui, lang);
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<title>{t("title")}</title>
+<meta name="description" content={t("description")} />
+
+<!-- Open Graph tags -->
+<meta property="og:title" content={t("title")} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={currentUrl} />
+<meta property="og:description" content={t("description")} />
+<meta
+	property="og:image"
+	content={currentUrl + "/itsb-boehm-alexander-bg.webp"}
+/>
+<meta property="og:image:alt" content={t("imageAlt")} />
+
+<!-- Twitter tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={t("title")} />
+<meta name="twitter:description" content={t("description")} />
+<meta
+	name="twitter:image"
+	content={currentUrl + "/itsb-boehm-alexander-bg.webp"}
+/>
+<meta name="twitter:site" content="@mheob_a" />
+<meta name="twitter:creator" content="@mheob_a" />
+
+<ClientRouter />

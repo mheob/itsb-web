@@ -1,21 +1,18 @@
-# Logs
-npm-debug.log*
+# build output
+dist/
 
-# Dependency directories
-node_modules
+# generated types
+.astro/
 
-# DeepCode
-.dccache
+# dependencies
+node_modules/
 
-# EsLint
-.eslintcache
+# logs
+*.log
 
-# Credentials
-.env
-.env.production
+# environment variables
+.env*
+!.env*.example
 
-# Builds
-backend/build
-backend/dist
-frontend/build
-frontend/src/styles/css
+# macOS-specific files
+.DS_Store

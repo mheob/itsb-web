@@ -1,39 +1,43 @@
-# The Homepage of the IT Service Böhm
+# Astro Starter Kit: Minimal
 
-[![CodeQL CI](https://img.shields.io/github/workflow/status/mheob/itsb-web/CodeQL%20CI?label=CodeQL%20CI&logo=github&style=flat-square)](https://github.com/mheob/itsb-web)
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/mheob/itsb-web.svg?logo=lgtm&logoWidth=18&style=flat-square)](https://lgtm.com/projects/g/mheob/itsb-web/context:javascript)
+```sh
+bun create astro@latest -- --template minimal
+```
 
-You want to help?
-Open a [issue](https://github.com/mheob/itsb-web/issues/new) or create a [pull request](https://github.com/mheob/itsb-web/compare).
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
----
+## 🚀 Project Structure
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Inside of your Astro project, you'll see the following folders and files:
 
-## Available Scripts
+```text
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
 
-In the project directory, you can run:
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-### `npm start`
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Any static assets, like images, can be placed in the `public/` directory.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🧞 Commands
 
-### `npm run build`
+All commands are run from the root of the project, from a terminal:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `bun install`             | Installs dependencies                            |
+| `bun dev`                 | Starts local dev server at `localhost:4321`      |
+| `bun build`               | Build your production site to `./dist/`          |
+| `bun preview`             | Preview your build locally, before deploying     |
+| `bun astro ...`           | Run CLI commands like `astro add`, `astro check` |
+| `bun astro -- --help`     | Get help using the Astro CLI                     |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 👀 Want to learn more?
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

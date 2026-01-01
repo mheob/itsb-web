@@ -1,0 +1,99 @@
+---
+
+---
+
+<button aria-label="Toggle navigation" class="nav-toggle">
+	<i></i>
+</button>
+
+<script>
+	import { toggleBodyClassHandler } from "@/utils/dom-handler";
+	const button = document.querySelector(".nav-toggle") as HTMLButtonElement;
+	button.addEventListener("click", () => {
+		toggleBodyClassHandler("offcanvas");
+	});
+</script>
+
+<style>
+	.nav-toggle {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 10;
+		padding: 20px;
+		text-decoration: none;
+		visibility: visible;
+		cursor: pointer;
+		opacity: 1;
+		transition: var(--transition-duration);
+
+		@media (min-width: 700px) {
+			visibility: hidden;
+		}
+
+		&:hover {
+			i::before {
+				top: -10px;
+			}
+
+			i::after {
+				bottom: -10px;
+			}
+		}
+
+		i {
+			--nav-toggle-i-width: 30px;
+			--nav-toggle-i-height: 2px;
+
+			position: relative;
+			display: -moz-inline-stack;
+			display: inline-block;
+			width: var(--nav-toggle-i-width);
+			height: var(--nav-toggle-i-height);
+			color: var(--primary);
+			font: bold 14px;
+			text-transform: uppercase;
+			text-indent: -55px;
+			background: var(--primary);
+			transition: all var(--transition-duration-fast) ease-out;
+			zoom: 1;
+
+			&::before,
+			&::after {
+				position: absolute;
+				left: 0;
+				width: var(--nav-toggle-i-width);
+				height: var(--nav-toggle-i-height);
+				background: var(--primary);
+				transition: var(--transition-duration-fast);
+				content: "";
+			}
+
+			&::before {
+				top: -7px;
+			}
+
+			&::after {
+				bottom: -7px;
+			}
+
+			.offcanvas & {
+				background: transparent;
+
+				&::before {
+					top: 0;
+					transform: rotateZ(45deg);
+				}
+
+				&::after {
+					bottom: 0;
+					transform: rotateZ(-45deg);
+				}
+			}
+		}
+
+		.offcanvas & {
+			transform: translateX(270px);
+		}
+	}
+</style>

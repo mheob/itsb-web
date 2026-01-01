@@ -1,7 +1,27 @@
 {
-  "liveServer.settings.root": "/frontend/build",
-  "prettier.printWidth": 120,
-  "editor.codeActionsOnSave": {
-    "source.fixAll": true
-  }
+	"[astro]": {
+		"editor.defaultFormatter": "astro-build.astro-vscode"
+	},
+	"[svelte]": {
+		"editor.defaultFormatter": "svelte.svelte-vscode"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"typescript.tsdk": "node_modules/typescript/lib",
+	// Markdown
+	"markdown.extension.toc.levels": "2..2",
+	"markdown.extension.toc.omittedFromToc": {
+		"README.md": [
+			"## Table of Contents"
+		]
+	},
+	"markdownlint.config": {
+		"MD041": false
+	},
+	// SonarLint
+	"sonarlint.connectedMode.project": {
+		"connectionId": "mheob",
+		"projectKey": "mheob_tsg-irlich-web"
+	}
 }

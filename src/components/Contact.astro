@@ -1,0 +1,71 @@
+---
+import type { ServiceContact } from "@/types/service-contact";
+import ContactLink from "./ContactLink.svelte";
+
+interface Props {
+	data: ServiceContact[];
+}
+
+const { data }: Props = Astro.props;
+---
+
+<section class="contact">
+	{
+		data.map(({ definition, content }) => {
+			return (
+				<div class="info">
+					<span>{definition}:</span>
+					<span>
+						{typeof content === "string" ? (
+							content
+						) : (
+							<ContactLink
+								protocol={content.protocol}
+								href={content.href}
+								title={content.title}
+								client:visible
+							/>
+						)}
+					</span>
+				</div>
+			);
+		})
+	}
+</section>
+
+<style>
+	.contact {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		margin-top: 1.5rem;
+		margin-bottom: 1.5rem;
+		border-bottom: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
+
+		.info {
+			display: flex;
+			flex-basis: 100%;
+			margin-bottom: 1rem;
+
+			@media (min-width: 500px) {
+				flex-basis: 50%;
+			}
+
+			@media (min-width: 700px) {
+				flex-basis: 100%;
+			}
+
+			@media (min-width: 1200px) {
+				flex-basis: 50%;
+			}
+
+			span {
+				display: inline-block;
+
+				&:first-child {
+					width: 5rem;
+				}
+			}
+		}
+	}
+</style>

@@ -1,0 +1,66 @@
+---
+import { serviceDataDE, serviceDataEN } from "@/data/services";
+import { useTranslations } from "@/utils/i18n";
+import SectionHeader from "./SectionHeader.astro";
+import Service from "./Service.astro";
+
+const ui = {
+	en: {
+		SectionHeader: {
+			mainText: "Some of my offers",
+			smallText: "What should I do?",
+			bgText: "Offers",
+		},
+	},
+	de: {
+		SectionHeader: {
+			mainText: "Einige meiner Angebote",
+			smallText: "Was soll ich tun?",
+			bgText: "Angebote",
+		},
+	},
+};
+
+const lang = Astro.url.pathname.split("/")[1] === "de" ? "de" : "en";
+
+const t = useTranslations(ui, lang);
+
+const serviceData = lang === "en" ? serviceDataEN : serviceDataDE;
+---
+
+<section class="services main-section" id="services">
+	<SectionHeader
+		mainText={t("SectionHeader.mainText")}
+		smallText={t("SectionHeader.smallText")}
+		bgText={t("SectionHeader.bgText")}
+	/>
+
+	<section class="content">
+		{
+			serviceData.map(({ icon, header, text, num }, index) => {
+				const elNum = num || `0${index + 1}`;
+				return <Service icon={icon} header={header} text={text} num={elNum} />;
+			})
+		}
+	</section>
+</section>
+
+<style>
+	.services {
+		background: var(--background-dark);
+
+		.content {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+			gap: 2rem;
+
+			@media (min-width: 900px) {
+				grid-template-columns: repeat(2, 1fr);
+			}
+
+			@media (min-width: 1600px) {
+				grid-template-columns: repeat(4, 1fr);
+			}
+		}
+	}
+</style>
