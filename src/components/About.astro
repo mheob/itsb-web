@@ -129,7 +129,12 @@ const serviceContactData =
 					border-radius: 4px;
 					transition: top var(--transition-duration-slow) ease-in-out;
 					background-image: url(../images/itsb-boehm-alexander-portrait.webp);
-					@include retina("../images/itsb-boehm-alexander-portrait@2x.webp");
+
+					@media only screen and (min-device-pixel-ratio: 2),
+						only screen and (min-resolution: 192dpi),
+						only screen and (min-resolution: 2dppx) {
+						background-image: url(../images/itsb-boehm-alexander-portrait@2x.webp);
+					}
 
 					&:hover {
 						top: 50px;
