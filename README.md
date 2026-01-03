@@ -1,43 +1,90 @@
-# Astro Starter Kit: Minimal
+# Alexander Böhm - My Website
 
-```sh
-bun create astro@latest -- --template minimal
+Portfolio and business website for Alexander Böhm, built with Astro, TypeScript, and Svelte.
+
+## Tech Stack
+
+- **[Astro](https://astro.build)** - Static site generator
+- **[Svelte](https://svelte.dev)** - Interactive components
+- **[TypeScript](https://www.typescriptlang.org)** - Type safety
+- **[Bun](https://bun.sh)** - Package manager and runtime
+- **[Biome](https://biomejs.dev)** - Linting and formatting
+- **[Vercel](https://vercel.com)** - Deployment platform
+
+## Getting Started
+
+### Prerequisites
+
+- [Bun](https://bun.sh) 1.x or later
+
+### Installation
+
+```bash
+bun install
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### Development
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+bun dev
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Opens the development server at [localhost:4321](http://localhost:4321).
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+### Build
 
-Any static assets, like images, can be placed in the `public/` directory.
+```bash
+bun build
+```
 
-## 🧞 Commands
+Runs type checking and builds the production site to `./dist/`.
 
-All commands are run from the root of the project, from a terminal:
+### Preview
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`                 | Starts local dev server at `localhost:4321`      |
-| `bun build`               | Build your production site to `./dist/`          |
-| `bun preview`             | Preview your build locally, before deploying     |
-| `bun astro ...`           | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help`     | Get help using the Astro CLI                     |
+```bash
+bun preview
+```
 
-## 👀 Want to learn more?
+Preview the production build locally before deploying.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Project Structure
+
+```txt
+src/
+├── pages/           # Route pages and API endpoints
+│   ├── api/         # Server endpoints (contact form)
+│   └── de/          # German locale pages
+├── components/      # UI components (.astro, .svelte)
+├── layouts/         # Page layouts
+├── data/            # Content data (EN/DE variants)
+├── types/           # TypeScript types and Zod schemas
+├── utils/           # Utilities (i18n, routes, etc.)
+├── styles/          # Global CSS
+└── images/          # Image assets
+public/              # Static assets
+```
+
+## Features
+
+- Bilingual support (English and German)
+- Contact form with email integration via Resend
+- Responsive design
+- Optimized images (WebP)
+- SEO-friendly with sitemap generation
+
+## Environment Variables
+
+Copy `.env.example` to `.env` and configure:
+
+```bash
+RESEND_API_KEY=                         # Resend API key for contact form
+PUBLIC_VERCEL_PROJECT_PRODUCTION_URL=   # Production domain URL
+```
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development guidelines.
+
+## License
+
+All rights reserved.
