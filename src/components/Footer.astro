@@ -1,6 +1,7 @@
 ---
 import { socialData } from "@/data/social";
 import { useTranslations } from "@/utils/i18n";
+import { getLocalizedRoute } from "@/utils/routes";
 import Social from "./Social.astro";
 
 const ui = {
@@ -18,7 +19,7 @@ const t = useTranslations(ui, lang);
 ---
 
 <footer class="footer">
-	<p class="logo"><a href="/">ITSB</a></p>
+	<p class="logo"><a href={getLocalizedRoute(lang, "home")}>ITSB</a></p>
 	<Social links={socialData.map((link) => link)} />
 	<p
 		class="copyright"

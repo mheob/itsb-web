@@ -29,6 +29,7 @@ const ui = {
 };
 
 const lang = Astro.url.pathname.split("/")[1] === "de" ? "de" : "en";
+const langPrefix = lang === "de" ? "/de" : "/";
 
 const t = useTranslations(ui, lang);
 ---
@@ -37,7 +38,9 @@ const t = useTranslations(ui, lang);
 	<button id="open-download-vc-modal" class="btn btn-primary-outline"
 		>{t("openDownloadVCardDialog")}</button
 	>
-	<a href="/#contact-section" class="btn btn-primary">{t("hireMe")}</a>
+	<a href={`${langPrefix}#contact-section`} class="btn btn-primary"
+		>{t("hireMe")}</a
+	>
 	<dialog id="download-vc-modal">
 		<header>
 			<h2>{t("dialog.header")}</h2>

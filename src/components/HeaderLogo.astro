@@ -1,9 +1,13 @@
 ---
+import { getLocalizedRoute } from "@/utils/routes";
 
+const lang = Astro.url.pathname.split("/")[1] === "de" ? "de" : "en";
 ---
 
 <h1 class="logo">
-	<a href="/" aria-label="Logo Alexander Böhm">ITSB</a>
+	<a href={getLocalizedRoute(lang, "home")} aria-label="Logo Alexander Böhm"
+		>ITSB</a
+	>
 </h1>
 
 <script>
