@@ -1,0 +1,79 @@
+---
+import Aside from '@/components/Aside.astro';
+import Footer from '@/components/Footer.astro';
+import MainLayout from '@/layouts/MainLayout.astro';
+import { useTranslations } from '@/utils/i18n';
+import { getLocalizedRoute } from '@/utils/routes';
+
+const ui = {
+	en: {
+		title: 'Page Not Found',
+		description: "Sorry, the page you're looking for doesn't exist or has been moved.",
+		backHome: 'Back to Home',
+	},
+	de: {
+		title: 'Seite nicht gefunden',
+		description: 'Entschuldigung, die gesuchte Seite existiert nicht oder wurde verschoben.',
+		backHome: 'Zur Startseite',
+	},
+};
+
+const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
+const t = useTranslations(ui, lang);
+---
+
+<MainLayout>
+	<Aside />
+	<main id="main">
+		<section class="main-section error-page">
+			<div class="container">
+				<h1 class="error-code">404</h1>
+				<h2 class="error-title">{t('title')}</h2>
+				<p class="error-description">{t('description')}</p>
+				<a href={getLocalizedRoute(lang, 'home')} class="btn btn-primary">{t('backHome')}</a>
+			</div>
+		</section>
+		<Footer />
+	</main>
+</MainLayout>
+
+<style>
+	.error-page {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 100vh;
+		padding: 3rem 1rem;
+		text-align: center;
+	}
+
+	.container {
+		max-width: 600px;
+	}
+
+	.error-code {
+		margin-bottom: 1rem;
+		font-size: 8rem;
+		font-weight: 700;
+		line-height: 1;
+		color: var(--primary);
+
+		@media (min-width: 700px) {
+			font-size: 10rem;
+		}
+	}
+
+	.error-title {
+		margin-bottom: 1rem;
+		font-size: 1.5rem;
+
+		@media (min-width: 700px) {
+			font-size: 2rem;
+		}
+	}
+
+	.error-description {
+		margin-bottom: 2rem;
+		color: color-mix(in srgb, var(--white) 70%, transparent);
+	}
+</style>
