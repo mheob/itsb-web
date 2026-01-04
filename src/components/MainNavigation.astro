@@ -1,11 +1,8 @@
 ---
+// cspell:words impressum
+
 import { useTranslations } from "@/utils/i18n";
 import { getLocalizedRoute } from "@/utils/routes";
-
-const currentPath = Astro.url.pathname;
-const isHomePage = currentPath === "/" || currentPath === "/de";
-const isImprintPage = currentPath.includes("/imprint");
-const isPrivacyPage = currentPath.includes("/privacy");
 
 const ui = {
 	en: {
@@ -34,6 +31,17 @@ const lang = Astro.url.pathname.split("/")[1] === "de" ? "de" : "en";
 const langPrefix = lang === "de" ? "/de" : "/";
 
 const t = useTranslations(ui, lang);
+
+const currentPath = Astro.url.pathname;
+const isHomePage = currentPath === "/" || currentPath === "/de";
+const isImprintPage =
+	lang !== "de"
+		? currentPath.includes("/imprint")
+		: currentPath.includes("/impressum");
+const isPrivacyPage =
+	lang !== "de"
+		? currentPath.includes("/privacy")
+		: currentPath.includes("/datenschutz");
 ---
 
 <nav class="main-navigation" data-is-home={isHomePage}>
@@ -86,7 +94,7 @@ const t = useTranslations(ui, lang);
 				}
 			}
 
-			// Update active class on navigation links (hrefs contain hash like /#about or /de#about)
+			// Update active class on navigation links (href's contain hash like /#about or /de#about)
 			const navLinks = document.querySelectorAll(
 				'.main-navigation a[href*="#"]',
 			);

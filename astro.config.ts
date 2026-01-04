@@ -37,5 +37,4 @@ export default defineConfig({
 	output: 'static',
 	prefetch: { prefetchAll: true },
 	site: (nodeEnv === 'production' ? 'https://' : 'http://') + env.PUBLIC_VERCEL_PROJECT_PRODUCTION_URL,
-	trailingSlash: 'never',
 });
