@@ -1,48 +1,40 @@
 import type { ServiceContact } from '@/types/service-contact';
 import { getAge } from '@/utils/date';
 
+const shared = {
+	name: 'Alexander Böhm',
+	age: getAge(new Date(1982, 9, 21)).toString(),
+	email: 'mail@alex-boehm.dev',
+	phone: '+49 160 8206654',
+	job: 'Freelancer',
+};
+
 export const serviceContactDataEN: ServiceContact[] = [
-	{ definition: 'Name', content: 'Alexander Böhm' },
-	{ definition: 'Age', content: getAge(new Date(1982, 9, 21)).toString() },
+	{ definition: 'Name', content: shared.name },
+	{ definition: 'Age', content: shared.age },
 	{
 		definition: 'E-Mail',
-		content: {
-			protocol: 'mailto:',
-			href: 'mail@alex-boehm.dev',
-			title: 'Send me an email',
-		},
+		content: { protocol: 'mailto:', href: shared.email, title: 'Send me an email' },
 	},
 	{
 		definition: 'Phone',
-		content: {
-			protocol: 'tel:',
-			href: '+49 160 8206654',
-			title: 'Call me',
-		},
+		content: { protocol: 'tel:', href: shared.phone, title: 'Call me' },
 	},
-	{ definition: 'Job', content: 'Freelancer' },
+	{ definition: 'Job', content: shared.job },
 	{ definition: 'Location', content: 'Neuwied, Germany' },
 ];
 
 export const serviceContactDataDE: ServiceContact[] = [
-	{ definition: 'Name', content: 'Alexander Böhm' },
-	{ definition: 'Alter', content: getAge(new Date(1982, 9, 21)).toString() },
+	{ definition: 'Name', content: shared.name },
+	{ definition: 'Alter', content: shared.age },
 	{
 		definition: 'E-Mail',
-		content: {
-			protocol: 'mailto:',
-			href: 'mail@alex-boehm.dev',
-			title: 'Schreib mir per E-Mail',
-		},
+		content: { protocol: 'mailto:', href: shared.email, title: 'Schreib mir per E-Mail' },
 	},
 	{
 		definition: 'Telefon',
-		content: {
-			protocol: 'tel:',
-			href: '+49 160 8206654',
-			title: 'Ruf mich einfach an',
-		},
+		content: { protocol: 'tel:', href: shared.phone, title: 'Ruf mich einfach an' },
 	},
-	{ definition: 'Job', content: 'Freelancer' },
+	{ definition: 'Job', content: shared.job },
 	{ definition: 'Standort', content: 'Neuwied, RLP' },
 ];
