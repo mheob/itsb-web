@@ -39,17 +39,31 @@ const t = useTranslations(ui, lang);
 </nav>
 
 <script>
-	// Preserve hash fragment when switching languages
-	document.querySelectorAll(".language-selector a").forEach((link) => {
-		link.addEventListener("click", (e) => {
-			const hash = window.location.hash;
-			if (hash) {
-				e.preventDefault();
-				const href = (e.currentTarget as HTMLAnchorElement).getAttribute("href");
-				window.location.href = href + hash;
-			}
+	const STORAGE_KEY = "preferred-language";
+
+	function setupLanguageSelector() {
+		document.querySelectorAll(".language-selector a").forEach((link) => {
+			link.addEventListener("click", (e) => {
+				const href =
+					(e.currentTarget as HTMLAnchorElement).getAttribute("href") ?? "/";
+				const selectedLang = href.startsWith("/de") ? "de" : "en";
+
+				// Store user's explicit language choice
+				localStorage.setItem(STORAGE_KEY, selectedLang);
+
+				// Preserve hash fragment when switching languages
+				const hash = window.location.hash;
+				if (hash) {
+					e.preventDefault();
+					window.location.href = href + hash;
+				}
+			});
 		});
-	});
+	}
+
+	// Run on initial load and after View Transitions
+	setupLanguageSelector();
+	document.addEventListener("astro:after-swap", setupLanguageSelector);
 </script>
 
 <style>
