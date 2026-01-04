@@ -15,6 +15,32 @@ const lang = Astro.url.pathname.split("/")[1] === "de" ? "de" : "en";
 <html lang={lang}>
 	<head>
 		<Head />
+		<script is:inline>
+			const STORAGE_KEY = "preferred-language";
+
+			// Detect and store user language preference on first visit
+			(function () {
+				const stored = localStorage.getItem(STORAGE_KEY);
+
+				if (!stored) {
+					// First visit: detect browser language and store it
+					const browserLang = navigator.language?.split("-")[0] || "en";
+					const preferredLang = browserLang === "de" ? "de" : "en";
+					localStorage.setItem(STORAGE_KEY, preferredLang);
+
+					// Redirect if on wrong language version
+					const currentLang =
+						window.location.pathname.split("/")[1] === "de" ? "de" : "en";
+					if (preferredLang !== currentLang) {
+						const newPath =
+							preferredLang === "de"
+								? "/de" + window.location.pathname
+								: window.location.pathname.replace(/^\/de/, "") || "/";
+						window.location.replace(newPath + window.location.hash);
+					}
+				}
+			})();
+		</script>
 	</head>
 	<body>
 		<div id="root">
