@@ -20,7 +20,7 @@
 		"@iconify-json/fa7-brands": "1.2.1",
 		"@iconify-json/fa7-solid": "1.2.3",
 		"@vercel/analytics": "1.6.1",
-		"astro": "5.16.6",
+		"astro": "5.16.10",
 		"astro-icon": "1.1.5",
 		"embla-carousel": "8.6.0",
 		"embla-carousel-autoplay": "8.6.0",
