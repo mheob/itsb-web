@@ -7,6 +7,8 @@ interface Props {
 }
 
 const { data }: Props = Astro.props;
+
+const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
 ---
 
 <section class="contact">
@@ -23,6 +25,7 @@ const { data }: Props = Astro.props;
 								protocol={content.protocol}
 								href={content.href}
 								title={content.title}
+								lang={lang}
 								client:visible
 							/>
 						)}

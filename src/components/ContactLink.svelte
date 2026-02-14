@@ -2,6 +2,7 @@
 import type { Snippet } from 'svelte';
 import type { HTMLAnchorAttributes } from 'svelte/elements';
 import type { Protocol } from '@/types/url';
+import { useTranslations } from '@/utils/i18n';
 
 interface ContactLinkProps extends HTMLAnchorAttributes {
 	protocol: Protocol;
@@ -16,7 +17,17 @@ interface ContactLinkProps extends HTMLAnchorAttributes {
 	href: string;
 	children?: Snippet;
 	title: string;
+	lang: 'en' | 'de';
 }
+
+let { children, header, href, lang, protocol, style, ...props }: ContactLinkProps = $props();
+
+const ui = {
+	en: { ariaLabel: 'Contact link - tap to show' },
+	de: { ariaLabel: 'Kontaktlink - tippen zum Anzeigen' },
+};
+
+const t = $derived(useTranslations(ui, lang));
 
 function reverse(stringToReverse: string): string {
 	return [...stringToReverse]
@@ -50,8 +61,6 @@ function createContactLink({ protocol, header, href }: Pick<ContactLinkProps, 'p
 	return link;
 }
 
-let { children, header, href, protocol, style, ...props }: ContactLinkProps = $props();
-
 let hasInteracted = $state(false);
 
 const hrefText = $derived(href.slice(Math.max(0, href.indexOf(':') + 1)));
@@ -80,7 +89,7 @@ const handleKeyDown = (event: KeyboardEvent) => {
 };
 
 const computedHref = $derived(hasInteracted ? createContactLink({ protocol, header, href }) : '#');
-const computedAriaLabel = $derived(hasInteracted ? undefined : 'Kontaktlink - tippen zum Anzeigen');
+const computedAriaLabel = $derived(hasInteracted ? undefined : t('ariaLabel'));
 const computedRole = $derived(hasInteracted ? 'link' : 'button');
 const displayText = $derived(hasInteracted ? hrefText : reverse(hrefText));
 </script>

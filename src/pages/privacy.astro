@@ -1,7 +1,10 @@
 ---
 import Aside from '@/components/Aside.astro';
+import ContactLink from '@/components/ContactLink.svelte';
 import Footer from '@/components/Footer.astro';
 import MainLayout from '@/layouts/MainLayout.astro';
+
+const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
 ---
 
 <MainLayout>
@@ -148,11 +151,23 @@ import MainLayout from '@/layouts/MainLayout.astro';
 				<p>The data processing controller on this website is:</p>
 				<p>
 					Alexander Böhm<br />Theodor-Heuss-Str. 1<br />56564 Neuwied<br
-					/>Deutschland
+					/>Germany
 				</p>
 				<p>
-					Phone: &#91;Telefonnummer der verantwortlichen Stelle&#93;<br />
-					E-mail: &#91;E-Mail-Adresse der verantwortlichen Stelle&#93;
+					Phone: <ContactLink
+						protocol="tel:"
+						href="+49 160 8206654"
+						title="Call me"
+						lang={lang}
+						client:visible
+					/><br />
+					E-mail: <ContactLink
+						protocol="mailto:"
+						href="mail@alex-boehm.dev"
+						title="Write me an email"
+						lang={lang}
+						client:visible
+					/>
 				</p>
 				<p>
 					The controller is the natural person or legal entity that

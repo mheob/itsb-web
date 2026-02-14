@@ -1,12 +1,12 @@
 <script lang="ts">
-import { getAbsoluteLocaleUrl } from 'astro:i18n';
 import { useTranslations } from '@/utils/i18n';
 
 interface Props {
 	lang: 'en' | 'de';
+	privacyUrl: string;
 }
 
-let { lang }: Props = $props();
+let { lang, privacyUrl }: Props = $props();
 
 const ui = {
 	en: {
@@ -30,6 +30,9 @@ const ui = {
 			privacy: 'You must accept the privacy policy.',
 		},
 		submitText: 'Get in touch',
+		submitSending: 'Sending...',
+		submitSent: 'Sent!',
+		submitError: 'Error - Try again',
 		privacyDialog: {
 			header: 'Provisions regarding the use of your data',
 			content: {
@@ -54,7 +57,6 @@ const ui = {
 				'2': 'Datenschutzrichtlinie',
 				'3': ' verarbeitet werden.',
 			},
-			privacyPolicy: 'Datenschutzrichtlinie',
 		},
 		errors: {
 			name: 'Bitte gebe einen Namen an, unter dem ich dich ansprechen kann.',
@@ -63,9 +65,11 @@ const ui = {
 			message:
 				'Ich brauche eine möglichst erklärende Nachricht von dir, damit ich auch konkret darauf eingehen kann. Diese sollte mindestens 30, aber nicht viel mehr als 10.000 Zeichen, haben.',
 			privacy: 'Du musst die Datenschutzrichtlinie akzeptieren',
-			privacyPolicy: 'Datenschutzrichtlinie',
 		},
 		submitText: 'Kontakt aufnehmen',
+		submitSending: 'Wird gesendet...',
+		submitSent: 'Gesendet!',
+		submitError: 'Fehler - Erneut versuchen',
 		privacyDialog: {
 			header: 'Bestimmungen zur Nutzung Deiner Daten',
 			content: {
@@ -109,7 +113,8 @@ let touched = $state<Record<string, boolean>>({
 });
 
 // Submit button state
-let submitText = $state('Get in touch');
+// svelte-ignore state_referenced_locally
+let submitText = $state(t('submitText'));
 let isSubmitting = $state(false);
 
 // Privacy modal reference
@@ -240,7 +245,7 @@ async function handleSubmit(event: SubmitEvent) {
 
 	try {
 		isSubmitting = true;
-		submitText = 'Sending...';
+		submitText = t('submitSending');
 
 		const formData = new FormData();
 		formData.append('name', name);
@@ -255,9 +260,9 @@ async function handleSubmit(event: SubmitEvent) {
 
 		if (response.ok) {
 			resetForm();
-			submitText = 'Sent!';
+			submitText = t('submitSent');
 			setTimeout(() => {
-				submitText = 'Get in touch';
+				submitText = t('submitText');
 			}, 3000);
 		} else {
 			const result = await response.json();
@@ -267,12 +272,12 @@ async function handleSubmit(event: SubmitEvent) {
 					touched[field as keyof typeof touched] = true;
 				}
 			}
-			submitText = 'Get in touch';
+			submitText = t('submitText');
 		}
 	} catch {
-		submitText = 'Error - Try again';
+		submitText = t('submitError');
 		setTimeout(() => {
-			submitText = 'Get in touch';
+			submitText = t('submitText');
 		}, 3000);
 	} finally {
 		isSubmitting = false;
@@ -374,9 +379,7 @@ async function handleSubmit(event: SubmitEvent) {
 				<p>{t("privacyDialog.content.2")}</p>
 				<p>
 					{t("privacyDialog.content.3.1")}
-					<a href={getAbsoluteLocaleUrl("en", "privacy")}
-						>{t("privacyDialog.content.3.2")}</a
-					>
+					<a href={privacyUrl}>{t("privacyDialog.content.3.2")}</a>
 					{t("privacyDialog.content.3.3")}
 				</p>
 			</div>

@@ -45,6 +45,8 @@ $effect(() => {
 		clearInterval(timers[id]);
 	}
 
+	if (max <= initial) return;
+
 	// Ensure step is large enough to avoid too-frequent intervals
 	let adjustedStep = step;
 	while (duration / ((max - initial) / adjustedStep) < 2) {
