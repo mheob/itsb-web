@@ -1,15 +1,15 @@
 ---
-import "@fontsource/geist-sans/400.css";
-import "@fontsource/geist-sans/700.css";
+import '@fontsource/geist-sans/400.css';
+import '@fontsource/geist-sans/700.css';
 
-import Analytics from "@vercel/analytics/astro";
-import Head from "@/components/Head.astro";
-import NavigationToggle from "@/components/NavigationToggle.astro";
-import ScrollTopButton from "@/components/ScrollTopButton.astro";
+import Analytics from '@vercel/analytics/astro';
+import Head from '@/components/Head.astro';
+import NavigationToggle from '@/components/NavigationToggle.astro';
+import ScrollTopButton from '@/components/ScrollTopButton.astro';
 
-import "@/styles/global.css";
+import '@/styles/global.css';
 
-const lang = Astro.url.pathname.split("/")[1] === "de" ? "de" : "en";
+const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
 ---
 
 <html lang={lang}>

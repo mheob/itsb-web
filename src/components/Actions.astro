@@ -1,35 +1,35 @@
 ---
-import { useTranslations } from "@/utils/i18n";
+import { useTranslations } from '@/utils/i18n';
 
 const ui = {
 	en: {
-		openDownloadVCardDialog: "Download vCard",
-		hireMe: "Hire me",
+		openDownloadVCardDialog: 'Download vCard',
+		hireMe: 'Hire me',
 		dialog: {
-			header: "Download contact details?",
+			header: 'Download contact details?',
 			content: {
-				"1": "Would you like to save my vCard?",
-				"2": "You can save them directly in your email programme, such as Outlook or Thunderbird.<br />Then you will always have my contact details to hand.",
+				'1': 'Would you like to save my vCard?',
+				'2': 'You can save them directly in your email programme, such as Outlook or Thunderbird.<br />Then you will always have my contact details to hand.',
 			},
-			action: "Download vCard now",
+			action: 'Download vCard now',
 		},
 	},
 	de: {
-		openDownloadVCardDialog: "Kontaktdaten herunterladen",
-		hireMe: "Beauftrage mich",
+		openDownloadVCardDialog: 'Kontaktdaten herunterladen',
+		hireMe: 'Beauftrage mich',
 		dialog: {
-			header: "Kontaktdaten herunterladen?",
+			header: 'Kontaktdaten herunterladen?',
 			content: {
-				"1": "Möchtest Du dir die vCard von mir abspeichern?",
-				"2": "Du kannst sie Dir direkt in deinem Mail-Programm, wie z.B. Outlook oder Thunderbird abspeichern.<br />Dann hast Du meine Kontaktdaten immer griffbereit.",
+				'1': 'Möchtest Du dir die vCard von mir abspeichern?',
+				'2': 'Du kannst sie Dir direkt in deinem Mail-Programm, wie z.B. Outlook oder Thunderbird abspeichern.<br />Dann hast Du meine Kontaktdaten immer griffbereit.',
 			},
-			action: "vCard jetzt herunterladen",
+			action: 'vCard jetzt herunterladen',
 		},
 	},
 };
 
-const lang = Astro.url.pathname.split("/")[1] === "de" ? "de" : "en";
-const langPrefix = lang === "de" ? "/de" : "/";
+const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
+const langPrefix = lang === 'de' ? '/de' : '/';
 
 const t = useTranslations(ui, lang);
 ---

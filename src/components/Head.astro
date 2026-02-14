@@ -1,25 +1,25 @@
 ---
-import { ClientRouter } from "astro:transitions";
-import { useTranslations } from "@/utils/i18n";
+import { ClientRouter } from 'astro:transitions';
+import { useTranslations } from '@/utils/i18n';
 
 const currentUrl = Astro.url.toString();
 
 const ui = {
 	en: {
-		title: "Alexander Böhm >> Your partner for all things web from Neuwied",
+		title: 'Alexander Böhm >> Your partner for all things web from Neuwied',
 		description:
-			"Alexander Böhm from Neuwied presents himself and his work around web design, SEO and web development.",
-		imageAlt: "Alexander Böhm with a laptop in his hands.",
+			'Alexander Böhm from Neuwied presents himself and his work around web design, SEO and web development.',
+		imageAlt: 'Alexander Böhm with a laptop in his hands.',
 	},
 	de: {
-		title: "Alexander Böhm >> Dein Partner rund ums Web aus Neuwied",
+		title: 'Alexander Böhm >> Dein Partner rund ums Web aus Neuwied',
 		description:
-			"Alexander Böhm aus Neuwied stellt sich und seine Arbeit rund um Web Design, SEO und Web Development vor.",
-		imageAlt: "Alexander Böhm mit einem Laptop in den Händen.",
+			'Alexander Böhm aus Neuwied stellt sich und seine Arbeit rund um Web Design, SEO und Web Development vor.',
+		imageAlt: 'Alexander Böhm mit einem Laptop in den Händen.',
 	},
 };
 
-const lang = Astro.url.pathname.split("/")[1] === "de" ? "de" : "en";
+const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
 
 const t = useTranslations(ui, lang);
 ---

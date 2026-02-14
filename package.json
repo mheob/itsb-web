@@ -8,6 +8,8 @@
 		"build": "astro check && astro build",
 		"check": "astro check",
 		"dev": "astro dev",
+		"format": "biome format --write",
+		"lint": "biome lint --write",
 		"preview": "astro preview"
 	},
 	"dependencies": {

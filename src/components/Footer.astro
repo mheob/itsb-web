@@ -1,19 +1,19 @@
 ---
-import { socialData } from "@/data/social";
-import { useTranslations } from "@/utils/i18n";
-import { getLocalizedRoute } from "@/utils/routes";
-import Social from "./Social.astro";
+import { socialData } from '@/data/social';
+import { useTranslations } from '@/utils/i18n';
+import { getLocalizedRoute } from '@/utils/routes';
+import Social from './Social.astro';
 
 const ui = {
 	en: {
-		copyright: "Copyright &copy; {year} All rights reserved",
+		copyright: 'Copyright &copy; {year} All rights reserved',
 	},
 	de: {
-		copyright: "Copyright &copy; {year} Alle Rechte vorbehalten",
+		copyright: 'Copyright &copy; {year} Alle Rechte vorbehalten',
 	},
 };
 
-const lang = Astro.url.pathname.split("/")[1] === "de" ? "de" : "en";
+const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
 
 const t = useTranslations(ui, lang);
 ---

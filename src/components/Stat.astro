@@ -1,21 +1,10 @@
 ---
-import type { Stat } from "@/types/stat";
-import CountUp from "./CountUp.svelte";
+import type { Stat } from '@/types/stat';
+import CountUp from './CountUp.svelte';
 
 type Props = Stat;
 
-const {
-	lowerTitle,
-	upperTitle,
-	value,
-	duration,
-	format,
-	initial,
-	prefix,
-	roundTo,
-	suffix,
-	step,
-} = Astro.props;
+const { lowerTitle, upperTitle, value, duration, format, initial, prefix, roundTo, suffix, step } = Astro.props;
 ---
 
 <div class="stat-item">
