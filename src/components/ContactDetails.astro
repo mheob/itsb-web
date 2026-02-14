@@ -1,11 +1,13 @@
 ---
-import { Icon } from "astro-icon/components";
-import type { Contact } from "@/types/contact";
-import ContactLink from "./ContactLink.svelte";
+import { Icon } from 'astro-icon/components';
+import type { Contact } from '@/types/contact';
+import ContactLink from './ContactLink.svelte';
 
 type Props = Contact;
 
 const { icon, header, text, anchor } = Astro.props;
+
+const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
 ---
 
 <div class="contact-details">
@@ -20,6 +22,7 @@ const { icon, header, text, anchor } = Astro.props;
 				protocol={anchor.protocol}
 				href={anchor.href}
 				title={anchor.title}
+				lang={lang}
 				client:visible
 			/>
 		</div>

@@ -24,9 +24,7 @@ const routes: Record<string, Record<RouteName, string>> = {
  */
 export function getLocalizedPath(currentPath: string, targetLocale: string): string {
 	// Normalize path by removing trailing slash (except for root paths)
-	const normalizedPath = currentPath === '/' || currentPath === '/de'
-		? currentPath
-		: currentPath.replace(/\/$/, '');
+	const normalizedPath = currentPath === '/' || currentPath === '/de' ? currentPath : currentPath.replace(/\/$/, '');
 
 	// Find which route name this path corresponds to
 	for (const [_locale, localeRoutes] of Object.entries(routes)) {

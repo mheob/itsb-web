@@ -1,31 +1,31 @@
 ---
-import { serviceDataDE, serviceDataEN } from "@/data/services";
-import { useTranslations } from "@/utils/i18n";
-import SectionHeader from "./SectionHeader.astro";
-import Service from "./Service.astro";
+import { serviceDataDE, serviceDataEN } from '@/data/services';
+import { useTranslations } from '@/utils/i18n';
+import SectionHeader from './SectionHeader.astro';
+import Service from './Service.astro';
 
 const ui = {
 	en: {
 		SectionHeader: {
-			mainText: "Some of my offers",
-			smallText: "What should I do?",
-			bgText: "Offers",
+			mainText: 'Some of my offers',
+			smallText: 'What should I do?',
+			bgText: 'Offers',
 		},
 	},
 	de: {
 		SectionHeader: {
-			mainText: "Einige meiner Angebote",
-			smallText: "Was soll ich tun?",
-			bgText: "Angebote",
+			mainText: 'Einige meiner Angebote',
+			smallText: 'Was soll ich tun?',
+			bgText: 'Angebote',
 		},
 	},
 };
 
-const lang = Astro.url.pathname.split("/")[1] === "de" ? "de" : "en";
+const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
 
 const t = useTranslations(ui, lang);
 
-const serviceData = lang === "en" ? serviceDataEN : serviceDataDE;
+const serviceData = lang === 'en' ? serviceDataEN : serviceDataDE;
 ---
 
 <section class="services main-section" id="services">

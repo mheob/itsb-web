@@ -1,32 +1,33 @@
 ---
-import { contactDataDE, contactDataEN } from "@/data/contact";
-import { useTranslations } from "@/utils/i18n";
-import ContactDetails from "./ContactDetails.astro";
-import ContactForm from "./ContactForm.svelte";
-import SectionHeader from "./SectionHeader.astro";
+import { getAbsoluteLocaleUrl } from 'astro:i18n';
+import { contactDataDE, contactDataEN } from '@/data/contact';
+import { useTranslations } from '@/utils/i18n';
+import ContactDetails from './ContactDetails.astro';
+import ContactForm from './ContactForm.svelte';
+import SectionHeader from './SectionHeader.astro';
 
 const ui = {
 	en: {
 		SectionHeader: {
-			mainText: "Ask questions. Get answers.",
-			smallText: "Create contact",
-			bgText: "Contact",
+			mainText: 'Ask questions. Get answers.',
+			smallText: 'Create contact',
+			bgText: 'Contact',
 		},
 	},
 	de: {
 		SectionHeader: {
-			mainText: "Stelle Fragen. Erhalte Antworten.",
-			smallText: "Kontaktaufnahme",
-			bgText: "Kontakt",
+			mainText: 'Stelle Fragen. Erhalte Antworten.',
+			smallText: 'Kontaktaufnahme',
+			bgText: 'Kontakt',
 		},
 	},
 };
 
-const lang = Astro.url.pathname.split("/")[1] === "de" ? "de" : "en";
+const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
 
 const t = useTranslations(ui, lang);
 
-const contactData = lang === "en" ? contactDataEN : contactDataDE;
+const contactData = lang === 'en' ? contactDataEN : contactDataDE;
 ---
 
 <section class="contact-section main-section" id="contact-section">
@@ -51,7 +52,7 @@ const contactData = lang === "en" ? contactDataEN : contactDataDE;
 		}
 	</section>
 
-	<ContactForm lang={lang} client:load />
+	<ContactForm lang={lang} privacyUrl={getAbsoluteLocaleUrl(lang, 'privacy')} client:load />
 </section>
 
 <style>

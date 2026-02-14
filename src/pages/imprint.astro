@@ -1,8 +1,10 @@
 ---
-import Aside from "@/components/Aside.astro";
-import ContactLink from "@/components/ContactLink.svelte";
-import Footer from "@/components/Footer.astro";
-import MainLayout from "@/layouts/MainLayout.astro";
+import Aside from '@/components/Aside.astro';
+import ContactLink from '@/components/ContactLink.svelte';
+import Footer from '@/components/Footer.astro';
+import MainLayout from '@/layouts/MainLayout.astro';
+
+const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
 ---
 
 <MainLayout>
@@ -26,12 +28,14 @@ import MainLayout from "@/layouts/MainLayout.astro";
 						protocol="tel:"
 						href="+49 160 8206654"
 						title="Call me"
+						lang={lang}
 						client:visible
 					/><br />
 					E-mail: <ContactLink
 						protocol="mailto:"
 						href="mail@alex-boehm.dev"
 						title="Send me an email"
+						lang={lang}
 						client:visible
 					/>
 				</p>

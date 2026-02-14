@@ -1,50 +1,46 @@
 ---
-import {
-	serviceContactDataDE,
-	serviceContactDataEN,
-} from "@/data/service-contact";
-import { useTranslations } from "@/utils/i18n";
-import Actions from "./Actions.astro";
-import Contact from "./Contact.astro";
-import SectionHeader from "./SectionHeader.astro";
+import { serviceContactDataDE, serviceContactDataEN } from '@/data/service-contact';
+import { useTranslations } from '@/utils/i18n';
+import Actions from './Actions.astro';
+import Contact from './Contact.astro';
+import SectionHeader from './SectionHeader.astro';
 
 const ui = {
 	en: {
 		SectionHeader: {
-			bgText: "Welcome",
+			bgText: 'Welcome',
 			mainText: "That's me",
-			smallText: "Welcome & introduction",
+			smallText: 'Welcome & introduction',
 		},
 		description: {
-			heading: "Hi! I am <strong>Alex</strong>!",
+			heading: 'Hi! I am <strong>Alex</strong>!',
 			content: {
-				"1": "A few years ago, I discovered my love for web content. It started with simple games for my own personal use, but it has steadily developed into something more.",
-				"2": "At first, it was friends and family who wanted their own websites. Then came websites, especially for non-profit organisations, and now professional companies as well.",
+				'1': 'A few years ago, I discovered my love for web content. It started with simple games for my own personal use, but it has steadily developed into something more.',
+				'2': 'At first, it was friends and family who wanted their own websites. Then came websites, especially for non-profit organisations, and now professional companies as well.',
 			},
 		},
 	},
 	de: {
 		SectionHeader: {
-			bgText: "Willkommen",
-			mainText: "Das bin ich",
-			smallText: "Willkommen & Einführung",
+			bgText: 'Willkommen',
+			mainText: 'Das bin ich',
+			smallText: 'Willkommen & Einführung',
 		},
 		description: {
-			heading: "Hi! Ich bin der <strong>Alex</strong>!",
+			heading: 'Hi! Ich bin der <strong>Alex</strong>!',
 			content: {
-				"1": "Vor einigen Jahren habe ich meine Liebe zum Webcontent entdeckt. Angefangen mit einfachen Spielereien für meine privaten Zwecke, hat sich daraus stetig mehr entwickelt.",
-				"2": "Zuerst waren es Freunde und Familie, die einen eigenen Webauftritt haben wollten. In der Folge kamen Webseiten, insbesondere für gemeinnützige Vereine, und inzwischen auch professionelle Unternehmen dazu.",
+				'1': 'Vor einigen Jahren habe ich meine Liebe zum Webcontent entdeckt. Angefangen mit einfachen Spielereien für meine privaten Zwecke, hat sich daraus stetig mehr entwickelt.',
+				'2': 'Zuerst waren es Freunde und Familie, die einen eigenen Webauftritt haben wollten. In der Folge kamen Webseiten, insbesondere für gemeinnützige Vereine, und inzwischen auch professionelle Unternehmen dazu.',
 			},
 		},
 	},
 };
 
-const lang = Astro.url.pathname.split("/")[1] === "de" ? "de" : "en";
+const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
 
 const t = useTranslations(ui, lang);
 
-const serviceContactData =
-	lang === "en" ? serviceContactDataEN : serviceContactDataDE;
+const serviceContactData = lang === 'en' ? serviceContactDataEN : serviceContactDataDE;
 ---
 
 <section class="about main-section" id="about">

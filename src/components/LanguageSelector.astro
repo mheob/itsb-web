@@ -1,21 +1,21 @@
 ---
-import { useTranslations } from "@/utils/i18n";
-import { getLocalizedPath } from "@/utils/routes";
+import { useTranslations } from '@/utils/i18n';
+import { getLocalizedPath } from '@/utils/routes';
 
-const currentLocale = Astro.currentLocale ?? "en";
+const currentLocale = Astro.currentLocale ?? 'en';
 const currentPath = Astro.url.pathname;
 
 const locales = [
-	{ code: "en", label: "EN" },
-	{ code: "de", label: "DE" },
+	{ code: 'en', label: 'EN' },
+	{ code: 'de', label: 'DE' },
 ] as const;
 
 const ui = {
-	en: { label: "Language selector" },
-	de: { label: "Sprachauswahl" },
+	en: { label: 'Language selector' },
+	de: { label: 'Sprachauswahl' },
 };
 
-const lang = Astro.url.pathname.split("/")[1] === "de" ? "de" : "en";
+const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
 
 const t = useTranslations(ui, lang);
 ---

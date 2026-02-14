@@ -1,12 +1,14 @@
 ---
-import type { ServiceContact } from "@/types/service-contact";
-import ContactLink from "./ContactLink.svelte";
+import type { ServiceContact } from '@/types/service-contact';
+import ContactLink from './ContactLink.svelte';
 
 interface Props {
 	data: ServiceContact[];
 }
 
 const { data }: Props = Astro.props;
+
+const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
 ---
 
 <section class="contact">
@@ -23,6 +25,7 @@ const { data }: Props = Astro.props;
 								protocol={content.protocol}
 								href={content.href}
 								title={content.title}
+								lang={lang}
 								client:visible
 							/>
 						)}

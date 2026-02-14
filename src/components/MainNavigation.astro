@@ -1,47 +1,41 @@
 ---
 // cspell:words impressum
 
-import { useTranslations } from "@/utils/i18n";
-import { getLocalizedRoute } from "@/utils/routes";
+import { useTranslations } from '@/utils/i18n';
+import { getLocalizedRoute } from '@/utils/routes';
 
 const ui = {
 	en: {
-		home: "Home",
+		home: 'Home',
 		about: "That's me",
-		services: "Services",
-		stats: "Stats",
-		testimonials: "Testimonials",
-		contact: "Contact",
-		imprint: "Imprint",
-		privacy: "Privacy",
+		services: 'Services',
+		stats: 'Stats',
+		testimonials: 'Testimonials',
+		contact: 'Contact',
+		imprint: 'Imprint',
+		privacy: 'Privacy',
 	},
 	de: {
-		home: "Startseite",
-		about: "Über mich",
-		services: "Dienstleistungen",
-		stats: "Statistiken",
-		testimonials: "Meinungen",
-		contact: "Kontakt",
-		imprint: "Impressum",
-		privacy: "Datenschutz",
+		home: 'Startseite',
+		about: 'Über mich',
+		services: 'Dienstleistungen',
+		stats: 'Statistiken',
+		testimonials: 'Meinungen',
+		contact: 'Kontakt',
+		imprint: 'Impressum',
+		privacy: 'Datenschutz',
 	},
 };
 
-const lang = Astro.url.pathname.split("/")[1] === "de" ? "de" : "en";
-const langPrefix = lang === "de" ? "/de" : "/";
+const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
+const langPrefix = lang === 'de' ? '/de' : '/';
 
 const t = useTranslations(ui, lang);
 
 const currentPath = Astro.url.pathname;
-const isHomePage = currentPath === "/" || currentPath === "/de";
-const isImprintPage =
-	lang !== "de"
-		? currentPath.includes("/imprint")
-		: currentPath.includes("/impressum");
-const isPrivacyPage =
-	lang !== "de"
-		? currentPath.includes("/privacy")
-		: currentPath.includes("/datenschutz");
+const isHomePage = currentPath === '/' || currentPath === '/de';
+const isImprintPage = lang !== 'de' ? currentPath.includes('/imprint') : currentPath.includes('/impressum');
+const isPrivacyPage = lang !== 'de' ? currentPath.includes('/privacy') : currentPath.includes('/datenschutz');
 ---
 
 <nav class="main-navigation" data-is-home={isHomePage}>

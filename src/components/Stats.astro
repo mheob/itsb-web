@@ -1,31 +1,31 @@
 ---
-import { statDataDE, statDataEN } from "@/data/stat";
-import { useTranslations } from "@/utils/i18n";
-import SectionHeader from "./SectionHeader.astro";
-import Stat from "./Stat.astro";
+import { statDataDE, statDataEN } from '@/data/stat';
+import { useTranslations } from '@/utils/i18n';
+import SectionHeader from './SectionHeader.astro';
+import Stat from './Stat.astro';
 
 const ui = {
 	en: {
 		SectionHeader: {
-			mainText: "A few figures about me",
-			smallText: "statistics",
-			bgText: "Stats",
+			mainText: 'A few figures about me',
+			smallText: 'statistics',
+			bgText: 'Stats',
 		},
 	},
 	de: {
 		SectionHeader: {
-			mainText: "Ein paar Zahlen über mich",
-			smallText: "Statistiken",
-			bgText: "Statistiken",
+			mainText: 'Ein paar Zahlen über mich',
+			smallText: 'Statistiken',
+			bgText: 'Statistiken',
 		},
 	},
 };
 
-const lang = Astro.url.pathname.split("/")[1] === "de" ? "de" : "en";
+const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
 
 const t = useTranslations(ui, lang);
 
-const statData = lang === "en" ? statDataEN : statDataDE;
+const statData = lang === 'en' ? statDataEN : statDataDE;
 ---
 
 <section class="stats main-section" id="stats">
