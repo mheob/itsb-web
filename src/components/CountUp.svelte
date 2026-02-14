@@ -45,7 +45,7 @@ $effect(() => {
 		clearInterval(timers[id]);
 	}
 
-	if (max <= initial) return;
+	if (Number.isNaN(max) || max <= initial) return;
 
 	// Ensure step is large enough to avoid too-frequent intervals
 	let adjustedStep = step;

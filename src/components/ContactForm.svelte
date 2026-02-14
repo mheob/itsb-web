@@ -36,7 +36,7 @@ const ui = {
 		privacyDialog: {
 			header: 'Provisions regarding the use of your data',
 			content: {
-				'1': 'By clicking on the "Contact us" button and submitting the data entered in the contact form, you agree that I may use your details to respond to your enquiry or to contact you.',
+				'1': 'By clicking on the "Contact us" button and submitting the data entered in the contact form, you agree that I may use your details to respond to your inquiry or to contact you.',
 				'2': 'Information will not be passed on to third parties unless applicable data protection regulations justify such a transfer or I am legally obliged to do so.',
 				'3': {
 					'1': 'You can revoke your consent at any time with future effect. In the event of revocation, your data will be deleted immediately. Your data will also be deleted once I have processed your request or the purpose for storing it no longer applies. You can request information about the data stored about you at any time. Further information on data protection can also be found in the',
@@ -113,8 +113,20 @@ let touched = $state<Record<string, boolean>>({
 });
 
 // Submit button state
-// svelte-ignore state_referenced_locally
-let submitText = $state(t('submitText'));
+type SubmitStatus = 'idle' | 'sending' | 'sent' | 'error';
+let submitStatus = $state<SubmitStatus>('idle');
+let submitText = $derived(() => {
+	switch (submitStatus) {
+		case 'sending':
+			return t('submitSending');
+		case 'sent':
+			return t('submitSent');
+		case 'error':
+			return t('submitError');
+		default:
+			return t('submitText');
+	}
+});
 let isSubmitting = $state(false);
 
 // Privacy modal reference
@@ -245,7 +257,7 @@ async function handleSubmit(event: SubmitEvent) {
 
 	try {
 		isSubmitting = true;
-		submitText = t('submitSending');
+		submitStatus = 'sending';
 
 		const formData = new FormData();
 		formData.append('name', name);
@@ -260,9 +272,9 @@ async function handleSubmit(event: SubmitEvent) {
 
 		if (response.ok) {
 			resetForm();
-			submitText = t('submitSent');
+			submitStatus = 'sent';
 			setTimeout(() => {
-				submitText = t('submitText');
+				submitStatus = 'idle';
 			}, 3000);
 		} else {
 			const result = await response.json();
@@ -272,12 +284,12 @@ async function handleSubmit(event: SubmitEvent) {
 					touched[field as keyof typeof touched] = true;
 				}
 			}
-			submitText = t('submitText');
+			submitStatus = 'idle';
 		}
 	} catch {
-		submitText = t('submitError');
+		submitStatus = 'error';
 		setTimeout(() => {
-			submitText = t('submitText');
+			submitStatus = 'idle';
 		}, 3000);
 	} finally {
 		isSubmitting = false;
