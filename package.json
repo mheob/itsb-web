@@ -27,7 +27,7 @@
 		"embla-carousel": "8.6.0",
 		"embla-carousel-autoplay": "8.6.0",
 		"resend": "6.9.2",
-		"svelte": "5.51.0",
+		"svelte": "5.53.5",
 		"svelte-inview": "4.0.4",
 		"typescript": "5.9.3",
 		"zod": "4.3.6"
