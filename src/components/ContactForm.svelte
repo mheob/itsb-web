@@ -115,7 +115,7 @@ let touched = $state<Record<string, boolean>>({
 // Submit button state
 type SubmitStatus = 'idle' | 'sending' | 'sent' | 'error';
 let submitStatus = $state<SubmitStatus>('idle');
-let submitText = $derived(() => {
+let submitText = $derived.by(() => {
 	switch (submitStatus) {
 		case 'sending':
 			return t('submitSending');

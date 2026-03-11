@@ -1,6 +1,6 @@
 import sitemap from '@astrojs/sitemap';
 import svelte from '@astrojs/svelte';
-import vercelStatic from '@astrojs/vercel/static';
+import vercel from '@astrojs/vercel';
 import { defineConfig } from 'astro/config';
 import icon from 'astro-icon';
 import { loadEnv } from 'vite';
@@ -10,7 +10,7 @@ const env = loadEnv(nodeEnv, process.cwd(), '');
 
 /** @see {@link https://astro.build/config} */
 export default defineConfig({
-	adapter: vercelStatic({
+	adapter: vercel({
 		webAnalytics: {
 			enabled: true,
 		},

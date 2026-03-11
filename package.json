@@ -13,27 +13,27 @@
 		"preview": "astro preview"
 	},
 	"dependencies": {
-		"@astrojs/check": "0.9.6",
-		"@astrojs/sitemap": "3.7.0",
-		"@astrojs/svelte": "7.2.5",
-		"@astrojs/ts-plugin": "1.10.6",
-		"@astrojs/vercel": "9.0.4",
+		"@astrojs/check": "0.9.7",
+		"@astrojs/sitemap": "3.7.1",
+		"@astrojs/svelte": "8.0.0",
+		"@astrojs/ts-plugin": "1.10.7",
+		"@astrojs/vercel": "10.0.0",
 		"@fontsource/geist-sans": "5.2.5",
 		"@iconify-json/fa7-brands": "1.2.2",
 		"@iconify-json/fa7-solid": "1.2.4",
-		"@vercel/analytics": "1.6.1",
-		"astro": "5.17.2",
+		"@vercel/analytics": "2.0.0",
+		"astro": "6.0.2",
 		"astro-icon": "1.1.5",
 		"embla-carousel": "8.6.0",
 		"embla-carousel-autoplay": "8.6.0",
-		"resend": "6.9.2",
-		"svelte": "5.51.0",
+		"resend": "6.9.3",
+		"svelte": "5.53.10",
 		"svelte-inview": "4.0.4",
 		"typescript": "5.9.3",
 		"zod": "4.3.6"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.3.15"
+		"@biomejs/biome": "2.4.6"
 	},
 	"overrides": {
 		"path-to-regexp": "^6.3.0"
