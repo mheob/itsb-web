@@ -37,7 +37,9 @@ const timers: Record<string, ReturnType<typeof setInterval>> = {};
 
 const max = $derived(parseInt(String(value), 10));
 
-let displayValue = $state(0);
+// Start with the final value, so the server-rendered HTML shows the real number to crawlers and to visitors
+// without JavaScript. The effect below resets it to `initial` in the browser and counts up once in view.
+let displayValue = $state(parseInt(String(value), 10) || 0);
 
 $effect(() => {
 	// Clear any existing interval
@@ -46,6 +48,7 @@ $effect(() => {
 	}
 
 	if (Number.isNaN(max) || max <= initial) return;
+	if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
 	// Ensure step is large enough to avoid too-frequent intervals
 	let adjustedStep = step;

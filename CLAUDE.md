@@ -35,7 +35,7 @@ There is no test suite. CI (`.github/workflows/check.yml`, Node version from `.n
 
 ### Rendering
 
-`astro.config.ts` sets `output: 'static'` with the Vercel adapter. Everything is prerendered except `src/pages/api/contact.ts`, which opts out via `export const prerender = false` and runs as a Vercel function. `site` is built from `PUBLIC_VERCEL_PROJECT_PRODUCTION_URL` (loaded with Vite's `loadEnv`), so sitemap and absolute URLs depend on it.
+`astro.config.ts` sets `output: 'static'` with the Vercel adapter. Everything is prerendered except `src/pages/api/contact.ts`, which opts out via `export const prerender = false` and runs as a Vercel function. `site` is built from `PUBLIC_VERCEL_PROJECT_PRODUCTION_URL` (loaded with Vite's `loadEnv`), so sitemap, canonical and Open Graph URLs depend on it. `trailingSlash: 'never'` gives every page one URL: Vercel redirects `/imprint/` to `/imprint`, and internal links, the sitemap and the canonical URL in `Head.astro` all use the form without the slash.
 
 The home page is a stack of section components (`Hero`, `About`, `Services`, `Stats`, `Testimonials`, `ContactSection`, `Footer`) inside `MainLayout`. `src/pages/index.astro` and `src/pages/de/index.astro` compose the same sections separately, so adding or reordering a section means editing both.
 
@@ -52,7 +52,7 @@ English is the default locale without a URL prefix; German lives under `/de/`. K
 - **UI strings**: each component defines a local `ui = { en: {...}, de: {...} }` object and calls `useTranslations(ui, lang)` from `src/utils/i18n.ts`. Keys are type-checked via dot notation (nesting is typed up to 4 levels), missing keys fall back to `en`, then to the key itself, and `{placeholder}` interpolation is supported.
 - **List content** (services, stats, testimonials, contact details, social links): lives in `src/data/*.ts` as paired `xxxDataEN` / `xxxDataDE` exports, typed by Zod-inferred types in `src/types/`. Components choose the array by `lang`.
 - **Localized slugs**: legal pages have different slugs per locale (`/imprint` ↔ `/de/impressum`, `/privacy` ↔ `/de/datenschutz`). These mappings live in `src/utils/routes.ts`. Use `getLocalizedRoute` / `getAbsoluteLocalizedRoute` for internal links, and register any new page there. `astro:i18n` helpers like `getAbsoluteLocaleUrl` do not know about these slugs. Legal page content is written directly in each locale's page file, not in `ui` objects.
-- **Auto-redirect**: an inline script in `src/layouts/MainLayout.astro` redirects on the client to the preferred language, taken from `localStorage['preferred-language']` or else `navigator.language`. `LanguageSelector.astro` writes that key when the user switches language. The key string is repeated in both scripts (and in `src/utils/storage.ts`), so keep them in sync.
+- **Auto-redirect**: an inline script in `src/layouts/MainLayout.astro` redirects on the client. An explicit choice in `localStorage['preferred-language']`, which `LanguageSelector.astro` writes when the user switches language, sends every page to its counterpart from `getLocalizedPath`. Without a stored choice, only the English home page redirects to `/de`, and only when `navigator.language` is German. Do not add other browser-language redirects: crawlers render with an English locale and empty storage, so they would never reach the German pages. The key string is repeated in both scripts (and in `src/utils/storage.ts`), so keep them in sync.
 
 ### Contact form
 
