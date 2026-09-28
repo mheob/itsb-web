@@ -12,9 +12,12 @@ const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
 
 <script>
 	import { removeBodyClassHandler } from "@/utils/dom-handler";
-	const anchor = document.querySelector(".logo a") as HTMLAnchorElement;
-	anchor.addEventListener("click", () => {
-		removeBodyClassHandler("offcanvas");
+
+	// Runs on the initial load and after every ClientRouter navigation, which replaces the logo link.
+	document.addEventListener("astro:page-load", () => {
+		document.querySelector(".logo a")?.addEventListener("click", () => {
+			removeBodyClassHandler("offcanvas");
+		});
 	});
 </script>
 

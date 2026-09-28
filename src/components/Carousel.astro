@@ -29,11 +29,27 @@
 </style>
 
 <script>
-	import EmblaCarousel, { type EmblaOptionsType } from "embla-carousel";
+	import EmblaCarousel, {
+		type EmblaCarouselType,
+		type EmblaOptionsType,
+	} from "embla-carousel";
 	import Autoplay from "embla-carousel-autoplay";
 
-	const emblaNode = document.querySelector(".embla") as HTMLElement;
 	const options: EmblaOptionsType = { loop: true };
-	const plugins = [Autoplay({ stopOnInteraction: false })];
-	EmblaCarousel(emblaNode, options, plugins);
+	let embla: EmblaCarouselType | undefined;
+
+	// Runs on the initial load and after every ClientRouter navigation, which replaces the carousel element.
+	document.addEventListener("astro:page-load", () => {
+		const emblaNode = document.querySelector(".embla") as HTMLElement | null;
+		if (!emblaNode) return;
+		embla = EmblaCarousel(emblaNode, options, [
+			Autoplay({ stopOnInteraction: false }),
+		]);
+	});
+
+	// Stop the autoplay timer of the outgoing page before it is swapped out.
+	document.addEventListener("astro:before-swap", () => {
+		embla?.destroy();
+		embla = undefined;
+	});
 </script>

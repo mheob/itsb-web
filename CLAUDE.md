@@ -39,6 +39,11 @@ There is no test suite. CI (`.github/workflows/check.yml`, Node version from `.n
 
 The home page is a stack of section components (`Hero`, `About`, `Services`, `Stats`, `Testimonials`, `ContactSection`, `Footer`) inside `MainLayout`. `src/pages/index.astro` and `src/pages/de/index.astro` compose the same sections separately, so adding or reordering a section means editing both.
 
+`Head.astro` enables Astro's `<ClientRouter />`, so internal links swap the page content instead of reloading. Two rules follow from that:
+
+- **Component scripts:** do their DOM setup inside `document.addEventListener('astro:page-load', …)`. Bundled scripts run only once, and elements queried at module level are gone after the first swap. Register `window` listeners once at module level, and look up elements inside the handler.
+- **Section links on the home page:** must be plain `#section` anchors. The German home page is served at `/de/`, so a link to `/de#section` counts as a different path and triggers a full swap instead of scrolling. Compare paths without the trailing slash.
+
 ### Internationalization
 
 English is the default locale without a URL prefix; German lives under `/de/`. Key conventions:
