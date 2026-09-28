@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro';
+import { faqDataEN } from '@/data/faq';
 import { contactPerson } from '@/data/service-contact';
 import { serviceDataEN } from '@/data/services';
 import { socialData } from '@/data/social';
@@ -26,6 +27,10 @@ ${serviceDataEN.map((service) => `- **${service.header}:** ${service.text}`).joi
 
 ${statDataEN.map((stat) => `- ${capitalize(stat.upperTitle)} ${stat.value}${stat.suffix ?? ''} ${stat.lowerTitle}`).join('\n')}
 
+## FAQ
+
+${faqDataEN.map((faq) => `### ${faq.question}\n\n${faq.answer}`).join('\n\n')}
+
 ## Contact
 
 - Email: ${contactPerson.email}
@@ -35,7 +40,7 @@ ${statDataEN.map((stat) => `- ${capitalize(stat.upperTitle)} ${stat.value}${stat
 
 ## Pages
 
-- [Home (English)](${url(getLocalizedRoute('en', 'home'))}): introduction, services, facts, testimonials and contact form
+- [Home (English)](${url(getLocalizedRoute('en', 'home'))}): introduction, services, facts, testimonials, FAQ and contact form
 - [Startseite (Deutsch)](${url(getLocalizedRoute('de', 'home'))}): the same content in German
 - [Site notice](${url(getLocalizedRoute('en', 'imprint'))}): legal information and postal address
 - [Privacy policy](${url(getLocalizedRoute('en', 'privacy'))})

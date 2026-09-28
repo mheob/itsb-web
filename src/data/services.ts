@@ -4,22 +4,22 @@ export const serviceDataEN: Service[] = [
 	{
 		icon: 'fa7-solid:paintbrush',
 		header: 'Web Design',
-		text: 'Automated adaptation to all screen sizes of mobile receiving devices is more important than ever. This, along with the user experience in general, is the focus of each of my projects.',
+		text: 'Websites for clubs, non-profit organisations, small businesses and local trades that work on every screen, from phone to desktop. I focus on a clear structure, fast loading times and accessible design, so visitors quickly find what they are looking for and get in touch with you.',
 	},
 	{
 		icon: 'fa7-solid:chart-line',
 		header: 'Search Engine Optimization',
-		text: 'Search engine optimisation (SEO) refers to measures taken to increase the visibility of a website for search engine users. This is a very important aspect.',
+		text: 'I build every website so that search engines can read it: clean markup, fast pages, structured data and proper metadata in every language. Local businesses in particular should be found in their region, so that people searching around Neuwied find you and not only your competitors.',
 	},
 	{
 		icon: 'fa7-solid:laptop-code',
 		header: 'Web Development',
-		text: 'Developing new things is a major driving force for me. Special solutions for the web, especially in the style of progressive web apps (PWA), are now considered good form in terms of presentation and interaction.',
+		text: 'From a simple website to an interactive web application or progressive web app (PWA), I develop with modern technologies such as Astro, Svelte and TypeScript. Agencies and teams can also book me as a freelance developer for their own projects.',
 	},
 	{
 		icon: 'fa7-solid:life-ring',
 		header: 'Help & Support',
-		text: "Once the project is complete, I won't leave you on your own. I am happy to assist with any questions or problems you may have. When using my hosting partner, I take care of updates, security patches and similar issues.",
+		text: 'After the launch I stay your contact person. I update content, add new features, keep the website technically up to date and help with questions or problems. You decide whether you want to maintain content yourself or leave it to me.',
 	},
 ];
 
@@ -27,21 +27,21 @@ export const serviceDataDE: Service[] = [
 	{
 		icon: 'fa7-solid:paintbrush',
 		header: 'Web Design',
-		text: 'Die automatisierte Anpassung an alle Bildschirmgrößen der mobilen Empfangsgeräte ist wichtig denn je. Darauf und auf die Benutzerfahrung im allgemeinen liegt bei jedem meiner Projekte der Fokus.',
+		text: 'Webseiten für Vereine, gemeinnützige Organisationen, kleine Unternehmen und Handwerksbetriebe, die auf jedem Bildschirm funktionieren, vom Smartphone bis zum Desktop. Mein Fokus liegt auf einer klaren Struktur, kurzen Ladezeiten und barrierearmem Design, damit Besucher schnell finden, was sie suchen, und sich bei Dir melden.',
 	},
 	{
 		icon: 'fa7-solid:chart-line',
 		header: 'Search Engine Optimization',
-		text: 'Suchmaschinenoptimierung (SEO) bezeichnet die Maßnahmen, die dazu dienen, die Sichtbarkeit einer Website für Benutzer einer Suchmaschine zu erhöhen. Dies ist ein sehr wichtiger Aspekt.',
+		text: 'Ich baue jede Website so, dass Suchmaschinen sie gut lesen können: sauberes Markup, schnelle Seiten, strukturierte Daten und passende Metadaten in jeder Sprache. Gerade lokale Betriebe sollen in ihrer Region gefunden werden, damit Menschen, die rund um Neuwied suchen, Dich finden und nicht nur die Konkurrenz.',
 	},
 	{
 		icon: 'fa7-solid:laptop-code',
 		header: 'Web Development',
-		text: 'Die Entwicklung von Neuem ist für mich ein großer Antreiber. Sonderlösungen für das Web, gerade im Stile von Progressive Web Apps (PWA), gehören heute zum guten Ton in der Darstellung und Interaktion.',
+		text: 'Von der einfachen Website bis zur interaktiven Webapplikation oder Progressive Web App (PWA) entwickle ich mit modernen Technologien wie Astro, Svelte und TypeScript. Auch Agenturen und Teams können mich als freiberuflichen Entwickler für ihre eigenen Projekte buchen.',
 	},
 	{
 		icon: 'fa7-solid:life-ring',
 		header: 'Help & Support',
-		text: 'Nach Projektabschluss lasse ich Dich nicht alleine. Bei Fragen und Problemen stehe ich gerne zur Seite. Bei der Nutzung über meinen Hostingpartner übernehme ich Updates, Sicherheitspatches und ähnliches.',
+		text: 'Nach dem Livegang bleibe ich Dein Ansprechpartner. Ich pflege Inhalte ein, ergänze neue Funktionen, halte die Website technisch aktuell und helfe bei Fragen oder Problemen. Du entscheidest, ob Du Inhalte selbst pflegen oder mir überlassen möchtest.',
 	},
 ];
