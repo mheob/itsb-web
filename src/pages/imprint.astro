@@ -7,7 +7,10 @@ import MainLayout from '@/layouts/MainLayout.astro';
 const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
 ---
 
-<MainLayout>
+<MainLayout
+	title="Site Notice – Alexander Böhm"
+	description="Site notice and contact details of Alexander Böhm, full-stack developer in Neuwied, Germany."
+>
 	<Aside />
 	<main id="main">
 		<section class="main-section content-page">

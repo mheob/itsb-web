@@ -8,11 +8,9 @@ import Services from '@/components/Services.astro';
 import Stats from '@/components/Stats.astro';
 import Testimonials from '@/components/Testimonials.astro';
 import MainLayout from '@/layouts/MainLayout.astro';
-
-const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
 ---
 
-<MainLayout lang={lang}>
+<MainLayout>
 	<Aside />
 	<main id="main">
 		<Hero />
