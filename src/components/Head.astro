@@ -1,16 +1,27 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 import { useTranslations } from '@/utils/i18n';
+import { getLocalizedPath } from '@/utils/routes';
+import StructuredData from './StructuredData.astro';
+
+interface Props {
+	/** Page title; defaults to the home page title. */
+	title?: string;
+	/** Meta description; defaults to the home page description. */
+	description?: string;
+	/** Keeps the page out of search results and omits canonical and hreflang links (e.g. the 404 page). */
+	noindex?: boolean;
+}
 
 const ui = {
 	en: {
-		title: 'Alexander Böhm >> Your partner for all things web from Neuwied',
+		title: 'Alexander Böhm – Web Design, Development & SEO in Neuwied',
 		description:
 			'Alexander Böhm from Neuwied presents himself and his work around web design, SEO and web development.',
 		imageAlt: 'Alexander Böhm with a laptop in his hands.',
 	},
 	de: {
-		title: 'Alexander Böhm >> Dein Partner rund ums Web aus Neuwied',
+		title: 'Alexander Böhm – Webdesign, Webentwicklung & SEO in Neuwied',
 		description:
 			'Alexander Böhm aus Neuwied stellt sich und seine Arbeit rund um Web Design, SEO und Web Development vor.',
 		imageAlt: 'Alexander Böhm mit einem Laptop in den Händen.',
@@ -21,28 +32,47 @@ const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
 
 const t = useTranslations(ui, lang);
 
+const { title = t('title'), description = t('description'), noindex = false } = Astro.props;
+
 // Every page has exactly one URL: no trailing slash (see `trailingSlash` in astro.config.ts), on the production domain.
-const canonicalUrl = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', Astro.site).href;
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const canonicalUrl = new URL(path, Astro.site).href;
+const alternateUrls = {
+	en: new URL(getLocalizedPath(path, 'en'), Astro.site).href,
+	de: new URL(getLocalizedPath(path, 'de'), Astro.site).href,
+};
+const isHomePage = path === '/' || path === '/de';
 const imageUrl = new URL('/itsb-boehm-alexander-og.jpg', Astro.site).href;
 const locales = { en: 'en_US', de: 'de_DE' };
 ---
 
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="sitemap" href="/sitemap-index.xml" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<title>{t("title")}</title>
-<meta name="description" content={t("description")} />
-<link rel="canonical" href={canonicalUrl} />
+<title>{title}</title>
+<meta name="description" content={description} />
+{
+	noindex ? (
+		<meta name="robots" content="noindex" />
+	) : (
+		<>
+			<link rel="canonical" href={canonicalUrl} />
+			<link rel="alternate" hreflang="en" href={alternateUrls.en} />
+			<link rel="alternate" hreflang="de" href={alternateUrls.de} />
+			<link rel="alternate" hreflang="x-default" href={alternateUrls.en} />
+		</>
+	)
+}
 
 <!-- Open Graph tags -->
-<meta property="og:title" content={t("title")} />
+<meta property="og:title" content={title} />
 <meta property="og:type" content="website" />
 <meta property="og:url" content={canonicalUrl} />
 <meta property="og:site_name" content="Alexander Böhm" />
 <meta property="og:locale" content={locales[lang]} />
 <meta property="og:locale:alternate" content={locales[lang === "de" ? "en" : "de"]} />
-<meta property="og:description" content={t("description")} />
+<meta property="og:description" content={description} />
 <meta property="og:image" content={imageUrl} />
 <meta property="og:image:type" content="image/jpeg" />
 <meta property="og:image:width" content="1200" />
@@ -51,10 +81,12 @@ const locales = { en: 'en_US', de: 'de_DE' };
 
 <!-- Twitter tags -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content={t("title")} />
-<meta name="twitter:description" content={t("description")} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={imageUrl} />
 <meta name="twitter:site" content="@mheob_a" />
 <meta name="twitter:creator" content="@mheob_a" />
+
+{isHomePage && <StructuredData imageUrl={imageUrl} />}
 
 <ClientRouter />

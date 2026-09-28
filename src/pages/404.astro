@@ -22,7 +22,7 @@ const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
 const t = useTranslations(ui, lang);
 ---
 
-<MainLayout>
+<MainLayout title={`${t('title')} – Alexander Böhm`} description={t('description')} noindex>
 	<Aside />
 	<main id="main">
 		<section class="main-section error-page">

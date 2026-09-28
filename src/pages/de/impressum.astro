@@ -7,7 +7,10 @@ import MainLayout from '@/layouts/MainLayout.astro';
 const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
 ---
 
-<MainLayout>
+<MainLayout
+	title="Impressum – Alexander Böhm"
+	description="Impressum und Kontaktdaten von Alexander Böhm, Full-Stack-Developer in Neuwied."
+>
 	<Aside />
 	<main id="main">
 		<section class="main-section content-page">

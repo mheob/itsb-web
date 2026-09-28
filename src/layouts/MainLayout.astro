@@ -3,6 +3,7 @@ import '@fontsource/geist-sans/400.css';
 import '@fontsource/geist-sans/700.css';
 
 import Analytics from '@vercel/analytics/astro';
+import type { ComponentProps } from 'astro/types';
 import Head from '@/components/Head.astro';
 import NavigationToggle from '@/components/NavigationToggle.astro';
 import ScrollTopButton from '@/components/ScrollTopButton.astro';
@@ -10,13 +11,15 @@ import ScrollTopButton from '@/components/ScrollTopButton.astro';
 import '@/styles/global.css';
 import { getLocalizedPath } from '@/utils/routes';
 
+type Props = ComponentProps<typeof Head>;
+
 const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
 const alternatePath = getLocalizedPath(Astro.url.pathname, lang === 'de' ? 'en' : 'de');
 ---
 
 <html lang={lang}>
 	<head>
-		<Head />
+		<Head {...Astro.props} />
 		<script is:inline define:vars={{ currentLang: lang, alternatePath }}>
 			const STORAGE_KEY = "preferred-language";
 

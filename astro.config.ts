@@ -29,9 +29,10 @@ export default defineConfig({
 		sitemap({
 			i18n: {
 				defaultLocale: 'en',
+				// Same hreflang codes as the alternate links in Head.astro.
 				locales: {
-					de: 'de-DE',
-					en: 'en-US',
+					de: 'de',
+					en: 'en',
 				},
 			},
 		}),

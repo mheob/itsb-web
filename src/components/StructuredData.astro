@@ -1,0 +1,97 @@
+---
+import { contactPerson } from '@/data/service-contact';
+import { serviceDataDE, serviceDataEN } from '@/data/services';
+import { socialData } from '@/data/social';
+import { useTranslations } from '@/utils/i18n';
+import { getLocalizedRoute } from '@/utils/routes';
+
+interface Props {
+	/** Absolute URL of the image shown for the person and the business. */
+	imageUrl: string;
+}
+
+const ui = {
+	en: {
+		jobTitle: 'Full-stack developer',
+		catalog: 'Web services',
+	},
+	de: {
+		jobTitle: 'Full-Stack-Entwickler',
+		catalog: 'Webdienstleistungen',
+	},
+};
+
+const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
+const t = useTranslations(ui, lang);
+const { imageUrl } = Astro.props;
+
+const services = lang === 'en' ? serviceDataEN : serviceDataDE;
+const siteUrl = new URL('/', Astro.site).href;
+const personId = `${siteUrl}#person`;
+const businessId = `${siteUrl}#business`;
+const email = `mailto:${contactPerson.email}`;
+const telephone = contactPerson.phone.replaceAll(' ', '');
+
+// Same address as in the imprint (src/pages/imprint.astro, src/pages/de/impressum.astro).
+const address = {
+	'@type': 'PostalAddress',
+	streetAddress: 'Theodor-Heuss-Str. 1',
+	postalCode: '56564',
+	addressLocality: 'Neuwied',
+	addressRegion: 'Rheinland-Pfalz',
+	addressCountry: 'DE',
+};
+
+const structuredData = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'WebSite',
+			'@id': `${siteUrl}#website`,
+			url: siteUrl,
+			name: contactPerson.name,
+			inLanguage: ['en', 'de'],
+			publisher: { '@id': businessId },
+		},
+		{
+			'@type': 'Person',
+			'@id': personId,
+			name: contactPerson.name,
+			jobTitle: t('jobTitle'),
+			image: imageUrl,
+			url: siteUrl,
+			email,
+			telephone,
+			address,
+			worksFor: { '@id': businessId },
+			knowsAbout: services.map((service) => service.header),
+			sameAs: socialData.map((social) => social.href),
+		},
+		{
+			'@type': 'ProfessionalService',
+			'@id': businessId,
+			name: 'IT Service Böhm',
+			url: new URL(getLocalizedRoute(lang, 'home'), Astro.site).href,
+			image: imageUrl,
+			email,
+			telephone,
+			address,
+			founder: { '@id': personId },
+			areaServed: [
+				{ '@type': 'City', name: 'Neuwied' },
+				{ '@type': 'Country', name: 'Germany' },
+			],
+			hasOfferCatalog: {
+				'@type': 'OfferCatalog',
+				name: t('catalog'),
+				itemListElement: services.map((service) => ({
+					'@type': 'Offer',
+					itemOffered: { '@type': 'Service', name: service.header, description: service.text },
+				})),
+			},
+		},
+	],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />

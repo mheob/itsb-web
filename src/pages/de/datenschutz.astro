@@ -7,7 +7,10 @@ import MainLayout from '@/layouts/MainLayout.astro';
 const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
 ---
 
-<MainLayout>
+<MainLayout
+	title="Datenschutzerklärung – Alexander Böhm"
+	description="Wie diese Website personenbezogene Daten beim Besuch und bei Nutzung des Kontaktformulars verarbeitet und welche Rechte nach der DSGVO bestehen."
+>
 	<Aside />
 	<main id="main">
 		<section class="main-section content-page">
