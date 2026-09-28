@@ -11,13 +11,14 @@ Single-page portfolio/business website for Alexander Böhm (ITS Böhm), bilingua
 ```bash
 pnpm dev      # Dev server on localhost:4321
 pnpm check    # astro check (type checking only)
+pnpm cve      # cve-lite: scan pnpm-lock.yaml against OSV, fails on high/critical, audits overrides
 pnpm lint     # biome lint --write (applies fixes)
 pnpm format   # biome format --write
 pnpm build    # astro check + astro build (output in dist/)
 pnpm preview  # Serve the production build locally
 ```
 
-There is no test suite. CI (`.github/workflows/check.yml`, Node version from `.nvmrc`) runs `check`, `lint` and `build` on every push and PR. Run the same three locally before committing.
+There is no test suite. CI (`.github/workflows/check.yml`, Node version from `.nvmrc`) runs `cve`, `check`, `lint` and `build` on every push and PR. Run the same locally before committing. `cve-lite` only reports advisories known to OSV and the npm registry; Snyk's PR check uses its own database and can report more.
 
 ### Dependencies
 

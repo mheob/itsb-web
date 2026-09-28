@@ -101,7 +101,7 @@ Use descriptive commit messages with conventional prefixes:
 
 1. Create a feature branch from `main`
 2. Make your changes
-3. Run `pnpm check` and `pnpm build` to verify
+3. Run `pnpm cve`, `pnpm check` and `pnpm build` to verify
 4. Submit a pull request
 
 Pull requests are automatically reviewed by Claude Code.
