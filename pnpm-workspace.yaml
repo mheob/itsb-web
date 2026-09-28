@@ -4,3 +4,12 @@ allowBuilds:
 
 overrides:
   path-to-regexp: ^6.3.0
+  # Optional dependency that routing-utils never loads at runtime; pulls in the unmaintained uri-js.
+  '@vercel/routing-utils>ajv': '-'
+
+packageExtensions:
+  # @vercel/analytics lists nuxt as a peer without marking it optional, so it gets auto-installed.
+  '@vercel/analytics':
+    peerDependenciesMeta:
+      nuxt:
+        optional: true
