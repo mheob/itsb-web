@@ -13,7 +13,9 @@ Create a Pull Request based on all commits in the current branch that differ fro
    1. Set the target branch to `main`
    2. Write a clear, descriptive title following conventional commit style, max 50 characters inclusive type and scope
    3. Include sections: **Summary**, **Changes**, **Motivation**, **Testing**, **Breaking Changes**
+   4. Add one `Closes #<number>` line per issue the PR fixes. Kodiak squash-merges with the PR title and body as the commit message, so closing keywords that appear only in commit messages are lost, and plain references like `(#123)` close nothing
 4. If the `gitbutler` command fails, try `gh`
+5. After the merge, check that the referenced issues were closed
 
 Do not mention a co-author or generator.
 
