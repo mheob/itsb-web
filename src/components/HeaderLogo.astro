@@ -4,11 +4,11 @@ import { getLocalizedRoute } from '@/utils/routes';
 const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
 ---
 
-<h1 class="logo">
+<div class="logo">
 	<a href={getLocalizedRoute(lang, "home")} aria-label="Logo Alexander Böhm"
 		>ITSB</a
 	>
-</h1>
+</div>
 
 <script>
 	import { removeBodyClassHandler } from "@/utils/dom-handler";
@@ -25,7 +25,9 @@ const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
 	.logo {
 		display: block;
 		width: 100%;
+		margin-bottom: 2rem;
 		font-size: 3rem;
+		line-height: 1.4;
 		text-transform: uppercase;
 
 		a {

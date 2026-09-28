@@ -5,6 +5,7 @@ const ui = {
 	en: {
 		contact: "Let's talk",
 		heading: 'Alexander Böhm',
+		tagline: 'Web design, development & SEO from Neuwied',
 		subheading: {
 			'1': 'Need a new website?',
 			'2': "Your old website isn't up to date anymore?",
@@ -15,6 +16,7 @@ const ui = {
 	de: {
 		contact: "Lass' uns reden",
 		heading: 'Alexander Böhm',
+		tagline: 'Webdesign, Webentwicklung & SEO aus Neuwied',
 		subheading: {
 			'1': 'Neuer Webauftritt benötigt?',
 			'2': 'Alter Webauftritt ist nicht mehr zeitgemäß?',
@@ -34,7 +36,10 @@ const t = useTranslations(ui, lang);
 	<div class="content">
 		<div class="overlay"></div>
 		<header>
-			<h1>{t("heading")}</h1>
+			<h1>
+				{t("heading")}
+				<span class="tagline">{t("tagline")}</span>
+			</h1>
 			<h2>
 				<div>{t("subheading.1")}</div>
 				<div>{t("subheading.2")}</div>
@@ -113,7 +118,7 @@ const t = useTranslations(ui, lang);
 			header {
 				position: relative;
 				z-index: 9;
-				margin-top: 12rem;
+				margin-top: 9rem;
 				padding: 5rem;
 
 				@media (min-width: 500px) {
@@ -137,6 +142,20 @@ const t = useTranslations(ui, lang);
 
 					@media (min-width: 900px) {
 						font-size: 4rem;
+					}
+
+					.tagline {
+						display: block;
+						margin-top: 0.5rem;
+						color: var(--primary);
+						font-weight: 500;
+						font-size: 1rem;
+						letter-spacing: 0.05em;
+						text-transform: uppercase;
+
+						@media (min-width: 900px) {
+							font-size: 1.25rem;
+						}
 					}
 				}
 
