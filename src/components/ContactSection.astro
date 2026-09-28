@@ -1,7 +1,7 @@
 ---
-import { getAbsoluteLocaleUrl } from 'astro:i18n';
 import { contactDataDE, contactDataEN } from '@/data/contact';
 import { useTranslations } from '@/utils/i18n';
+import { getAbsoluteLocalizedRoute } from '@/utils/routes';
 import ContactDetails from './ContactDetails.astro';
 import ContactForm from './ContactForm.svelte';
 import SectionHeader from './SectionHeader.astro';
@@ -52,7 +52,7 @@ const contactData = lang === 'en' ? contactDataEN : contactDataDE;
 		}
 	</section>
 
-	<ContactForm lang={lang} privacyUrl={getAbsoluteLocaleUrl(lang, 'privacy')} client:load />
+	<ContactForm lang={lang} privacyUrl={getAbsoluteLocalizedRoute(lang, 'privacy')} client:load />
 </section>
 
 <style>
