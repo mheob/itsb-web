@@ -8,33 +8,35 @@ import NavigationToggle from '@/components/NavigationToggle.astro';
 import ScrollTopButton from '@/components/ScrollTopButton.astro';
 
 import '@/styles/global.css';
+import { getLocalizedPath } from '@/utils/routes';
 
 const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
+const alternatePath = getLocalizedPath(Astro.url.pathname, lang === 'de' ? 'en' : 'de');
 ---
 
 <html lang={lang}>
 	<head>
 		<Head />
-		<script is:inline>
-			(function () {
-				const STORAGE_KEY = "preferred-language";
-				const currentLang = window.location.pathname.split("/")[1] === "de" ? "de" : "en";
+		<script is:inline define:vars={{ currentLang: lang, alternatePath }}>
+			const STORAGE_KEY = "preferred-language";
 
-				let preferredLang = localStorage.getItem(STORAGE_KEY);
-				if (!preferredLang) {
-					const browserLang = navigator.language?.split("-")[0] || "en";
-					preferredLang = browserLang === "de" ? "de" : "en";
-					localStorage.setItem(STORAGE_KEY, preferredLang);
-				}
+			let storedLang = null;
+			try {
+				storedLang = localStorage.getItem(STORAGE_KEY);
+			} catch {
+				// Storage can be blocked; fall through to the browser language.
+			}
 
-				if (preferredLang !== currentLang) {
-					const newPath =
-						preferredLang === "de"
-							? "/de" + window.location.pathname
-							: window.location.pathname.replace(/^\/de/, "") || "/";
-					window.location.replace(newPath + window.location.hash);
-				}
-			})();
+			// An explicit choice from the language selector always wins. Without one, only the English home page
+			// redirects, and only for browsers that prefer German. Crawlers render with an English locale and empty
+			// storage, so a browser-language redirect on any other page would hide the German pages from them.
+			const shouldRedirect = storedLang
+				? storedLang !== currentLang
+				: window.location.pathname === "/" && navigator.language?.split("-")[0] === "de";
+
+			if (shouldRedirect) {
+				window.location.replace(alternatePath + window.location.hash);
+			}
 		</script>
 	</head>
 	<body>
