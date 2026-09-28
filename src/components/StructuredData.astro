@@ -1,4 +1,5 @@
 ---
+import { faqDataDE, faqDataEN } from '@/data/faq';
 import { contactPerson } from '@/data/service-contact';
 import { serviceDataDE, serviceDataEN } from '@/data/services';
 import { socialData } from '@/data/social';
@@ -26,6 +27,8 @@ const t = useTranslations(ui, lang);
 const { imageUrl } = Astro.props;
 
 const services = lang === 'en' ? serviceDataEN : serviceDataDE;
+const faqs = lang === 'en' ? faqDataEN : faqDataDE;
+const homeUrl = new URL(getLocalizedRoute(lang, 'home'), Astro.site).href;
 const siteUrl = new URL('/', Astro.site).href;
 const personId = `${siteUrl}#person`;
 const businessId = `${siteUrl}#business`;
@@ -71,7 +74,7 @@ const structuredData = {
 			'@type': 'ProfessionalService',
 			'@id': businessId,
 			name: 'IT Service Böhm',
-			url: new URL(getLocalizedRoute(lang, 'home'), Astro.site).href,
+			url: homeUrl,
 			image: imageUrl,
 			email,
 			telephone,
@@ -89,6 +92,17 @@ const structuredData = {
 					itemOffered: { '@type': 'Service', name: service.header, description: service.text },
 				})),
 			},
+		},
+		{
+			'@type': 'FAQPage',
+			'@id': `${homeUrl}#faq`,
+			url: homeUrl,
+			inLanguage: lang,
+			mainEntity: faqs.map(({ question, answer }) => ({
+				'@type': 'Question',
+				name: question,
+				acceptedAnswer: { '@type': 'Answer', text: answer },
+			})),
 		},
 	],
 };

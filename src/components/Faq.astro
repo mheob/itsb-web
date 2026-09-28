@@ -1,0 +1,112 @@
+---
+import { faqDataDE, faqDataEN } from '@/data/faq';
+import { useTranslations } from '@/utils/i18n';
+import SectionHeader from './SectionHeader.astro';
+
+const ui = {
+	en: {
+		SectionHeader: {
+			mainText: 'Frequently asked questions',
+			smallText: 'Before we get started',
+			bgText: 'FAQ',
+		},
+	},
+	de: {
+		SectionHeader: {
+			mainText: 'Häufige Fragen',
+			smallText: 'Bevor wir starten',
+			bgText: 'FAQ',
+		},
+	},
+};
+
+const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
+
+const t = useTranslations(ui, lang);
+
+const faqData = lang === 'en' ? faqDataEN : faqDataDE;
+---
+
+<section class="faq main-section" id="faq">
+	<SectionHeader
+		mainText={t("SectionHeader.mainText")}
+		smallText={t("SectionHeader.smallText")}
+		bgText={t("SectionHeader.bgText")}
+	/>
+
+	<div class="content">
+		{
+			faqData.map(({ question, answer }) => (
+				<details>
+					<summary>
+						<h3>{question}</h3>
+					</summary>
+					<p>{answer}</p>
+				</details>
+			))
+		}
+	</div>
+</section>
+
+<style>
+	.faq {
+		background: var(--background-dark);
+
+		.content {
+			display: grid;
+			gap: 1rem;
+			width: 100%;
+			max-width: 60rem;
+			margin-inline: auto;
+		}
+
+		details {
+			border: 1px solid color-mix(in srgb, var(--primary) 10%, transparent);
+			border-radius: 3px;
+			transition: border-color var(--transition-duration-slow) ease-out;
+
+			&:hover,
+			&[open] {
+				border-color: var(--primary);
+			}
+		}
+
+		summary {
+			display: flex;
+			gap: 1rem;
+			align-items: center;
+			justify-content: space-between;
+			padding: 1.25rem 1.5rem;
+			cursor: pointer;
+			list-style: none;
+
+			&::-webkit-details-marker {
+				display: none;
+			}
+
+			&::after {
+				flex-shrink: 0;
+				color: var(--primary);
+				font-size: 1.5rem;
+				line-height: 1;
+				content: "+";
+			}
+
+			h3 {
+				margin: 0;
+				font-weight: 500;
+				font-size: 1.125rem;
+			}
+		}
+
+		details[open] summary::after {
+			content: "−";
+		}
+
+		p {
+			margin: 0;
+			padding: 0 1.5rem 1.25rem;
+			color: color-mix(in srgb, var(--white) 70%, transparent);
+		}
+	}
+</style>

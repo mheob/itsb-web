@@ -11,6 +11,7 @@ const ui = {
 		services: 'Services',
 		stats: 'Stats',
 		testimonials: 'Testimonials',
+		faq: 'FAQ',
 		contact: 'Contact',
 		imprint: 'Imprint',
 		privacy: 'Privacy',
@@ -21,6 +22,7 @@ const ui = {
 		services: 'Dienstleistungen',
 		stats: 'Statistiken',
 		testimonials: 'Meinungen',
+		faq: 'FAQ',
 		contact: 'Kontakt',
 		imprint: 'Impressum',
 		privacy: 'Datenschutz',
@@ -49,6 +51,7 @@ const isPrivacyPage = lang !== 'de' ? currentPath.includes('/privacy') : current
 		<li><a href={`${sectionBase}#services`}>{t("services")}</a></li>
 		<li><a href={`${sectionBase}#stats`}>{t("stats")}</a></li>
 		<li><a href={`${sectionBase}#testimonials`}>{t("testimonials")}</a></li>
+		<li><a href={`${sectionBase}#faq`}>{t("faq")}</a></li>
 		<li><a href={`${sectionBase}#contact-section`}>{t("contact")}</a></li>
 		<li><hr /></li>
 		<li>
@@ -73,6 +76,7 @@ const isPrivacyPage = lang !== 'de' ? currentPath.includes('/privacy') : current
 		"services",
 		"stats",
 		"testimonials",
+		"faq",
 		"contact-section",
 	];
 
