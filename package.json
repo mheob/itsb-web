@@ -13,30 +13,30 @@
 		"preview": "astro preview"
 	},
 	"dependencies": {
-		"@astrojs/check": "0.9.7",
-		"@astrojs/sitemap": "3.7.1",
-		"@astrojs/svelte": "8.0.0",
-		"@astrojs/ts-plugin": "1.10.7",
-		"@astrojs/vercel": "10.0.0",
-		"@fontsource/geist-sans": "5.2.5",
-		"@iconify-json/fa7-brands": "1.2.2",
-		"@iconify-json/fa7-solid": "1.2.4",
-		"@vercel/analytics": "2.0.0",
-		"astro": "6.0.3",
-		"astro-icon": "1.1.5",
-		"embla-carousel": "8.6.0",
-		"embla-carousel-autoplay": "8.6.0",
-		"nanoid": "3.3.19",
-		"resend": "6.9.3",
-		"sharp": "0.35.4",
-		"svelte": "5.53.10",
-		"svelte-inview": "4.0.4",
-		"typescript": "5.9.3",
-		"vite": "7.3.6",
-		"zod": "4.3.6"
+		"@astrojs/check": "^0.9.10",
+		"@astrojs/sitemap": "^3.7.4",
+		"@astrojs/svelte": "^9.0.1",
+		"@astrojs/ts-plugin": "^1.10.12",
+		"@astrojs/vercel": "^11.0.11",
+		"@fontsource/geist-sans": "^5.3.0",
+		"@iconify-json/fa7-brands": "^1.2.4",
+		"@iconify-json/fa7-solid": "^1.2.5",
+		"@vercel/analytics": "^2.0.1",
+		"astro": "^7.3.5",
+		"astro-icon": "^1.2.0",
+		"embla-carousel": "^8.6.0",
+		"embla-carousel-autoplay": "^8.6.0",
+		"nanoid": "^6.0.1",
+		"resend": "^6.30.0",
+		"sharp": "^0.35.4",
+		"svelte": "^5.57.1",
+		"svelte-inview": "^4.0.4",
+		"typescript": "^6.0.3",
+		"vite": "^8.3.1",
+		"zod": "^4.6.5"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.4.6"
+		"@biomejs/biome": "^2.5.14"
 	},
 	"packageManager": "pnpm@12.6.0"
 }

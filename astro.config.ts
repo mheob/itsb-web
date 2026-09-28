@@ -16,6 +16,8 @@ export default defineConfig({
 		},
 	}),
 	base: '/',
+	// Astro 7 defaults to 'jsx', which drops whitespace between inline elements the templates rely on.
+	compressHTML: true,
 	i18n: {
 		defaultLocale: 'en',
 		locales: ['de', 'en'],
