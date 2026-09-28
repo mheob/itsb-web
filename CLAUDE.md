@@ -20,6 +20,8 @@ pnpm preview  # Serve the production build locally
 
 There is no test suite. CI (`.github/workflows/check.yml`, Node version from `.nvmrc`) runs `cve`, `check`, `lint` and `build` on every push and PR. Run the same locally before committing. `cve-lite` only reports advisories known to OSV and the npm registry; Snyk's PR check uses its own database and can report more.
 
+`pnpm cve` also runs as a `pre-push` hook through lefthook (`lefthook.yml`). `pnpm install` installs the hook, because lefthook's postinstall is approved in `allowBuilds`. lefthook only writes the hooks listed in `lefthook.yml` to `.git/hooks`, where GitButler keeps its own `pre-commit` and `post-checkout` hooks. Do not add `pre-commit` to lefthook, and do not switch to a tool that sets `core.hooksPath` (e.g. husky), since either would disable GitButler's hooks. `but push` and `but pr new` run the hook. Skip it with `--no-hooks` or `LEFTHOOK=0`.
+
 ### Dependencies
 
 - The pnpm version is pinned in `package.json` (`packageManager`). Vercel natively supports pnpm only up to v10. The Vercel project therefore sets `ENABLE_EXPERIMENTAL_COREPACK=1` (production and preview) to install exactly this version. `vercel.json` also pins the install and build commands to pnpm, because Vercel cannot parse pnpm 11+ lockfiles, which contain two YAML documents, and would otherwise fall back to `bun install`. pnpm-specific settings go in `pnpm-workspace.yaml`, since pnpm 11+ ignores the `pnpm` field in `package.json` and non-auth settings in `.npmrc`.

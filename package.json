@@ -38,7 +38,8 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.5.14",
-		"cve-lite-cli": "^1.37.0"
+		"cve-lite-cli": "^1.37.0",
+		"lefthook": "^2.1.14"
 	},
 	"packageManager": "pnpm@12.6.0"
 }

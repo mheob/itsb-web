@@ -10,6 +10,8 @@ Guidelines for contributing to this project.
    pnpm install
    ```
 
+   This also installs a `pre-push` Git hook (via [lefthook](https://lefthook.dev)) that runs `pnpm cve` before every push.
+
 2. Start the development server:
 
    ```bash

@@ -1,0 +1,6 @@
+# https://lefthook.dev/configuration/
+# Only pre-push is configured: pre-commit and post-checkout are managed by GitButler.
+pre-push:
+  jobs:
+    - name: cve
+      run: pnpm run cve
