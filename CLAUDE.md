@@ -21,7 +21,7 @@ There is no test suite. CI (`.github/workflows/check.yml`, Node version from `.n
 
 ### Dependencies
 
-- The pnpm version is pinned in `package.json` (`packageManager`). Vercel natively supports pnpm only up to v10, so the Vercel project sets `ENABLE_EXPERIMENTAL_COREPACK=1` (production and preview) to install exactly this version. pnpm-specific settings go in `pnpm-workspace.yaml`, since pnpm 11+ ignores the `pnpm` field in `package.json` and non-auth settings in `.npmrc`.
+- The pnpm version is pinned in `package.json` (`packageManager`). Vercel natively supports pnpm only up to v10. The Vercel project therefore sets `ENABLE_EXPERIMENTAL_COREPACK=1` (production and preview) to install exactly this version. `vercel.json` also pins the install and build commands to pnpm, because Vercel cannot parse pnpm 11+ lockfiles, which contain two YAML documents, and would otherwise fall back to `bun install`. pnpm-specific settings go in `pnpm-workspace.yaml`, since pnpm 11+ ignores the `pnpm` field in `package.json` and non-auth settings in `.npmrc`.
 - pnpm does not hoist transitive packages, so every package imported from `src/` or `astro.config.ts` must be declared in `package.json`. Examples are `vite` (for `loadEnv`), `nanoid` and `sharp`, which Astro's image service needs. Keep `vite` on the version Astro itself resolves.
 - Dependency build scripts are blocked unless approved under `allowBuilds` in `pnpm-workspace.yaml`. An unapproved build script fails the install with `ERR_PNPM_IGNORED_BUILDS`.
 - Dependencies are pinned to exact versions (`pnpm add --save-exact`). Renovate updates them.
