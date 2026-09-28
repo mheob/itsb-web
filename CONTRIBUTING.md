@@ -7,19 +7,19 @@ Guidelines for contributing to this project.
 1. Install dependencies:
 
    ```bash
-   bun install
+   pnpm install
    ```
 
 2. Start the development server:
 
    ```bash
-   bun dev
+   pnpm dev
    ```
 
 3. Run type checking:
 
    ```bash
-   bun check
+   pnpm check
    ```
 
 ## Code Style
@@ -31,7 +31,7 @@ This project uses [Biome](https://biomejs.dev) for linting and formatting.
 - **Line width**: 120 characters
 - **Semicolons**: Required
 
-Run `bun check` before committing to catch type errors.
+Run `pnpm check` before committing to catch type errors.
 
 ## Project Conventions
 
@@ -101,7 +101,7 @@ Use descriptive commit messages with conventional prefixes:
 
 1. Create a feature branch from `main`
 2. Make your changes
-3. Run `bun check` and `bun build` to verify
+3. Run `pnpm check` and `pnpm build` to verify
 4. Submit a pull request
 
 Pull requests are automatically reviewed by Claude Code.
@@ -113,5 +113,5 @@ The site deploys automatically to Vercel when changes are merged to `main`.
 To preview a production build locally:
 
 ```bash
-bun build && bun preview
+pnpm build && pnpm preview
 ```

@@ -7,7 +7,7 @@ Portfolio and business website for Alexander Böhm, built with Astro, TypeScript
 - **[Astro](https://astro.build)** - Static site generator
 - **[Svelte](https://svelte.dev)** - Interactive components
 - **[TypeScript](https://www.typescriptlang.org)** - Type safety
-- **[Bun](https://bun.sh)** - Package manager and runtime
+- **[pnpm](https://pnpm.io)** - Package manager
 - **[Biome](https://biomejs.dev)** - Linting and formatting
 - **[Vercel](https://vercel.com)** - Deployment platform
 
@@ -15,18 +15,19 @@ Portfolio and business website for Alexander Böhm, built with Astro, TypeScript
 
 ### Prerequisites
 
-- [Bun](https://bun.sh) 1.x or later
+- [Node.js](https://nodejs.org) 24 (see `.nvmrc`)
+- [pnpm](https://pnpm.io) 12 (the exact version is pinned in `package.json` under `packageManager`)
 
 ### Installation
 
 ```bash
-bun install
+pnpm install
 ```
 
 ### Development
 
 ```bash
-bun dev
+pnpm dev
 ```
 
 Opens the development server at [localhost:4321](http://localhost:4321).
@@ -34,7 +35,7 @@ Opens the development server at [localhost:4321](http://localhost:4321).
 ### Build
 
 ```bash
-bun build
+pnpm build
 ```
 
 Runs type checking and builds the production site to `./dist/`.
@@ -42,7 +43,7 @@ Runs type checking and builds the production site to `./dist/`.
 ### Preview
 
 ```bash
-bun preview
+pnpm preview
 ```
 
 Preview the production build locally before deploying.
@@ -74,7 +75,16 @@ public/              # Static assets
 
 ## Environment Variables
 
-Copy `.env.example` to `.env` and configure:
+The variables are managed in the Vercel project. Link the repository once and pull the development values into `.env.local`:
+
+```bash
+vercel link
+vercel env pull .env.local --environment=development
+```
+
+`vercel env pull` overwrites `.env.local` on every run. Put personal local overrides in `.env.development.local` instead.
+
+Without access to the Vercel project, copy `.env.example` to `.env.local` and fill in the values:
 
 ```bash
 RESEND_API_KEY=                         # Resend API key for contact form
