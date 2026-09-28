@@ -2,8 +2,6 @@
 import { ClientRouter } from 'astro:transitions';
 import { useTranslations } from '@/utils/i18n';
 
-const currentUrl = Astro.url.toString();
-
 const ui = {
 	en: {
 		title: 'Alexander Böhm >> Your partner for all things web from Neuwied',
@@ -22,6 +20,11 @@ const ui = {
 const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
 
 const t = useTranslations(ui, lang);
+
+// Every page has exactly one URL: no trailing slash (see `trailingSlash` in astro.config.ts), on the production domain.
+const canonicalUrl = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', Astro.site).href;
+const imageUrl = new URL('/itsb-boehm-alexander-og.jpg', Astro.site).href;
+const locales = { en: 'en_US', de: 'de_DE' };
 ---
 
 <meta charset="utf-8" />
@@ -30,26 +33,27 @@ const t = useTranslations(ui, lang);
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <title>{t("title")}</title>
 <meta name="description" content={t("description")} />
+<link rel="canonical" href={canonicalUrl} />
 
 <!-- Open Graph tags -->
 <meta property="og:title" content={t("title")} />
 <meta property="og:type" content="website" />
-<meta property="og:url" content={currentUrl} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:site_name" content="Alexander Böhm" />
+<meta property="og:locale" content={locales[lang]} />
+<meta property="og:locale:alternate" content={locales[lang === "de" ? "en" : "de"]} />
 <meta property="og:description" content={t("description")} />
-<meta
-	property="og:image"
-	content={currentUrl + "/itsb-boehm-alexander-bg.webp"}
-/>
+<meta property="og:image" content={imageUrl} />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content={t("imageAlt")} />
 
 <!-- Twitter tags -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={t("title")} />
 <meta name="twitter:description" content={t("description")} />
-<meta
-	name="twitter:image"
-	content={currentUrl + "/itsb-boehm-alexander-bg.webp"}
-/>
+<meta name="twitter:image" content={imageUrl} />
 <meta name="twitter:site" content="@mheob_a" />
 <meta name="twitter:creator" content="@mheob_a" />
 

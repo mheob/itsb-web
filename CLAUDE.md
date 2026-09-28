@@ -35,7 +35,7 @@ There is no test suite. CI (`.github/workflows/check.yml`, Node version from `.n
 
 ### Rendering
 
-`astro.config.ts` sets `output: 'static'` with the Vercel adapter. Everything is prerendered except `src/pages/api/contact.ts`, which opts out via `export const prerender = false` and runs as a Vercel function. `site` is built from `PUBLIC_VERCEL_PROJECT_PRODUCTION_URL` (loaded with Vite's `loadEnv`), so sitemap and absolute URLs depend on it.
+`astro.config.ts` sets `output: 'static'` with the Vercel adapter. Everything is prerendered except `src/pages/api/contact.ts`, which opts out via `export const prerender = false` and runs as a Vercel function. `site` is built from `PUBLIC_VERCEL_PROJECT_PRODUCTION_URL` (loaded with Vite's `loadEnv`), so sitemap, canonical and Open Graph URLs depend on it. `trailingSlash: 'never'` gives every page one URL: Vercel redirects `/imprint/` to `/imprint`, and internal links, the sitemap and the canonical URL in `Head.astro` all use the form without the slash.
 
 The home page is a stack of section components (`Hero`, `About`, `Services`, `Stats`, `Testimonials`, `ContactSection`, `Footer`) inside `MainLayout`. `src/pages/index.astro` and `src/pages/de/index.astro` compose the same sections separately, so adding or reordering a section means editing both.
 
