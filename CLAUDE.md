@@ -41,6 +41,8 @@ The home page is a stack of section components (`Hero`, `About`, `Services`, `St
 
 Page metadata lives in `src/components/Head.astro`. Pages pass `title`, `description` and `noindex` to `MainLayout`, which forwards them to `Head`; pages without props get the home page defaults. `Head` also emits the canonical link, the `hreflang` alternates (found with `getLocalizedPath`, with English as `x-default`) and, on the two home pages only, the JSON-LD from `StructuredData.astro`. `StructuredData` reads name, contact details, services and social profiles from `src/data/`. The postal address is repeated there from the imprint pages, so keep both in sync.
 
+`src/pages/robots.txt.ts` and `src/pages/llms.txt.ts` are prerendered endpoints. `robots.txt` allows every crawler, including AI crawlers, on purpose, so the site can be cited in AI answers. `llms.txt` (https://llmstxt.org/) summarizes the site in Markdown and is built from the same `src/data/` files.
+
 `Head.astro` enables Astro's `<ClientRouter />`, so internal links swap the page content instead of reloading. Two rules follow from that:
 
 - **Component scripts:** do their DOM setup inside `document.addEventListener('astro:page-load', …)`. Bundled scripts run only once, and elements queried at module level are gone after the first swap. Register `window` listeners once at module level, and look up elements inside the handler.
