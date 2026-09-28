@@ -1,0 +1,29 @@
+# Snyk (https://snyk.io) policy file
+# Ignores for findings without a fixed version. Each entry expires so it gets reviewed again.
+version: v1.25.1
+ignore:
+  SNYK-JS-DEEPMERGE-19964053:
+    - '*':
+        reason: >-
+          No fixed version of deepmerge exists. It is only used at build time by
+          @sveltejs/vite-plugin-svelte (via @astrojs/svelte) to merge the project's own
+          Svelte config, never with external input, and is not part of the deployed function.
+        expires: 2027-03-28T00:00:00.000Z
+        created: 2026-09-28T10:15:00.000Z
+  SNYK-JS-HTTPCACHESEMANTICS-19964064:
+    - '*':
+        reason: >-
+          No fixed version of http-cache-semantics exists. Astro only uses it at build time
+          (assets/build/remote.js) to cache remote images; the site configures no remote
+          images and the package is not part of the deployed function.
+        expires: 2027-03-28T00:00:00.000Z
+        created: 2026-09-28T10:15:00.000Z
+  SNYK-JS-HTTPCACHESEMANTICS-19964068:
+    - '*':
+        reason: >-
+          No fixed version of http-cache-semantics exists. Astro only uses it at build time
+          (assets/build/remote.js) to cache remote images; the site configures no remote
+          images and the package is not part of the deployed function.
+        expires: 2027-03-28T00:00:00.000Z
+        created: 2026-09-28T10:15:00.000Z
+patch: {}

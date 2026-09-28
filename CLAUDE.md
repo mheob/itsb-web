@@ -18,7 +18,7 @@ pnpm build    # astro check + astro build (output in dist/)
 pnpm preview  # Serve the production build locally
 ```
 
-There is no test suite. CI (`.github/workflows/check.yml`, Node version from `.nvmrc`) runs `cve`, `check`, `lint` and `build` on every push and PR. Run the same locally before committing. `cve-lite` only reports advisories known to OSV and the npm registry; Snyk's PR check uses its own database and can report more.
+There is no test suite. CI (`.github/workflows/check.yml`, Node version from `.nvmrc`) runs `cve`, `check`, `lint` and `build` on every push and PR. Run the same locally before committing. `cve-lite` only reports advisories known to OSV and the npm registry; Snyk's PR check uses its own database and can report more. Snyk findings without a fixed version are ignored in `.snyk`, each with a reason and an expiry date. Review them again when they expire.
 
 `pnpm cve` also runs as a `pre-push` hook through lefthook (`lefthook.yml`). `pnpm install` installs the hook, because lefthook's postinstall is approved in `allowBuilds`. lefthook only writes the hooks listed in `lefthook.yml` to `.git/hooks`, where GitButler keeps its own `pre-commit` and `post-checkout` hooks. Do not add `pre-commit` to lefthook, and do not switch to a tool that sets `core.hooksPath` (e.g. husky), since either would disable GitButler's hooks. `but push` and `but pr new` run the hook. Skip it with `--no-hooks` or `LEFTHOOK=0`.
 
