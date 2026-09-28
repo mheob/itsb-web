@@ -8,9 +8,12 @@
 
 <script>
 	import { toggleBodyClassHandler } from "@/utils/dom-handler";
-	const button = document.querySelector(".nav-toggle") as HTMLButtonElement;
-	button.addEventListener("click", () => {
-		toggleBodyClassHandler("offcanvas");
+
+	// Runs on the initial load and after every ClientRouter navigation, which replaces the toggle button.
+	document.addEventListener("astro:page-load", () => {
+		document.querySelector(".nav-toggle")?.addEventListener("click", () => {
+			toggleBodyClassHandler("offcanvas");
+		});
 	});
 </script>
 

@@ -29,7 +29,6 @@ const ui = {
 };
 
 const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
-const langPrefix = lang === 'de' ? '/de' : '/';
 
 const t = useTranslations(ui, lang);
 ---
@@ -38,7 +37,7 @@ const t = useTranslations(ui, lang);
 	<button id="open-download-vc-modal" class="btn btn-primary-outline"
 		>{t("openDownloadVCardDialog")}</button
 	>
-	<a href={`${langPrefix}#contact-section`} class="btn btn-primary"
+	<a href="#contact-section" class="btn btn-primary"
 		>{t("hireMe")}</a
 	>
 	<dialog id="download-vc-modal">
@@ -61,19 +60,24 @@ const t = useTranslations(ui, lang);
 </section>
 
 <script>
-	const dialog = document.querySelector(
-		"#download-vc-modal",
-	) as HTMLDialogElement;
-	document
-		.querySelector("#open-download-vc-modal")
-		?.addEventListener("click", () => dialog.showModal());
-	document
-		.querySelector("#close-download-vc-modal")
-		?.addEventListener("click", () => dialog.close());
+	// Runs on the initial load and after every ClientRouter navigation, which replaces these elements.
+	document.addEventListener("astro:page-load", () => {
+		const dialog = document.querySelector(
+			"#download-vc-modal",
+		) as HTMLDialogElement | null;
+		if (!dialog) return;
 
-	// Close when clicking on backdrop
-	dialog.addEventListener("click", (e) => {
-		if (e.target === dialog) dialog.close();
+		document
+			.querySelector("#open-download-vc-modal")
+			?.addEventListener("click", () => dialog.showModal());
+		document
+			.querySelector("#close-download-vc-modal")
+			?.addEventListener("click", () => dialog.close());
+
+		// Close when clicking on backdrop
+		dialog.addEventListener("click", (e) => {
+			if (e.target === dialog) dialog.close();
+		});
 	});
 </script>
 
