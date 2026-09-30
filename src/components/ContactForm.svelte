@@ -276,6 +276,23 @@ function postForm(): Promise<Response> {
 	});
 }
 
+// Error body of /api/contact; `issues` has the shape of Zod's `treeifyError`.
+interface ErrorResponse {
+	issues?: { properties?: Record<string, unknown> };
+}
+
+// Marks the fields the server rejected with their localized message and returns whether there were any.
+function showServerErrors({ issues }: ErrorResponse): boolean {
+	const fields = Object.keys(issues?.properties ?? {}).filter(
+		(field): field is keyof typeof validators => field in validators,
+	);
+	for (const field of fields) {
+		errors[field] = t(`errors.${field}`);
+		touched[field] = true;
+	}
+	return fields.length > 0;
+}
+
 async function handleResponse(response: Response): Promise<void> {
 	if (response.ok) {
 		resetForm();
@@ -283,14 +300,12 @@ async function handleResponse(response: Response): Promise<void> {
 		return;
 	}
 
-	const result = await response.json();
-	if (result.errors) {
-		for (const [field, msg] of Object.entries(result.errors)) {
-			errors[field as keyof typeof errors] = msg as string;
-			touched[field as keyof typeof touched] = true;
-		}
+	const result = (await response.json()) as ErrorResponse;
+	if (showServerErrors(result)) {
+		submitStatus = 'idle';
+	} else {
+		showStatusBriefly('error');
 	}
-	submitStatus = 'idle';
 }
 
 async function handleSubmit(event: SubmitEvent): Promise<void> {
