@@ -8,6 +8,13 @@ export default defineConfig({
 		extends: [baseConfig],
 		jsPlugins: [{ name: 'vite-plus', specifier: 'vite-plus/oxlint-plugin' }],
 		options: { typeAware: true, typeCheck: true },
+		overrides: [
+			{
+				// Astro and Svelte components are named in PascalCase.
+				files: ['src/components/**', 'src/layouts/**'],
+				rules: { 'unicorn/filename-case': ['warn', { case: 'pascalCase' }] },
+			},
+		],
 		rules: {
 			// Stylesheets and self-hosted fonts are imported for their side effects.
 			'import/no-unassigned-import': ['error', { allow: ['**/*.css'] }],

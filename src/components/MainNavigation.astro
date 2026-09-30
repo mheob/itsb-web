@@ -35,7 +35,7 @@ const t = useTranslations(ui, lang);
 
 const currentPath = Astro.url.pathname;
 // The German home page renders as `/de/`, so compare without the trailing slash.
-const normalizedPath = currentPath.replace(/\/$/, '') || '/';
+const normalizedPath = currentPath.replace(/\/$/u, '') || '/';
 const isHomePage = normalizedPath === '/' || normalizedPath === '/de';
 // On the home page, section links must stay in-page anchors: a link to another path (e.g. `/de#about` from `/de/`)
 // makes the ClientRouter swap the whole page instead of scrolling.

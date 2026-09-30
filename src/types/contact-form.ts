@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-const phoneRegex = /^$|^[\d\s()+-]{6,}$/;
+const phoneRegex = /^$|^[\d\s()+-]{6,}$/u;
 
 export const contactSchema = z.object({
 	email: z.email('Invalid email address'),

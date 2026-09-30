@@ -144,7 +144,7 @@ const validators = {
 	email: (value: string) => {
 		const msg = t('errors.email');
 		if (!value.trim()) return msg;
-		const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,8})+$/;
+		const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,8})+$/u;
 		if (!emailRegex.test(value)) return msg;
 		return null;
 	},
@@ -163,7 +163,7 @@ const validators = {
 	phone: (value: string) => {
 		const msg = t('errors.phone');
 		if (!value.trim()) return null; // Optional field
-		const phoneRegex = /(^$|^(\(?([\d -)+(]+){6,}\)?([ .-\]?)([\d]+))$)/;
+		const phoneRegex = /(^$|^(\(?([\d -)+(]+){6,}\)?([ .-\]?)([\d]+))$)/u;
 		if (!phoneRegex.test(value)) return msg;
 		return null;
 	},

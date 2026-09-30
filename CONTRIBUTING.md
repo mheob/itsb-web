@@ -45,8 +45,8 @@ Run `pnpm exec vp check` (format, lint and type check of `.ts` files) and `pnpm 
 ### File Naming
 
 - Components: `PascalCase.astro` or `PascalCase.svelte`
-- Utilities: `camelCase.ts`
-- Data files: `camelCase.ts` with `...DataEN` / `...DataDE` exports
+- Utilities: `kebab-case.ts`
+- Data files: `kebab-case.ts` with `...DataEN` / `...DataDE` exports
 
 ### Path Aliases
 

@@ -34,7 +34,7 @@ function getNestedValue(obj: NestedRecord, path: string): string | undefined {
 }
 
 function interpolate(text: string, values: Record<string, string | number>): string {
-	return text.replaceAll(/{(\w+)}/g, (_, key) => String(values[key] ?? `{${key}}`));
+	return text.replaceAll(/\{(\w+)\}/gu, (_, key) => String(values[key] ?? `{${key}}`));
 }
 
 /**

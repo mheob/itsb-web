@@ -55,7 +55,7 @@ function createContactLink(): string {
 	}
 
 	if (protocol === 'tel:') {
-		return link.replaceAll(/\s/g, '');
+		return link.replaceAll(/\s/gu, '');
 	}
 
 	return link;
