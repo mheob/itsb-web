@@ -7,11 +7,7 @@
  * toggleBodyClassHandler('dark-mode');
  */
 export function toggleBodyClassHandler(className: string): void {
-	if (document.body.classList.contains(className)) {
-		document.body.classList.remove(className);
-	} else {
-		document.body.classList.add(className);
-	}
+	document.body.classList.toggle(className, !document.body.classList.contains(className));
 }
 
 /**

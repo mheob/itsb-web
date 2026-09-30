@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro';
+
 import { faqDataEN } from '@/data/faq';
 import { contactPerson } from '@/data/service-contact';
 import { serviceDataEN } from '@/data/services';
@@ -6,11 +7,11 @@ import { socialData } from '@/data/social';
 import { statDataEN } from '@/data/stat';
 import { getLocalizedRoute } from '@/utils/routes';
 
-const capitalize = (text: string) => text.charAt(0).toUpperCase() + text.slice(1);
+const capitalize = (text: string): string => text.charAt(0).toUpperCase() + text.slice(1);
 
 // Summary of the site for LLMs, following https://llmstxt.org/. Built from the data files so it stays in sync.
-const getLlmsTxt = (site: URL | undefined) => {
-	const url = (path: string) => new URL(path, site).href;
+const getLlmsTxt = (site: URL | undefined): string => {
+	const url = (path: string): string => new URL(path, site).href;
 
 	return `\
 # ${contactPerson.name}

@@ -35,11 +35,11 @@ function formatNumber(input: number): string | number {
 const counterResult: Record<string, number> = {};
 const timers: Record<string, ReturnType<typeof setInterval>> = {};
 
-const max = $derived(parseInt(String(value), 10));
+const max = $derived(Number.parseInt(String(value), 10));
 
 // Start with the final value, so the server-rendered HTML shows the real number to crawlers and to visitors
 // without JavaScript. The effect below resets it to `initial` in the browser and counts up once in view.
-let displayValue = $state(parseInt(String(value), 10) || 0);
+let displayValue = $state(Number.parseInt(String(value), 10) || 0);
 
 $effect(() => {
 	// Clear any existing interval

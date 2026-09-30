@@ -9,69 +9,27 @@ interface Props {
 let { lang, privacyUrl }: Props = $props();
 
 const ui = {
-	en: {
-		labels: {
-			name: 'Your Name',
-			email: 'Your E-Mail',
-			phone: 'Your Phone (optional)',
-			message: 'Your Message',
-			privacy: {
-				'1': 'I expressly agree to the use of my data in accordance with the ',
-				'2': 'privacy policy',
-				'3': '.',
-			},
-		},
-		errors: {
-			name: 'Please provide a name that I can use to address you.',
-			email: 'Please provide a valid email address so that I can reply.',
-			phone: 'Please enter a valid phone number or leave this field blank.',
-			message:
-				'I need as much information as possible from you so that I can respond in detail. Your message should be at least 30 characters long, but not much more than 10,000 characters.',
-			privacy: 'You must accept the privacy policy.',
-		},
-		submitText: 'Get in touch',
-		submitSending: 'Sending...',
-		submitSent: 'Sent!',
-		submitError: 'Error - Try again',
-		privacyDialog: {
-			header: 'Provisions regarding the use of your data',
-			content: {
-				'1': 'By clicking on the "Contact us" button and submitting the data entered in the contact form, you agree that I may use your details to respond to your inquiry or to contact you.',
-				'2': 'Information will not be passed on to third parties unless applicable data protection regulations justify such a transfer or I am legally obliged to do so.',
-				'3': {
-					'1': 'You can revoke your consent at any time with future effect. In the event of revocation, your data will be deleted immediately. Your data will also be deleted once I have processed your request or the purpose for storing it no longer applies. You can request information about the data stored about you at any time. Further information on data protection can also be found in the',
-					'2': 'privacy policy',
-					'3': 'on this website.',
-				},
-			},
-		},
-	},
 	de: {
+		errors: {
+			email: 'Bitte gebe eine gültige E-Mail-Adresse an, damit ich antworten kann.',
+			message:
+				'Ich brauche eine möglichst erklärende Nachricht von dir, damit ich auch konkret darauf eingehen kann. Diese sollte mindestens 30, aber nicht viel mehr als 10.000 Zeichen, haben.',
+			name: 'Bitte gebe einen Namen an, unter dem ich dich ansprechen kann.',
+			phone: 'Bitte gebe eine gültige Telefonnummer an oder lassen dieses Feld leer.',
+			privacy: 'Du musst die Datenschutzrichtlinie akzeptieren',
+		},
 		labels: {
-			name: 'Dein Name',
 			email: 'Deine E-Mail',
-			phone: 'Deine Telefonnummer (optional)',
 			message: 'Deine Nachricht',
+			name: 'Dein Name',
+			phone: 'Deine Telefonnummer (optional)',
 			privacy: {
 				'1': 'Ich erkläre mich mit der Verarbeitung meiner Daten einverstanden, die in Übereinstimmung mit der ',
 				'2': 'Datenschutzrichtlinie',
 				'3': ' verarbeitet werden.',
 			},
 		},
-		errors: {
-			name: 'Bitte gebe einen Namen an, unter dem ich dich ansprechen kann.',
-			email: 'Bitte gebe eine gültige E-Mail-Adresse an, damit ich antworten kann.',
-			phone: 'Bitte gebe eine gültige Telefonnummer an oder lassen dieses Feld leer.',
-			message:
-				'Ich brauche eine möglichst erklärende Nachricht von dir, damit ich auch konkret darauf eingehen kann. Diese sollte mindestens 30, aber nicht viel mehr als 10.000 Zeichen, haben.',
-			privacy: 'Du musst die Datenschutzrichtlinie akzeptieren',
-		},
-		submitText: 'Kontakt aufnehmen',
-		submitSending: 'Wird gesendet...',
-		submitSent: 'Gesendet!',
-		submitError: 'Fehler - Erneut versuchen',
 		privacyDialog: {
-			header: 'Bestimmungen zur Nutzung Deiner Daten',
 			content: {
 				'1': 'Wenn Du die im Kontaktformular eingegebenen Daten durch Klick auf den Button "In Kontakt treten" übersendest, erklärst Du dich damit einverstanden, dass ich Deine Angaben für die Beantwortung Deiner Anfrage bzw. Kontaktaufnahme verwende.',
 				'2': 'Eine Weitergabe an Dritte findet grundsätzlich nicht statt, es sei denn geltende Datenschutzvorschriften rechtfertigen eine Übertragung oder ich dazu gesetzlich verpflichtet bin.',
@@ -81,7 +39,49 @@ const ui = {
 					'3': ' dieser Webseite.',
 				},
 			},
+			header: 'Bestimmungen zur Nutzung Deiner Daten',
 		},
+		submitError: 'Fehler - Erneut versuchen',
+		submitSending: 'Wird gesendet...',
+		submitSent: 'Gesendet!',
+		submitText: 'Kontakt aufnehmen',
+	},
+	en: {
+		errors: {
+			email: 'Please provide a valid email address so that I can reply.',
+			message:
+				'I need as much information as possible from you so that I can respond in detail. Your message should be at least 30 characters long, but not much more than 10,000 characters.',
+			name: 'Please provide a name that I can use to address you.',
+			phone: 'Please enter a valid phone number or leave this field blank.',
+			privacy: 'You must accept the privacy policy.',
+		},
+		labels: {
+			email: 'Your E-Mail',
+			message: 'Your Message',
+			name: 'Your Name',
+			phone: 'Your Phone (optional)',
+			privacy: {
+				'1': 'I expressly agree to the use of my data in accordance with the ',
+				'2': 'privacy policy',
+				'3': '.',
+			},
+		},
+		privacyDialog: {
+			content: {
+				'1': 'By clicking on the "Contact us" button and submitting the data entered in the contact form, you agree that I may use your details to respond to your inquiry or to contact you.',
+				'2': 'Information will not be passed on to third parties unless applicable data protection regulations justify such a transfer or I am legally obliged to do so.',
+				'3': {
+					'1': 'You can revoke your consent at any time with future effect. In the event of revocation, your data will be deleted immediately. Your data will also be deleted once I have processed your request or the purpose for storing it no longer applies. You can request information about the data stored about you at any time. Further information on data protection can also be found in the',
+					'2': 'privacy policy',
+					'3': 'on this website.',
+				},
+			},
+			header: 'Provisions regarding the use of your data',
+		},
+		submitError: 'Error - Try again',
+		submitSending: 'Sending...',
+		submitSent: 'Sent!',
+		submitText: 'Get in touch',
 	},
 };
 
@@ -96,19 +96,19 @@ let privacy = $state(false);
 
 // Error messages
 let errors = $state<Record<string, string | null>>({
-	name: null,
 	email: null,
-	phone: null,
 	message: null,
+	name: null,
+	phone: null,
 	privacy: null,
 });
 
 // Touched fields (for showing errors on blur)
 let touched = $state<Record<string, boolean>>({
-	name: false,
 	email: false,
-	phone: false,
 	message: false,
+	name: false,
+	phone: false,
 	privacy: false,
 });
 
@@ -117,14 +117,18 @@ type SubmitStatus = 'idle' | 'sending' | 'sent' | 'error';
 let submitStatus = $state<SubmitStatus>('idle');
 let submitText = $derived.by(() => {
 	switch (submitStatus) {
-		case 'sending':
+		case 'sending': {
 			return t('submitSending');
-		case 'sent':
+		}
+		case 'sent': {
 			return t('submitSent');
-		case 'error':
+		}
+		case 'error': {
 			return t('submitError');
-		default:
+		}
+		default: {
 			return t('submitText');
+		}
 	}
 });
 let isSubmitting = $state(false);
@@ -137,12 +141,6 @@ let isSubmitDisabled = $derived(!privacy || isSubmitting);
 
 // Validation rules
 const validators = {
-	name: (value: string) => {
-		const msg = t('errors.name');
-		if (!value.trim()) return msg;
-		if (value.trim().length < 3 || value.trim().length >= 128) return msg;
-		return null;
-	},
 	email: (value: string) => {
 		const msg = t('errors.email');
 		if (!value.trim()) return msg;
@@ -150,17 +148,23 @@ const validators = {
 		if (!emailRegex.test(value)) return msg;
 		return null;
 	},
+	message: (value: string) => {
+		const msg = t('errors.message');
+		if (!value.trim()) return msg;
+		if (value.trim().length < 30 || value.trim().length >= 10_000) return msg;
+		return null;
+	},
+	name: (value: string) => {
+		const msg = t('errors.name');
+		if (!value.trim()) return msg;
+		if (value.trim().length < 3 || value.trim().length >= 128) return msg;
+		return null;
+	},
 	phone: (value: string) => {
 		const msg = t('errors.phone');
 		if (!value.trim()) return null; // Optional field
 		const phoneRegex = /(^$|^(\(?([\d -)+(]+){6,}\)?([ .-\]?)([\d]+))$)/;
 		if (!phoneRegex.test(value)) return msg;
-		return null;
-	},
-	message: (value: string) => {
-		const msg = t('errors.message');
-		if (!value.trim()) return msg;
-		if (value.trim().length < 30 || value.trim().length >= 10_000) return msg;
 		return null;
 	},
 	privacy: (checked: boolean) => {
@@ -171,10 +175,10 @@ const validators = {
 
 function validateField(fieldName: keyof typeof validators): boolean {
 	const values: Record<string, string | boolean> = {
-		name,
 		email,
-		phone,
 		message,
+		name,
+		phone,
 		privacy,
 	};
 	const value = values[fieldName];
@@ -205,50 +209,50 @@ function validateForm(): boolean {
 	return isValid;
 }
 
-function handleBlur(fieldName: keyof typeof validators) {
+function handleBlur(fieldName: keyof typeof validators): void {
 	touched[fieldName] = true;
 	validateField(fieldName);
 }
 
-function handleInput(fieldName: keyof typeof validators) {
+function handleInput(fieldName: keyof typeof validators): void {
 	if (touched[fieldName] && errors[fieldName]) {
 		validateField(fieldName);
 	}
 }
 
-function openPrivacyModal() {
+function openPrivacyModal(): void {
 	privacyModal?.showModal();
 }
 
-function handleModalClick(e: MouseEvent) {
+function handleModalClick(e: MouseEvent): void {
 	if (e.target === privacyModal) {
 		privacyModal?.close();
 	}
 }
 
-function resetForm() {
+function resetForm(): void {
 	name = '';
 	email = '';
 	phone = '';
 	message = '';
 	privacy = false;
 	errors = {
-		name: null,
 		email: null,
-		phone: null,
 		message: null,
+		name: null,
+		phone: null,
 		privacy: null,
 	};
 	touched = {
-		name: false,
 		email: false,
-		phone: false,
 		message: false,
+		name: false,
+		phone: false,
 		privacy: false,
 	};
 }
 
-async function handleSubmit(event: SubmitEvent) {
+async function handleSubmit(event: SubmitEvent): Promise<void> {
 	event.preventDefault();
 
 	if (!validateForm()) {
@@ -266,8 +270,8 @@ async function handleSubmit(event: SubmitEvent) {
 		formData.append('message', message);
 
 		const response = await fetch('/api/contact', {
-			method: 'POST',
 			body: formData,
+			method: 'POST',
 		});
 
 		if (response.ok) {

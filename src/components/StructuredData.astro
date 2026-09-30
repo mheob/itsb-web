@@ -12,13 +12,13 @@ interface Props {
 }
 
 const ui = {
-	en: {
-		jobTitle: 'Full-stack developer',
-		catalog: 'Web services',
-	},
 	de: {
-		jobTitle: 'Full-Stack-Entwickler',
 		catalog: 'Webdienstleistungen',
+		jobTitle: 'Full-Stack-Entwickler',
+	},
+	en: {
+		catalog: 'Web services',
+		jobTitle: 'Full-stack developer',
 	},
 };
 
@@ -38,71 +38,71 @@ const telephone = contactPerson.phone.replaceAll(' ', '');
 // Same address as in the imprint (src/pages/imprint.astro, src/pages/de/impressum.astro).
 const address = {
 	'@type': 'PostalAddress',
-	streetAddress: 'Theodor-Heuss-Str. 1',
-	postalCode: '56564',
+	addressCountry: 'DE',
 	addressLocality: 'Neuwied',
 	addressRegion: 'Rheinland-Pfalz',
-	addressCountry: 'DE',
+	postalCode: '56564',
+	streetAddress: 'Theodor-Heuss-Str. 1',
 };
 
 const structuredData = {
 	'@context': 'https://schema.org',
 	'@graph': [
 		{
-			'@type': 'WebSite',
 			'@id': `${siteUrl}#website`,
-			url: siteUrl,
-			name: contactPerson.name,
+			'@type': 'WebSite',
 			inLanguage: ['en', 'de'],
-			publisher: { '@id': businessId },
-		},
-		{
-			'@type': 'Person',
-			'@id': personId,
 			name: contactPerson.name,
-			jobTitle: t('jobTitle'),
-			image: imageUrl,
+			publisher: { '@id': businessId },
 			url: siteUrl,
-			email,
-			telephone,
-			address,
-			worksFor: { '@id': businessId },
-			knowsAbout: services.map((service) => service.header),
-			sameAs: socialData.map((social) => social.href),
 		},
 		{
-			'@type': 'ProfessionalService',
-			'@id': businessId,
-			name: 'IT Service Böhm',
-			url: homeUrl,
-			image: imageUrl,
-			email,
-			telephone,
+			'@id': personId,
+			'@type': 'Person',
 			address,
-			founder: { '@id': personId },
+			email,
+			image: imageUrl,
+			jobTitle: t('jobTitle'),
+			knowsAbout: services.map((service) => service.header),
+			name: contactPerson.name,
+			sameAs: socialData.map((social) => social.href),
+			telephone,
+			url: siteUrl,
+			worksFor: { '@id': businessId },
+		},
+		{
+			'@id': businessId,
+			'@type': 'ProfessionalService',
+			address,
 			areaServed: [
 				{ '@type': 'City', name: 'Neuwied' },
 				{ '@type': 'Country', name: 'Germany' },
 			],
+			email,
+			founder: { '@id': personId },
 			hasOfferCatalog: {
 				'@type': 'OfferCatalog',
-				name: t('catalog'),
 				itemListElement: services.map((service) => ({
 					'@type': 'Offer',
-					itemOffered: { '@type': 'Service', name: service.header, description: service.text },
+					itemOffered: { '@type': 'Service', description: service.text, name: service.header },
 				})),
+				name: t('catalog'),
 			},
+			image: imageUrl,
+			name: 'IT Service Böhm',
+			telephone,
+			url: homeUrl,
 		},
 		{
-			'@type': 'FAQPage',
 			'@id': `${homeUrl}#faq`,
-			url: homeUrl,
+			'@type': 'FAQPage',
 			inLanguage: lang,
 			mainEntity: faqs.map(({ question, answer }) => ({
 				'@type': 'Question',
-				name: question,
 				acceptedAnswer: { '@type': 'Answer', text: answer },
+				name: question,
 			})),
+			url: homeUrl,
 		},
 	],
 };

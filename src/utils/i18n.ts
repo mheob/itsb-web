@@ -1,9 +1,15 @@
 type Locale = 'en' | 'de';
 
-type NestedRecord = { [key: string]: string | NestedRecord };
+interface NestedRecord {
+	[key: string]: string | NestedRecord;
+}
 type Translations = Record<Locale, NestedRecord>;
 
-type FlattenKeys<T, Prefix extends string = '', Depth extends number[] = []> = Depth['length'] extends 4
+type FlattenKeys<
+	T,
+	Prefix extends string = '',
+	Depth extends number[] = [],
+> = Depth['length'] extends 4
 	? Prefix
 	: T extends string
 		? Prefix

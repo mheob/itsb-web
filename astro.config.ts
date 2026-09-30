@@ -1,8 +1,8 @@
 import sitemap from '@astrojs/sitemap';
 import svelte from '@astrojs/svelte';
 import vercel from '@astrojs/vercel';
-import { defineConfig } from 'astro/config';
 import icon from 'astro-icon';
+import { defineConfig } from 'astro/config';
 import { loadEnv } from 'vite';
 
 const nodeEnv = process.env.NODE_ENV ?? 'development';
@@ -39,7 +39,8 @@ export default defineConfig({
 	],
 	output: 'static',
 	prefetch: { prefetchAll: true },
-	site: (nodeEnv === 'production' ? 'https://' : 'http://') + env.PUBLIC_VERCEL_PROJECT_PRODUCTION_URL,
+	site:
+		(nodeEnv === 'production' ? 'https://' : 'http://') + env.PUBLIC_VERCEL_PROJECT_PRODUCTION_URL,
 	// One URL per page: Vercel redirects `/imprint/` to `/imprint`, and the sitemap and canonical URLs match.
 	trailingSlash: 'never',
 });

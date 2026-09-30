@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
 import { treeifyError } from 'zod';
+
 import { contactSchema } from '@/types/contact-form';
 
 export const prerender = false;
@@ -16,10 +17,10 @@ export const POST: APIRoute = async ({ request }) => {
 	const messageValue = formData.get('message');
 
 	const data = {
-		name: typeof nameValue === 'string' ? nameValue : '',
 		email: typeof emailValue === 'string' ? emailValue : '',
-		phone: typeof phoneValue === 'string' ? phoneValue : '',
 		message: typeof messageValue === 'string' ? messageValue : '',
+		name: typeof nameValue === 'string' ? nameValue : '',
+		phone: typeof phoneValue === 'string' ? phoneValue : '',
 	};
 
 	const result = contactSchema.safeParse(data);
@@ -40,10 +41,10 @@ export const POST: APIRoute = async ({ request }) => {
 	try {
 		const response = await resend.emails.send({
 			from: 'Contact Form <mail@notifications.alex-boehm.dev>',
-			to: 'mail@alex-boehm.dev',
 			replyTo: email,
 			subject: `New request from ${name}`,
 			text: `From: ${name} (${contactText})\n\n${message}`,
+			to: 'mail@alex-boehm.dev',
 		});
 
 		console.log(response);

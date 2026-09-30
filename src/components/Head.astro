@@ -14,17 +14,17 @@ interface Props {
 }
 
 const ui = {
-	en: {
-		title: 'Alexander Böhm – Web Design, Development & SEO in Neuwied',
-		description:
-			'Alexander Böhm from Neuwied presents himself and his work around web design, SEO and web development.',
-		imageAlt: 'Alexander Böhm with a laptop in his hands.',
-	},
 	de: {
-		title: 'Alexander Böhm – Webdesign, Webentwicklung & SEO in Neuwied',
 		description:
 			'Alexander Böhm aus Neuwied stellt sich und seine Arbeit rund um Web Design, SEO und Web Development vor.',
 		imageAlt: 'Alexander Böhm mit einem Laptop in den Händen.',
+		title: 'Alexander Böhm – Webdesign, Webentwicklung & SEO in Neuwied',
+	},
+	en: {
+		description:
+			'Alexander Böhm from Neuwied presents himself and his work around web design, SEO and web development.',
+		imageAlt: 'Alexander Böhm with a laptop in his hands.',
+		title: 'Alexander Böhm – Web Design, Development & SEO in Neuwied',
 	},
 };
 
@@ -38,12 +38,12 @@ const { title = t('title'), description = t('description'), noindex = false } = 
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const canonicalUrl = new URL(path, Astro.site).href;
 const alternateUrls = {
-	en: new URL(getLocalizedPath(path, 'en'), Astro.site).href,
 	de: new URL(getLocalizedPath(path, 'de'), Astro.site).href,
+	en: new URL(getLocalizedPath(path, 'en'), Astro.site).href,
 };
 const isHomePage = path === '/' || path === '/de';
 const imageUrl = new URL('/itsb-boehm-alexander-og.jpg', Astro.site).href;
-const locales = { en: 'en_US', de: 'de_DE' };
+const locales = { de: 'de_DE', en: 'en_US' };
 ---
 
 <meta charset="utf-8" />

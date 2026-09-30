@@ -2,40 +2,40 @@ import type { Stat } from '@/types/stat';
 
 export const statDataEN: Stat[] = [
 	{
-		upperTitle: 'so far',
 		lowerTitle: 'completed projects',
+		upperTitle: 'so far',
 		value: 17,
 	},
 	{
-		upperTitle: 'over',
-		lowerTitle: 'lines of code',
-		value: 410,
 		initial: 150,
+		lowerTitle: 'lines of code',
 		suffix: 'k',
+		upperTitle: 'over',
+		value: 410,
 	},
 	{
-		upperTitle: 'currently',
 		lowerTitle: 'active customers',
+		upperTitle: 'currently',
 		value: 8,
 	},
 ];
 
 export const statDataDE: Stat[] = [
 	{
-		upperTitle: 'bislang',
 		lowerTitle: 'vollendete Projekte',
+		upperTitle: 'bislang',
 		value: 17,
 	},
 	{
-		upperTitle: 'über',
-		lowerTitle: 'erstellte Codezeilen',
-		value: 410,
 		initial: 150,
+		lowerTitle: 'erstellte Codezeilen',
 		suffix: 'k',
+		upperTitle: 'über',
+		value: 410,
 	},
 	{
-		upperTitle: 'aktuell',
 		lowerTitle: 'aktive Kunden',
+		upperTitle: 'aktuell',
 		value: 8,
 	},
 ];

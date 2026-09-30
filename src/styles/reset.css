@@ -19,10 +19,10 @@ html,
 		ui-sans-serif,
 		system-ui,
 		sans-serif,
-		"Apple Color Emoji",
-		"Segoe UI Emoji",
-		"Segoe UI Symbol",
-		"Noto Color Emoji"
+		'Apple Color Emoji',
+		'Segoe UI Emoji',
+		'Segoe UI Symbol',
+		'Noto Color Emoji'
 	);
 	font-feature-settings: --theme(--default-font-feature-settings, normal);
 	font-variation-settings: --theme(--default-font-variation-settings, normal);
@@ -94,8 +94,8 @@ pre {
 		Menlo,
 		Monaco,
 		Consolas,
-		"Liberation Mono",
-		"Courier New",
+		'Liberation Mono',
+		'Courier New',
 		monospace
 	);
 	font-feature-settings: --theme(--default-mono-font-feature-settings, normal);
@@ -253,7 +253,7 @@ textarea {
 }
 
 button,
-input:where([type="button"], [type="reset"], [type="submit"]),
+input:where([type='button'], [type='reset'], [type='submit']),
 ::file-selector-button {
 	appearance: button;
 }

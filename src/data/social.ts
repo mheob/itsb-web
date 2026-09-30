@@ -3,27 +3,27 @@ import type { SocialMediaLink } from '@/types/social';
 export const socialData: SocialMediaLink[] = [
 	{
 		href: 'https://www.linkedin.com/in/itsb',
-		title: 'LinkedIn',
 		icon: 'fa7-brands:linkedin',
+		title: 'LinkedIn',
 	},
 	{
 		href: 'https://github.com/mheob',
-		title: 'GitHub',
 		icon: 'fa7-brands:github',
+		title: 'GitHub',
 	},
 	{
 		href: 'https://twitter.com/mheob_a',
-		title: 'Twitter',
 		icon: 'fa7-brands:x-twitter',
+		title: 'Twitter',
 	},
 	{
 		href: 'https://profiles.wordpress.org/mheob/',
-		title: 'Wordpress',
 		icon: 'fa7-brands:wordpress',
+		title: 'Wordpress',
 	},
 	{
 		href: 'https://www.freecodecamp.org/mheob',
-		title: 'freeCodeCamp',
 		icon: 'fa7-brands:free-code-camp',
+		title: 'freeCodeCamp',
 	},
 ];

@@ -11,8 +11,8 @@ const locales = [
 ] as const;
 
 const ui = {
-	en: { label: 'Language selector' },
 	de: { label: 'Sprachauswahl' },
+	en: { label: 'Language selector' },
 };
 
 const lang = Astro.url.pathname.split('/')[1] === 'de' ? 'de' : 'en';
@@ -41,7 +41,7 @@ const t = useTranslations(ui, lang);
 <script>
 	const STORAGE_KEY = "preferred-language";
 
-	function setupLanguageSelector() {
+	function setupLanguageSelector(): void {
 		document.querySelectorAll(".language-selector a").forEach((link) => {
 			link.addEventListener("click", (e) => {
 				const href =
