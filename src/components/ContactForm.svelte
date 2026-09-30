@@ -1,5 +1,6 @@
 <script lang="ts">
 import { useTranslations } from '@/utils/i18n';
+import { phoneRegex } from '@/utils/validation';
 
 interface Props {
 	lang: 'en' | 'de';
@@ -169,7 +170,6 @@ const validators = {
 	phone: (value: string) => {
 		const msg = t('errors.phone');
 		if (!value.trim()) return null; // Optional field
-		const phoneRegex = /(?:^$|^(?:\(?(?:[\d -)+(]+){6,}\)?(?:[ .-\]?)([\d]+))$)/u;
 		if (!phoneRegex.test(value)) return msg;
 		return null;
 	},
