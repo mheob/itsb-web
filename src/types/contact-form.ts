@@ -1,6 +1,7 @@
 import { z } from 'zod';
 
-const phoneRegex = /^$|^[\d\s()+-]{6,}$/u;
+import { phoneRegex } from '@/utils/validation';
+
 const MESSAGE_MIN_LENGTH = 10;
 
 export const contactSchema = z.object({

@@ -65,7 +65,7 @@ English is the default locale without a URL prefix; German lives under `/de/`. K
 
 ### Contact form
 
-`ContactForm.svelte` (hydrated with `client:load`) posts `FormData` to `/api/contact`. The endpoint validates it with the shared Zod schema in `src/types/contact-form.ts` and sends mail through Resend. The sender and recipient addresses are hardcoded in the endpoint. Resend reports API errors in its result instead of throwing, so the endpoint checks `error` and answers 500. Requires `RESEND_API_KEY`, which is typed in `src/env.d.ts` like any other key read through `import.meta.env`.
+`ContactForm.svelte` (hydrated with `client:load`) posts `FormData` to `/api/contact`. The endpoint validates it with the shared Zod schema in `src/types/contact-form.ts` and sends mail through Resend. The sender and recipient addresses are hardcoded in the endpoint. Resend reports API errors in its result instead of throwing, so the endpoint checks `error` and answers 500. On a 400 the form marks each field listed in `issues.properties` with its own localized message; any other failure shows the error state on the submit button. Requires `RESEND_API_KEY`, which is typed in `src/env.d.ts` like any other key read through `import.meta.env`.
 
 ### Environment variables
 
