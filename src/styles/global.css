@@ -1,4 +1,4 @@
-@import "reset.css";
+@import 'reset.css';
 
 :root {
 	--black: hsl(0, 0%, 0%);
@@ -8,7 +8,7 @@
 	--background-dark: hsl(0, 0%, 3%);
 	--danger: hsl(0, 100%, 37%);
 
-	--font-familie: "Geist Sans", sans-serif;
+	--font-familie: 'Geist Sans', sans-serif;
 
 	--layout-main-xs: 270px;
 	--layout-main-s: 70%;
@@ -106,7 +106,7 @@ h6 {
 	font-size: 0.75rem;
 }
 
-[type="checkbox"] {
+[type='checkbox'] {
 	box-sizing: border-box;
 	padding: 0;
 }

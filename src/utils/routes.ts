@@ -1,15 +1,16 @@
-type RouteName = 'imprint' | 'privacy' | 'home';
+const routeNames = ['imprint', 'privacy', 'home'] as const;
+type RouteName = (typeof routeNames)[number];
 
 const routes: Record<string, Record<RouteName, string>> = {
-	en: {
-		home: '/',
-		imprint: '/imprint',
-		privacy: '/privacy',
-	},
 	de: {
 		home: '/de',
 		imprint: '/de/impressum',
 		privacy: '/de/datenschutz',
+	},
+	en: {
+		home: '/',
+		imprint: '/imprint',
+		privacy: '/privacy',
 	},
 };
 
@@ -24,15 +25,15 @@ const routes: Record<string, Record<RouteName, string>> = {
  */
 export function getLocalizedPath(currentPath: string, targetLocale: string): string {
 	// Normalize path by removing trailing slash (except for root paths)
-	const normalizedPath = currentPath === '/' || currentPath === '/de' ? currentPath : currentPath.replace(/\/$/, '');
+	const normalizedPath =
+		currentPath === '/' || currentPath === '/de' ? currentPath : currentPath.replace(/\/$/, '');
 
 	// Find which route name this path corresponds to
-	for (const [_locale, localeRoutes] of Object.entries(routes)) {
-		for (const [routeName, path] of Object.entries(localeRoutes)) {
-			if (path === normalizedPath) {
-				// Found the route, return the equivalent in target locale
-				return routes[targetLocale]?.[routeName as RouteName] || routes.en[routeName as RouteName];
-			}
+	for (const localeRoutes of Object.values(routes)) {
+		const routeName = routeNames.find((name) => localeRoutes[name] === normalizedPath);
+		if (routeName) {
+			// Found the route, return the equivalent in target locale
+			return getLocalizedRoute(targetLocale, routeName);
 		}
 	}
 

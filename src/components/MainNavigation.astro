@@ -5,27 +5,27 @@ import { useTranslations } from '@/utils/i18n';
 import { getLocalizedRoute } from '@/utils/routes';
 
 const ui = {
-	en: {
-		home: 'Home',
-		about: "That's me",
-		services: 'Services',
-		stats: 'Stats',
-		testimonials: 'Testimonials',
-		faq: 'FAQ',
-		contact: 'Contact',
-		imprint: 'Imprint',
-		privacy: 'Privacy',
-	},
 	de: {
-		home: 'Startseite',
 		about: 'Über mich',
+		contact: 'Kontakt',
+		faq: 'FAQ',
+		home: 'Startseite',
+		imprint: 'Impressum',
+		privacy: 'Datenschutz',
 		services: 'Dienstleistungen',
 		stats: 'Statistiken',
 		testimonials: 'Meinungen',
+	},
+	en: {
+		about: "That's me",
+		contact: 'Contact',
 		faq: 'FAQ',
-		contact: 'Kontakt',
-		imprint: 'Impressum',
-		privacy: 'Datenschutz',
+		home: 'Home',
+		imprint: 'Imprint',
+		privacy: 'Privacy',
+		services: 'Services',
+		stats: 'Stats',
+		testimonials: 'Testimonials',
 	},
 };
 
@@ -40,8 +40,8 @@ const isHomePage = normalizedPath === '/' || normalizedPath === '/de';
 // On the home page, section links must stay in-page anchors: a link to another path (e.g. `/de#about` from `/de/`)
 // makes the ClientRouter swap the whole page instead of scrolling.
 const sectionBase = isHomePage ? '' : getLocalizedRoute(lang, 'home');
-const isImprintPage = lang !== 'de' ? currentPath.includes('/imprint') : currentPath.includes('/impressum');
-const isPrivacyPage = lang !== 'de' ? currentPath.includes('/privacy') : currentPath.includes('/datenschutz');
+const isImprintPage = lang === 'de' ? currentPath.includes('/impressum') : currentPath.includes('/imprint');
+const isPrivacyPage = lang === 'de' ? currentPath.includes('/datenschutz') : currentPath.includes('/privacy');
 ---
 
 <nav class="main-navigation" data-is-home={isHomePage}>
@@ -80,17 +80,17 @@ const isPrivacyPage = lang !== 'de' ? currentPath.includes('/privacy') : current
 		"contact-section",
 	];
 
-	function updateActiveNav() {
+	function updateActiveNav(): void {
 		// Only the home page has sections; look the nav up on every call because ClientRouter navigations replace it.
-		const nav = document.querySelector(".main-navigation");
-		if (nav?.getAttribute("data-is-home") !== "true") return;
+		const nav = document.querySelector<HTMLElement>(".main-navigation");
+		if (nav?.dataset.isHome !== "true") return;
 
 		const scrollPosition = window.scrollY + window.innerHeight / 2; // Offset for better UX
 
 		let currentSection = sections[0];
 
 		for (const sectionId of sections) {
-			const section = document.getElementById(sectionId);
+			const section = document.querySelector<HTMLElement>(`#${sectionId}`);
 			if (section && section.offsetTop <= scrollPosition) {
 				currentSection = sectionId;
 			}
@@ -102,11 +102,7 @@ const isPrivacyPage = lang !== 'de' ? currentPath.includes('/privacy') : current
 			const href = link.getAttribute("href");
 			const linkSection = href?.split("#")[1];
 
-			if (linkSection === currentSection) {
-				link.classList.add("active");
-			} else {
-				link.classList.remove("active");
-			}
+			link.classList.toggle("active", linkSection === currentSection);
 		});
 	}
 

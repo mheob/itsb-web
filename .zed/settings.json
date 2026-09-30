@@ -1,54 +1,50 @@
 {
 	"languages": {
-		"Astro": {
-			"formatter": { "language_server": { "name": "biome" } },
-			"code_actions_on_format": {
-				"source.fixAll.biome": true,
-				"source.organizeImports.biome": true
-			}
-		},
 		"CSS": {
-			"formatter": { "language_server": { "name": "biome" } },
-			"code_actions_on_format": {
-				"source.fixAll.biome": true,
-				"source.organizeImports.biome": true
-			}
+			"prettier": { "allowed": false },
+			"formatter": [{ "language_server": { "name": "oxfmt" } }]
 		},
 		"JavaScript": {
-			"formatter": { "language_server": { "name": "biome" } },
-			"code_actions_on_format": {
-				"source.fixAll.biome": true,
-				"source.organizeImports.biome": true
-			}
+			"prettier": { "allowed": false },
+			"formatter": [
+				{ "language_server": { "name": "oxfmt" } },
+				{ "code_action": "source.fixAll.oxc" }
+			]
 		},
 		"JSON": {
-			"formatter": { "language_server": { "name": "biome" } },
-			"code_actions_on_format": {
-				"source.fixAll.biome": true,
-				"source.organizeImports.biome": true
-			}
+			"prettier": { "allowed": false },
+			"formatter": [{ "language_server": { "name": "oxfmt" } }]
 		},
 		"JSONC": {
-			"formatter": { "language_server": { "name": "biome" } },
-			"code_actions_on_format": {
-				"source.fixAll.biome": true,
-				"source.organizeImports.biome": true
-			}
-		},
-		"Svelte": {
-			"formatter": { "language_server": { "name": "biome" } },
-			"code_actions_on_format": {
-				"source.fixAll.biome": true,
-				"source.organizeImports.biome": true
-			}
+			"prettier": { "allowed": false },
+			"formatter": [{ "language_server": { "name": "oxfmt" } }]
 		},
 		"TypeScript": {
-			"formatter": { "language_server": { "name": "biome" } },
-			"code_actions_on_format": {
-				"source.fixAll.biome": true,
-				"source.organizeImports.biome": true
-			}
+			"prettier": { "allowed": false },
+			"formatter": [
+				{ "language_server": { "name": "oxfmt" } },
+				{ "code_action": "source.fixAll.oxc" }
+			]
 		}
 	},
-	"project_name": "ITSB Web"
+	"lsp": {
+		"oxlint": {
+			"initialization_options": {
+				"settings": {
+					"run": "onType",
+					"fixKind": "safe_fix",
+					"typeAware": true,
+					"unusedDisableDirectives": "deny"
+				}
+			}
+		},
+		"oxfmt": {
+			"initialization_options": {
+				"settings": {
+					"fmt.configPath": "./vite.config.ts",
+					"run": "onSave"
+				}
+			}
+		}
+	}
 }

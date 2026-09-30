@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Single-page portfolio/business website for Alexander Böhm (ITS Böhm), bilingual (EN/DE). Astro 7 + Svelte 5 + TypeScript 6 (strict), pnpm 12 as package manager, Biome for lint/format, deployed to Vercel (auto-deploy on merge to `main`).
+Single-page portfolio/business website for Alexander Böhm (ITS Böhm), bilingual (EN/DE). Astro 7 + Svelte 5 + TypeScript 6 (strict), pnpm 12 as package manager, Vite+ (Oxfmt, Oxlint) for format/lint, deployed to Vercel (auto-deploy on merge to `main`).
 
 ## Commands
 
@@ -12,20 +12,25 @@ Single-page portfolio/business website for Alexander Böhm (ITS Böhm), bilingua
 pnpm dev      # Dev server on localhost:4321
 pnpm check    # astro check (type checking only)
 pnpm cve      # cve-lite: scan pnpm-lock.yaml against OSV, fails on high/critical, audits overrides
-pnpm lint     # biome lint --write (applies fixes)
-pnpm format   # biome format --write
+pnpm lint     # vp lint --fix (Oxlint, applies fixes)
+pnpm format   # vp fmt (Oxfmt, writes files)
 pnpm build    # astro check + astro build (output in dist/)
 pnpm preview  # Serve the production build locally
+pnpm exec vp check  # Oxfmt check, Oxlint and type check of .ts files, writes nothing
 ```
 
-There is no test suite. CI (`.github/workflows/check.yml`, Node version from `.nvmrc`) runs `cve`, `check`, `lint` and `build` on every push and PR. Run the same locally before committing. `cve-lite` only reports advisories known to OSV and the npm registry; Snyk's PR check uses its own database and can report more. Snyk findings without a fixed version are ignored in `.snyk`, each with a reason and an expiry date. Review them again when they expire.
+Vite+ (`vite-plus`) provides formatting and linting only. Astro runs its own dev server and build, so use the scripts (`pnpm dev`, `pnpm build`, or `vp run dev` / `vp run build`). The built-ins `vp dev` and `vp build` start plain Vite, which finds no `index.html`. `vp test` fails because there are no test files. `pnpm lint` also applies the fixes of warning-level rules (e.g. `sort-keys`, `unicorn/prefer-classlist-toggle`). These fixes can narrow DOM types (`getElementById` becomes `querySelector`), so run `pnpm check` afterwards. `AGENTS.md` holds the generic Vite+ notes written by `vp migrate`.
 
-`pnpm cve` also runs as a `pre-push` hook through lefthook (`lefthook.yml`). `pnpm install` installs the hook, because lefthook's postinstall is approved in `allowBuilds`. lefthook only writes the hooks listed in `lefthook.yml` to `.git/hooks`, where GitButler keeps its own `pre-commit` and `post-checkout` hooks. Do not add `pre-commit` to lefthook, and do not switch to a tool that sets `core.hooksPath` (e.g. husky), since either would disable GitButler's hooks. `but push` and `but pr new` run the hook. Skip it with `--no-hooks` or `LEFTHOOK=0`.
+There is no test suite. CI (`.github/workflows/check.yml`, Node version from `.node-version`) runs `cve`, `check`, `vp check` and `build` on every push and PR. Run the same locally before committing. `cve-lite` only reports advisories known to OSV and the npm registry; Snyk's PR check uses its own database and can report more. Snyk findings without a fixed version are ignored in `.snyk`, each with a reason and an expiry date. Review them again when they expire.
+
+`pnpm cve` also runs as a `pre-push` hook through lefthook (`lefthook.yml`). `pnpm install` installs the hook, because lefthook's postinstall is approved in `allowBuilds`. lefthook only writes the hooks listed in `lefthook.yml` to `.git/hooks`, where GitButler keeps its own `pre-commit` and `post-checkout` hooks. Do not add `pre-commit` to lefthook, and do not switch to a tool that sets `core.hooksPath` (e.g. husky, or Vite+ hooks via `vp config` / `vp hooks enable`), since either would disable GitButler's hooks. `vp migrate` keeps lefthook and skips its own hook setup. `but push` and `but pr new` run the hook. Skip it with `--no-hooks` or `LEFTHOOK=0`.
 
 ### Dependencies
 
 - The pnpm version is pinned in `package.json` (`packageManager`). Vercel natively supports pnpm only up to v10. The Vercel project therefore sets `ENABLE_EXPERIMENTAL_COREPACK=1` (production and preview) to install exactly this version. `vercel.json` also pins the install and build commands to pnpm, because Vercel cannot parse pnpm 11+ lockfiles, which contain two YAML documents, and would otherwise fall back to `bun install`. pnpm-specific settings go in `pnpm-workspace.yaml`, since pnpm 11+ ignores the `pnpm` field in `package.json` and non-auth settings in `.npmrc`.
-- pnpm does not hoist transitive packages, so every package imported from `src/` or `astro.config.ts` must be declared in `package.json`. Examples are `vite` (for `loadEnv`), `nanoid` and `sharp`, which Astro's image service needs. Keep `vite` on the major version Astro depends on, so only one Vite copy is installed.
+- pnpm does not hoist transitive packages, so every package imported from `src/` or `astro.config.ts` must be declared in `package.json`. Examples are `vite` (for `loadEnv`), `nanoid` and `sharp`, which Astro's image service needs.
+- `vite` and `vite-plus` come from the `catalog` in `pnpm-workspace.yaml`, written by `vp migrate`. `vite` is aliased to `@voidzero-dev/vite-plus-core` (which bundles Vite 8), and the `vite@*` override plus `peerDependencyRules` make Astro and its plugins use that one copy. Keep these entries. A Vite+ upgrade changes both catalog entries together (`vp migrate` from the root).
+- Oxlint, Oxfmt and `oxlint-tsgolint` are dependencies of `vite-plus`. The peers of `@mheob/oxlint-config` and `@mheob/oxfmt-config` resolve to those copies, so do not add them to `package.json`. `@mheob/oxlint-config` 4.1+ needs Oxlint 1.86+, which Vite+ 1.0.0 does not bundle, so it stays on 4.0.x until Vite+ ships a newer Oxlint. Its `baseJsConfig` is not used, because in 4.0.x it loads JSON and YAML plugins that Oxlint cannot apply.
 - `pnpm-workspace.yaml` also trims unused transitive dependencies. `packageExtensions` marks the `nuxt` peer of `@vercel/analytics` as optional, which removes the whole Nuxt tree, and an override drops the unused `ajv` from `@vercel/routing-utils`. After changing these, delete `node_modules` and `pnpm-lock.yaml` and reinstall, because pnpm otherwise keeps the old resolutions.
 - Dependency build scripts are blocked unless approved under `allowBuilds` in `pnpm-workspace.yaml`. An unapproved build script fails the install with `ERR_PNPM_IGNORED_BUILDS`.
 - Dependencies use caret ranges. Renovate (`rangeStrategy: bump`) raises the lower bounds, and new versions only resolve after pnpm's one-day `minimumReleaseAge`.
@@ -72,4 +77,4 @@ Global design tokens are CSS custom properties in `src/styles/global.css` (`--pr
 
 ## Code Style
 
-Biome enforces tabs, single quotes, a 120-character line width and semicolons. In `.astro` and `.svelte` files Biome relaxes `useConst`, `useImportType` and the unused-variable/import rules, because template usage is invisible to it. Import from `src/` with the `@/` alias. Commit messages use conventional prefixes (`feat:`, `fix:`, `docs:`, `style:`, `refactor:`, `chore:`).
+Formatting and linting are configured in `vite.config.ts` from the shared `@mheob/oxfmt-config` and `@mheob/oxlint-config`. Oxfmt enforces tabs, single quotes, a 100-character line width and semicolons, and sorts imports and `package.json`. It does not format `.astro` and `.svelte` files; editors use the Astro and Svelte extensions for them. Oxlint also lints the script blocks of `.astro` and `.svelte` files and runs type-aware rules. Errors (e.g. missing explicit return types) fail `vp check`; the remaining warnings do not. Side-effect imports are allowed only for `.css` files. Import from `src/` with the `@/` alias. Commit messages use conventional prefixes (`feat:`, `fix:`, `docs:`, `style:`, `refactor:`, `chore:`).

@@ -23,8 +23,8 @@ interface ContactLinkProps extends HTMLAnchorAttributes {
 let { children, header, href, lang, protocol, style, ...props }: ContactLinkProps = $props();
 
 const ui = {
-	en: { ariaLabel: 'Contact link - tap to show' },
 	de: { ariaLabel: 'Kontaktlink - tippen zum Anzeigen' },
+	en: { ariaLabel: 'Contact link - tap to show' },
 };
 
 const t = $derived(useTranslations(ui, lang));
@@ -40,7 +40,7 @@ function reverse(stringToReverse: string): string {
 		.join('');
 }
 
-function createContactLink({ protocol, header, href }: Pick<ContactLinkProps, 'protocol' | 'header' | 'href'>): string {
+function createContactLink(): string {
 	const combinedHeader =
 		(header &&
 			Object.keys(header)
@@ -65,7 +65,7 @@ let hasInteracted = $state(false);
 
 const hrefText = $derived(href.slice(Math.max(0, href.indexOf(':') + 1)));
 
-const handleInteraction = () => {
+const handleInteraction = (): void => {
 	hasInteracted = true;
 };
 
@@ -75,20 +75,20 @@ const directionStyle = $derived(
 		.join('; '),
 );
 
-const handleClick = (event: MouseEvent) => {
+const handleClick = (event: MouseEvent): void => {
 	if (!hasInteracted) {
 		event.preventDefault();
 		hasInteracted = true;
 	}
 };
 
-const handleKeyDown = (event: KeyboardEvent) => {
+const handleKeyDown = (event: KeyboardEvent): void => {
 	if (event.key === 'Enter' || event.key === ' ') {
 		handleInteraction();
 	}
 };
 
-const computedHref = $derived(hasInteracted ? createContactLink({ protocol, header, href }) : '#');
+const computedHref = $derived(hasInteracted ? createContactLink() : '#');
 const computedAriaLabel = $derived(hasInteracted ? undefined : t('ariaLabel'));
 const computedRole = $derived(hasInteracted ? 'link' : 'button');
 const displayText = $derived(hasInteracted ? hrefText : reverse(hrefText));

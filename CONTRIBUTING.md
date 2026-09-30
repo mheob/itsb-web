@@ -26,14 +26,14 @@ Guidelines for contributing to this project.
 
 ## Code Style
 
-This project uses [Biome](https://biomejs.dev) for linting and formatting.
+This project uses [Vite+](https://viteplus.dev) with Oxfmt for formatting and Oxlint for linting. Both are configured in `vite.config.ts` with the shared [`@mheob/oxfmt-config`](https://github.com/mheob/config/tree/main/packages/oxfmt-config) and [`@mheob/oxlint-config`](https://github.com/mheob/config/tree/main/packages/oxlint-config).
 
 - **Indentation**: Tabs (width 2)
 - **Quotes**: Single quotes
-- **Line width**: 120 characters
+- **Line width**: 100 characters
 - **Semicolons**: Required
 
-Run `pnpm check` before committing to catch type errors.
+Run `pnpm exec vp check` (format, lint and type check of `.ts` files) and `pnpm check` (`astro check`) before committing.
 
 ## Project Conventions
 
@@ -67,8 +67,8 @@ The site supports English (default) and German.
 
    ```typescript
    const ui = {
-     en: { greeting: "Hello" },
-     de: { greeting: "Hallo" }
+   	en: { greeting: 'Hello' },
+   	de: { greeting: 'Hallo' },
    };
    ```
 
@@ -78,7 +78,7 @@ The site supports English (default) and German.
    import { useTranslations } from '@/utils/i18n';
 
    const t = useTranslations(ui, lang);
-   t("greeting"); // Returns "Hello" or "Hallo"
+   t('greeting'); // Returns "Hello" or "Hallo"
    ```
 
 ### Routes
@@ -103,7 +103,7 @@ Use descriptive commit messages with conventional prefixes:
 
 1. Create a feature branch from `main`
 2. Make your changes
-3. Run `pnpm cve`, `pnpm check` and `pnpm build` to verify
+3. Run `pnpm cve`, `pnpm exec vp check`, `pnpm check` and `pnpm build` to verify
 4. Submit a pull request
 
 Pull requests are automatically reviewed by Claude Code.
