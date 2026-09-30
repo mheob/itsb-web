@@ -65,7 +65,7 @@ English is the default locale without a URL prefix; German lives under `/de/`. K
 
 ### Contact form
 
-`ContactForm.svelte` (hydrated with `client:load`) posts `FormData` to `/api/contact`. The endpoint validates it with the shared Zod schema in `src/types/contact-form.ts` and sends mail through Resend. The sender and recipient addresses are hardcoded in the endpoint. Requires `RESEND_API_KEY`.
+`ContactForm.svelte` (hydrated with `client:load`) posts `FormData` to `/api/contact`. The endpoint validates it with the shared Zod schema in `src/types/contact-form.ts` and sends mail through Resend. The sender and recipient addresses are hardcoded in the endpoint. Resend reports API errors in its result instead of throwing, so the endpoint checks `error` and answers 500. Requires `RESEND_API_KEY`, which is typed in `src/env.d.ts` like any other key read through `import.meta.env`.
 
 ### Environment variables
 
@@ -77,4 +77,4 @@ Global design tokens are CSS custom properties in `src/styles/global.css` (`--pr
 
 ## Code Style
 
-Formatting and linting are configured in `vite.config.ts` from the shared `@mheob/oxfmt-config` and `@mheob/oxlint-config`. Oxfmt enforces tabs, single quotes, a 100-character line width and semicolons, and sorts imports and `package.json`. It does not format `.astro` and `.svelte` files; editors use the Astro and Svelte extensions for them. Oxlint also lints the script blocks of `.astro` and `.svelte` files and runs type-aware rules. Errors (e.g. missing explicit return types) fail `vp check`; the remaining warnings do not. Side-effect imports are allowed only for `.css` files. Import from `src/` with the `@/` alias. Commit messages use conventional prefixes (`feat:`, `fix:`, `docs:`, `style:`, `refactor:`, `chore:`).
+Formatting and linting are configured in `vite.config.ts` from the shared `@mheob/oxfmt-config` and `@mheob/oxlint-config`. Oxfmt enforces tabs, single quotes, a 100-character line width and semicolons, and sorts imports and `package.json`. It does not format `.astro` and `.svelte` files; editors use the Astro and Svelte extensions for them. Oxlint also lints the script blocks of `.astro` and `.svelte` files and runs type-aware rules. Errors (e.g. missing explicit return types) fail `vp check`. Warnings do not, but the code has none, so fix new ones instead of adding to a backlog. Type-aware rules only run on `.ts` files. Side-effect imports are allowed only for `.css` files. File names are kebab-case, except components and layouts, which use PascalCase. Import from `src/` with the `@/` alias. Commit messages use conventional prefixes (`feat:`, `fix:`, `docs:`, `style:`, `refactor:`, `chore:`).

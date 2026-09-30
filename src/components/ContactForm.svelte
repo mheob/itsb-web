@@ -139,31 +139,37 @@ let privacyModal: HTMLDialogElement | undefined = $state();
 // Derived: is submit disabled
 let isSubmitDisabled = $derived(!privacy || isSubmitting);
 
+const NAME_MIN_LENGTH = 3;
+const NAME_MAX_LENGTH = 128;
+const MESSAGE_MIN_LENGTH = 30;
+const MESSAGE_MAX_LENGTH = 10_000;
+const STATUS_RESET_DELAY_MS = 3000;
+
 // Validation rules
 const validators = {
 	email: (value: string) => {
 		const msg = t('errors.email');
 		if (!value.trim()) return msg;
-		const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,8})+$/;
+		const emailRegex = /^\w+(?:[.-]?\w+)*@\w+(?:[.-]?\w+)*(?:\.\w{2,8})+$/u;
 		if (!emailRegex.test(value)) return msg;
 		return null;
 	},
 	message: (value: string) => {
 		const msg = t('errors.message');
 		if (!value.trim()) return msg;
-		if (value.trim().length < 30 || value.trim().length >= 10_000) return msg;
+		if (value.trim().length < MESSAGE_MIN_LENGTH || value.trim().length >= MESSAGE_MAX_LENGTH) return msg;
 		return null;
 	},
 	name: (value: string) => {
 		const msg = t('errors.name');
 		if (!value.trim()) return msg;
-		if (value.trim().length < 3 || value.trim().length >= 128) return msg;
+		if (value.trim().length < NAME_MIN_LENGTH || value.trim().length >= NAME_MAX_LENGTH) return msg;
 		return null;
 	},
 	phone: (value: string) => {
 		const msg = t('errors.phone');
 		if (!value.trim()) return null; // Optional field
-		const phoneRegex = /(^$|^(\(?([\d -)+(]+){6,}\)?([ .-\]?)([\d]+))$)/;
+		const phoneRegex = /(?:^$|^(?:\(?(?:[\d -)+(]+){6,}\)?(?:[ .-\]?)([\d]+))$)/u;
 		if (!phoneRegex.test(value)) return msg;
 		return null;
 	},
@@ -184,12 +190,10 @@ function validateField(fieldName: keyof typeof validators): boolean {
 	const value = values[fieldName];
 	const validator = validators[fieldName];
 
-	let error: string | null;
-	if (fieldName === 'privacy') {
-		error = (validator as (checked: boolean) => string | null)(value as boolean);
-	} else {
-		error = (validator as (value: string) => string | null)(value as string);
-	}
+	const error =
+		fieldName === 'privacy'
+			? (validator as (checked: boolean) => string | null)(value as boolean)
+			: (validator as (value: string) => string | null)(value as string);
 
 	errors[fieldName] = error;
 	return !error;
@@ -252,6 +256,43 @@ function resetForm(): void {
 	};
 }
 
+function showStatusBriefly(status: 'sent' | 'error'): void {
+	submitStatus = status;
+	setTimeout(() => {
+		submitStatus = 'idle';
+	}, STATUS_RESET_DELAY_MS);
+}
+
+function postForm(): Promise<Response> {
+	const formData = new FormData();
+	formData.append('name', name);
+	formData.append('email', email);
+	formData.append('phone', phone);
+	formData.append('message', message);
+
+	return fetch('/api/contact', {
+		body: formData,
+		method: 'POST',
+	});
+}
+
+async function handleResponse(response: Response): Promise<void> {
+	if (response.ok) {
+		resetForm();
+		showStatusBriefly('sent');
+		return;
+	}
+
+	const result = await response.json();
+	if (result.errors) {
+		for (const [field, msg] of Object.entries(result.errors)) {
+			errors[field as keyof typeof errors] = msg as string;
+			touched[field as keyof typeof touched] = true;
+		}
+	}
+	submitStatus = 'idle';
+}
+
 async function handleSubmit(event: SubmitEvent): Promise<void> {
 	event.preventDefault();
 
@@ -259,42 +300,13 @@ async function handleSubmit(event: SubmitEvent): Promise<void> {
 		return;
 	}
 
+	isSubmitting = true;
+	submitStatus = 'sending';
+
 	try {
-		isSubmitting = true;
-		submitStatus = 'sending';
-
-		const formData = new FormData();
-		formData.append('name', name);
-		formData.append('email', email);
-		formData.append('phone', phone);
-		formData.append('message', message);
-
-		const response = await fetch('/api/contact', {
-			body: formData,
-			method: 'POST',
-		});
-
-		if (response.ok) {
-			resetForm();
-			submitStatus = 'sent';
-			setTimeout(() => {
-				submitStatus = 'idle';
-			}, 3000);
-		} else {
-			const result = await response.json();
-			if (result.errors) {
-				for (const [field, msg] of Object.entries(result.errors)) {
-					errors[field as keyof typeof errors] = msg as string;
-					touched[field as keyof typeof touched] = true;
-				}
-			}
-			submitStatus = 'idle';
-		}
+		await handleResponse(await postForm());
 	} catch {
-		submitStatus = 'error';
-		setTimeout(() => {
-			submitStatus = 'idle';
-		}, 3000);
+		showStatusBriefly('error');
 	} finally {
 		isSubmitting = false;
 	}

@@ -15,33 +15,6 @@ const routes: Record<string, Record<RouteName, string>> = {
 };
 
 /**
- * Given the current path, finds the equivalent path in the target locale.
- * This enables proper language switching for pages with different slugs per locale
- * (e.g., /imprint -> /de/impressum, /de/datenschutz -> /privacy).
- *
- * @param currentPath - The current URL pathname.
- * @param targetLocale - The locale to switch to ('en' | 'de').
- * @returns The equivalent path in the target locale, or the home page if not found.
- */
-export function getLocalizedPath(currentPath: string, targetLocale: string): string {
-	// Normalize path by removing trailing slash (except for root paths)
-	const normalizedPath =
-		currentPath === '/' || currentPath === '/de' ? currentPath : currentPath.replace(/\/$/, '');
-
-	// Find which route name this path corresponds to
-	for (const localeRoutes of Object.values(routes)) {
-		const routeName = routeNames.find((name) => localeRoutes[name] === normalizedPath);
-		if (routeName) {
-			// Found the route, return the equivalent in target locale
-			return getLocalizedRoute(targetLocale, routeName);
-		}
-	}
-
-	// If not found in routes, return the home page for the target locale
-	return routes[targetLocale]?.home || '/';
-}
-
-/**
  * Returns the localized URL path for a given route name and locale.
  *
  * @param locale - The locale string (e.g., 'en', 'de').
@@ -67,4 +40,31 @@ export function getAbsoluteLocalizedRoute(
 ): string {
 	const path = getLocalizedRoute(locale, routeName);
 	return new URL(path, site).toString();
+}
+
+/**
+ * Given the current path, finds the equivalent path in the target locale.
+ * This enables proper language switching for pages with different slugs per locale
+ * (e.g., /imprint -> /de/impressum, /de/datenschutz -> /privacy).
+ *
+ * @param currentPath - The current URL pathname.
+ * @param targetLocale - The locale to switch to ('en' | 'de').
+ * @returns The equivalent path in the target locale, or the home page if not found.
+ */
+export function getLocalizedPath(currentPath: string, targetLocale: string): string {
+	// Normalize path by removing trailing slash (except for root paths)
+	const normalizedPath =
+		currentPath === '/' || currentPath === '/de' ? currentPath : currentPath.replace(/\/$/u, '');
+
+	// Find which route name this path corresponds to
+	for (const localeRoutes of Object.values(routes)) {
+		const routeName = routeNames.find((name) => localeRoutes[name] === normalizedPath);
+		if (routeName) {
+			// Found the route, return the equivalent in target locale
+			return getLocalizedRoute(targetLocale, routeName);
+		}
+	}
+
+	// If not found in routes, return the home page for the target locale
+	return routes[targetLocale]?.home || '/';
 }

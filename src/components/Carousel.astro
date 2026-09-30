@@ -36,7 +36,7 @@
 	import Autoplay from "embla-carousel-autoplay";
 
 	const options: EmblaOptionsType = { loop: true };
-	let embla: EmblaCarouselType | undefined;
+	let embla: EmblaCarouselType | null = null;
 
 	// Runs on the initial load and after every ClientRouter navigation, which replaces the carousel element.
 	document.addEventListener("astro:page-load", () => {
@@ -50,6 +50,6 @@
 	// Stop the autoplay timer of the outgoing page before it is swapped out.
 	document.addEventListener("astro:before-swap", () => {
 		embla?.destroy();
-		embla = undefined;
+		embla = null;
 	});
 </script>

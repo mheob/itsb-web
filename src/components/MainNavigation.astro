@@ -35,7 +35,7 @@ const t = useTranslations(ui, lang);
 
 const currentPath = Astro.url.pathname;
 // The German home page renders as `/de/`, so compare without the trailing slash.
-const normalizedPath = currentPath.replace(/\/$/, '') || '/';
+const normalizedPath = currentPath.replace(/\/$/u, '') || '/';
 const isHomePage = normalizedPath === '/' || normalizedPath === '/de';
 // On the home page, section links must stay in-page anchors: a link to another path (e.g. `/de#about` from `/de/`)
 // makes the ClientRouter swap the whole page instead of scrolling.
@@ -80,11 +80,7 @@ const isPrivacyPage = lang === 'de' ? currentPath.includes('/datenschutz') : cur
 		"contact-section",
 	];
 
-	function updateActiveNav(): void {
-		// Only the home page has sections; look the nav up on every call because ClientRouter navigations replace it.
-		const nav = document.querySelector<HTMLElement>(".main-navigation");
-		if (nav?.dataset.isHome !== "true") return;
-
+	const getCurrentSection = (): string => {
 		const scrollPosition = window.scrollY + window.innerHeight / 2; // Offset for better UX
 
 		let currentSection = sections[0];
@@ -96,21 +92,31 @@ const isPrivacyPage = lang === 'de' ? currentPath.includes('/datenschutz') : cur
 			}
 		}
 
+		return currentSection;
+	};
+
+	const updateActiveNav = (): void => {
+		// Only the home page has sections; look the nav up on every call because ClientRouter navigations replace it.
+		const nav = document.querySelector<HTMLElement>(".main-navigation");
+		if (nav?.dataset.isHome !== "true") return;
+
+		const currentSection = getCurrentSection();
+
 		// Update active class on navigation links (on the home page the hrefs are anchors like #about)
 		const navLinks = nav.querySelectorAll('a[href*="#"]');
-		navLinks.forEach((link) => {
+		for (const link of navLinks) {
 			const href = link.getAttribute("href");
 			const linkSection = href?.split("#")[1];
 
 			link.classList.toggle("active", linkSection === currentSection);
-		});
-	}
+		}
+	};
 
 	// Run on scroll with throttling for performance; registered once for the whole session
 	let ticking = false;
 	window.addEventListener("scroll", () => {
 		if (!ticking) {
-			window.requestAnimationFrame(() => {
+			globalThis.requestAnimationFrame(() => {
 				updateActiveNav();
 				ticking = false;
 			});

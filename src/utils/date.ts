@@ -1,3 +1,5 @@
+const EPOCH_YEAR = 1970;
+
 /**
  * Calculates the age in years based on the given birthday.
  *
@@ -10,5 +12,5 @@
  */
 export function getAge(birthday: Date): number {
 	const ageDate = new Date(Date.now() - birthday.getTime());
-	return Math.abs(ageDate.getUTCFullYear() - 1970);
+	return Math.abs(ageDate.getUTCFullYear() - EPOCH_YEAR);
 }

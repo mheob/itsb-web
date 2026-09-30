@@ -1,7 +1,7 @@
 type Locale = 'en' | 'de';
 
 interface NestedRecord {
-	[key: string]: string | NestedRecord;
+	readonly [key: string]: string | NestedRecord | undefined;
 }
 type Translations = Record<Locale, NestedRecord>;
 
@@ -33,8 +33,13 @@ function getNestedValue(obj: NestedRecord, path: string): string | undefined {
 	return typeof current === 'string' ? current : undefined;
 }
 
-function interpolate(text: string, values: Record<string, string | number>): string {
-	return text.replaceAll(/{(\w+)}/g, (_, key) => String(values[key] ?? `{${key}}`));
+function interpolate(
+	text: string,
+	values: Readonly<Partial<Record<string, string | number>>>,
+): string {
+	return text.replaceAll(/\{(?<key>\w+)\}/gu, (_: string, key: string) =>
+		String(values[key] ?? `{${key}}`),
+	);
 }
 
 /**
@@ -67,8 +72,11 @@ function interpolate(text: string, values: Record<string, string | number>): str
 export function useTranslations<T extends Translations>(
 	ui: T,
 	lang: Locale,
-): (key: FlattenKeys<T[Locale]>, values?: Record<string, string | number>) => string {
-	return function t(key: FlattenKeys<T[Locale]>, values?: Record<string, string | number>): string {
+): (key: FlattenKeys<T[Locale]>, values?: Readonly<Record<string, string | number>>) => string {
+	return function t(
+		key: FlattenKeys<T[Locale]>,
+		values?: Readonly<Record<string, string | number>>,
+	): string {
 		const keyStr = key as string;
 		const text = getNestedValue(ui[lang], keyStr) ?? getNestedValue(ui.en, keyStr) ?? keyStr;
 		return values ? interpolate(text, values) : text;
