@@ -8,14 +8,14 @@ Portfolio and business website for Alexander Böhm, built with Astro, TypeScript
 - **[Svelte](https://svelte.dev)** - Interactive components
 - **[TypeScript](https://www.typescriptlang.org)** - Type safety
 - **[pnpm](https://pnpm.io)** - Package manager
-- **[Biome](https://biomejs.dev)** - Linting and formatting
+- **[Vite+](https://viteplus.dev)** - Formatting (Oxfmt) and linting (Oxlint)
 - **[Vercel](https://vercel.com)** - Deployment platform
 
 ## Getting Started
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org) 24 (see `.nvmrc`)
+- [Node.js](https://nodejs.org) 24 (see `.node-version`)
 - [pnpm](https://pnpm.io) 12 (the exact version is pinned in `package.json` under `packageManager`)
 
 ### Installation
