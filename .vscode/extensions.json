@@ -1,4 +1,8 @@
 {
-	"recommendations": ["astro-build.astro-vscode", "biomejs.biome", "svelte.svelte-vscode"],
+	"recommendations": [
+		"astro-build.astro-vscode",
+		"svelte.svelte-vscode",
+		"VoidZero.vite-plus-extension-pack"
+	],
 	"unwantedRecommendations": []
 }
