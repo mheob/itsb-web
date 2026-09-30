@@ -7,10 +7,10 @@ import { Icon } from 'astro-icon/components';
 </a>
 
 <script>
-	function toggleButton(): void {
+	const toggleButton = (): void => {
 		const button = document.querySelector("#scroll-top-button");
 		button?.classList.toggle("visible", window.scrollY > window.innerHeight);
-	}
+	};
 
 	// Registered once and looks up the button on every call, so it keeps working after ClientRouter page swaps.
 	window.addEventListener("scroll", toggleButton);

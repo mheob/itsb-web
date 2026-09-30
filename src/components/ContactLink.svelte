@@ -63,7 +63,7 @@ function createContactLink(): string {
 
 let hasInteracted = $state(false);
 
-const hrefText = $derived(href.slice(Math.max(0, href.indexOf(':') + 1)));
+const hrefText = $derived(href.slice(href.indexOf(':') + 1));
 
 const handleInteraction = (): void => {
 	hasInteracted = true;

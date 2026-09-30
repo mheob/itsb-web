@@ -14,6 +14,11 @@ export default defineConfig({
 				files: ['src/components/**', 'src/layouts/**'],
 				rules: { 'unicorn/filename-case': ['warn', { case: 'pascalCase' }] },
 			},
+			{
+				// Config files run in Node and read the environment.
+				files: ['*.config.ts'],
+				rules: { 'node/no-process-env': 'off' },
+			},
 		],
 		rules: {
 			// Stylesheets and self-hosted fonts are imported for their side effects.

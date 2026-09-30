@@ -4,8 +4,6 @@ import { treeifyError } from 'zod';
 
 import { type ContactFormData, contactSchema } from '@/types/contact-form';
 
-export const prerender = false;
-
 const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
 function readFields(formData: FormData): Record<'email' | 'message' | 'name' | 'phone', string> {
@@ -29,7 +27,7 @@ async function sendMail({
 	name,
 	phone,
 }: Readonly<ContactFormData>): Promise<boolean> {
-	const contactText = phone ? `${email} / ${phone}` : email;
+	const contactText = phone === undefined || phone === '' ? email : `${email} / ${phone}`;
 
 	// Resend reports API errors in the result instead of throwing them.
 	const { error } = await resend.emails.send({
@@ -69,3 +67,5 @@ export const POST: APIRoute = async ({ request }) => {
 
 	return Response.json({ error: 'Failed to send' }, { status: 500 });
 };
+
+export const prerender = false;

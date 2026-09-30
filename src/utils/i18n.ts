@@ -1,7 +1,7 @@
 type Locale = 'en' | 'de';
 
 interface NestedRecord {
-	readonly [key: string]: string | NestedRecord;
+	readonly [key: string]: string | NestedRecord | undefined;
 }
 type Translations = Record<Locale, NestedRecord>;
 
@@ -33,8 +33,13 @@ function getNestedValue(obj: NestedRecord, path: string): string | undefined {
 	return typeof current === 'string' ? current : undefined;
 }
 
-function interpolate(text: string, values: Readonly<Record<string, string | number>>): string {
-	return text.replaceAll(/\{(\w+)\}/gu, (_, key) => String(values[key] ?? `{${key}}`));
+function interpolate(
+	text: string,
+	values: Readonly<Partial<Record<string, string | number>>>,
+): string {
+	return text.replaceAll(/\{(?<key>\w+)\}/gu, (_: string, key: string) =>
+		String(values[key] ?? `{${key}}`),
+	);
 }
 
 /**

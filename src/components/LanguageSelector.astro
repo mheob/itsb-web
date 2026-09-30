@@ -41,8 +41,8 @@ const t = useTranslations(ui, lang);
 <script>
 	const STORAGE_KEY = "preferred-language";
 
-	function setupLanguageSelector(): void {
-		document.querySelectorAll(".language-selector a").forEach((link) => {
+	const setupLanguageSelector = (): void => {
+		for (const link of document.querySelectorAll(".language-selector a")) {
 			link.addEventListener("click", (e) => {
 				const href =
 					(e.currentTarget as HTMLAnchorElement).getAttribute("href") ?? "/";
@@ -58,8 +58,8 @@ const t = useTranslations(ui, lang);
 					globalThis.location.href = href + hash;
 				}
 			});
-		});
-	}
+		}
+	};
 
 	// Run on initial load and after View Transitions
 	setupLanguageSelector();
