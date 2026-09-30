@@ -2,7 +2,7 @@ import type { ServiceContact } from '@/types/service-contact';
 import { getAge } from '@/utils/date';
 
 export const contactPerson = {
-	age: getAge(new Date(1982, 9, 21)).toString(),
+	age: getAge(new Date('1982-10-21T00:00')).toString(),
 	email: 'mail@alex-boehm.dev',
 	job: 'Freelancer',
 	name: 'Alexander Böhm',

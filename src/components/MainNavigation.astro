@@ -110,7 +110,7 @@ const isPrivacyPage = lang === 'de' ? currentPath.includes('/datenschutz') : cur
 	let ticking = false;
 	window.addEventListener("scroll", () => {
 		if (!ticking) {
-			window.requestAnimationFrame(() => {
+			globalThis.requestAnimationFrame(() => {
 				updateActiveNav();
 				ticking = false;
 			});

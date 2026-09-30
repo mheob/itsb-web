@@ -35,10 +35,10 @@ const alternatePath = getLocalizedPath(Astro.url.pathname, lang === 'de' ? 'en' 
 			// storage, so a browser-language redirect on any other page would hide the German pages from them.
 			const shouldRedirect = storedLang
 				? storedLang !== currentLang
-				: window.location.pathname === "/" && navigator.language?.split("-")[0] === "de";
+				: globalThis.location.pathname === "/" && navigator.language?.split("-")[0] === "de";
 
 			if (shouldRedirect) {
-				window.location.replace(alternatePath + window.location.hash);
+				globalThis.location.replace(alternatePath + globalThis.location.hash);
 			}
 		</script>
 	</head>

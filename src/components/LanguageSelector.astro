@@ -52,10 +52,10 @@ const t = useTranslations(ui, lang);
 				localStorage.setItem(STORAGE_KEY, selectedLang);
 
 				// Preserve hash fragment when switching languages
-				const hash = window.location.hash;
+				const hash = globalThis.location.hash;
 				if (hash) {
 					e.preventDefault();
-					window.location.href = href + hash;
+					globalThis.location.href = href + hash;
 				}
 			});
 		});

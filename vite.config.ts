@@ -18,6 +18,11 @@ export default defineConfig({
 		rules: {
 			// Stylesheets and self-hosted fonts are imported for their side effects.
 			'import/no-unassigned-import': ['error', { allow: ['**/*.css'] }],
+			// Built-in classes cannot be made readonly, and Astro types the parameters of route handlers.
+			'typescript/prefer-readonly-parameter-types': [
+				'warn',
+				{ allow: [{ from: 'lib', name: ['Date', 'FormData', 'URL'] }], ignoreInferredTypes: true },
+			],
 			'vite-plus/prefer-vite-plus-imports': 'error',
 		},
 	},

@@ -41,20 +41,29 @@ const max = $derived(Number.parseInt(String(value), 10));
 // without JavaScript. The effect below resets it to `initial` in the browser and counts up once in view.
 let displayValue = $state(Number.parseInt(String(value), 10) || 0);
 
-$effect(() => {
-	// Clear any existing interval
+function stopTimer(): void {
 	if (timers[id]) {
 		clearInterval(timers[id]);
 	}
+}
 
-	if (Number.isNaN(max) || max <= initial) return;
-	if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-	// Ensure step is large enough to avoid too-frequent intervals
+// Ensure step is large enough to avoid too-frequent intervals
+function getAdjustedStep(): number {
 	let adjustedStep = step;
 	while (duration / ((max - initial) / adjustedStep) < 2) {
 		adjustedStep++;
 	}
+	return adjustedStep;
+}
+
+$effect(() => {
+	// Clear any existing interval
+	stopTimer();
+
+	if (Number.isNaN(max) || max <= initial) return;
+	if (globalThis.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+	const adjustedStep = getAdjustedStep();
 
 	// Reset counter
 	counterResult[id] = initial;
@@ -78,11 +87,7 @@ $effect(() => {
 	);
 
 	// Cleanup on unmount or when dependencies change
-	return () => {
-		if (timers[id]) {
-			clearInterval(timers[id]);
-		}
-	};
+	return stopTimer;
 });
 </script>
 
