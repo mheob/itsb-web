@@ -26,4 +26,12 @@ ignore:
           images and the package is not part of the deployed function.
         expires: 2027-03-28T00:00:00.000Z
         created: 2026-09-28T10:15:00.000Z
+  SNYK-JS-ZOD-20510278:
+    - '*':
+        reason: >-
+          No fixed version of zod exists (4.6.5 is the latest release). The issue needs an
+          array schema without a length limit; the site defines no array schemas, and the
+          contact endpoint only parses four string fields read with FormData.get.
+        expires: 2027-04-08T00:00:00.000Z
+        created: 2026-10-08T11:00:00.000Z
 patch: {}
