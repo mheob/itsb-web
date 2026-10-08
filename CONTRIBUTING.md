@@ -53,8 +53,8 @@ Run `pnpm exec vp check` (format, lint and type check of `.ts` files) and `pnpm 
 Use `@/` to reference the `src/` directory:
 
 ```typescript
-import { useTranslations } from '@/utils/i18n';
 import type { Service } from '@/types/services';
+import { useTranslations } from '@/utils/i18n';
 ```
 
 ## Internationalization
