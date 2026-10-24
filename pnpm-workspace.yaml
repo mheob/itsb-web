@@ -8,6 +8,8 @@ overrides:
   path-to-regexp: ^6.3.0
   # Optional dependency that routing-utils never loads at runtime; pulls in the unmaintained uri-js.
   "@vercel/routing-utils>ajv": "-"
+  # @vercel/cli-config pins zod 4.1.11, which is affected by CVE-2023-54404 (fixed in 4.6.6).
+  "@vercel/cli-config>zod": ^4.6.6
   vite@*: "catalog:"
 
 packageExtensions:
@@ -17,8 +19,8 @@ packageExtensions:
       nuxt:
         optional: true
 catalog:
-  vite: npm:@voidzero-dev/vite-plus-core@1.1.0
-  vite-plus: 1.1.0
+  vite: npm:@voidzero-dev/vite-plus-core@1.4.0
+  vite-plus: 1.4.0
 peerDependencyRules:
   allowAny:
     - vite
