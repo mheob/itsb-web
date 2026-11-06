@@ -43,5 +43,5 @@
 		"lefthook": "^2.2.2",
 		"vite-plus": "catalog:"
 	},
-	"packageManager": "pnpm@12.15.0"
+	"packageManager": "pnpm@12.17.0"
 }
