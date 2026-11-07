@@ -16,21 +16,21 @@
 	"dependencies": {
 		"@astrojs/check": "^0.9.12",
 		"@astrojs/sitemap": "^3.7.4",
-		"@astrojs/svelte": "^9.1.1",
+		"@astrojs/svelte": "^9.1.2",
 		"@astrojs/ts-plugin": "^1.10.12",
-		"@astrojs/vercel": "^11.0.16",
+		"@astrojs/vercel": "^11.0.20",
 		"@fontsource/geist-sans": "^5.3.0",
 		"@iconify-json/fa7-brands": "^1.2.4",
 		"@iconify-json/fa7-solid": "^1.2.5",
 		"@vercel/analytics": "^2.0.1",
-		"astro": "^7.4.2",
+		"astro": "^7.4.7",
 		"astro-icon": "^1.2.0",
 		"embla-carousel": "^8.6.0",
 		"embla-carousel-autoplay": "^8.6.0",
 		"nanoid": "^6.0.2",
-		"resend": "^6.34.1",
+		"resend": "^6.37.0",
 		"sharp": "^0.35.5",
-		"svelte": "^5.57.2",
+		"svelte": "^5.57.3",
 		"svelte-inview": "^4.0.5",
 		"typescript": "^6.0.3",
 		"vite": "catalog:",
@@ -38,10 +38,10 @@
 	},
 	"devDependencies": {
 		"@mheob/oxfmt-config": "^1.3.3",
-		"@mheob/oxlint-config": "^4.1.1",
-		"cve-lite-cli": "^1.40.0",
+		"@mheob/oxlint-config": "^4.1.2",
+		"cve-lite-cli": "^1.41.0",
 		"lefthook": "^2.2.2",
 		"vite-plus": "catalog:"
 	},
-	"packageManager": "pnpm@12.15.0"
+	"packageManager": "pnpm@12.18.0"
 }
