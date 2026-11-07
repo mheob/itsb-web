@@ -1,5 +1,6 @@
 # Snyk (https://snyk.io) policy file
-# Ignores for findings without a fixed version. Each entry expires so it gets reviewed again.
+# Ignores for findings that no version within the dependents' ranges fixes. Each entry expires
+# so it gets reviewed again.
 version: v1.25.1
 ignore:
   SNYK-JS-DEEPMERGE-19964053:
@@ -26,4 +27,13 @@ ignore:
           images and the package is not part of the deployed function.
         expires: 2027-03-28T00:00:00.000Z
         created: 2026-09-28T10:15:00.000Z
+  SNYK-JS-MINIMATCH-22111072:
+    - '*':
+        reason: >-
+          Fixed only in minimatch 11, but glob 13 (via @vercel/nft and @astrojs/vercel) requires
+          minimatch ^10. @vercel/nft runs only at build time and builds its glob patterns from the
+          project's own traced code, never from external input, and it is not part of the
+          deployed function. Drop this once @vercel/nft moves to glob 14.
+        expires: 2027-02-07T00:00:00.000Z
+        created: 2026-11-07T07:30:00.000Z
 patch: {}
