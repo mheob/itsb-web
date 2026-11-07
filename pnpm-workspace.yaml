@@ -13,14 +13,20 @@ overrides:
   vite@*: "catalog:"
 
 packageExtensions:
+  # astro2tsx pins @emnapi/core 1.11.3 but not the matching runtime, so pnpm fills the runtime peer
+  # with the 2.0.0-beta.2 of rolldown's wasm binding and `astro check` fails to load @astrojs/check.
+  # Remove once astro2tsx depends on @emnapi/runtime: https://github.com/withastro/astro/issues/18642
+  "@astrojs/astro2tsx":
+    dependencies:
+      "@emnapi/runtime": 1.11.3
   # @vercel/analytics lists nuxt as a peer without marking it optional, so it gets auto-installed.
   "@vercel/analytics":
     peerDependenciesMeta:
       nuxt:
         optional: true
 catalog:
-  vite: npm:@voidzero-dev/vite-plus-core@1.4.0
-  vite-plus: 1.4.0
+  vite: npm:@voidzero-dev/vite-plus-core@1.5.0
+  vite-plus: 1.5.0
 peerDependencyRules:
   allowAny:
     - vite
