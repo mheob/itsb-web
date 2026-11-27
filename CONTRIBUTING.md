@@ -39,8 +39,8 @@ Run `pnpm exec vp check` (format, lint and type check of `.ts` files) and `pnpm 
 
 ### Components
 
-- **Astro components** (`.astro`) - Static/server-rendered content
-- **Svelte components** (`.svelte`) - Interactive features (forms, animations, carousels)
+- **Astro components** (`.astro`) - Static content; small client behavior (e.g. the carousel) goes in a `<script>` block
+- **Svelte components** (`.svelte`) - Interactive islands (contact form, contact links, count-up animation)
 
 ### File Naming
 
@@ -63,7 +63,7 @@ The site supports English (default) and German.
 
 ### Adding Translations
 
-1. Define translations in the component or in `src/data/`:
+1. Define the UI strings in the component:
 
    ```typescript
    const ui = {
@@ -80,6 +80,8 @@ The site supports English (default) and German.
    const t = useTranslations(ui, lang);
    t('greeting'); // Returns "Hello" or "Hallo"
    ```
+
+List content (services, stats, testimonials, contact details) goes in `src/data/` instead, as paired `...DataEN` / `...DataDE` exports.
 
 ### Routes
 
@@ -106,7 +108,7 @@ Use descriptive commit messages with conventional prefixes:
 3. Run `pnpm cve`, `pnpm exec vp check`, `pnpm check` and `pnpm build` to verify
 4. Submit a pull request
 
-Pull requests are automatically reviewed by Claude Code.
+Pull requests run the CI checks, plus checks from Snyk, SonarCloud and Socket and a Vercel preview deployment.
 
 ## Deployment
 

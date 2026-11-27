@@ -8,4 +8,4 @@ Check whether the following files are up to date. If not, update all that need i
 
 - all `README.md` files (also in subdirectories)
 - `CONTRIBUTING.md`
-- `CLAUDE.md`
+- `AGENTS.md` (`CLAUDE.md` only imports it)
