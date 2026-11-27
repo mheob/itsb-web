@@ -15,7 +15,7 @@ Portfolio and business website for Alexander Böhm, built with Astro, TypeScript
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org) 24 (see `.node-version`)
+- [Node.js](https://nodejs.org) 26 (see `.node-version`)
 - [pnpm](https://pnpm.io) 12 (the exact version is pinned in `package.json` under `packageManager`)
 
 ### Installation
