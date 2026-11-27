@@ -10,7 +10,7 @@ Guidelines for contributing to this project.
    pnpm install
    ```
 
-   This also installs a `pre-push` Git hook (via [lefthook](https://lefthook.dev)) that runs `pnpm cve` before every push.
+   This also installs a `pre-push` Git hook (via the [Vite+ hook dispatcher](https://viteplus.dev/guide/commit-hooks)) that runs `pnpm cve` before every push. The hook script is `.vite-hooks/pre-push`; skip it with `VP_GIT_HOOKS=0`.
 
 2. Start the development server:
 

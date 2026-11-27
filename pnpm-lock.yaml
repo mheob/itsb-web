@@ -274,9 +274,6 @@ importers:
       cve-lite-cli:
         specifier: ^1.44.0
         version: 1.44.0
-      lefthook:
-        specifier: ^2.2.4
-        version: 2.2.4
       vite-plus:
         specifier: 'catalog:'
         version: 1.8.0(@astrojs/compiler-rs@0.5.3)(@types/node@26.6.11)(@vitest/ui@5.1.1)(@volar/typescript@2.4.31(typescript@6.0.3))(esbuild@0.28.2)(svelte@5.59.2)(typescript@6.0.3)(yaml@2.9.1)
@@ -2418,65 +2415,6 @@ packages:
   kleur@4.1.5:
     resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}
     engines: {node: '>=6'}
-
-  lefthook-android-arm64@2.2.4:
-    resolution: {integrity: sha512-bQX3VQiTVoWim+TkmpQVt0U9WvwrZ6UQfMnJZkWKLDafKaYus/jnFZteZUx56LqksA/iQy7qKlwq4/LjQ4MvGQ==}
-    cpu: [arm64]
-    os: [android]
-
-  lefthook-darwin-arm64@2.2.4:
-    resolution: {integrity: sha512-k3W3mwASV09oxJLD8eFAwuJMEDSZ7e9My1GH8WeM2nswqjy6jk+AdKPXEXo7QUGinQATk1vD9iatHNpVk7lbIA==}
-    cpu: [arm64]
-    os: [darwin]
-
-  lefthook-darwin-x64@2.2.4:
-    resolution: {integrity: sha512-hKJO7xIR7zsqz4XvUQhuNyGFuSIgMVqDzhebsWQSQOqRof9idXhonrIjVaPbSxBWs572RZaImxD+kLgB1DyCVg==}
-    cpu: [x64]
-    os: [darwin]
-
-  lefthook-freebsd-arm64@2.2.4:
-    resolution: {integrity: sha512-5d6uGGzdJ8QLjpIHgdqYthnuTfJqzVVh3JS7L47qP1L0pBdOMcjGTGftOBlSRoV7FnujB9V8uDBhID2SqbF1fg==}
-    cpu: [arm64]
-    os: [freebsd]
-
-  lefthook-freebsd-x64@2.2.4:
-    resolution: {integrity: sha512-7AXAYlU8GVHE4bvJMF5wUh2nEYnz97IM/+0YhZ3tT16VgxGGWrZ49IXRjoqcPp1bgYE/4gCXd8Homk7bwgIZug==}
-    cpu: [x64]
-    os: [freebsd]
-
-  lefthook-linux-arm64@2.2.4:
-    resolution: {integrity: sha512-0l0JX9UDXDXHtMPEUnzn+YfKFoZPG0oLmufG5VQNfjzlmJdB8Kd1qKDFusVyeS1LrLLr4ekGA5jyvfOqvas7kg==}
-    cpu: [arm64]
-    os: [linux]
-
-  lefthook-linux-x64@2.2.4:
-    resolution: {integrity: sha512-SgT8h7s8WUd9Hhl+vm6iLIyzsXue5OV4I72LGHFsnK7lY6wpRZyANx/6fwkjnGmWBtjX4XHCgGpZc9ULF+Jlvg==}
-    cpu: [x64]
-    os: [linux]
-
-  lefthook-openbsd-arm64@2.2.4:
-    resolution: {integrity: sha512-7tcyWm3ESOAPbhipMVsFqTOgtRdeRpEGJDhxWU6mXq4CfQ4JxF9v21CB1mcL0eFS9c6uZWu9b0aDW2VlcJHT6A==}
-    cpu: [arm64]
-    os: [openbsd]
-
-  lefthook-openbsd-x64@2.2.4:
-    resolution: {integrity: sha512-lpHAFPvXl86LfqEkdwrXBjkWGu2Gwhjyfuqw3uksGSYMhdNTxpKIN27GDArb/IoStq03AyBuOrCwuvItQQgbAg==}
-    cpu: [x64]
-    os: [openbsd]
-
-  lefthook-windows-arm64@2.2.4:
-    resolution: {integrity: sha512-Nl9QQL24G46Fjx7ioVbSmW3P8wfF1LsACaTZBvtJ6oMKQBMJ6ZHAdQUo3VvK1Aky6eQtXppdslLAj256A9DuMw==}
-    cpu: [arm64]
-    os: [win32]
-
-  lefthook-windows-x64@2.2.4:
-    resolution: {integrity: sha512-WItmEGBXj4jJc0LqVwbqIuQUxETu8I3Bu76emeJBr0mX9lcGhXNiWnbjIRmY2HHBbK1iyj/ncCIClVBeiSAnNQ==}
-    cpu: [x64]
-    os: [win32]
-
-  lefthook@2.2.4:
-    resolution: {integrity: sha512-Pjx/wovnnDq+v8UonkEhxpAeAlfHliPB5upPUi9YSP28lnd8VPtFRAMXsh1YgvRvOv6FIuKyzO9kOymdRNtORA==}
-    hasBin: true
 
   lightningcss-android-arm64@1.33.0:
     resolution: {integrity: sha512-gEpRTalKdosp4Bb8qWtc2iOgE5SeIHlpS1up9bFq2wAyYhl1UdTObYiHe98zEM9SQvSoqQZ1IQD0JNpg3Ml5pg==}
@@ -5227,53 +5165,6 @@ snapshots:
   jsonc-parser@3.3.1: {}
 
   kleur@4.1.5: {}
-
-  lefthook-android-arm64@2.2.4:
-    optional: true
-
-  lefthook-darwin-arm64@2.2.4:
-    optional: true
-
-  lefthook-darwin-x64@2.2.4:
-    optional: true
-
-  lefthook-freebsd-arm64@2.2.4:
-    optional: true
-
-  lefthook-freebsd-x64@2.2.4:
-    optional: true
-
-  lefthook-linux-arm64@2.2.4:
-    optional: true
-
-  lefthook-linux-x64@2.2.4:
-    optional: true
-
-  lefthook-openbsd-arm64@2.2.4:
-    optional: true
-
-  lefthook-openbsd-x64@2.2.4:
-    optional: true
-
-  lefthook-windows-arm64@2.2.4:
-    optional: true
-
-  lefthook-windows-x64@2.2.4:
-    optional: true
-
-  lefthook@2.2.4:
-    optionalDependencies:
-      lefthook-android-arm64: 2.2.4
-      lefthook-darwin-arm64: 2.2.4
-      lefthook-darwin-x64: 2.2.4
-      lefthook-freebsd-arm64: 2.2.4
-      lefthook-freebsd-x64: 2.2.4
-      lefthook-linux-arm64: 2.2.4
-      lefthook-linux-x64: 2.2.4
-      lefthook-openbsd-arm64: 2.2.4
-      lefthook-openbsd-x64: 2.2.4
-      lefthook-windows-arm64: 2.2.4
-      lefthook-windows-x64: 2.2.4
 
   lightningcss-android-arm64@1.33.0:
     optional: true

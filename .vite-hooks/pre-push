@@ -1,0 +1,3 @@
+# Scans the lockfile for known vulnerabilities before every push.
+# Skip it with `VP_GIT_HOOKS=0` or `but push --no-hooks`.
+pnpm run cve
